@@ -7,12 +7,23 @@
 //
 
 #import "JKAppDelegate.h"
+#import "JKViewController.h"
+#import "JKRouter.h"
 
 @implementation JKAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    JKViewController *jkVC = [JKViewController new];
+    UINavigationController *naVC = [[UINavigationController alloc] initWithRootViewController:jkVC];
+    self.window.rootViewController = naVC;
+    JKouterConfig *config = [JKouterConfig new];
+    config.modulesInfoFileName =@"modules.json";
+    config.URLScheme = @"jkpp";
+    config.navigationController = (UINavigationController *)self.window.rootViewController;
+    [JKRouter routerWithConfig:config];
     return YES;
 }
 

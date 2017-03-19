@@ -1,0 +1,27 @@
+{
+  "name": "JKRouter",
+  "version": "0.1.0",
+  "summary": "A short description of JKRouter.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/HHL110120/JKRouter",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "HHL110120": "929097264@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/HHL110120/JKRouter.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "JKRouter/Classes/**/*",
+  "dependencies": {
+    "JKDataHelper": [
+
+    ]
+  }
+}

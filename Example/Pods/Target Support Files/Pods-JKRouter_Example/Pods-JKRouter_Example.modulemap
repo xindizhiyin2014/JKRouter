@@ -1,0 +1,6 @@
+framework module Pods_JKRouter_Example {
+  umbrella header "Pods-JKRouter_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

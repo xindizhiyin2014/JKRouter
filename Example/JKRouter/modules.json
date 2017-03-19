@@ -1,0 +1,12 @@
+ [
+  {"moduleID":10001,
+  "targetVC":"JKAViewController"
+  },
+  {"moduleID":10002,
+  "targetVC":"JKBViewController"
+  },
+  {"moduleID":10003,
+  "targetVC":"JKDViewController",
+  "accessRight":1
+  }
+]

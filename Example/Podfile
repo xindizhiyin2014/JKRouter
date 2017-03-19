@@ -2,8 +2,9 @@ use_frameworks!
 
 target 'JKRouter_Example' do
   pod 'JKRouter', :path => '../'
+  pod 'JKDataHelper'
 
-  target 'JKRouter_Tests' do
+target 'JKRouter_Tests' do
     inherit! :search_paths
 
     
