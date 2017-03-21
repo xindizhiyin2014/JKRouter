@@ -11,6 +11,15 @@
 
 @interface JKAccessRightHandler : NSObject
 
+
+/**
+ 对传入的URL进行安全性校验，防止恶意攻击
+
+ @param url 传入的url字符串
+ @return 通过验证与否的状态
+ */
++ (BOOL)safeValidateURL:(NSString *)url;
+
 /**
  根据权限等级判断是否需要跳转，具体通过category重载来实现
  

@@ -10,6 +10,10 @@
 #import "JKRouter.h"
 @implementation JKAccessRightHandler
 
++ (BOOL)safeValidateURL:(NSString *)url{
+//默认都是通过安全性校验的
+    return YES;
+}
 
 //根据权限等级判断是否需要跳转
 + (BOOL)validateTheRightToOpenVC:(RouterOptions *)options{

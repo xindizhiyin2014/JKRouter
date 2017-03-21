@@ -185,6 +185,10 @@ static JKRouter *defaultRouter =nil;
 
 + (void)URLOpen:(NSString *)url params:(NSDictionary *)params{
     
+    if (![JKAccessRightHandler safeValidateURL:url]) {
+        return;
+    }
+    
     url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSURL *tempURL = [NSURL URLWithString:url];
     NSString *scheme =tempURL.scheme;
