@@ -15,6 +15,7 @@
 		0452F2AB1E7E457A0069037C /* JKJSONHandler+Jack.m in Sources */ = {isa = PBXBuildFile; fileRef = 0452F2AA1E7E457A0069037C /* JKJSONHandler+Jack.m */; };
 		0452F2AE1E7EC6340069037C /* JKDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0452F2AD1E7EC6340069037C /* JKDViewController.m */; };
 		0452F2B11E7EC7580069037C /* JKAccessRightHandler+Jack.m in Sources */ = {isa = PBXBuildFile; fileRef = 0452F2B01E7EC7580069037C /* JKAccessRightHandler+Jack.m */; };
+		04DFBB211E83835F00390A60 /* JKEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DFBB201E83835F00390A60 /* JKEViewController.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -59,6 +60,8 @@
 		0452F2AD1E7EC6340069037C /* JKDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKDViewController.m; sourceTree = "<group>"; };
 		0452F2AF1E7EC7580069037C /* JKAccessRightHandler+Jack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JKAccessRightHandler+Jack.h"; sourceTree = "<group>"; };
 		0452F2B01E7EC7580069037C /* JKAccessRightHandler+Jack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JKAccessRightHandler+Jack.m"; sourceTree = "<group>"; };
+		04DFBB1F1E83835F00390A60 /* JKEViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKEViewController.h; sourceTree = "<group>"; };
+		04DFBB201E83835F00390A60 /* JKEViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKEViewController.m; sourceTree = "<group>"; };
 		120533B18D05AA97733FA82B /* Pods-JKRouter_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKRouter_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JKRouter_Tests/Pods-JKRouter_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* JKRouter_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JKRouter_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -177,6 +180,8 @@
 				0452F2A31E7E27580069037C /* JKCViewController.m */,
 				0452F2AC1E7EC6340069037C /* JKDViewController.h */,
 				0452F2AD1E7EC6340069037C /* JKDViewController.m */,
+				04DFBB1F1E83835F00390A60 /* JKEViewController.h */,
+				04DFBB201E83835F00390A60 /* JKEViewController.m */,
 				0452F2A91E7E457A0069037C /* JKJSONHandler+Jack.h */,
 				0452F2AA1E7E457A0069037C /* JKJSONHandler+Jack.m */,
 				0452F2AF1E7EC7580069037C /* JKAccessRightHandler+Jack.h */,
@@ -433,6 +438,7 @@
 				0452F2AB1E7E457A0069037C /* JKJSONHandler+Jack.m in Sources */,
 				0452F2A11E7E25020069037C /* JKBViewController.m in Sources */,
 				6003F59E195388D20070C39A /* JKAppDelegate.m in Sources */,
+				04DFBB211E83835F00390A60 /* JKEViewController.m in Sources */,
 				6003F5A7195388D20070C39A /* JKViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				0452F29A1E7D35CA0069037C /* JKAViewController.m in Sources */,

@@ -359,7 +359,9 @@ static JKRouter *defaultRouter =nil;
     if (vcArray.count>1) {
         vc = vcArray[count-2];
     }else{
-        //已经是根视图，不再执行pop操作
+        //已经是根视图，不再执行pop操作  可以执行dismiss操作
+        [self popToSpecifiedVC:nil animated:animated];
+
         return;
     }
     RouterOptions *options = [RouterOptions optionsWithDefaultParams:params];

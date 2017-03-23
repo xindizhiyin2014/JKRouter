@@ -23,7 +23,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     self.view.backgroundColor = [UIColor whiteColor];
-    _dataArr = @[@"正常跳转",@"正常跳转＋参数",@"正常跳转，返回＋参数",@"路由跳转",@"路由跳转+参数",@"跳转＋权限校验"];
+    _dataArr = @[@"正常跳转",@"正常跳转＋参数",@"正常跳转，返回＋参数",@"路由跳转",@"路由跳转+参数",@"跳转＋权限校验",@"present跳转"];
     _contentTable = [[UITableView alloc] initWithFrame:self.view.frame];
     [_contentTable registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell1"];
     _contentTable.delegate =self;
@@ -89,6 +89,11 @@
             [self userURLJumpWithValidateRight];
         }
             break;
+        case 6:
+        {
+            [self userPresentJump];
+        }
+            break;
 
 
             
@@ -132,6 +137,13 @@
 - (void)userURLJumpWithValidateRight{
     
     [JKRouter URLOpen:@"jkpp://jackApp:10003"];
+}
+
+- (void)userPresentJump{
+
+    RouterOptions *options = [RouterOptions options];
+    options.isModal = YES;
+    [JKRouter open:@"JKEViewController" options:options];
 }
 
 
