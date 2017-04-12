@@ -129,7 +129,6 @@ static JKRouter *defaultRouter =nil;
 + (void)open:(NSString *)vcClassName{
     
     RouterOptions *options = [RouterOptions options];
-    options = [JKAccessRightHandler configTheAccessRight:options];
     [self open:vcClassName options:options];
 }
 
@@ -150,9 +149,9 @@ static JKRouter *defaultRouter =nil;
     
     if (!options) {
         options = [RouterOptions options];
-        options = [JKAccessRightHandler configTheAccessRight:options];
-
+        
     }
+    options = [JKAccessRightHandler configTheAccessRight:options];
     
     if (![JKAccessRightHandler  validateTheRightToOpenVC:options]) {//权限不够进行别的操作处理
         //根据具体的权限设置决定是否进行跳转，如果没有权限，跳转中断，进行后续处理
