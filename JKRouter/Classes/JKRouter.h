@@ -108,7 +108,7 @@ typedef NS_ENUM(NSInteger, JKAccessRight){ // 这个是app根据功能模块权�
 
 @interface JKouterConfig : NSObject
 
-@property (nonatomic,strong) NSString *modulesInfoFileName; // 路由配置信息的json文件名
+@property (nonatomic,strong) NSArray<NSString *>*modulesInfoFiles; // 路由配置信息的json文件名数组
 @property (nonatomic,strong) NSString *sepcialJumpListFileName; //跳转时有特殊动画的plist文件名
 @property (nonatomic,strong) NSString *webContainerName;// app中web容器的className
 @property (nonatomic,strong) NSString *URLScheme;//自定义的URL协议名字

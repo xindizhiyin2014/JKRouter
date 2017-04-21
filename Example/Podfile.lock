@@ -1,6 +1,6 @@
 PODS:
   - JKDataHelper (0.1.1)
-  - JKRouter (0.1.0):
+  - JKRouter (0.1.3):
     - JKDataHelper
 
 DEPENDENCIES:
@@ -13,7 +13,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   JKDataHelper: 957a08d46063146733ae220e67e9e517b0895cca
-  JKRouter: a9ae6b1ad4aa93fa1c4a6a15b4892c406bf8441a
+  JKRouter: 1244ba22d3f7dadf36ab683e5ad7480f82a644a3
 
 PODFILE CHECKSUM: ff0410b9d1cba10eaed30ca0b50d8592d84ff93e
 

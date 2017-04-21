@@ -10,7 +10,7 @@
 
 @interface JKJSONHandler (Jack)
 // 解析JSON文件 获取到所有的Modules
-+ (NSArray *)getModulesFromJsonFile:(NSString *)fileName;
++ (NSArray *)getModulesFromJsonFile:(NSArray <NSString *>*)files;
 
 /**
  从NavigationController导航栏持有的viewControllers中根据moduleID来找到相关的ViewController

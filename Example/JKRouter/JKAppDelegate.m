@@ -20,7 +20,7 @@
     UINavigationController *naVC = [[UINavigationController alloc] initWithRootViewController:jkVC];
     self.window.rootViewController = naVC;
     JKouterConfig *config = [JKouterConfig new];
-    config.modulesInfoFileName =@"modules.json";
+    config.modulesInfoFiles =@[@"modules.json",@"modules123.json"];
     config.URLScheme = @"jkpp";
     config.navigationController = (UINavigationController *)self.window.rootViewController;
     [JKRouter routerWithConfig:config];

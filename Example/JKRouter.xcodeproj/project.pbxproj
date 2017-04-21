@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0431A5811EA9E10200EEC80A /* modules123.json in Resources */ = {isa = PBXBuildFile; fileRef = 0431A5801EA9E10200EEC80A /* modules123.json */; };
 		0452F29A1E7D35CA0069037C /* JKAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0452F2991E7D35CA0069037C /* JKAViewController.m */; };
 		0452F2A11E7E25020069037C /* JKBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0452F2A01E7E25020069037C /* JKBViewController.m */; };
 		0452F2A41E7E27580069037C /* JKCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0452F2A31E7E27580069037C /* JKCViewController.m */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0431A5801EA9E10200EEC80A /* modules123.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = modules123.json; sourceTree = "<group>"; };
 		0452F2981E7D35CA0069037C /* JKAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKAViewController.h; sourceTree = "<group>"; };
 		0452F2991E7D35CA0069037C /* JKAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKAViewController.m; sourceTree = "<group>"; };
 		0452F29B1E7D37F40069037C /* JKMyRouterKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKMyRouterKeys.h; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				6003F596195388D20070C39A /* InfoPlist.strings */,
 				6003F599195388D20070C39A /* main.m */,
 				0452F2A71E7E427B0069037C /* modules.json */,
+				0431A5801EA9E10200EEC80A /* modules123.json */,
 				6003F59B195388D20070C39A /* JKRouter-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -323,6 +326,7 @@
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 				0452F2A81E7E427B0069037C /* modules.json in Resources */,
+				0431A5811EA9E10200EEC80A /* modules123.json in Resources */,
 				0452F2A61E7E3C530069037C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -76,7 +76,7 @@
 
 @property (nonatomic, copy, readwrite) NSSet * modules;     ///< 存储路由，moduleID信息，权限配置信息
 @property (nonatomic, copy, readwrite) NSSet * specialOptionsSet;     ///< 特殊跳转的页面信息的集合
-@property (nonatomic,copy) NSString *modulesInfoFileName; // 路由配置信息的json文件名权限配置信息
+@property (nonatomic,copy) NSArray<NSString *>*modulesInfoFiles; // 路由配置信息的json文件名数组
 @property (nonatomic,copy) NSString *sepcialJumpListFileName; ////跳转时有特殊动画的plist文件名
 
 @property (nonatomic,strong) NSString *URLScheme;//自定义的URL协议名字
@@ -117,7 +117,7 @@ static JKRouter *defaultRouter =nil;
 
 + (void)routerWithConfig:(JKouterConfig *)config{
     
-    [JKRouter router].modulesInfoFileName = config.modulesInfoFileName;
+    [JKRouter router].modulesInfoFiles = config.modulesInfoFiles;
     [JKRouter router].sepcialJumpListFileName = config.sepcialJumpListFileName;
     [JKRouter router].URLScheme = config.URLScheme;
     [JKRouter router].webContainerName = config.webContainerName;
@@ -414,7 +414,7 @@ static JKRouter *defaultRouter =nil;
 + (void)configModules{
 
     
-        NSArray *moudulesArr =[JKJSONHandler getModulesFromJsonFile:[JKRouter router].modulesInfoFileName];
+        NSArray *moudulesArr =[JKJSONHandler getModulesFromJsonFile:[JKRouter router].modulesInfoFiles];
         [JKRouter router].modules = [NSSet setWithArray:moudulesArr];
         
         NSString *path = [[NSBundle mainBundle] pathForResource:[JKRouter router].sepcialJumpListFileName ofType:nil];
