@@ -7,7 +7,7 @@
 //
 
 #import "JKViewController.h"
-
+#import "JKEViewController.h"
 @interface JKViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     UITableView *_contentTable;
@@ -23,7 +23,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     self.view.backgroundColor = [UIColor whiteColor];
-    _dataArr = @[@"正常跳转",@"正常跳转＋参数",@"正常跳转，返回＋参数",@"路由跳转",@"路由跳转+参数",@"跳转＋权限校验",@"present跳转"];
+    _dataArr = @[@"正常跳转",@"正常跳转＋参数",@"正常跳转，返回＋参数",@"路由跳转",@"路由跳转+参数",@"跳转＋权限校验",@"present跳转",@"指定的已经创建的VC"];
     _contentTable = [[UITableView alloc] initWithFrame:self.view.frame];
     [_contentTable registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell1"];
     _contentTable.delegate =self;
@@ -94,6 +94,12 @@
             [self userPresentJump];
         }
             break;
+        case 7:
+        {
+            [self openSpecifiedVC];
+        }
+            break;
+
 
 
             
@@ -145,6 +151,16 @@
     options.isModal = YES;
     [JKRouter open:@"JKEViewController" options:options];
 }
+
+- (void)openSpecifiedVC{
+    
+    RouterOptions *options = [RouterOptions options];
+    
+    JKEViewController *vc = [JKEViewController new];
+    
+    [JKRouter openSpecifiedVC:vc options:options];
+}
+
 
 
 

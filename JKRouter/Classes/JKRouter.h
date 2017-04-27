@@ -160,6 +160,14 @@ typedef NS_ENUM(NSInteger, JKAccessRight){ // 这个是app根据功能模块权�
 
 
 /**
+ 根据options和已有的vc进行跳转
+
+ @param vc 已经创建的指定的vc
+ @param options 跳转的各种设置
+ */
++ (void)openSpecifiedVC:(UIViewController *)vc options:(RouterOptions *)options;
+
+/**
  根据options的设置进行跳转,并执行相关的回调操作
 
  @param vcClassName 跳转的控制器类名

@@ -139,11 +139,24 @@ static JKRouter *defaultRouter =nil;
 }
 
 
++ (void)openSpecifiedVC:(UIViewController *)vc options:(RouterOptions *)options{
+    if (!options) {
+        options = [RouterOptions options];
+        
+    }
+    options = [JKAccessRightHandler configTheAccessRight:options];
+
+     [self routerViewController:vc options:options];
+    
+
+}
+
+
 + (void)open:(NSString *)vcClassName options:(RouterOptions *)options CallBack:(void(^)())callback{
     
     if (!JKSafeStr(vcClassName)) {
         
-        NSLog(@"vcClassName is nil or vcClassName is not a string");
+        NSAssert(NO, @"vcClassName is nil or vcClassName is not a string");
         return;
     }
     
@@ -153,21 +166,11 @@ static JKRouter *defaultRouter =nil;
     }
     options = [JKAccessRightHandler configTheAccessRight:options];
     
-    if (![JKAccessRightHandler  validateTheRightToOpenVC:options]) {//权限不够进行别的操作处理
-        //根据具体的权限设置决定是否进行跳转，如果没有权限，跳转中断，进行后续处理
-        [JKAccessRightHandler handleNoRightToOpenVC:options];
-        return;
-    }
-    
-    
-    if (!([JKRouter router].navigationController && [[JKRouter router].navigationController isKindOfClass:[UINavigationController class]])) {
-        return;
-    }
-    
-    
     UIViewController *vc = [self configVC:vcClassName options:options];
     //根据配置好的VC，options配置进行跳转
-    [self routerViewController:vc options:options];
+    if (![self routerViewController:vc options:options]) {//跳转失败
+        return;
+    }
     
     if (callback) {
         callback();
@@ -458,7 +461,18 @@ static JKRouter *defaultRouter =nil;
 }
 
 //根据相关的options配置，进行跳转
-+ (void)routerViewController:(UIViewController *)vc options:(RouterOptions *)options{
++ (BOOL)routerViewController:(UIViewController *)vc options:(RouterOptions *)options{
+    
+    if (![JKAccessRightHandler  validateTheRightToOpenVC:options]) {//权限不够进行别的操作处理
+        //根据具体的权限设置决定是否进行跳转，如果没有权限，跳转中断，进行后续处理
+        [JKAccessRightHandler handleNoRightToOpenVC:options];
+        return NO;
+    }
+    
+    
+    if (!([JKRouter router].navigationController && [[JKRouter router].navigationController isKindOfClass:[UINavigationController class]])) {
+        return NO;
+    }
 
     if ([JKRouter router].navigationController.presentationController) {
         
@@ -470,10 +484,13 @@ static JKRouter *defaultRouter =nil;
         [[JKRouter router].navigationController presentViewController:vc
                                                              animated:options.animated
                                                         completion:nil];
+        return YES;
     }else{
         
         [[JKRouter router].navigationController pushViewController:vc animated:options.animated];
+        return YES;
     }
+    return NO;
 
 }
 
