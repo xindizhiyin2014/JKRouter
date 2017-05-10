@@ -25,7 +25,8 @@
 //根据app运行时用户的情况来配置权限，具体实现要通过category重载来实现
 + (RouterOptions *)configTheAccessRight:(RouterOptions *)options{
     //默认权限为defalut
-    options.theAccessRight = JKRouterAccessRightDefalut;
+    options.theRouterRight.accessRight = JKRouterAccessRightDefault;
+
     return options;
     
 }

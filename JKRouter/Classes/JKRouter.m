@@ -10,11 +10,22 @@
 #import "JKRouterKeys.h"
 #import "JKDataHelper.h"
 
-//**********************************************************************************
+
+@implementation RouterRight
+
++ (instancetype)routerRight{
+
+    RouterRight *routerRight = [RouterRight new];
+    routerRight.accessRight = JKRouterAccessRightDefault;
+    return routerRight;
+}
+@end
+
+//******************************************************************************
 //*
 //*           RouterOptions类
 //*           配置跳转时的各种设置
-//**********************************************************************************
+//******************************************************************************
 
 @interface RouterOptions()
 
@@ -28,7 +39,9 @@
 
 + (instancetype)options{
     RouterOptions *options = [RouterOptions new];
-    options.theAccessRight = JKRouterAccessRightDefalut;
+    RouterRight *routerRight = [RouterRight routerRight];
+    options.theRouterRight = routerRight;
+    
     options.animated = YES;
     return options;
 }

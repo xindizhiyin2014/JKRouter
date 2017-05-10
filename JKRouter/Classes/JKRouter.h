@@ -12,7 +12,7 @@
 #import "JKAccessRightHandler.h"
 
 typedef NS_ENUM(NSInteger, JKAccessRight){ // 这个是app根据功能模块权限打开的时候，权限设置等级
-    JKRouterAccessRightDefalut =0,
+    JKRouterAccessRightDefault =0,
     JKRouterAccessRight1,
     JKRouterAccessRight2,
     JKRouterAccessRight3,
@@ -38,12 +38,38 @@ typedef NS_ENUM(NSInteger, JKAccessRight){ // 这个是app根据功能模块权�
 
 
 
+//******************************************************************************
+//*
+//*           RouterRight类
+//*           权限的信息
+//******************************************************************************
 
-//**********************************************************************************
+@interface RouterRight : NSObject
+
+//进入模块的权限等级
+@property (nonatomic) JKAccessRight accessRight;
+
+//权限等级的辅助信息
+@property (nonatomic, copy) NSString *info;
+
+
+/**
+创建默认配置的权限
+
+ @return RouterRight的对象
+ */
++ (instancetype)routerRight;
+
+@end
+
+
+
+
+//******************************************************************************
 //*
 //*           RouterOptions类
 //*           配置跳转时的各种设置
-//**********************************************************************************
+//******************************************************************************
 
 @interface RouterOptions : NSObject
 
@@ -57,7 +83,7 @@ typedef NS_ENUM(NSInteger, JKAccessRight){ // 这个是app根据功能模块权�
 @property (nonatomic, copy, readonly) NSString *moduleID;
 
 //当前状态下用户所具有的 access 权限
-@property (nonatomic) JKAccessRight theAccessRight;
+@property (nonatomic,strong) RouterRight *theRouterRight;
 
 //跳转时传入的参数，默认为nil
 @property (nonatomic,copy,readwrite) NSDictionary *defaultParams;

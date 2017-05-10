@@ -14,7 +14,7 @@
     for (NSDictionary *module in [JKRouter router].modules) {
         if ([options.moduleID integerValue] ==[module[@"moduleID"] integerValue]) {
             if (JKSafeObj(module[@"accessRight"])) {
-                if (options.theAccessRight>= [module[@"accessRight"] integerValue]) {
+                if (options.theRouterRight.accessRight>= [module[@"accessRight"] integerValue]) {
                     return YES;
                 }else{
                     return NO;
@@ -30,7 +30,7 @@
 //根据app运行时用户的情况来配置权限，具体实现要通过category重载来实现
 + (RouterOptions *)configTheAccessRight:(RouterOptions *)options{
     //默认权限为defalut
-//    options.theAccessRight = JKRouterAccessRightDefalut;
+
     return options;
     
 }

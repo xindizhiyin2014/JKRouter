@@ -67,10 +67,10 @@
 		1B3301C8309A2A8A9D395CA58B6106CA /* Pods-JKRouter_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-JKRouter_Example-resources.sh"; sourceTree = "<group>"; };
 		330E0339910BF9970B5CA769B29032ED /* Pods-JKRouter_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-JKRouter_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		396AACD6B62374D19457F54678E23CCB /* Pods-JKRouter_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-JKRouter_Example-umbrella.h"; sourceTree = "<group>"; };
-		39EEE8CDA91C3E1174521FFA8E88B987 /* JKDataHelper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = JKDataHelper.framework; path = JKDataHelper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		49D99AE7203A521868A40D0967C6AA08 /* JKDataHelper.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = JKDataHelper.modulemap; sourceTree = "<group>"; };
+		39EEE8CDA91C3E1174521FFA8E88B987 /* JKDataHelper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JKDataHelper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		49D99AE7203A521868A40D0967C6AA08 /* JKDataHelper.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = JKDataHelper.modulemap; sourceTree = "<group>"; };
 		4F637EE3360719940DDEC6F07CD22A7E /* JKDataHelper-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JKDataHelper-prefix.pch"; sourceTree = "<group>"; };
-		5602BE79854A12C0BEC11D68E1F9F2FE /* Pods-JKRouter_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-JKRouter_Tests.modulemap"; sourceTree = "<group>"; };
+		5602BE79854A12C0BEC11D68E1F9F2FE /* Pods-JKRouter_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-JKRouter_Tests.modulemap"; sourceTree = "<group>"; };
 		5685B3B55DE071A0C1338A2692A19595 /* Pods-JKRouter_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-JKRouter_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		56AFC6CE333B1786FBE77B4D9BAB2E64 /* JKRouter-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JKRouter-umbrella.h"; sourceTree = "<group>"; };
 		57E94780D94B3977870872E77C44D6C4 /* JKDataHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JKDataHelper.h; path = JKDataHelper/Classes/JKDataHelper.h; sourceTree = "<group>"; };
@@ -80,19 +80,19 @@
 		73E8FC64D4FBBF18EFC3F1D5EE9180EE /* Pods-JKRouter_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-JKRouter_Example-dummy.m"; sourceTree = "<group>"; };
 		740F0B1BCE25F0D41176A44195A729E0 /* Pods-JKRouter_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-JKRouter_Tests-dummy.m"; sourceTree = "<group>"; };
 		777BFE2239F400C42F28218F2ECE2615 /* JKDataHelper-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JKDataHelper-umbrella.h"; sourceTree = "<group>"; };
-		841EAB5094D191ED207A630AA89780BD /* Pods_JKRouter_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_JKRouter_Example.framework; path = "Pods-JKRouter_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		841EAB5094D191ED207A630AA89780BD /* Pods_JKRouter_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JKRouter_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84F76A7FE3190C7738CEDE55ADB0EFE3 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8BC5E4DF3F2891FA2163A972EED392E1 /* Pods-JKRouter_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JKRouter_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		8F2CEA03C298F2793C2857FADC46CD86 /* JKRouter.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = JKRouter.modulemap; sourceTree = "<group>"; };
+		8F2CEA03C298F2793C2857FADC46CD86 /* JKRouter.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = JKRouter.modulemap; sourceTree = "<group>"; };
 		91B384879830E0F2144F6FF5FF74F0B8 /* Pods-JKRouter_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JKRouter_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		99B3869B8F588AFB52317B5B4CC3E5E6 /* Pods-JKRouter_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JKRouter_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		9DAAEF61AC7AE00A79D7C04BD399747B /* Pods-JKRouter_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-JKRouter_Tests-umbrella.h"; sourceTree = "<group>"; };
 		9E72AAB9D3779F43E10981636844C34C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F12D7BDBD21F762030AB3B3BE82FB1D /* JKRouter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JKRouter.m; sourceTree = "<group>"; };
-		A4CECEDEA41D3B187751890A842CB91D /* Pods_JKRouter_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_JKRouter_Tests.framework; path = "Pods-JKRouter_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4CECEDEA41D3B187751890A842CB91D /* Pods_JKRouter_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JKRouter_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A73BE23DC3E09C90BA7A0E98D28EE5D9 /* JKAccessRightHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JKAccessRightHandler.h; sourceTree = "<group>"; };
-		B6043C9E782FBB48D986E521E238C4DE /* JKRouter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = JKRouter.framework; path = JKRouter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6043C9E782FBB48D986E521E238C4DE /* JKRouter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JKRouter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8CF49B0D87777D803E6682AF235B53B /* Pods-JKRouter_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-JKRouter_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		BC8A35043A135219381C718085D67F9C /* JKJSONHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JKJSONHandler.m; sourceTree = "<group>"; };
 		CC6C14FE87146F246A933C03B43B2278 /* JKRouter.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JKRouter.xcconfig; sourceTree = "<group>"; };
@@ -105,7 +105,7 @@
 		E2406D9A728061EF16C3CFB253904332 /* JKRouter-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JKRouter-dummy.m"; sourceTree = "<group>"; };
 		E25E37FDF4FEA732EEFB1DF5DAEE7C13 /* JKDataHelper.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JKDataHelper.xcconfig; sourceTree = "<group>"; };
 		F29B404FB1E825AF9572752A60D2E3F0 /* UIViewController+JKRouter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIViewController+JKRouter.h"; sourceTree = "<group>"; };
-		F3D2CEC83193D726C7F3101BFBF8F82B /* Pods-JKRouter_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-JKRouter_Example.modulemap"; sourceTree = "<group>"; };
+		F3D2CEC83193D726C7F3101BFBF8F82B /* Pods-JKRouter_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-JKRouter_Example.modulemap"; sourceTree = "<group>"; };
 		F3DA553D4A0E8E80C4D306ACB72D6493 /* JKDataHelper-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JKDataHelper-dummy.m"; sourceTree = "<group>"; };
 		FDCA2495348027E2D0951E09355D05A2 /* Pods-JKRouter_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JKRouter_Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -160,7 +160,6 @@
 			children = (
 				D2D0FAA00ECCD45C562004AAB5C6545B /* Classes */,
 			);
-			name = JKRouter;
 			path = JKRouter;
 			sourceTree = "<group>";
 		};
@@ -188,7 +187,6 @@
 				17B86B19E5C6EB21E8AF2278CB9D35E6 /* JKDataHelper.m */,
 				85B05E341F154175F6AB6E17F06C8A3E /* Support Files */,
 			);
-			name = JKDataHelper;
 			path = JKDataHelper;
 			sourceTree = "<group>";
 		};
@@ -293,7 +291,6 @@
 				F29B404FB1E825AF9572752A60D2E3F0 /* UIViewController+JKRouter.h */,
 				161B292F04347470ACDB2CDAFA6F2AA4 /* UIViewController+JKRouter.m */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -445,7 +442,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0810;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -741,14 +738,18 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"POD_CONFIGURATION_RELEASE=1",
 					"$(inherited)",
@@ -781,15 +782,19 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"POD_CONFIGURATION_DEBUG=1",
