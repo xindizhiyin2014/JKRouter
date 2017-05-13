@@ -22,6 +22,7 @@
     JKouterConfig *config = [JKouterConfig new];
     config.modulesInfoFiles =@[@"modules.json",@"modules123.json"];
     config.URLScheme = @"jkpp";
+    config.webContainerName =@"JKWebViewController";
     config.navigationController = (UINavigationController *)self.window.rootViewController;
     [JKRouter routerWithConfig:config];
     return YES;

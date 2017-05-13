@@ -8,5 +8,9 @@
   {"moduleID":10003,
   "targetVC":"JKDViewController",
   "accessRight":1
+  },
+  {"moduleID":10004,
+  "targetVC":"JKWebViewController"
+  
   }
-]
+  ]

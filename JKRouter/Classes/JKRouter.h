@@ -10,6 +10,8 @@
 #import "UIViewController+JKRouter.h"
 #import "JKJSONHandler.h"
 #import "JKAccessRightHandler.h"
+#import "JKRouterKeys.h"
+
 
 typedef NS_ENUM(NSInteger, JKAccessRight){ // 这个是app根据功能模块权限打开的时候，权限设置等级
     JKRouterAccessRightDefault =0,

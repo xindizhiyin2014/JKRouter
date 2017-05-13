@@ -19,7 +19,6 @@
 #import "JKRouter.h"
 #import "JKJSONHandler+Jack.h"
 #import "JKAccessRightHandler+Jack.h"
-
-#import "JKMyRouterKeys.h"
+#import "JKRouterKeys+Jack.h"
 
 #endif

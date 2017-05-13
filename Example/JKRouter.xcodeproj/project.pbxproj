@@ -16,6 +16,8 @@
 		0452F2AB1E7E457A0069037C /* JKJSONHandler+Jack.m in Sources */ = {isa = PBXBuildFile; fileRef = 0452F2AA1E7E457A0069037C /* JKJSONHandler+Jack.m */; };
 		0452F2AE1E7EC6340069037C /* JKDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0452F2AD1E7EC6340069037C /* JKDViewController.m */; };
 		0452F2B11E7EC7580069037C /* JKAccessRightHandler+Jack.m in Sources */ = {isa = PBXBuildFile; fileRef = 0452F2B01E7EC7580069037C /* JKAccessRightHandler+Jack.m */; };
+		046309201EC6126900048CBA /* JKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0463091F1EC6126900048CBA /* JKWebViewController.m */; };
+		046309311EC6929500048CBA /* JKRouterKeys+Jack.m in Sources */ = {isa = PBXBuildFile; fileRef = 046309301EC6929500048CBA /* JKRouterKeys+Jack.m */; };
 		04DFBB211E83835F00390A60 /* JKEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DFBB201E83835F00390A60 /* JKEViewController.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
@@ -49,7 +51,6 @@
 		0431A5801EA9E10200EEC80A /* modules123.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = modules123.json; sourceTree = "<group>"; };
 		0452F2981E7D35CA0069037C /* JKAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKAViewController.h; sourceTree = "<group>"; };
 		0452F2991E7D35CA0069037C /* JKAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKAViewController.m; sourceTree = "<group>"; };
-		0452F29B1E7D37F40069037C /* JKMyRouterKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKMyRouterKeys.h; sourceTree = "<group>"; };
 		0452F29F1E7E25020069037C /* JKBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKBViewController.h; sourceTree = "<group>"; };
 		0452F2A01E7E25020069037C /* JKBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKBViewController.m; sourceTree = "<group>"; };
 		0452F2A21E7E27580069037C /* JKCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKCViewController.h; sourceTree = "<group>"; };
@@ -62,6 +63,10 @@
 		0452F2AD1E7EC6340069037C /* JKDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKDViewController.m; sourceTree = "<group>"; };
 		0452F2AF1E7EC7580069037C /* JKAccessRightHandler+Jack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JKAccessRightHandler+Jack.h"; sourceTree = "<group>"; };
 		0452F2B01E7EC7580069037C /* JKAccessRightHandler+Jack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JKAccessRightHandler+Jack.m"; sourceTree = "<group>"; };
+		0463091E1EC6126900048CBA /* JKWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKWebViewController.h; sourceTree = "<group>"; };
+		0463091F1EC6126900048CBA /* JKWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKWebViewController.m; sourceTree = "<group>"; };
+		0463092F1EC6929500048CBA /* JKRouterKeys+Jack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JKRouterKeys+Jack.h"; sourceTree = "<group>"; };
+		046309301EC6929500048CBA /* JKRouterKeys+Jack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JKRouterKeys+Jack.m"; sourceTree = "<group>"; };
 		04DFBB1F1E83835F00390A60 /* JKEViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKEViewController.h; sourceTree = "<group>"; };
 		04DFBB201E83835F00390A60 /* JKEViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKEViewController.m; sourceTree = "<group>"; };
 		120533B18D05AA97733FA82B /* Pods-JKRouter_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKRouter_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JKRouter_Tests/Pods-JKRouter_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -184,11 +189,14 @@
 				0452F2AD1E7EC6340069037C /* JKDViewController.m */,
 				04DFBB1F1E83835F00390A60 /* JKEViewController.h */,
 				04DFBB201E83835F00390A60 /* JKEViewController.m */,
+				0463091E1EC6126900048CBA /* JKWebViewController.h */,
+				0463091F1EC6126900048CBA /* JKWebViewController.m */,
 				0452F2A91E7E457A0069037C /* JKJSONHandler+Jack.h */,
 				0452F2AA1E7E457A0069037C /* JKJSONHandler+Jack.m */,
 				0452F2AF1E7EC7580069037C /* JKAccessRightHandler+Jack.h */,
 				0452F2B01E7EC7580069037C /* JKAccessRightHandler+Jack.m */,
-				0452F29B1E7D37F40069037C /* JKMyRouterKeys.h */,
+				0463092F1EC6929500048CBA /* JKRouterKeys+Jack.h */,
+				046309301EC6929500048CBA /* JKRouterKeys+Jack.m */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -444,8 +452,10 @@
 				6003F59E195388D20070C39A /* JKAppDelegate.m in Sources */,
 				04DFBB211E83835F00390A60 /* JKEViewController.m in Sources */,
 				6003F5A7195388D20070C39A /* JKViewController.m in Sources */,
+				046309201EC6126900048CBA /* JKWebViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				0452F29A1E7D35CA0069037C /* JKAViewController.m in Sources */,
+				046309311EC6929500048CBA /* JKRouterKeys+Jack.m in Sources */,
 				0452F2AE1E7EC6340069037C /* JKDViewController.m in Sources */,
 				0452F2B11E7EC7580069037C /* JKAccessRightHandler+Jack.m in Sources */,
 				0452F2A41E7E27580069037C /* JKCViewController.m in Sources */,

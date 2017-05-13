@@ -2,15 +2,19 @@
 //  JKRouterKeys.h
 //  Pods
 //
-//  Created by Jack on 17/3/17.
+//  Created by Jack on 17/5/13.
 //
 //
 
-#ifndef JKRouterKeys_h
-#define JKRouterKeys_h
+#import <Foundation/Foundation.h>
 
-#define jkWebURLKey @""   //开发者自定义的webContainer的url属性对应的名字，使用的时候需要根据自己的字段来设置，具体用法可以看demo。
-#define jkIsShowNavigationBarKey @"" //开发自定义的webContainer的showNavigationBar的属性对应的名字，使用的时候需要根据自己的字段来设置，具体用法可以看demo
+@interface JKRouterKeys : NSObject
 
+/**
+ 配置web容器从外部获取url的property的字段名
 
-#endif /* JKRouterKeys_h */
+ @return property的字段名
+ */
++ (NSString *)jkWebURLKey;
+
+@end

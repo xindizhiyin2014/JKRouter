@@ -23,7 +23,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     self.view.backgroundColor = [UIColor whiteColor];
-    _dataArr = @[@"正常跳转",@"正常跳转＋参数",@"正常跳转，返回＋参数",@"路由跳转",@"路由跳转+参数",@"跳转＋权限校验",@"present跳转",@"指定的已经创建的VC"];
+    _dataArr = @[@"正常跳转",@"正常跳转＋参数",@"正常跳转，返回＋参数",@"路由跳转",@"路由跳转+参数",@"跳转＋权限校验",@"present跳转",@"指定的已经创建的VC",@"webVC跳转"];
     _contentTable = [[UITableView alloc] initWithFrame:self.view.frame];
     [_contentTable registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell1"];
     _contentTable.delegate =self;
@@ -99,6 +99,11 @@
             [self openSpecifiedVC];
         }
             break;
+        case 8:
+        {
+            [self openWebVC];
+        }
+            break;
 
 
 
@@ -159,6 +164,11 @@
     JKEViewController *vc = [JKEViewController new];
     
     [JKRouter openSpecifiedVC:vc options:options];
+}
+
+- (void)openWebVC{
+
+[JKRouter URLOpen:@"jkpp://jackApp:10004/abc/mn/qq"];
 }
 
 

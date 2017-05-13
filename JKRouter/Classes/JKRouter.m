@@ -7,7 +7,6 @@
 //
 
 #import "JKRouter.h"
-#import "JKRouterKeys.h"
 #import "JKDataHelper.h"
 
 
@@ -330,7 +329,7 @@ static JKRouter *defaultRouter =nil;
     }
     
     if ([JKAccessRightHandler validateTheRightToOpenVC:options]) {
-        NSDictionary *params = @{jkWebURLKey:directory};
+        NSDictionary *params = @{[JKRouterKeys jkWebURLKey]:directory};
         options.defaultParams =params;
         [self open:[JKRouter router].webContainerName options:options];
         
