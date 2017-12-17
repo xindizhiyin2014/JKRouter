@@ -27,3 +27,15 @@ HHL110120, 929097264@qq.com
 ## License
 
 JKRouter is available under the MIT license. See the LICENSE file for more info.
+
+# guide
+you can use the pod with the steps
+## config JKRouter
+```
+ [JKRouter configWithRouterFiles:@[@"modules.json",@"modules123.json"]];
+
+```
+## use viewController className to open the specified ViewController
+```
+ [JKRouter open:@"JKAViewController"];
+```

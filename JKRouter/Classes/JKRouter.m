@@ -74,7 +74,6 @@
 @interface JKRouter()
 
 @property (nonatomic, copy, readwrite) NSSet * modules;     ///< 存储路由，moduleID信息，权限配置信息
-@property (nonatomic, copy, readwrite) NSSet * specialOptionsSet;     ///< 特殊跳转的页面信息的集合
 @property (nonatomic,copy) NSArray<NSString *> *routerFileNames; // 路由配置信息的json文件名数组
 
 @property (nonatomic,strong) NSSet *urlSchemes;//支持的URL协议集合
@@ -343,8 +342,6 @@ static JKRouter *defaultRouter =nil;
         [[JKRouter router].navigationController popToViewController:vc animated:animated];
     }
 }
-
-
 
 + (void)popWithSpecifiedModuleID:(NSString *)moduleID{
 
