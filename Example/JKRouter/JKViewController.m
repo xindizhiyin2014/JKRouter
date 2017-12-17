@@ -23,7 +23,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     self.view.backgroundColor = [UIColor whiteColor];
-    _dataArr = @[@"正常跳转",@"正常跳转＋参数",@"正常跳转，返回＋参数",@"路由跳转",@"路由跳转+参数",@"跳转＋权限校验",@"present跳转",@"指定的已经创建的VC",@"webVC跳转"];
+    _dataArr = @[@"正常跳转",@"正常跳转＋参数",@"正常跳转，返回＋参数",@"路由跳转",@"路由跳转+参数",@"跳转＋权限校验",@"present跳转",@"自定义跳转",@"webVC跳转",@"使用storyBoard"];
     _contentTable = [[UITableView alloc] initWithFrame:self.view.frame];
     [_contentTable registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell1"];
     _contentTable.delegate =self;
@@ -96,12 +96,17 @@
             break;
         case 7:
         {
-            [self openSpecifiedVC];
+            [self openWithSpecifiedTranform];
         }
             break;
         case 8:
         {
             [self openWebVC];
+        }
+            break;
+        case 9:
+        {
+            [self useStoryBoard];
         }
             break;
 
@@ -153,17 +158,12 @@
 - (void)userPresentJump{
 
     RouterOptions *options = [RouterOptions options];
-    options.isModal = YES;
     [JKRouter open:@"JKEViewController" options:options];
 }
 
-- (void)openSpecifiedVC{
+- (void)openWithSpecifiedTranform{
     
-    RouterOptions *options = [RouterOptions options];
-    
-    JKEViewController *vc = [JKEViewController new];
-    
-    [JKRouter openSpecifiedVC:vc options:options];
+    [JKRouter open:@"XWPageCoverController"];
 }
 
 - (void)openWebVC{
@@ -171,6 +171,9 @@
 [JKRouter URLOpen:@"jkpp://jackApp:10004/abc/mn/qq"];
 }
 
+- (void)useStoryBoard{
+    [JKRouter open:@"JKFViewController"];
+}
 
 
 

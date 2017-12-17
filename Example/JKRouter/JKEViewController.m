@@ -14,6 +14,10 @@
 
 @implementation JKEViewController
 
+- (RouterTransformVCStyle)jkRouterTransformStyle{
+    return RouterTransformVCStylePresent;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.

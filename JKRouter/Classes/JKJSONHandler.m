@@ -26,27 +26,9 @@
     return [mutableArray copy];
 }
 
++ (NSString *)getHomePathWithModuleID:(NSNumber *)moduleID{
 
-+ (UIViewController *)searchExistViewControllerWithModuleID:(NSString *)moduleID{
-    
-    return nil;
-}
-
-+ (NSString *)searchVcClassNameWithModuleID:(NSInteger)moduleID{
-    
-    return nil;
-}
-
-
-+ (NSString *)searchDirectoryWithModuleID:(NSNumber *)moduleID specifiedPath:(NSString *)path{
-
-    return nil;
-}
-
-
-+ (BOOL)validateSpecialJump:(NSDictionary *)module moduleID:(NSInteger)moudleID{
-    
-    return NO;
+    return @"";
 }
 
 @end

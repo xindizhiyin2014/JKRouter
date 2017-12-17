@@ -16,9 +16,7 @@
 
 #import "JKDataHelper.h"
 
-#import "JKRouter.h"
+#import <JKRouter/JKRouterHeader.h>
 #import "JKJSONHandler+Jack.h"
-#import "JKAccessRightHandler+Jack.h"
-#import "JKRouterKeys+Jack.h"
 
 #endif

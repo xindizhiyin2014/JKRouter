@@ -8,7 +8,7 @@
 
 #import "JKAppDelegate.h"
 #import "JKViewController.h"
-#import "JKRouter.h"
+#import <JKRouter/JKRouterHeader.h>
 
 @implementation JKAppDelegate
 
@@ -19,12 +19,7 @@
     JKViewController *jkVC = [JKViewController new];
     UINavigationController *naVC = [[UINavigationController alloc] initWithRootViewController:jkVC];
     self.window.rootViewController = naVC;
-    JKouterConfig *config = [JKouterConfig new];
-    config.modulesInfoFiles =@[@"modules.json",@"modules123.json"];
-    config.URLScheme = @"jkpp";
-    config.webContainerName =@"JKWebViewController";
-    config.navigationController = (UINavigationController *)self.window.rootViewController;
-    [JKRouter routerWithConfig:config];
+    [JKRouter configWithRouterFiles:@[@"modules.json",@"modules123.json"]];
     return YES;
 }
 

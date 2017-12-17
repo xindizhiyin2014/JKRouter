@@ -1,20 +1,23 @@
 PODS:
   - JKDataHelper (0.1.1)
-  - JKRouter (0.1.6):
+  - JKRouter (0.1.7):
     - JKDataHelper
+  - Masonry (1.1.0)
 
 DEPENDENCIES:
   - JKDataHelper
   - JKRouter (from `../`)
+  - Masonry
 
 EXTERNAL SOURCES:
   JKRouter:
-    :path: "../"
+    :path: ../
 
 SPEC CHECKSUMS:
   JKDataHelper: 957a08d46063146733ae220e67e9e517b0895cca
-  JKRouter: 0897de7284de29b3fc2401f1a8a5d494a1b2bcbc
+  JKRouter: bc589d7f562c04abe1901999c42f0996e6291c2d
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
 
-PODFILE CHECKSUM: ff0410b9d1cba10eaed30ca0b50d8592d84ff93e
+PODFILE CHECKSUM: d48cb70fd8cd64e94a1d633b7249a69dbe8d6eb8
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.3.1

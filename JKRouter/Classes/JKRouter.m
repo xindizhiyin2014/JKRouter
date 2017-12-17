@@ -7,18 +7,14 @@
 //
 
 #import "JKRouter.h"
-#import "JKDataHelper.h"
+#import <JKDataHelper/JKDataHelper.h>
+#ifdef DEBUG
+#define JKRouterLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#else
+#define JKRouterLog(...)
+#endif
 
 
-@implementation RouterRight
-
-+ (instancetype)routerRight{
-
-    RouterRight *routerRight = [RouterRight new];
-    routerRight.accessRight = JKRouterAccessRightDefault;
-    return routerRight;
-}
-@end
 
 //******************************************************************************
 //*
@@ -38,9 +34,7 @@
 
 + (instancetype)options{
     RouterOptions *options = [RouterOptions new];
-    RouterRight *routerRight = [RouterRight routerRight];
-    options.theRouterRight = routerRight;
-    
+    options.transformStyle = RouterTransformVCStyleDefault;
     options.animated = YES;
     return options;
 }
@@ -69,13 +63,6 @@
 @end
 
 
-@implementation JKouterConfig
-
-
-@end
-
-
-
 //**********************************************************************************
 //*
 //*           JKRouter类
@@ -88,10 +75,9 @@
 
 @property (nonatomic, copy, readwrite) NSSet * modules;     ///< 存储路由，moduleID信息，权限配置信息
 @property (nonatomic, copy, readwrite) NSSet * specialOptionsSet;     ///< 特殊跳转的页面信息的集合
-@property (nonatomic,copy) NSArray<NSString *>*modulesInfoFiles; // 路由配置信息的json文件名数组
-@property (nonatomic,copy) NSString *sepcialJumpListFileName; ////跳转时有特殊动画的plist文件名
+@property (nonatomic,copy) NSArray<NSString *> *routerFileNames; // 路由配置信息的json文件名数组
 
-@property (nonatomic,strong) NSString *URLScheme;//自定义的URL协议名字
+@property (nonatomic,strong) NSSet *urlSchemes;//支持的URL协议集合
 
 @property (nonatomic,strong) NSString *webContainerName;//自定义的URL协议名字
 
@@ -127,14 +113,24 @@ static JKRouter *defaultRouter =nil;
     return defaultRouter;
 }
 
-+ (void)routerWithConfig:(JKouterConfig *)config{
+- (UINavigationController *)navigationController{
+    UIViewController *rootVC = [UIApplication sharedApplication].keyWindow.rootViewController;
+    return [rootVC isKindOfClass:[UINavigationController class]]?(UINavigationController *)rootVC:nil;
+}
+
++ (void)configWithRouterFiles:(NSArray<NSString *> *)routerFileNames{
     
-    [JKRouter router].modulesInfoFiles = config.modulesInfoFiles;
-    [JKRouter router].sepcialJumpListFileName = config.sepcialJumpListFileName;
-    [JKRouter router].URLScheme = config.URLScheme;
-    [JKRouter router].webContainerName = config.webContainerName;
-    [JKRouter router].navigationController = config.navigationController;
-    [self configModules];
+    [JKRouter router].routerFileNames = routerFileNames;
+    [JKRouter router].urlSchemes  =  [NSSet setWithArray:[JKRouterExtension urlSchemes]];
+    [JKRouter router].webContainerName = [JKRouterExtension jkWebVCClassName];
+}
+
+- (NSSet *)modules{
+    if (!_modules) {
+        NSArray *moudulesArr =[JKJSONHandler getModulesFromJsonFile:[JKRouter router].routerFileNames];
+        _modules = [NSSet setWithArray:moudulesArr];
+    }
+    return _modules;
 }
 
 # pragma mark the open functions - - - - - - - - -
@@ -156,40 +152,30 @@ static JKRouter *defaultRouter =nil;
         options = [RouterOptions options];
         
     }
-    options = [JKAccessRightHandler configTheAccessRight:options];
 
      [self routerViewController:vc options:options];
-    
-
 }
 
 
-+ (void)open:(NSString *)vcClassName options:(RouterOptions *)options CallBack:(void(^)())callback{
++ (void)open:(NSString *)vcClassName options:(RouterOptions *)options CallBack:(void(^)(void))callback{
     
     if (!JKSafeStr(vcClassName)) {
-        
         NSAssert(NO, @"vcClassName is nil or vcClassName is not a string");
         return;
     }
-    
     if (!options) {
         options = [RouterOptions options];
-        
     }
-    options = [JKAccessRightHandler configTheAccessRight:options];
-    
     UIViewController *vc = [self configVC:vcClassName options:options];
     //根据配置好的VC，options配置进行跳转
     if (![self routerViewController:vc options:options]) {//跳转失败
         return;
     }
-    
     if (callback) {
         callback();
     }
     
 }
-
 
 + (void)URLOpen:(NSString *)url{
     
@@ -199,123 +185,89 @@ static JKRouter *defaultRouter =nil;
 
 + (void)URLOpen:(NSString *)url params:(NSDictionary *)params{
     
-    if (![JKAccessRightHandler safeValidateURL:url]) {
+    url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSURL *targetURL = [NSURL URLWithString:url];
+    NSString *scheme =targetURL.scheme;
+    if (![[JKRouter router].urlSchemes containsObject:scheme]) {
+        return;
+    }
+    if (![JKRouterExtension safeValidateURL:url]) {
         return;
     }
     
-    url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSURL *tempURL = [NSURL URLWithString:url];
-    NSString *scheme =tempURL.scheme;
-    NSString *resourceSpecifier = tempURL.resourceSpecifier;
-    if (![scheme isEqualToString:[JKRouter router].URLScheme]) {
-        if ([scheme isEqualToString:@"http"] || [scheme isEqualToString:@"https"]) {
-            
-            [self httpOpen:url];
-            return;
-            
-        }else{
-            
-            scheme = [JKRouter router].URLScheme;
-            
-        }
+    if ([scheme isEqualToString:@"http"] || [scheme isEqualToString:@"https"]) {
+        
+        [self httpOpen:targetURL];
+        return;
+        
     }
-    url = [NSString stringWithFormat:@"%@:%@",scheme,resourceSpecifier];
-    
-    //拼接后最终的URL
-    NSURL *targetURL = [NSURL URLWithString:url];
-    
     //URL的端口号作为moduleID
     NSNumber *moduleID = targetURL.port;
-    NSString *path =targetURL.path;
-    
-    
-    if (JKSafeStr(path)&& ![path isEqualToString:@""]) {//路径
-        
-        if (!JKSafeDic(params)) {
-            NSString *directory = [JKJSONHandler searchDirectoryWithModuleID:moduleID specifiedPath:path];
+    if (moduleID) {
+        NSString *homePath = [JKJSONHandler getHomePathWithModuleID:moduleID];
+        if ([NSClassFromString(homePath) isSubclassOfClass:[UIViewController class]]) {
+            NSString *parameterStr = [[targetURL query] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            NSMutableDictionary *dic = nil;
+            if (JKSafeStr(parameterStr)) {
+                
+                dic = [self convertUrlStringToDictionary:parameterStr];
+                [dic addEntriesFromDictionary:params];
+            }else{
+                dic = [NSMutableDictionary dictionaryWithDictionary:params];
+            }
+            NSString *vcClassName = homePath;
             RouterOptions *options = [RouterOptions optionsWithModuleID:[NSString stringWithFormat:@"%@",moduleID]];
-            options = [JKAccessRightHandler configTheAccessRight:options];
-            [self jumpToHttpWeb:directory options:options];
-            return;
-        }
-        
-        NSAssert(NO, @"有路径path的话参数通过URL携带，不支持额外传入params参数");
-        
-    }else{
-        NSString *parameterStr = [[targetURL query] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        if (JKSafeStr(parameterStr)) {
-            
-            NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-            NSArray *parameterArr = [parameterStr componentsSeparatedByString:@"&"];
-            for (NSString *parameter in parameterArr) {
-                NSArray *parameterBoby = [parameter componentsSeparatedByString:@"="];
-                if (parameterBoby.count == 2) {
-                    [dic setObject:parameterBoby[1] forKey:parameterBoby[0]];
-                }else
-                {
-                    NSLog(@"参数不完整");
-                }
-            }
-            
+            options.defaultParams = [dic copy];
             //执行页面的跳转
-            [self openVCWithModuleID:[moduleID integerValue] params:[dic copy]];
-            return;
+            [self open:(NSString *)vcClassName options:options];
+            
         }else{
+          NSString *subPath = targetURL.resourceSpecifier;
+          NSString *path = [NSString stringWithFormat:@"%@/%@",homePath,subPath];
+          RouterOptions *options = [RouterOptions optionsWithModuleID:[NSString stringWithFormat:@"%@",moduleID]];
+          [self jumpToHttpWeb:path options:options];
             
+        }
+    }else{
+        NSString *path = targetURL.path;
+        if ([NSClassFromString(path) isKindOfClass:[UIViewController class]]) {
+            NSString *parameterStr = [[targetURL query] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            NSMutableDictionary *dic = nil;
+            if (JKSafeStr(parameterStr)) {
+                
+                dic = [self convertUrlStringToDictionary:parameterStr];
+                [dic addEntriesFromDictionary:params];
+            }else{
+                dic = [NSMutableDictionary dictionaryWithDictionary:params];
+            }
+            NSString *vcClassName = path;
+            RouterOptions *options = [RouterOptions optionsWithModuleID:[NSString stringWithFormat:@"%@",moduleID]];
+            options.defaultParams = [dic copy];
             //执行页面的跳转
-            [self openVCWithModuleID:[moduleID integerValue] params:[params copy]];
+            [self open:(NSString *)vcClassName options:options];
+        }else{
+            RouterOptions *options = [RouterOptions optionsWithModuleID:[NSString stringWithFormat:@"%@",moduleID]];
+            [self jumpToHttpWeb:path options:options];
+        }
+    }
+    
+}
+
+
++ (void)httpOpen:(NSURL *)targetURL{
+    NSString *parameterStr = [[targetURL query] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    if (JKSafeStr(parameterStr)) {
+      NSMutableDictionary *dic = [self convertUrlStringToDictionary:parameterStr];
+        NSDictionary *params = [dic copy];
+        if (JKSafeDic(params) && [[params objectForKey:JKRouterHttpOpenStyleKey] isEqualToString:@"1"]) {//判断是否是在app内部打开网页
+            RouterOptions *options = [RouterOptions options];
+            [self jumpToHttpWeb:targetURL.absoluteString options:options];
             return;
         }
-        
     }
-    
+    [self openExternal:targetURL];
 }
-
-/**
- 查询并配置相关参数，执行页面的跳转
- 
- @param moduleID 模块的ID
- @param params 跳转时要传入的参数
- */
-+ (void)openVCWithModuleID:(NSInteger)moduleID params:(NSDictionary *)params{
-    
-    NSEnumerator * enumerator = [[JKRouter router].modules objectEnumerator];
-    NSDictionary *module =nil;
-    while (module = [enumerator nextObject]) {
-        NSEnumerator * specailEnumerator = [[JKRouter router].specialOptionsSet objectEnumerator];
-        NSDictionary *specialModule =nil;
-        NSString *vcClassName =[JKJSONHandler searchVcClassNameWithModuleID:moduleID];
-        
-        while (specialModule = [specailEnumerator nextObject]) {
-            
-            if ([JKJSONHandler validateSpecialJump:specialModule moduleID:moduleID]) {
-                RouterOptions *options = [RouterOptions optionsWithDefaultParams:params];
-                options = [JKAccessRightHandler configTheAccessRight:options];
-                options.moduleID = [NSString stringWithFormat:@"%d",(int)moduleID];
-                options.isModal = YES;
-                [self open:vcClassName options:options];
-                return;
-            }
-            
-        }
-        //  此时不存在特殊跳转的情况
-        RouterOptions *options = [RouterOptions optionsWithDefaultParams:params];
-        options = [JKAccessRightHandler configTheAccessRight:options];
-        options.moduleID = [NSString stringWithFormat:@"%d",(int)moduleID];
-        [self open:vcClassName options:options];
-        return;
-    }
-    
-}
-
-
-
-+ (void)httpOpen:(NSString *)url{
-    RouterOptions *options = [RouterOptions options];
-    options = [JKAccessRightHandler configTheAccessRight:options];
-    [self jumpToHttpWeb:url options:options];
-}
-
 
 /**
  根据路径跳转到指定的httpWeb页面
@@ -324,36 +276,26 @@ static JKRouter *defaultRouter =nil;
  */
 + (void)jumpToHttpWeb:(NSString *)directory options:(RouterOptions *)options{
     if (!JKSafeStr(directory)) {
-        NSLog(@"路径不存在");
+        JKRouterLog(@"路径不存在");
         return;
     }
     
-    if ([JKAccessRightHandler validateTheRightToOpenVC:options]) {
-        NSDictionary *params = @{[JKRouterKeys jkWebURLKey]:directory};
-        options.defaultParams =params;
-        [self open:[JKRouter router].webContainerName options:options];
-        
-    }else{
-        NSLog(@"没有权限打开相关页面");
-        [JKAccessRightHandler handleNoRightToOpenVC:options];
-    }
+    NSString *path =[NSString stringWithFormat:@"%@/%@",[JKRouterExtension sandBoxBasePath],directory];
+    NSDictionary *params = @{[JKRouterExtension jkWebURLKey]:path};
+    options.defaultParams =params;
+    [self open:[JKRouter router].webContainerName options:options];
     
 }
 
-
-- (void)openExternal:(NSString *)url {
-    NSURL *targetURL = [NSURL URLWithString:url];
++ (void)openExternal:(NSURL *)targetURL {
     if ([targetURL.scheme isEqualToString:@"http"] ||[targetURL.scheme isEqualToString:@"https"]) {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+        [[UIApplication sharedApplication] openURL:targetURL];
     }else{
         NSAssert(NO, @"请打开http／https协议的url地址");
     }
-    
 }
 
-
 #pragma mark  the pop functions - - - - - - - - - -
-
 
 + (void)pop{
 
@@ -410,53 +352,37 @@ static JKRouter *defaultRouter =nil;
 }
 
 + (void)popWithSpecifiedModuleID:(NSString *)moduleID :(NSDictionary *)params :(BOOL)animated{
-    
-    UIViewController *popVC = [JKJSONHandler searchExistViewControllerWithModuleID:moduleID];
-    if (JKSafeObj(popVC)) {
-        
-        RouterOptions *options = [RouterOptions optionsWithDefaultParams:params];
-        [self configTheVC:popVC options:options];
-        [self popToSpecifiedVC:popVC animated:animated];
-    }
-    
+    NSArray *vcArray  = [JKRouter router].navigationController.viewControllers;
+        for (NSInteger i = vcArray.count-1; i>0; i--) {
+            UIViewController *vc = vcArray[i];
+            if ([vc.moduleID isEqualToString:moduleID]) {
+                RouterOptions *options = [RouterOptions optionsWithDefaultParams:params];
+                [self configTheVC:vc options:options];
+                [self popToSpecifiedVC:vc animated:animated];
+            }
+        }
 }
 
 
 #pragma mark  the tool functions - - - - - - - -
 
-
-//如果modules信息不存在，将信息导入内存中
-+ (void)configModules{
-
-    
-        NSArray *moudulesArr =[JKJSONHandler getModulesFromJsonFile:[JKRouter router].modulesInfoFiles];
-        [JKRouter router].modules = [NSSet setWithArray:moudulesArr];
-        
-        NSString *path = [[NSBundle mainBundle] pathForResource:[JKRouter router].sepcialJumpListFileName ofType:nil];
-        NSArray  *specialOptionsArr = [NSArray arrayWithContentsOfFile:path];
-        [JKRouter router].specialOptionsSet = [NSSet setWithArray:specialOptionsArr];
-
-}
-
-
 //为ViewController 的属性赋值
 + (UIViewController *)configVC:(NSString *)vcClassName options:(RouterOptions *)options {
 
     Class VCClass = NSClassFromString(vcClassName);
-    UIViewController *vc = [VCClass new];
-    [vc setValue:options.moduleID forKey:@"moduleID"];
+    UIViewController *vc = [VCClass jkRouterViewController];
+    [vc setValue:options.moduleID forKey:JKRouterModuleIDKey];
     
     [JKRouter configTheVC:vc options:options];
     
     return vc;
 }
 
-
 /**
  对于已经创建的vc进行赋值操作
 
  @param vc 对象
- @param params 赋值的参数
+ @param options 跳转的各种设置
  */
 + (void)configTheVC:(UIViewController *)vc options:(RouterOptions *)options{
 
@@ -471,39 +397,78 @@ static JKRouter *defaultRouter =nil;
     }
 
 }
+   
+//将url ？后的字符串转换为NSDictionary对象
++ (NSMutableDictionary *)convertUrlStringToDictionary:(NSString *)string{
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    NSArray *parameterArr = [string componentsSeparatedByString:@"&"];
+    for (NSString *parameter in parameterArr) {
+        NSArray *parameterBoby = [parameter componentsSeparatedByString:@"="];
+        if (parameterBoby.count == 2) {
+            [dic setObject:parameterBoby[1] forKey:parameterBoby[0]];
+        }else
+        {
+            JKRouterLog(@"参数不完整");
+        }
+    }
+    return dic;
+}
 
 //根据相关的options配置，进行跳转
 + (BOOL)routerViewController:(UIViewController *)vc options:(RouterOptions *)options{
     
-    if (![JKAccessRightHandler  validateTheRightToOpenVC:options]) {//权限不够进行别的操作处理
+    if (![[vc class]  validateTheAccessToOpen]) {//权限不够进行别的操作处理
         //根据具体的权限设置决定是否进行跳转，如果没有权限，跳转中断，进行后续处理
-        [JKAccessRightHandler handleNoRightToOpenVC:options];
+        [[vc class] handleNoAccessToOpen];
         return NO;
     }
-    
-    
     if (!([JKRouter router].navigationController && [[JKRouter router].navigationController isKindOfClass:[UINavigationController class]])) {
         return NO;
     }
-
     if ([JKRouter router].navigationController.presentationController) {
         
-        [[JKRouter router].navigationController dismissViewControllerAnimated:options.animated completion:nil];
+        [[JKRouter router].navigationController dismissViewControllerAnimated:NO completion:nil]; 
+    }
+    if (options.transformStyle == RouterTransformVCStyleDefault) {
+        options.transformStyle =  [vc jkRouterTransformStyle];
+    }
+    switch (options.transformStyle) {
+        case RouterTransformVCStylePush:
+            {
+                [self _openWithPushStyle:vc options:options];
+            }
+            break;
+            case RouterTransformVCStylePresent:
+            {
+                [self _openWithPresentStyle:vc options:options];
+            }
+            break;
+            case RouterTransformVCStyleOther:
+            {
+                [self _openWithOtherStyle:vc options:options];
+            }
+            break;
+            
+        default:
+            break;
     }
     
-    if (options.isModal) {
-        
-        [[JKRouter router].navigationController presentViewController:vc
-                                                             animated:options.animated
-                                                        completion:nil];
-        return YES;
-    }else{
-        
-        [[JKRouter router].navigationController pushViewController:vc animated:options.animated];
-        return YES;
-    }
     return NO;
+}
 
++ (BOOL)_openWithPushStyle:(UIViewController *)vc options:(RouterOptions *)options{
+    [[JKRouter router].navigationController pushViewController:vc animated:options.animated];
+    return YES;
+}
+
++ (BOOL)_openWithPresentStyle:(UIViewController *)vc options:(RouterOptions *)options{
+    [[JKRouter router].navigationController presentViewController:vc animated:options.animated completion:nil];
+    return YES;
+}
+
++ (BOOL)_openWithOtherStyle:(UIViewController *)vc options:(RouterOptions *)options{
+    [vc jkRouterSpecialTransformWithNaVC:[JKRouter router].navigationController];
+    return YES;
 }
 
 

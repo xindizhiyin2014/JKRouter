@@ -9,62 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "UIViewController+JKRouter.h"
 #import "JKJSONHandler.h"
-#import "JKAccessRightHandler.h"
-#import "JKRouterKeys.h"
-
-
-typedef NS_ENUM(NSInteger, JKAccessRight){ // 这个是app根据功能模块权限打开的时候，权限设置等级
-    JKRouterAccessRightDefault =0,
-    JKRouterAccessRight1,
-    JKRouterAccessRight2,
-    JKRouterAccessRight3,
-    JKRouterAccessRight4,
-    JKRouterAccessRight5,
-    JKRouterAccessRight6,
-    JKRouterAccessRight7,
-    JKRouterAccessRight8,
-    JKRouterAccessRight9,
-    JKRouterAccessRight10,
-    JKRouterAccessRight11,
-    JKRouterAccessRight12,
-    JKRouterAccessRight13,
-    JKRouterAccessRight14,
-    JKRouterAccessRight15,
-    JKRouterAccessRight16,
-    JKRouterAccessRight17,
-    JKRouterAccessRight18,
-    JKRouterAccessRight19,
-    JKRouterAccessRight20
-    
-};
-
-
-
-//******************************************************************************
-//*
-//*           RouterRight类
-//*           权限的信息
-//******************************************************************************
-
-@interface RouterRight : NSObject
-
-//进入模块的权限等级
-@property (nonatomic) JKAccessRight accessRight;
-
-//权限等级的辅助信息
-@property (nonatomic, copy) NSString *info;
-
-
-/**
-创建默认配置的权限
-
- @return RouterRight的对象
- */
-+ (instancetype)routerRight;
-
-@end
-
-
 
 
 //******************************************************************************
@@ -75,8 +19,8 @@ typedef NS_ENUM(NSInteger, JKAccessRight){ // 这个是app根据功能模块权�
 
 @interface RouterOptions : NSObject
 
-//普通的present,push 跳转方式
-@property (nonatomic, readwrite) BOOL isModal;
+//转场方式
+@property (nonatomic, readwrite) RouterTransformVCStyle transformStyle;
 
 //跳转时是否有动画
 @property (nonatomic, readwrite) BOOL animated;
@@ -84,8 +28,6 @@ typedef NS_ENUM(NSInteger, JKAccessRight){ // 这个是app根据功能模块权�
 //每个页面所对应的moduleID
 @property (nonatomic, copy, readonly) NSString *moduleID;
 
-//当前状态下用户所具有的 access 权限
-@property (nonatomic,strong) RouterRight *theRouterRight;
 
 //跳转时传入的参数，默认为nil
 @property (nonatomic,copy,readwrite) NSDictionary *defaultParams;
@@ -126,25 +68,6 @@ typedef NS_ENUM(NSInteger, JKAccessRight){ // 这个是app根据功能模块权�
 
 @end
 
-//******************************************************************************
-//*
-//*           JKouterConfig 类
-//*
-//******************************************************************************
-
-
-
-@interface JKouterConfig : NSObject
-
-@property (nonatomic,strong) NSArray<NSString *>*modulesInfoFiles; // 路由配置信息的json文件名数组
-@property (nonatomic,strong) NSString *sepcialJumpListFileName; //跳转时有特殊动画的plist文件名
-@property (nonatomic,strong) NSString *webContainerName;// app中web容器的className
-@property (nonatomic,strong) NSString *URLScheme;//自定义的URL协议名字
-
-@property (nonatomic,weak) UINavigationController * navigationController; //app的导航控制器
-
-@end
-
 //***********************************************************************************
 //*
 //*           JKRouter类
@@ -154,7 +77,6 @@ typedef NS_ENUM(NSInteger, JKAccessRight){ // 这个是app根据功能模块权�
 @interface JKRouter : NSObject
 
 @property (nonatomic, copy, readonly) NSSet <NSDictionary *>* modules;     ///< 存储路由，moduleID信息，权限配置信息
-@property (nonatomic, copy, readonly) NSSet <NSDictionary *>* specialOptionsSet;     ///< 特殊跳转的页面信息的集合
 
 /**
  初始化单例
@@ -162,12 +84,13 @@ typedef NS_ENUM(NSInteger, JKAccessRight){ // 这个是app根据功能模块权�
  @return JKRouter 的单例对象
  */
 + (instancetype)router;
+
 /**
  配置router信息
- @param config  router的配置信息
+ @param routerFileNames  router的配置信息
  */
 
-+ (void)routerWithConfig:(JKouterConfig *)config;
++ (void)configWithRouterFiles:(NSArray<NSString *> *)routerFileNames;
 
 
 /**
@@ -202,7 +125,7 @@ typedef NS_ENUM(NSInteger, JKAccessRight){ // 这个是app根据功能模块权�
  @param options 跳转的各种设置
  @param callback 回调
  */
-+ (void)open:(NSString *)vcClassName options:(RouterOptions *)options CallBack:(void(^)())callback;
++ (void)open:(NSString *)vcClassName options:(RouterOptions *)options CallBack:(void(^)(void))callback;
 
 
 /**
@@ -229,7 +152,7 @@ typedef NS_ENUM(NSInteger, JKAccessRight){ // 这个是app根据功能模块权�
 
  @param url 跳转的路由，可以携带少量参数
  */
-+ (void)httpOpen:(NSString *)url;
++ (void)httpOpen:(NSURL *)url;
 
 /**
  默认情况下的pop，或者dismiss ,animated:YES
@@ -288,9 +211,9 @@ typedef NS_ENUM(NSInteger, JKAccessRight){ // 这个是app根据功能模块权�
 /**
  通过浏览器跳转到相关的url或者唤醒相关的app
 
- @param url 路由信息
+ @param targetURL 路由信息
  */
-- (void)openExternal:(NSString *)url;
++ (void)openExternal:(NSURL *)targetURL;
 
 
 @end

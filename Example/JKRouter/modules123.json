@@ -6,7 +6,6 @@
   "targetVC":"JKBViewController"
   },
   {"moduleID":20003,
-  "targetVC":"JKDViewController",
-  "accessRight":1
+  "targetVC":"JKDViewController"
   }
 ]

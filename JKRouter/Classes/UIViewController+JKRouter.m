@@ -24,6 +24,29 @@ static char moduleID;
     objc_setAssociatedObject(self, &moduleID, moduleID, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
++ (instancetype)jkRouterViewController{
+    return [[[self class] alloc] init];
+}
+
++ (BOOL)validateTheAccessToOpen{
+    
+    return YES;
+}
+
++ (void)handleNoAccessToOpen{
+    
+    
+}
+
+- (void)jkRouterSpecialTransformWithNaVC:(UINavigationController *)naVC{
+    
+}
+
+- (RouterTransformVCStyle)jkRouterTransformStyle{
+    
+    return RouterTransformVCStylePush;
+}
+
 -(void)setValue:(id)value forUndefinedKey:(NSString *)key{
     
 }

@@ -24,18 +24,12 @@
     return [mutableArray copy];
 }
 
-
-+ (UIViewController *)searchExistViewControllerWithModuleID:(NSString *)moduleID{
-    
-    return nil;
-}
-
-+ (NSString *)searchVcClassNameWithModuleID:(NSInteger)moduleID{
++ (NSString *)getHomePathWithModuleID:(NSNumber *)moduleID{
     
     NSString *vcClassName = nil;
     for (NSDictionary *module in [JKRouter router].modules) {
         NSNumber *tempModuleID =module[@"moduleID"];
-        if ([tempModuleID integerValue] ==moduleID) {
+        if ([tempModuleID integerValue] ==[moduleID integerValue]) {
             vcClassName = module[@"targetVC"];
             break;
         }

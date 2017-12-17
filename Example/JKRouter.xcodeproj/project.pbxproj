@@ -15,9 +15,7 @@
 		0452F2A81E7E427B0069037C /* modules.json in Resources */ = {isa = PBXBuildFile; fileRef = 0452F2A71E7E427B0069037C /* modules.json */; };
 		0452F2AB1E7E457A0069037C /* JKJSONHandler+Jack.m in Sources */ = {isa = PBXBuildFile; fileRef = 0452F2AA1E7E457A0069037C /* JKJSONHandler+Jack.m */; };
 		0452F2AE1E7EC6340069037C /* JKDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0452F2AD1E7EC6340069037C /* JKDViewController.m */; };
-		0452F2B11E7EC7580069037C /* JKAccessRightHandler+Jack.m in Sources */ = {isa = PBXBuildFile; fileRef = 0452F2B01E7EC7580069037C /* JKAccessRightHandler+Jack.m */; };
 		046309201EC6126900048CBA /* JKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0463091F1EC6126900048CBA /* JKWebViewController.m */; };
-		046309311EC6929500048CBA /* JKRouterKeys+Jack.m in Sources */ = {isa = PBXBuildFile; fileRef = 046309301EC6929500048CBA /* JKRouterKeys+Jack.m */; };
 		04DFBB211E83835F00390A60 /* JKEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DFBB201E83835F00390A60 /* JKEViewController.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
@@ -35,6 +33,14 @@
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		7533882F666CC3BB3873765E /* Pods_JKRouter_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94BEB986A24B05810936750D /* Pods_JKRouter_Example.framework */; };
 		A146CC721E35DEE3777774C0 /* Pods_JKRouter_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74C599AC3A6497544067198D /* Pods_JKRouter_Tests.framework */; };
+		BDA3D1621FE630E200D3072A /* JKRouterExtension+Jack.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA3D1611FE630E200D3072A /* JKRouterExtension+Jack.m */; };
+		BDFBBE881FE6447E00F704D5 /* JKFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDFBBE871FE6447E00F704D5 /* JKFViewController.m */; };
+		BDFBBE961FE6494500F704D5 /* UIView+ FrameChange.m in Sources */ = {isa = PBXBuildFile; fileRef = BDFBBE8A1FE6494500F704D5 /* UIView+ FrameChange.m */; };
+		BDFBBE971FE6494500F704D5 /* UIView+anchorPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = BDFBBE8C1FE6494500F704D5 /* UIView+anchorPoint.m */; };
+		BDFBBE981FE6494500F704D5 /* XWInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = BDFBBE8F1FE6494500F704D5 /* XWInteractiveTransition.m */; };
+		BDFBBE991FE6494500F704D5 /* XWPageCoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDFBBE911FE6494500F704D5 /* XWPageCoverController.m */; };
+		BDFBBE9A1FE6494500F704D5 /* XWPageCoverPushController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDFBBE931FE6494500F704D5 /* XWPageCoverPushController.m */; };
+		BDFBBE9B1FE6494500F704D5 /* XWPageCoverTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = BDFBBE951FE6494500F704D5 /* XWPageCoverTransition.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,12 +67,8 @@
 		0452F2AA1E7E457A0069037C /* JKJSONHandler+Jack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JKJSONHandler+Jack.m"; sourceTree = "<group>"; };
 		0452F2AC1E7EC6340069037C /* JKDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKDViewController.h; sourceTree = "<group>"; };
 		0452F2AD1E7EC6340069037C /* JKDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKDViewController.m; sourceTree = "<group>"; };
-		0452F2AF1E7EC7580069037C /* JKAccessRightHandler+Jack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JKAccessRightHandler+Jack.h"; sourceTree = "<group>"; };
-		0452F2B01E7EC7580069037C /* JKAccessRightHandler+Jack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JKAccessRightHandler+Jack.m"; sourceTree = "<group>"; };
 		0463091E1EC6126900048CBA /* JKWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKWebViewController.h; sourceTree = "<group>"; };
 		0463091F1EC6126900048CBA /* JKWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKWebViewController.m; sourceTree = "<group>"; };
-		0463092F1EC6929500048CBA /* JKRouterKeys+Jack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JKRouterKeys+Jack.h"; sourceTree = "<group>"; };
-		046309301EC6929500048CBA /* JKRouterKeys+Jack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JKRouterKeys+Jack.m"; sourceTree = "<group>"; };
 		04DFBB1F1E83835F00390A60 /* JKEViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKEViewController.h; sourceTree = "<group>"; };
 		04DFBB201E83835F00390A60 /* JKEViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKEViewController.m; sourceTree = "<group>"; };
 		120533B18D05AA97733FA82B /* Pods-JKRouter_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKRouter_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JKRouter_Tests/Pods-JKRouter_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -95,6 +97,22 @@
 		94BEB986A24B05810936750D /* Pods_JKRouter_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JKRouter_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E96A71B1761B1822BF4EFE3 /* Pods-JKRouter_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKRouter_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JKRouter_Example/Pods-JKRouter_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		B9B9C65EBBE9F191F8DBB935 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		BDA3D1601FE630E200D3072A /* JKRouterExtension+Jack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JKRouterExtension+Jack.h"; sourceTree = "<group>"; };
+		BDA3D1611FE630E200D3072A /* JKRouterExtension+Jack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "JKRouterExtension+Jack.m"; sourceTree = "<group>"; };
+		BDFBBE861FE6447E00F704D5 /* JKFViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKFViewController.h; sourceTree = "<group>"; };
+		BDFBBE871FE6447E00F704D5 /* JKFViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKFViewController.m; sourceTree = "<group>"; };
+		BDFBBE8A1FE6494500F704D5 /* UIView+ FrameChange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ FrameChange.m"; sourceTree = "<group>"; };
+		BDFBBE8B1FE6494500F704D5 /* UIView+anchorPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+anchorPoint.h"; sourceTree = "<group>"; };
+		BDFBBE8C1FE6494500F704D5 /* UIView+anchorPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+anchorPoint.m"; sourceTree = "<group>"; };
+		BDFBBE8D1FE6494500F704D5 /* UIView+FrameChange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FrameChange.h"; sourceTree = "<group>"; };
+		BDFBBE8E1FE6494500F704D5 /* XWInteractiveTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWInteractiveTransition.h; sourceTree = "<group>"; };
+		BDFBBE8F1FE6494500F704D5 /* XWInteractiveTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWInteractiveTransition.m; sourceTree = "<group>"; };
+		BDFBBE901FE6494500F704D5 /* XWPageCoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWPageCoverController.h; sourceTree = "<group>"; };
+		BDFBBE911FE6494500F704D5 /* XWPageCoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWPageCoverController.m; sourceTree = "<group>"; };
+		BDFBBE921FE6494500F704D5 /* XWPageCoverPushController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWPageCoverPushController.h; sourceTree = "<group>"; };
+		BDFBBE931FE6494500F704D5 /* XWPageCoverPushController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWPageCoverPushController.m; sourceTree = "<group>"; };
+		BDFBBE941FE6494500F704D5 /* XWPageCoverTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWPageCoverTransition.h; sourceTree = "<group>"; };
+		BDFBBE951FE6494500F704D5 /* XWPageCoverTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWPageCoverTransition.m; sourceTree = "<group>"; };
 		DCA52186AA913A65C54E46D1 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		F5EC04A3EE758FCDF9007878 /* Pods-JKRouter_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKRouter_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-JKRouter_Example/Pods-JKRouter_Example.release.xcconfig"; sourceTree = "<group>"; };
 		F7DFF122944B53D686915339 /* JKRouter.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = JKRouter.podspec; path = ../JKRouter.podspec; sourceTree = "<group>"; };
@@ -191,12 +209,13 @@
 				04DFBB201E83835F00390A60 /* JKEViewController.m */,
 				0463091E1EC6126900048CBA /* JKWebViewController.h */,
 				0463091F1EC6126900048CBA /* JKWebViewController.m */,
+				BDFBBE861FE6447E00F704D5 /* JKFViewController.h */,
+				BDFBBE871FE6447E00F704D5 /* JKFViewController.m */,
 				0452F2A91E7E457A0069037C /* JKJSONHandler+Jack.h */,
 				0452F2AA1E7E457A0069037C /* JKJSONHandler+Jack.m */,
-				0452F2AF1E7EC7580069037C /* JKAccessRightHandler+Jack.h */,
-				0452F2B01E7EC7580069037C /* JKAccessRightHandler+Jack.m */,
-				0463092F1EC6929500048CBA /* JKRouterKeys+Jack.h */,
-				046309301EC6929500048CBA /* JKRouterKeys+Jack.m */,
+				BDA3D1601FE630E200D3072A /* JKRouterExtension+Jack.h */,
+				BDA3D1611FE630E200D3072A /* JKRouterExtension+Jack.m */,
+				BDFBBE891FE6494500F704D5 /* PageCoverController */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -245,6 +264,25 @@
 				B9B9C65EBBE9F191F8DBB935 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		BDFBBE891FE6494500F704D5 /* PageCoverController */ = {
+			isa = PBXGroup;
+			children = (
+				BDFBBE8A1FE6494500F704D5 /* UIView+ FrameChange.m */,
+				BDFBBE8B1FE6494500F704D5 /* UIView+anchorPoint.h */,
+				BDFBBE8C1FE6494500F704D5 /* UIView+anchorPoint.m */,
+				BDFBBE8D1FE6494500F704D5 /* UIView+FrameChange.h */,
+				BDFBBE8E1FE6494500F704D5 /* XWInteractiveTransition.h */,
+				BDFBBE8F1FE6494500F704D5 /* XWInteractiveTransition.m */,
+				BDFBBE901FE6494500F704D5 /* XWPageCoverController.h */,
+				BDFBBE911FE6494500F704D5 /* XWPageCoverController.m */,
+				BDFBBE921FE6494500F704D5 /* XWPageCoverPushController.h */,
+				BDFBBE931FE6494500F704D5 /* XWPageCoverPushController.m */,
+				BDFBBE941FE6494500F704D5 /* XWPageCoverTransition.h */,
+				BDFBBE951FE6494500F704D5 /* XWPageCoverTransition.m */,
+			);
+			path = PageCoverController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,7 +336,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = JK;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = HHL110120;
 				TargetAttributes = {
 					6003F5AD195388D20070C39A = {
@@ -356,13 +394,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JKRouter_Example-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		1499EFD976037D164630ACFA /* [CP] Copy Pods Resources */ = {
@@ -401,13 +442,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JKRouter_Tests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BA0927CD583BAE65B37302E4 /* [CP] Embed Pods Frameworks */ = {
@@ -416,9 +460,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-JKRouter_Example/Pods-JKRouter_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/JKDataHelper/JKDataHelper.framework",
+				"${BUILT_PRODUCTS_DIR}/JKRouter/JKRouter.framework",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JKDataHelper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JKRouter.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -448,16 +499,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				0452F2AB1E7E457A0069037C /* JKJSONHandler+Jack.m in Sources */,
+				BDFBBE991FE6494500F704D5 /* XWPageCoverController.m in Sources */,
 				0452F2A11E7E25020069037C /* JKBViewController.m in Sources */,
+				BDA3D1621FE630E200D3072A /* JKRouterExtension+Jack.m in Sources */,
+				BDFBBE961FE6494500F704D5 /* UIView+ FrameChange.m in Sources */,
+				BDFBBE9A1FE6494500F704D5 /* XWPageCoverPushController.m in Sources */,
 				6003F59E195388D20070C39A /* JKAppDelegate.m in Sources */,
 				04DFBB211E83835F00390A60 /* JKEViewController.m in Sources */,
+				BDFBBE9B1FE6494500F704D5 /* XWPageCoverTransition.m in Sources */,
 				6003F5A7195388D20070C39A /* JKViewController.m in Sources */,
 				046309201EC6126900048CBA /* JKWebViewController.m in Sources */,
+				BDFBBE971FE6494500F704D5 /* UIView+anchorPoint.m in Sources */,
+				BDFBBE981FE6494500F704D5 /* XWInteractiveTransition.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				BDFBBE881FE6447E00F704D5 /* JKFViewController.m in Sources */,
 				0452F29A1E7D35CA0069037C /* JKAViewController.m in Sources */,
-				046309311EC6929500048CBA /* JKRouterKeys+Jack.m in Sources */,
 				0452F2AE1E7EC6340069037C /* JKDViewController.m in Sources */,
-				0452F2B11E7EC7580069037C /* JKAccessRightHandler+Jack.m in Sources */,
 				0452F2A41E7E27580069037C /* JKCViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -516,14 +573,20 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -561,14 +624,20 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

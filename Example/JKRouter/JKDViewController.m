@@ -14,6 +14,15 @@
 
 @implementation JKDViewController
 
++ (BOOL)validateTheAccessToOpen{
+    return NO;
+}
+
++ (void)handleNoAccessToOpen{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"没有权限" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alert show];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
