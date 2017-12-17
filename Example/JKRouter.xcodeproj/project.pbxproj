@@ -115,7 +115,7 @@
 		BDFBBE951FE6494500F704D5 /* XWPageCoverTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWPageCoverTransition.m; sourceTree = "<group>"; };
 		DCA52186AA913A65C54E46D1 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		F5EC04A3EE758FCDF9007878 /* Pods-JKRouter_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKRouter_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-JKRouter_Example/Pods-JKRouter_Example.release.xcconfig"; sourceTree = "<group>"; };
-		F7DFF122944B53D686915339 /* JKRouter.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = JKRouter.podspec; path = ../JKRouter.podspec; sourceTree = "<group>"; };
+		F7DFF122944B53D686915339 /* JKRouter.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = JKRouter.podspec; path = ../JKRouter.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
