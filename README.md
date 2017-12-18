@@ -39,3 +39,52 @@ you can use the pod with the steps
 ```
  [JKRouter open:@"JKAViewController"];
 ```
+## use the scheme defined by yourself such as "jkpp"
+### step1
+in JKRouterExtension+Jack.m  file
+```
++ (NSArray *)urlSchemes{
+
+return @[@"http",@"https",@"jkpp"];
+}
+```
+### step2
+```
+ [JKRouter URLOpen:@"jkpp://jackApp:10001"];
+ [JKRouter URLOpen:@"jkpp://jackApp:10002?testContent=Hi, I'm Jack"];
+ [JKRouter URLOpen:@"jkpp://jackApp:10004/abc/mn/qq"];
+````
+## use special transform animation
+### step1
+in the target ViewController
+```
+- (RouterTransformVCStyle)jkRouterTransformStyle{
+return RouterTransformVCStyleOther;
+}
+```
+### step2
+config the animation in  the function
+```
+- (void)jkRouterSpecialTransformWithNaVC:(UINavigationController *)naVC{
+UIViewController *vc = naVC.topViewController;
+vc.navigationController.delegate = self;
+
+[naVC pushViewController:self animated:YES];
+}
+
+```
+## use access judge
+if your app pages have access judgement  please follow the next step in the target viewController
+```
++ (BOOL)validateTheAccessToOpen{
+//with the judment code
+return YES;
+}
+
++ (void)handleNoAccessToOpen{
+
+//do the action if has no access
+}
+```
+
+
