@@ -35,6 +35,31 @@ you can use the pod with the steps
  [JKRouter configWithRouterFiles:@[@"modules.json",@"modules123.json"]];
 
 ```
+## configRootViewController
+### do not use TabBarViewController
+
+```
+JKViewController *vc = [JKViewController new];
+self.window.rootViewController = vc;
+```
+### if you use TabBarViewController
+#### step1
+```
+self.rootTabBarController = [[RootTabbarViewController alloc] init];
+
+UINavigationController *naVC = [[UINavigationController alloc] initWithRootViewController: self.rootTabBarController];
+self.window.rootViewController = naVC;
+
+```
+#### step2  override the viewWillAppear of tabBarViewController
+```
+- (void)viewWillAppear:(BOOL)animated{
+[super viewWillAppear:animated];
+[self.navigationController setNavigationBarHidden:YES animated:animated];
+
+}
+```
+
 ## use viewController className to open the specified ViewController
 ```
  [JKRouter open:@"JKAViewController"];

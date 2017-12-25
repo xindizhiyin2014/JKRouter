@@ -169,6 +169,7 @@
 - (void)openWebVC{
 
 [JKRouter URLOpen:@"jkpp://jackApp:10004/abc/mn/qq"];
+    
 }
 
 - (void)useStoryBoard{
