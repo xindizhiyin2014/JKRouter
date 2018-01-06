@@ -3,11 +3,13 @@ PODS:
   - JKRouter (0.2.1):
     - JKDataHelper
   - Masonry (1.1.0)
+  - YYModel (1.0.4)
 
 DEPENDENCIES:
   - JKDataHelper
   - JKRouter (from `../`)
   - Masonry
+  - YYModel
 
 EXTERNAL SOURCES:
   JKRouter:
@@ -17,7 +19,8 @@ SPEC CHECKSUMS:
   JKDataHelper: 957a08d46063146733ae220e67e9e517b0895cca
   JKRouter: fb21c0c6f1c15f67dc16c84c3495e9bcee27f32c
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: d48cb70fd8cd64e94a1d633b7249a69dbe8d6eb8
+PODFILE CHECKSUM: b2fb74415550f4c5bd52e633efd77452c5401fd4
 
 COCOAPODS: 1.3.1

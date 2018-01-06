@@ -33,6 +33,7 @@
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		7533882F666CC3BB3873765E /* Pods_JKRouter_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94BEB986A24B05810936750D /* Pods_JKRouter_Example.framework */; };
 		A146CC721E35DEE3777774C0 /* Pods_JKRouter_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74C599AC3A6497544067198D /* Pods_JKRouter_Tests.framework */; };
+		BD7C356820010BDC00DDDFB8 /* JKGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7C356620010BDC00DDDFB8 /* JKGViewController.m */; };
 		BDA3D1621FE630E200D3072A /* JKRouterExtension+Jack.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA3D1611FE630E200D3072A /* JKRouterExtension+Jack.m */; };
 		BDFBBE881FE6447E00F704D5 /* JKFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDFBBE871FE6447E00F704D5 /* JKFViewController.m */; };
 		BDFBBE961FE6494500F704D5 /* UIView+ FrameChange.m in Sources */ = {isa = PBXBuildFile; fileRef = BDFBBE8A1FE6494500F704D5 /* UIView+ FrameChange.m */; };
@@ -97,6 +98,8 @@
 		94BEB986A24B05810936750D /* Pods_JKRouter_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JKRouter_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E96A71B1761B1822BF4EFE3 /* Pods-JKRouter_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKRouter_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JKRouter_Example/Pods-JKRouter_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		B9B9C65EBBE9F191F8DBB935 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		BD7C356620010BDC00DDDFB8 /* JKGViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKGViewController.m; sourceTree = "<group>"; };
+		BD7C356720010BDC00DDDFB8 /* JKGViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKGViewController.h; sourceTree = "<group>"; };
 		BDA3D1601FE630E200D3072A /* JKRouterExtension+Jack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JKRouterExtension+Jack.h"; sourceTree = "<group>"; };
 		BDA3D1611FE630E200D3072A /* JKRouterExtension+Jack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "JKRouterExtension+Jack.m"; sourceTree = "<group>"; };
 		BDFBBE861FE6447E00F704D5 /* JKFViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKFViewController.h; sourceTree = "<group>"; };
@@ -211,6 +214,8 @@
 				0463091F1EC6126900048CBA /* JKWebViewController.m */,
 				BDFBBE861FE6447E00F704D5 /* JKFViewController.h */,
 				BDFBBE871FE6447E00F704D5 /* JKFViewController.m */,
+				BD7C356720010BDC00DDDFB8 /* JKGViewController.h */,
+				BD7C356620010BDC00DDDFB8 /* JKGViewController.m */,
 				0452F2A91E7E457A0069037C /* JKJSONHandler+Jack.h */,
 				0452F2AA1E7E457A0069037C /* JKJSONHandler+Jack.m */,
 				BDA3D1601FE630E200D3072A /* JKRouterExtension+Jack.h */,
@@ -464,12 +469,14 @@
 				"${BUILT_PRODUCTS_DIR}/JKDataHelper/JKDataHelper.framework",
 				"${BUILT_PRODUCTS_DIR}/JKRouter/JKRouter.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+				"${BUILT_PRODUCTS_DIR}/YYModel/YYModel.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JKDataHelper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JKRouter.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYModel.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -511,6 +518,7 @@
 				046309201EC6126900048CBA /* JKWebViewController.m in Sources */,
 				BDFBBE971FE6494500F704D5 /* UIView+anchorPoint.m in Sources */,
 				BDFBBE981FE6494500F704D5 /* XWInteractiveTransition.m in Sources */,
+				BD7C356820010BDC00DDDFB8 /* JKGViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				BDFBBE881FE6447E00F704D5 /* JKFViewController.m in Sources */,
 				0452F29A1E7D35CA0069037C /* JKAViewController.m in Sources */,

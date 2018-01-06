@@ -28,6 +28,11 @@ static char moduleID;
     return [[[self class] alloc] init];
 }
 
++ (instancetype)jkRouterViewControllerWithJSON:(NSDictionary *)dic{
+    
+    return nil;
+}
+
 + (BOOL)validateTheAccessToOpen{
     
     return YES;

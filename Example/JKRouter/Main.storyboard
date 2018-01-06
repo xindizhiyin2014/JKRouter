@@ -30,7 +30,7 @@
         <!--View Controller-->
         <scene sceneID="Bce-zh-3sI">
             <objects>
-                <viewController id="bXs-Kg-DnR" customClass="JKFViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="JKFViewController" id="bXs-Kg-DnR" customClass="JKFViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="S8f-fh-N3n"/>
                         <viewControllerLayoutGuide type="bottom" id="izc-xW-vsl"/>

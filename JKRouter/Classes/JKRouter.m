@@ -145,6 +145,22 @@ static JKRouter *defaultRouter =nil;
     [self open:vcClassName options:options CallBack:nil];
 }
 
++ (void)open:(NSString *)vcClassName optionsWithJSON:(RouterOptions *)options{
+    if (!JKSafeStr(vcClassName)) {
+        NSAssert(NO, @"vcClassName is nil or vcClassName is not a string");
+        return;
+    }
+    if (!options) {
+        options = [RouterOptions options];
+    }
+    UIViewController *vc =[NSClassFromString(vcClassName) jkRouterViewControllerWithJSON:options.defaultParams];
+    //根据配置好的VC，options配置进行跳转
+    if (![self routerViewController:vc options:options]) {//跳转失败
+        return;
+    }
+   
+}
+
 
 + (void)openSpecifiedVC:(UIViewController *)vc options:(RouterOptions *)options{
     if (!options) {
@@ -388,11 +404,8 @@ static JKRouter *defaultRouter =nil;
         for (NSString *key in propertyNames) {
             id value =options.defaultParams[key];
             [vc setValue:value forKey:key];
-            
         }
-
     }
-
 }
    
 //将url ？后的字符串转换为NSDictionary对象

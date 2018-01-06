@@ -109,7 +109,13 @@
  */
 + (void)open:(NSString *)vcClassName options:(RouterOptions *)options;
 
-
+/**
+ 主要是通过后台，或者H5交互是携带json参数进行跳转，对应的ViewController内部需要实现
++ (instancetype)jkRouterViewControllerWithJSON:(NSDictionary *)dic 这个方法的重写。
+ @param vcClassName 跳转的控制器类名
+ @param options 跳转的各种设置 options 的defaultParams 是json对象。内部value不能是OC的对象
+ */
++ (void)open:(NSString *)vcClassName optionsWithJSON:(RouterOptions *)options;
 /**
  根据options和已有的vc进行跳转
 
@@ -145,7 +151,6 @@
  @param params 传入的参数
  */
 + (void)URLOpen:(NSString *)url params:(NSDictionary *)params;
-
 
 /**
  适用于访问基于http协议／https协议的路由跳转
