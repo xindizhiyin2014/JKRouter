@@ -25,7 +25,7 @@ pod "JKRouter"
 HHL110120, 929097264@qq.com
 
 ## QQ Contact group
-if you you QQ you can use this Qrcode to contact with us
+if you use QQ you can use this Qrcode to contact with us
 ![](https://github.com/xindizhiyin2014/JKRouter/blob/master/JKRouter.png?raw=true)
 
 ## License
