@@ -379,6 +379,13 @@ static JKRouter *defaultRouter =nil;
 
 #pragma mark  the tool functions - - - - - - - -
 
++ (void)replaceCurrentViewControllerWithTargetVC:(UIViewController *)targetVC{
+    NSArray *viewControllers = [JKRouter router].navigationController.viewControllers;
+    NSMutableArray *vcArray = [NSMutableArray arrayWithArray:viewControllers];
+    [vcArray replaceObjectAtIndex:viewControllers.count-1 withObject:targetVC];
+    [[JKRouter router].navigationController setViewControllers:[vcArray copy] animated:YES];
+}
+
 //为ViewController 的属性赋值
 + (UIViewController *)configVC:(NSString *)vcClassName options:(RouterOptions *)options {
 
