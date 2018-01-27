@@ -19,18 +19,17 @@
 
 @interface RouterOptions : NSObject
 
-//转场方式
-@property (nonatomic, readwrite) RouterTransformVCStyle transformStyle;
 
-//跳转时是否有动画
-@property (nonatomic, readwrite) BOOL animated;
+@property (nonatomic, readwrite) RouterTransformVCStyle transformStyle;  ///< 转场方式
 
-//每个页面所对应的moduleID
-@property (nonatomic, copy, readonly) NSString *moduleID;
+@property (nonatomic, assign) RouterCreateStyle  createStyle;           ///< vc 的创建方式
 
+@property (nonatomic, readwrite) BOOL animated;                         ///< 跳转时是否有动画
 
-//跳转时传入的参数，默认为nil
-@property (nonatomic,copy,readwrite) NSDictionary *defaultParams;
+@property (nonatomic, copy, readonly) NSString *moduleID;               ///< 每个页面所对应的moduleID
+
+//这个传入的参数默认传入的值dictionary对象，在+ (void)open:(NSString *)vcClassName optionsWithJSON:(RouterOptions *)options 这个方法使用时defaultParams 是json对象。这个地方要注意哦
+@property (nonatomic,copy,readwrite) NSDictionary *defaultParams;      ///< 跳转时传入的参数，默认为nil
 
 
 /**
@@ -219,6 +218,14 @@
  @param targetURL 路由信息
  */
 + (void)openExternal:(NSURL *)targetURL;
+
+
+/**
+ 使用targetVC替换navigattionController当前的viewController
+
+ @param targetVC 目标viewController
+ */
++ (void)replaceCurrentViewControllerWithTargetVC:(UIViewController *)targetVC;
 
 
 @end

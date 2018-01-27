@@ -56,5 +56,9 @@ static char moduleID;
     
 }
 
+- (void)jkRouterRefresh{
+    
+}
+
 
 @end

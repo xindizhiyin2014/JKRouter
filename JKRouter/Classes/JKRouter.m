@@ -467,7 +467,24 @@ static JKRouter *defaultRouter =nil;
 }
 
 + (BOOL)_openWithPushStyle:(UIViewController *)vc options:(RouterOptions *)options{
-    [[JKRouter router].navigationController pushViewController:vc animated:options.animated];
+    if (options.createStyle==RouterCreateStyleNew) {
+        [[JKRouter router].navigationController pushViewController:vc animated:options.animated];
+    }else if (options.createStyle==RouterCreateStyleReplace) {
+        
+        NSArray *viewControllers = [JKRouter router].navigationController.viewControllers;
+        NSMutableArray *vcArray = [NSMutableArray arrayWithArray:viewControllers];
+        [vcArray replaceObjectAtIndex:viewControllers.count-1 withObject:vc];
+        [[JKRouter router].navigationController setViewControllers:[vcArray copy] animated:YES];
+    }else if (options.createStyle==RouterCreateStyleRefresh) {
+        UIViewController *currentVC = [JKRouter router].navigationController.topViewController;
+        if ([[currentVC class] isKindOfClass:[vc class]]) {
+            [currentVC jkRouterRefresh];
+        }else{
+             [[JKRouter router].navigationController pushViewController:vc animated:options.animated];
+        }
+    }
+    
+    
     return YES;
 }
 

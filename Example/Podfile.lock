@@ -1,6 +1,6 @@
 PODS:
   - JKDataHelper (0.1.1)
-  - JKRouter (0.2.1):
+  - JKRouter (0.2.2):
     - JKDataHelper
   - Masonry (1.1.0)
   - YYModel (1.0.4)
@@ -17,7 +17,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   JKDataHelper: 957a08d46063146733ae220e67e9e517b0895cca
-  JKRouter: fb21c0c6f1c15f67dc16c84c3495e9bcee27f32c
+  JKRouter: 34b1faa1352a4ba3f3a184568cf848582781b840
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 

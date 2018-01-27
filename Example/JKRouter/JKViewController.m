@@ -25,7 +25,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     self.view.backgroundColor = [UIColor whiteColor];
-    _dataArr = @[@"正常跳转",@"正常跳转＋参数",@"正常跳转，返回＋参数",@"路由跳转",@"路由跳转+参数",@"跳转＋权限校验",@"present跳转",@"自定义跳转",@"webVC跳转",@"使用storyBoard",@"通过json传输参数跳转"];
+    _dataArr = @[@"正常跳转",@"正常跳转＋参数",@"正常跳转，返回＋参数",@"路由跳转",@"路由跳转+参数",@"跳转＋权限校验",@"present跳转",@"自定义跳转",@"webVC跳转",@"使用storyBoard",@"通过json传输参数跳转",@"createStyleReplace"];
     _contentTable = [[UITableView alloc] initWithFrame:self.view.frame];
     [_contentTable registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell1"];
     _contentTable.delegate =self;
@@ -116,6 +116,11 @@
             [self useJson];
         }
             break;
+        case 11:
+        {
+            [self createStyleReplace];
+        }
+            break;
 
 
 
@@ -189,6 +194,12 @@
                            };
     RouterOptions * options = [RouterOptions optionsWithDefaultParams:json];
     [JKRouter open:@"JKGViewController" optionsWithJSON:options];
+}
+
+- (void)createStyleReplace{
+    [JKRouter open:@"JKHViewController"];
+
+
 }
 
 

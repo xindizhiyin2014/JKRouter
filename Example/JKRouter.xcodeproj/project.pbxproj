@@ -35,6 +35,8 @@
 		A146CC721E35DEE3777774C0 /* Pods_JKRouter_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74C599AC3A6497544067198D /* Pods_JKRouter_Tests.framework */; };
 		BD7C356820010BDC00DDDFB8 /* JKGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7C356620010BDC00DDDFB8 /* JKGViewController.m */; };
 		BDA3D1621FE630E200D3072A /* JKRouterExtension+Jack.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA3D1611FE630E200D3072A /* JKRouterExtension+Jack.m */; };
+		BDFAE7F0201C50BA006BB722 /* JKHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDFAE7EF201C50BA006BB722 /* JKHViewController.m */; };
+		BDFAE7F3201C50DD006BB722 /* JKIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDFAE7F2201C50DD006BB722 /* JKIViewController.m */; };
 		BDFBBE881FE6447E00F704D5 /* JKFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDFBBE871FE6447E00F704D5 /* JKFViewController.m */; };
 		BDFBBE961FE6494500F704D5 /* UIView+ FrameChange.m in Sources */ = {isa = PBXBuildFile; fileRef = BDFBBE8A1FE6494500F704D5 /* UIView+ FrameChange.m */; };
 		BDFBBE971FE6494500F704D5 /* UIView+anchorPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = BDFBBE8C1FE6494500F704D5 /* UIView+anchorPoint.m */; };
@@ -102,6 +104,10 @@
 		BD7C356720010BDC00DDDFB8 /* JKGViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKGViewController.h; sourceTree = "<group>"; };
 		BDA3D1601FE630E200D3072A /* JKRouterExtension+Jack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JKRouterExtension+Jack.h"; sourceTree = "<group>"; };
 		BDA3D1611FE630E200D3072A /* JKRouterExtension+Jack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "JKRouterExtension+Jack.m"; sourceTree = "<group>"; };
+		BDFAE7EE201C50BA006BB722 /* JKHViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKHViewController.h; sourceTree = "<group>"; };
+		BDFAE7EF201C50BA006BB722 /* JKHViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKHViewController.m; sourceTree = "<group>"; };
+		BDFAE7F1201C50DD006BB722 /* JKIViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKIViewController.h; sourceTree = "<group>"; };
+		BDFAE7F2201C50DD006BB722 /* JKIViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKIViewController.m; sourceTree = "<group>"; };
 		BDFBBE861FE6447E00F704D5 /* JKFViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKFViewController.h; sourceTree = "<group>"; };
 		BDFBBE871FE6447E00F704D5 /* JKFViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKFViewController.m; sourceTree = "<group>"; };
 		BDFBBE8A1FE6494500F704D5 /* UIView+ FrameChange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ FrameChange.m"; sourceTree = "<group>"; };
@@ -216,6 +222,10 @@
 				BDFBBE871FE6447E00F704D5 /* JKFViewController.m */,
 				BD7C356720010BDC00DDDFB8 /* JKGViewController.h */,
 				BD7C356620010BDC00DDDFB8 /* JKGViewController.m */,
+				BDFAE7EE201C50BA006BB722 /* JKHViewController.h */,
+				BDFAE7EF201C50BA006BB722 /* JKHViewController.m */,
+				BDFAE7F1201C50DD006BB722 /* JKIViewController.h */,
+				BDFAE7F2201C50DD006BB722 /* JKIViewController.m */,
 				0452F2A91E7E457A0069037C /* JKJSONHandler+Jack.h */,
 				0452F2AA1E7E457A0069037C /* JKJSONHandler+Jack.m */,
 				BDA3D1601FE630E200D3072A /* JKRouterExtension+Jack.h */,
@@ -507,6 +517,7 @@
 			files = (
 				0452F2AB1E7E457A0069037C /* JKJSONHandler+Jack.m in Sources */,
 				BDFBBE991FE6494500F704D5 /* XWPageCoverController.m in Sources */,
+				BDFAE7F0201C50BA006BB722 /* JKHViewController.m in Sources */,
 				0452F2A11E7E25020069037C /* JKBViewController.m in Sources */,
 				BDA3D1621FE630E200D3072A /* JKRouterExtension+Jack.m in Sources */,
 				BDFBBE961FE6494500F704D5 /* UIView+ FrameChange.m in Sources */,
@@ -516,6 +527,7 @@
 				BDFBBE9B1FE6494500F704D5 /* XWPageCoverTransition.m in Sources */,
 				6003F5A7195388D20070C39A /* JKViewController.m in Sources */,
 				046309201EC6126900048CBA /* JKWebViewController.m in Sources */,
+				BDFAE7F3201C50DD006BB722 /* JKIViewController.m in Sources */,
 				BDFBBE971FE6494500F704D5 /* UIView+anchorPoint.m in Sources */,
 				BDFBBE981FE6494500F704D5 /* XWInteractiveTransition.m in Sources */,
 				BD7C356820010BDC00DDDFB8 /* JKGViewController.m in Sources */,

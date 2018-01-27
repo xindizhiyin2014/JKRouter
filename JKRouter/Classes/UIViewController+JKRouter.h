@@ -59,5 +59,11 @@
 - (RouterTransformVCStyle)jkRouterTransformStyle;
 
 
+/**
+ 刷新数据
+ */
+- (void)jkRouterRefresh;
+
+
 
 @end
