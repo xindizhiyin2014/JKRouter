@@ -74,11 +74,11 @@
 @interface JKRouter()
 
 @property (nonatomic, copy, readwrite) NSSet * modules;     ///< 存储路由，moduleID信息，权限配置信息
-@property (nonatomic,copy) NSArray<NSString *> *routerFileNames; // 路由配置信息的json文件名数组
+@property (nonatomic,copy) NSArray<NSString *> *routerFileNames; ///< 路由配置信息的json文件名数组
 
-@property (nonatomic,strong) NSSet *urlSchemes;//支持的URL协议集合
+@property (nonatomic,strong) NSSet *urlSchemes;///< 支持的URL协议集合
 
-@property (nonatomic,strong) NSString *webContainerName;//自定义的URL协议名字
+@property (nonatomic,strong) NSString *webContainerName;///< 自定义的URL协议名字
 
 
 @property (nonatomic,weak) UINavigationController *navigationController; ///< app的导航控制器
@@ -114,7 +114,19 @@ static JKRouter *defaultRouter =nil;
 
 - (UINavigationController *)navigationController{
     UIViewController *rootVC = [UIApplication sharedApplication].keyWindow.rootViewController;
-    return [rootVC isKindOfClass:[UINavigationController class]]?(UINavigationController *)rootVC:nil;
+    if (self.windowRootVCStyle ==RouterWindowRootVCStyleCustom) {
+        UITabBarController *tabBarVC = (UITabBarController *)rootVC;
+        UINavigationController *vc = tabBarVC.selectedViewController;
+        if (![vc isKindOfClass:[UINavigationController class]]) {
+            NSAssert(NO, @"tabBarViewController's selectedViewController is not a UINavigationController instance");
+        }
+        return vc;
+    }
+    
+    if (![rootVC isKindOfClass:[UINavigationController class]]) {
+        NSAssert(NO, @"rootVC is not a UINavigationController instance");
+    }
+    return (UINavigationController *)rootVC;
 }
 
 + (void)configWithRouterFiles:(NSArray<NSString *> *)routerFileNames{

@@ -32,7 +32,29 @@
     _contentTable.dataSource =self;
     [self.view addSubview:_contentTable];
     
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button setTitle:@"切换模式" forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:button];
+    self.navigationItem.rightBarButtonItem =item;
+    
 }
+
+- (void)buttonClicked:(UIButton *)button{
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"RouterWindowRootVCStyle"] integerValue] !=RouterWindowRootVCStyleDefault) {
+        [[NSUserDefaults standardUserDefaults] setObject:@(RouterWindowRootVCStyleDefault) forKey:@"RouterWindowRootVCStyle"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }else{
+       [[NSUserDefaults standardUserDefaults] setObject:@(RouterWindowRootVCStyleCustom) forKey:@"RouterWindowRootVCStyle"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"重启切换模式" delegate:nil cancelButtonTitle:@"确认" otherButtonTitles:nil, nil];
+    [alert show];
+    
+}
+
 
 
 

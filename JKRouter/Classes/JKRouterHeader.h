@@ -20,6 +20,39 @@ typedef NS_ENUM(NSInteger,RouterCreateStyle) {
     RouterCreateStyleReplace,           ///< 创建一个新的ViewController对象，然后替换navigationController当前的viewController
     RouterCreateStyleRefresh           ///<  当前的viewController就是目标viewController就不创建，而是执行相关的刷新操作。如果当前的viewController不是目标viewController就执行创建操作
 };///< ViewController的创建方式
+
+typedef NS_ENUM(NSInteger, RouterWindowRootVCStyle) {
+ RouterWindowRootVCStyleDefault,         ///< 默认的window的rootVC的初始化方式具体如（1）
+ RouterWindowRootVCStyleCustom           ///< 常见的window的rootVC的初始化方式具体方式如(2)
+};
+
+/*
+ 
+ (1):window的rootViewController的初始化方式：
+ self.rootTabBarController = [[RootTabbarViewController alloc] init];
+ 
+ UINavigationController *naVC = [[UINavigationController alloc] initWithRootViewController: self.rootTabBarController];
+ self.window.rootViewController = naVC;
+ 
+ 或者：
+ UIViewController *vc = [UIViewController new];
+ UINavigationController *naVC = [[UINavigationController alloc] initWithRootViewController:vc];
+ self.window.rootViewController = naVC;
+
+ ****************************************************
+ (2):window的rootViewController的初始化方式：
+ UIViewController *vc1 = [UIViewController new];
+ UINavigationController *naVC = [[UINavigationController alloc] initWithRootViewController:vc1];
+ UIViewController *vc2 = [UIViewController new];
+ UINavigationController *naVC1 = [[UINavigationController alloc] initWithRootViewController:vc2];
+ UIViewController *vc3 = [UIViewController new];
+ UINavigationController *naVC2 = [[UINavigationController alloc] initWithRootViewController:vc3];
+ UITabBarController *tabBarVC3 = [UITabBarController new];
+ tabBarVC.viewControllers = @[naVC1,naVC2,naVC3];
+ self.window.rootViewController = tabBarVC.viewControllers;
+ 
+ */
+
 #import<JKRouter/UIViewController+JKRouter.h>
 #import<JKRouter/JKRouter.h>
 #import<JKRouter/JKJSONHandler.h>

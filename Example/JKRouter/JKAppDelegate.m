@@ -9,6 +9,18 @@
 #import "JKAppDelegate.h"
 #import "JKViewController.h"
 #import <JKRouter/JKRouterHeader.h>
+#import "JKOneViewController.h"
+#import "JKTwoViewController.h"
+#import "JKThreeViewController.h"
+
+@interface WKNavigationController:UINavigationController
+
+@end
+
+@implementation WKNavigationController
+
+@end
+
 
 @implementation JKAppDelegate
 
@@ -16,10 +28,29 @@
 {
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    JKViewController *jkVC = [JKViewController new];
-    UINavigationController *naVC = [[UINavigationController alloc] initWithRootViewController:jkVC];
-    self.window.rootViewController = naVC;
-    [JKRouter configWithRouterFiles:@[@"modules.json",@"modules123.json"]];
+    
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"RouterWindowRootVCStyle"] integerValue] !=RouterWindowRootVCStyleDefault) {
+        JKOneViewController *oneVC = [JKOneViewController new];
+        UINavigationController *naVC1 = [[UINavigationController alloc] initWithRootViewController:oneVC];
+        JKTwoViewController *twoVC = [JKTwoViewController new];
+        UINavigationController *naVC2 = [[UINavigationController alloc] initWithRootViewController:twoVC];
+        JKThreeViewController *threeVC = [JKThreeViewController new];
+        UINavigationController *naVC3 = [[UINavigationController alloc] initWithRootViewController:threeVC];
+        UITabBarController *tabBarVC = [[UITabBarController alloc] init];
+        tabBarVC.viewControllers = @[naVC1,naVC2,naVC3];
+        [JKRouter configWithRouterFiles:@[@"modules.json",@"modules123.json"]];
+        [JKRouter router].windowRootVCStyle = RouterWindowRootVCStyleCustom;
+        self.window.rootViewController = tabBarVC;
+    }else{
+        JKViewController *jkVC = [JKViewController new];
+        UINavigationController *naVC = [[UINavigationController alloc] initWithRootViewController:jkVC];
+        self.window.rootViewController = naVC;
+        [JKRouter configWithRouterFiles:@[@"modules.json",@"modules123.json"]];
+        [JKRouter router].windowRootVCStyle = RouterWindowRootVCStyleDefault;
+    }
+    
+    
+    
     return YES;
 }
 
