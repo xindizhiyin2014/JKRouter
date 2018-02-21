@@ -53,6 +53,9 @@
 - (void)buttonClicked{
     [JKRouter open:@"JKAViewController"];
 }
+- (BOOL)jkIsTabBarItemVC{
+    return YES;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

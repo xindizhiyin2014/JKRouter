@@ -60,5 +60,9 @@ static char moduleID;
     
 }
 
+- (BOOL)jkIsTabBarItemVC{
+    return NO;
+}
+
 
 @end

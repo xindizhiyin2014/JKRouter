@@ -167,9 +167,14 @@ static JKRouter *defaultRouter =nil;
     }
     UIViewController *vc =[NSClassFromString(vcClassName) jkRouterViewControllerWithJSON:options.defaultParams];
     //根据配置好的VC，options配置进行跳转
-    if (![self routerViewController:vc options:options]) {//跳转失败
-        return;
+    if ([vc jkIsTabBarItemVC]) {
+        [self _switchTabWithVC:vc];//进行tab切换
+    }else{
+        if (![self routerViewController:vc options:options]) {//跳转失败
+            return;
+        }
     }
+    
    
 }
 
@@ -195,9 +200,14 @@ static JKRouter *defaultRouter =nil;
     }
     UIViewController *vc = [self configVC:vcClassName options:options];
     //根据配置好的VC，options配置进行跳转
-    if (![self routerViewController:vc options:options]) {//跳转失败
-        return;
+    if ([vc jkIsTabBarItemVC]) {
+        [self _switchTabWithVC:vc];//进行tab切换
+    }else{
+        if (![self routerViewController:vc options:options]) {//跳转失败
+            return;
+        }
     }
+
     if (callback) {
         callback();
     }
@@ -368,6 +378,7 @@ static JKRouter *defaultRouter =nil;
     else {
         
         [[JKRouter router].navigationController popToViewController:vc animated:animated];
+        
     }
 }
 
@@ -451,9 +462,6 @@ static JKRouter *defaultRouter =nil;
         [[vc class] handleNoAccessToOpen];
         return NO;
     }
-    if (!([JKRouter router].navigationController && [[JKRouter router].navigationController isKindOfClass:[UINavigationController class]])) {
-        return NO;
-    }
     if ([JKRouter router].navigationController.presentationController) {
         
         [[JKRouter router].navigationController dismissViewControllerAnimated:NO completion:nil]; 
@@ -515,6 +523,37 @@ static JKRouter *defaultRouter =nil;
 + (BOOL)_openWithOtherStyle:(UIViewController *)vc options:(RouterOptions *)options{
     [vc jkRouterSpecialTransformWithNaVC:[JKRouter router].navigationController];
     return YES;
+}
+
+//切换tab
++ (void)_switchTabWithVC:(UIViewController *)vc{
+    UIViewController *rootVC = [UIApplication sharedApplication].keyWindow.rootViewController;
+    if ([rootVC isKindOfClass:[UITabBarController class]]) {
+       UITabBarController *tabBarVC = (UITabBarController *)rootVC;
+        if ([tabBarVC.selectedViewController isKindOfClass:[UINavigationController class]]) {
+            NSArray *vcArray = tabBarVC.viewControllers;
+            for (NSInteger i = 0; i< vcArray.count; i++) {
+                UINavigationController *naVC = vcArray[i];
+                UIViewController *targetVC = naVC.viewControllers[0];
+                if ([targetVC  isKindOfClass:[vc class]] ) {
+                    [naVC popToRootViewControllerAnimated:YES];
+                    tabBarVC.selectedIndex = i;
+                    return;
+                }
+            }
+        }else{
+          NSArray *vcArray = tabBarVC.viewControllers;
+            for (NSInteger i = 0; i< vcArray.count; i++) {
+                UIViewController *targetVC = vcArray[i];
+                if ([targetVC  isKindOfClass:[vc class]] ) {
+                    tabBarVC.selectedIndex = i;
+                    return;
+                }
+            }
+        }
+    }
+    
+    
 }
 
 

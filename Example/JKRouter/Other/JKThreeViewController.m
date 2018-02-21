@@ -31,7 +31,11 @@ button.center = self.view.center;
 }
 
 - (void)buttonClicked{
-    [JKRouter URLOpen:@"jkpp://jackApp:10001"];
+    [JKRouter open:@"JKTwoViewController"];
+}
+
+- (BOOL)jkIsTabBarItemVC{
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning {

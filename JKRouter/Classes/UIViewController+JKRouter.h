@@ -65,5 +65,13 @@
 - (void)jkRouterRefresh;
 
 
+/**
+ 是否是tabbarItem的对应的viewController
+defalut is NO
+ @return YES or NO
+ */
+- (BOOL)jkIsTabBarItemVC;
+
+
 
 @end

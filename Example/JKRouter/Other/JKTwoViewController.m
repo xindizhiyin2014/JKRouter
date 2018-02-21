@@ -29,10 +29,15 @@
     
 }
 
+
 - (void)buttonClicked{
     NSDictionary *params = @{@"testContent":@"Hi, I'm Jack"};
     RouterOptions *options = [RouterOptions optionsWithDefaultParams:params];
     [JKRouter open:@"JKBViewController" options:options];
+}
+
+- (BOOL)jkIsTabBarItemVC{
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning {

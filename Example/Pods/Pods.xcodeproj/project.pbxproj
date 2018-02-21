@@ -120,7 +120,7 @@
 		1A8F52BB7F7C2ECCDE5AFD17E61A87D8 /* MASViewConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASViewConstraint.h; path = Masonry/MASViewConstraint.h; sourceTree = "<group>"; };
 		1B3301C8309A2A8A9D395CA58B6106CA /* Pods-JKRouter_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-JKRouter_Example-resources.sh"; sourceTree = "<group>"; };
 		1D8CD3B47A545FCA476BB3F9B86C29B0 /* NSLayoutConstraint+MASDebugAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSLayoutConstraint+MASDebugAdditions.m"; path = "Masonry/NSLayoutConstraint+MASDebugAdditions.m"; sourceTree = "<group>"; };
-		1E40867B76BB8C2589CAAB7BAD2EDB7C /* JKRouter.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = JKRouter.modulemap; sourceTree = "<group>"; };
+		1E40867B76BB8C2589CAAB7BAD2EDB7C /* JKRouter.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = JKRouter.modulemap; sourceTree = "<group>"; };
 		1EC67A0EDB1BF071EC056FFC06CCCA0E /* NSArray+MASShorthandAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+MASShorthandAdditions.h"; path = "Masonry/NSArray+MASShorthandAdditions.h"; sourceTree = "<group>"; };
 		209AC536F349EEECF5DC43BDFDE75A9F /* JKDataHelper-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JKDataHelper-umbrella.h"; sourceTree = "<group>"; };
 		2E684C96E9732FA0945AC1533643B113 /* MASViewAttribute.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewAttribute.m; path = Masonry/MASViewAttribute.m; sourceTree = "<group>"; };
@@ -134,11 +134,11 @@
 		396AACD6B62374D19457F54678E23CCB /* Pods-JKRouter_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-JKRouter_Example-umbrella.h"; sourceTree = "<group>"; };
 		3F24DA0BAFD5C480A950191187209187 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASCompositeConstraint.h; path = Masonry/MASCompositeConstraint.h; sourceTree = "<group>"; };
 		41641F1DFEE327D64461B1062BF748C9 /* YYModel.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = YYModel.xcconfig; sourceTree = "<group>"; };
-		439FA78C0308F9658A0649032834394F /* Masonry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Masonry.framework; path = Masonry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		439FA78C0308F9658A0649032834394F /* Masonry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Masonry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CDD6566B9EA2935BCF4C8BDAD28B0A7 /* JKJSONHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JKJSONHandler.m; path = JKRouter/Classes/JKJSONHandler.m; sourceTree = "<group>"; };
 		4FF68AD43DC4C911BFA55FAFC67A4E05 /* MASConstraintMaker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASConstraintMaker.h; path = Masonry/MASConstraintMaker.h; sourceTree = "<group>"; };
 		5422D390EC523EAF3B5C94F5E813C709 /* Masonry-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Masonry-umbrella.h"; sourceTree = "<group>"; };
-		5602BE79854A12C0BEC11D68E1F9F2FE /* Pods-JKRouter_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-JKRouter_Tests.modulemap"; sourceTree = "<group>"; };
+		5602BE79854A12C0BEC11D68E1F9F2FE /* Pods-JKRouter_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-JKRouter_Tests.modulemap"; sourceTree = "<group>"; };
 		5685B3B55DE071A0C1338A2692A19595 /* Pods-JKRouter_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-JKRouter_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		5C50042CA0400A9C9EBB6D67894DFFCE /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69CCF09AF1A47D5D20BAD890ECC057E7 /* Masonry.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Masonry.h; path = Masonry/Masonry.h; sourceTree = "<group>"; };
@@ -150,7 +150,7 @@
 		7674069EE0A0BFE35FA9DE9C03A75A80 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		77584F78CB1B9614245EA07073DC036B /* YYModel-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YYModel-umbrella.h"; sourceTree = "<group>"; };
 		7A5EF100F7AFABEF572A1732433AF31F /* View+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "View+MASAdditions.m"; path = "Masonry/View+MASAdditions.m"; sourceTree = "<group>"; };
-		7AE95627F80A1DFDE9441C0AB2554FCC /* Masonry.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Masonry.modulemap; sourceTree = "<group>"; };
+		7AE95627F80A1DFDE9441C0AB2554FCC /* Masonry.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Masonry.modulemap; sourceTree = "<group>"; };
 		7FF2F453031315098F71B7859B444ED6 /* NSObject+YYModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+YYModel.h"; path = "YYModel/NSObject+YYModel.h"; sourceTree = "<group>"; };
 		80452FD1758BAAEFEC513ED2DB208492 /* JKDataHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JKDataHelper.h; path = JKDataHelper/Classes/JKDataHelper.h; sourceTree = "<group>"; };
 		80CA7BFB108FBCD0E5330FDEECFC7C61 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -158,12 +158,12 @@
 		82855CF6C0D3047002ACED205329F8EA /* JKRouter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JKRouter.m; path = JKRouter/Classes/JKRouter.m; sourceTree = "<group>"; };
 		85FB10C0E2EB40AEBCD4F3E1EDA16F4A /* Masonry-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Masonry-prefix.pch"; sourceTree = "<group>"; };
 		880DFE347AAE46C5472220C5547521DF /* MASViewConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewConstraint.m; path = Masonry/MASViewConstraint.m; sourceTree = "<group>"; };
-		891FC7D43BD8BEF47025747CFF44E3D4 /* JKDataHelper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = JKDataHelper.framework; path = JKDataHelper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		891FC7D43BD8BEF47025747CFF44E3D4 /* JKDataHelper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JKDataHelper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BC5E4DF3F2891FA2163A972EED392E1 /* Pods-JKRouter_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JKRouter_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		8BF023B039A2DA01650568AFFDADF109 /* MASConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASConstraint.m; path = Masonry/MASConstraint.m; sourceTree = "<group>"; };
-		8CB8FB5BE5FEF431CA8D3355C7CD3380 /* YYModel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = YYModel.framework; path = YYModel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CB8FB5BE5FEF431CA8D3355C7CD3380 /* YYModel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YYModel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		91B384879830E0F2144F6FF5FF74F0B8 /* Pods-JKRouter_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JKRouter_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		946562685474CD685072053EFF834882 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		99B3869B8F588AFB52317B5B4CC3E5E6 /* Pods-JKRouter_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JKRouter_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		9A3584833A14D2223AA1E58048F5934C /* YYClassInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYClassInfo.h; path = YYModel/YYClassInfo.h; sourceTree = "<group>"; };
@@ -178,7 +178,7 @@
 		ACA3BACE130BA3447042FB883639891F /* YYClassInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYClassInfo.m; path = YYModel/YYClassInfo.m; sourceTree = "<group>"; };
 		AE6D58F348F75E9F152A2F3CF834DAED /* UIViewController+JKRouter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+JKRouter.m"; path = "JKRouter/Classes/UIViewController+JKRouter.m"; sourceTree = "<group>"; };
 		B8277D3490CAB6BEB41E720ADD3C4224 /* MASConstraint+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MASConstraint+Private.h"; path = "Masonry/MASConstraint+Private.h"; sourceTree = "<group>"; };
-		B8A85F033A5C76843513564481B6609E /* JKDataHelper.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = JKDataHelper.modulemap; sourceTree = "<group>"; };
+		B8A85F033A5C76843513564481B6609E /* JKDataHelper.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = JKDataHelper.modulemap; sourceTree = "<group>"; };
 		B8CF49B0D87777D803E6682AF235B53B /* Pods-JKRouter_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-JKRouter_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		BC34597666804442D38A76C307988C10 /* JKRouterExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JKRouterExtension.h; path = JKRouter/Classes/JKRouterExtension.h; sourceTree = "<group>"; };
 		C0FB6448926916AC90C8B62FF23559F8 /* MASConstraintMaker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASConstraintMaker.m; path = Masonry/MASConstraintMaker.m; sourceTree = "<group>"; };
@@ -186,8 +186,8 @@
 		CBB6E572268C90010D92A80B6135AF14 /* JKRouterHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JKRouterHeader.h; path = JKRouter/Classes/JKRouterHeader.h; sourceTree = "<group>"; };
 		CE9D6288A64A965AC4453CE9CFC14CA6 /* JKRouterExtension.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JKRouterExtension.m; path = JKRouter/Classes/JKRouterExtension.m; sourceTree = "<group>"; };
 		CF22347A9314A3376EE6DC73B934B798 /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "ViewController+MASAdditions.h"; path = "Masonry/ViewController+MASAdditions.h"; sourceTree = "<group>"; };
-		D3A3310DE5D8654807C37E5F44A5ACEE /* Pods_JKRouter_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_JKRouter_Example.framework; path = "Pods-JKRouter_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D480C39F2A2CCE75EFB31B39F4E6F54A /* JKRouter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = JKRouter.framework; path = JKRouter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3A3310DE5D8654807C37E5F44A5ACEE /* Pods_JKRouter_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JKRouter_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D480C39F2A2CCE75EFB31B39F4E6F54A /* JKRouter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JKRouter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4C9C12A2A9A05BC2EFA9C0744A9A10E /* JKDataHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JKDataHelper.m; path = JKDataHelper/Classes/JKDataHelper.m; sourceTree = "<group>"; };
 		DB2990773DFF6F2BB07F4C829DEC92AE /* Pods-JKRouter_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-JKRouter_Tests-resources.sh"; sourceTree = "<group>"; };
 		DBC2DDD8734820BFDF29C77020B36B4D /* JKJSONHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JKJSONHandler.h; path = JKRouter/Classes/JKJSONHandler.h; sourceTree = "<group>"; };
@@ -196,10 +196,10 @@
 		EBA1ADAFE6F67BD76693B61DCC05D3E4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		EEEAB50A53218F6080259AB475957411 /* YYModel-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YYModel-prefix.pch"; sourceTree = "<group>"; };
 		EF23AD0E6A14C4375AAFD9977CBC7FA7 /* JKRouter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JKRouter.h; path = JKRouter/Classes/JKRouter.h; sourceTree = "<group>"; };
-		EFA20B28DC47944D4A98CA37FB2EE106 /* Pods_JKRouter_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_JKRouter_Tests.framework; path = "Pods-JKRouter_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFA20B28DC47944D4A98CA37FB2EE106 /* Pods_JKRouter_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JKRouter_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFC2F7B0839BD7454D8022AF1923655E /* NSArray+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+MASAdditions.m"; path = "Masonry/NSArray+MASAdditions.m"; sourceTree = "<group>"; };
-		F30609A4F3A3572C6DA6386BA11E476E /* YYModel.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = YYModel.modulemap; sourceTree = "<group>"; };
-		F3D2CEC83193D726C7F3101BFBF8F82B /* Pods-JKRouter_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-JKRouter_Example.modulemap"; sourceTree = "<group>"; };
+		F30609A4F3A3572C6DA6386BA11E476E /* YYModel.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = YYModel.modulemap; sourceTree = "<group>"; };
+		F3D2CEC83193D726C7F3101BFBF8F82B /* Pods-JKRouter_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-JKRouter_Example.modulemap"; sourceTree = "<group>"; };
 		F4D3ABAFEE3599716DDE62CC981769C0 /* NSObject+YYModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+YYModel.m"; path = "YYModel/NSObject+YYModel.m"; sourceTree = "<group>"; };
 		F8BF02E16A3C2069568EE0AD0DD7D0B9 /* MASConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASConstraint.h; path = Masonry/MASConstraint.h; sourceTree = "<group>"; };
 		F9D37B0C665EBFE92DD64E3285280A78 /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "View+MASShorthandAdditions.h"; path = "Masonry/View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
@@ -343,7 +343,6 @@
 				D4C9C12A2A9A05BC2EFA9C0744A9A10E /* JKDataHelper.m */,
 				279F974488ABB3191D122F09BD043F53 /* Support Files */,
 			);
-			name = JKDataHelper;
 			path = JKDataHelper;
 			sourceTree = "<group>";
 		};
@@ -379,7 +378,6 @@
 				385B01FA06CC4B5ACF60283B3A24759A /* YYModel.h */,
 				C5C8985163D5979D8882B4B71635A644 /* Support Files */,
 			);
-			name = YYModel;
 			path = YYModel;
 			sourceTree = "<group>";
 		};
@@ -431,7 +429,6 @@
 				9BEAC7A95172D197F68FC575668E0907 /* ViewController+MASAdditions.m */,
 				489AC20CF8FB56AC2E534136DE50B36F /* Support Files */,
 			);
-			name = Masonry;
 			path = Masonry;
 			sourceTree = "<group>";
 		};
