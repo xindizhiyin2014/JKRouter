@@ -36,7 +36,7 @@
     [JKRouter open:@"JKBViewController" options:options];
 }
 
-- (BOOL)jkIsTabBarItemVC{
++ (BOOL)jkIsTabBarItemVC{
     return YES;
 }
 

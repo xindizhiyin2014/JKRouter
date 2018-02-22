@@ -34,7 +34,7 @@ button.center = self.view.center;
     [JKRouter open:@"JKTwoViewController"];
 }
 
-- (BOOL)jkIsTabBarItemVC{
++ (BOOL)jkIsTabBarItemVC{
     return YES;
 }
 

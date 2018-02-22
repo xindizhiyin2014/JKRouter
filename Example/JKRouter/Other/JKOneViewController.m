@@ -53,7 +53,8 @@
 - (void)buttonClicked{
     [JKRouter open:@"JKAViewController"];
 }
-- (BOOL)jkIsTabBarItemVC{
+
++ (BOOL)jkIsTabBarItemVC{
     return YES;
 }
 

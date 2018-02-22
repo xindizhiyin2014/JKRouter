@@ -70,7 +70,7 @@
 defalut is NO
  @return YES or NO
  */
-- (BOOL)jkIsTabBarItemVC;
++ (BOOL)jkIsTabBarItemVC;
 
 
 

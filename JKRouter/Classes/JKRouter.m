@@ -165,17 +165,17 @@ static JKRouter *defaultRouter =nil;
     if (!options) {
         options = [RouterOptions options];
     }
-    UIViewController *vc =[NSClassFromString(vcClassName) jkRouterViewControllerWithJSON:options.defaultParams];
-    //根据配置好的VC，options配置进行跳转
-    if ([vc jkIsTabBarItemVC]) {
-        [self _switchTabWithVC:vc];//进行tab切换
+    
+    if ([NSClassFromString(vcClassName) jkIsTabBarItemVC]) {
+        [self _switchTabWithVC:vcClassName];//进行tab切换
     }else{
+        UIViewController *vc = [self configVC:vcClassName options:options];
+        //根据配置好的VC，options配置进行跳转
         if (![self routerViewController:vc options:options]) {//跳转失败
             return;
         }
     }
     
-   
 }
 
 
@@ -198,11 +198,12 @@ static JKRouter *defaultRouter =nil;
     if (!options) {
         options = [RouterOptions options];
     }
-    UIViewController *vc = [self configVC:vcClassName options:options];
-    //根据配置好的VC，options配置进行跳转
-    if ([vc jkIsTabBarItemVC]) {
-        [self _switchTabWithVC:vc];//进行tab切换
+    if ([NSClassFromString(vcClassName) jkIsTabBarItemVC]) {
+         [self _switchTabWithVC:vcClassName];//进行tab切换
     }else{
+        
+        UIViewController *vc = [self configVC:vcClassName options:options];
+        //根据配置好的VC，options配置进行跳转
         if (![self routerViewController:vc options:options]) {//跳转失败
             return;
         }
@@ -211,7 +212,6 @@ static JKRouter *defaultRouter =nil;
     if (callback) {
         callback();
     }
-    
 }
 
 + (void)URLOpen:(NSString *)url{
@@ -526,7 +526,7 @@ static JKRouter *defaultRouter =nil;
 }
 
 //切换tab
-+ (void)_switchTabWithVC:(UIViewController *)vc{
++ (void)_switchTabWithVC:(NSString *)vcClassName{
     UIViewController *rootVC = [UIApplication sharedApplication].keyWindow.rootViewController;
     if ([rootVC isKindOfClass:[UITabBarController class]]) {
        UITabBarController *tabBarVC = (UITabBarController *)rootVC;
@@ -535,7 +535,7 @@ static JKRouter *defaultRouter =nil;
             for (NSInteger i = 0; i< vcArray.count; i++) {
                 UINavigationController *naVC = vcArray[i];
                 UIViewController *targetVC = naVC.viewControllers[0];
-                if ([targetVC  isKindOfClass:[vc class]] ) {
+                if ([targetVC  isKindOfClass:NSClassFromString(vcClassName)] ) {
                     [naVC popToRootViewControllerAnimated:YES];
                     tabBarVC.selectedIndex = i;
                     return;
@@ -545,7 +545,7 @@ static JKRouter *defaultRouter =nil;
           NSArray *vcArray = tabBarVC.viewControllers;
             for (NSInteger i = 0; i< vcArray.count; i++) {
                 UIViewController *targetVC = vcArray[i];
-                if ([targetVC  isKindOfClass:[vc class]] ) {
+                if ([targetVC  isKindOfClass:NSClassFromString(vcClassName)] ) {
                     tabBarVC.selectedIndex = i;
                     return;
                 }
