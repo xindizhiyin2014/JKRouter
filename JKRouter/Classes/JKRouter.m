@@ -214,7 +214,6 @@ static JKRouter *defaultRouter =nil;
             NSString *parameterStr = [[targetURL query] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
             NSMutableDictionary *dic = nil;
             if (JKSafeStr(parameterStr)) {
-                
                 dic = [self convertUrlStringToDictionary:parameterStr];
                 [dic addEntriesFromDictionary:params];
             }else{
@@ -239,7 +238,6 @@ static JKRouter *defaultRouter =nil;
             NSString *parameterStr = [[targetURL query] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
             NSMutableDictionary *dic = nil;
             if (JKSafeStr(parameterStr)) {
-                
                 dic = [self convertUrlStringToDictionary:parameterStr];
                 [dic addEntriesFromDictionary:params];
             }else{
