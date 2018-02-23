@@ -10,7 +10,6 @@
 static NSString * const JKRouterModuleIDKey = @"jkModuleID";  ///< 用来解析moduleID的key
 static NSString * const JKRouterHttpOpenStyleKey = @"jkRouterAppOpen"; ///< zaiurl参数后设置 jkRouterAppOpen=1 时通过appweb容器打开网页，其余情况通过safari打开网页
 
-
 @interface JKRouterExtension : NSObject
 
 /**
@@ -35,7 +34,6 @@ static NSString * const JKRouterHttpOpenStyleKey = @"jkRouterAppOpen"; ///< zaiu
  */
 + (NSString *)jkWebVCClassName;
 
-
 /**
  app支持的url协议组成的数组
 
@@ -43,14 +41,11 @@ static NSString * const JKRouterHttpOpenStyleKey = @"jkRouterAppOpen"; ///< zaiu
  */
 + (NSArray *)urlSchemes;
 
-
 /**
  沙盒基础路径，该目录下用于保存后台下发的路由配置信息，以及h5模块文件
 
  @return 基础路径
  */
 + (NSString *)sandBoxBasePath;
-
-
 
 @end

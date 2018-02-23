@@ -9,9 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <JKRouter/JKRouterHeader.h>
 
-
 @interface UIViewController (JKRouter)
-
 
 //每个VC 所属的moduleID，默认为nil
 @property (nonatomic,copy) NSString *moduleID;
@@ -50,7 +48,6 @@
  */
 - (void)jkRouterSpecialTransformWithNaVC:(UINavigationController *)naVC;
 
-
 /**
  自定义的转场方式
 
@@ -58,12 +55,10 @@
  */
 - (RouterTransformVCStyle)jkRouterTransformStyle;
 
-
 /**
  刷新数据
  */
 - (void)jkRouterRefresh;
-
 
 /**
  是否是tabbarItem的对应的viewController
@@ -71,7 +66,5 @@ defalut is NO
  @return YES or NO
  */
 + (BOOL)jkIsTabBarItemVC;
-
-
 
 @end

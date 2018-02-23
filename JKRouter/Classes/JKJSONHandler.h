@@ -20,6 +20,4 @@
  */
 + (NSString *)getHomePathWithModuleID:(NSNumber *)moduleID;
 
-
-
 @end

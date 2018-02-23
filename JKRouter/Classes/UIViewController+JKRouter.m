@@ -11,16 +11,13 @@
 
 @implementation UIViewController (JKRouter)
 
-
 static char moduleID;
 
 - (NSString *)moduleID{
-
     return objc_getAssociatedObject(self, &moduleID);
 }
 
 - (void)setModuleID:(NSString *)moduleID{
-
     objc_setAssociatedObject(self, &moduleID, moduleID, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
@@ -29,40 +26,31 @@ static char moduleID;
 }
 
 + (instancetype)jkRouterViewControllerWithJSON:(NSDictionary *)dic{
-    
     return nil;
 }
 
 + (BOOL)validateTheAccessToOpen{
-    
     return YES;
 }
 
 + (void)handleNoAccessToOpen{
-    
-    
 }
 
 - (void)jkRouterSpecialTransformWithNaVC:(UINavigationController *)naVC{
-    
 }
 
 - (RouterTransformVCStyle)jkRouterTransformStyle{
-    
     return RouterTransformVCStylePush;
 }
 
 -(void)setValue:(id)value forUndefinedKey:(NSString *)key{
-    
 }
 
 - (void)jkRouterRefresh{
-    
 }
 
 + (BOOL)jkIsTabBarItemVC{
     return NO;
 }
-
 
 @end
