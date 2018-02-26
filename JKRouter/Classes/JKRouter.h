@@ -147,9 +147,9 @@
 
  适用于携带大量参数的跳转,多用于H5页面跳转到native页面
  @param url 跳转的路由，不携带参数
- @param params 传入的参数
+ @param extra 额外传入的参数
  */
-+ (void)URLOpen:(NSString *)url params:(NSDictionary *)params;
++ (void)URLOpen:(NSString *)url params:(NSDictionary *)extra;
 
 /**
  适用于访问基于http协议／https协议的路由跳转

@@ -149,7 +149,8 @@ static JKRouter *defaultRouter =nil;
     if ([NSClassFromString(vcClassName) jkIsTabBarItemVC]) {
         [self _switchTabWithVC:vcClassName];//进行tab切换
     }else{
-        UIViewController *vc = [self configVC:vcClassName options:options];
+        Class VCClass = NSClassFromString(vcClassName);
+        UIViewController *vc = [VCClass jkRouterViewControllerWithJSON:options.defaultParams];
         //根据配置好的VC，options配置进行跳转
         if (![self routerViewController:vc options:options]) {//跳转失败
             return;
@@ -191,7 +192,7 @@ static JKRouter *defaultRouter =nil;
     [self URLOpen:url params:nil];
 }
 
-+ (void)URLOpen:(NSString *)url params:(NSDictionary *)params{
++ (void)URLOpen:(NSString *)url params:(NSDictionary *)extra{
     url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSURL *targetURL = [NSURL URLWithString:url];
     NSString *scheme =targetURL.scheme;
@@ -215,9 +216,9 @@ static JKRouter *defaultRouter =nil;
             NSMutableDictionary *dic = nil;
             if (JKSafeStr(parameterStr)) {
                 dic = [self convertUrlStringToDictionary:parameterStr];
-                [dic addEntriesFromDictionary:params];
+                [dic addEntriesFromDictionary:extra];
             }else{
-                dic = [NSMutableDictionary dictionaryWithDictionary:params];
+                dic = [NSMutableDictionary dictionaryWithDictionary:extra];
             }
             NSString *vcClassName = homePath;
             RouterOptions *options = [RouterOptions optionsWithModuleID:[NSString stringWithFormat:@"%@",moduleID]];
@@ -239,9 +240,9 @@ static JKRouter *defaultRouter =nil;
             NSMutableDictionary *dic = nil;
             if (JKSafeStr(parameterStr)) {
                 dic = [self convertUrlStringToDictionary:parameterStr];
-                [dic addEntriesFromDictionary:params];
+                [dic addEntriesFromDictionary:extra];
             }else{
-                dic = [NSMutableDictionary dictionaryWithDictionary:params];
+                dic = [NSMutableDictionary dictionaryWithDictionary:extra];
             }
             NSString *vcClassName = path;
             RouterOptions *options = [RouterOptions optionsWithModuleID:[NSString stringWithFormat:@"%@",moduleID]];
