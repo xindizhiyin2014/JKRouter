@@ -231,7 +231,6 @@ static JKRouter *defaultRouter =nil;
           NSString *path = [NSString stringWithFormat:@"%@/%@",homePath,subPath];
           RouterOptions *options = [RouterOptions optionsWithModuleID:[NSString stringWithFormat:@"%@",moduleID]];
           [self jumpToHttpWeb:path options:options];
-            
         }
     }else{
         NSString *path = targetURL.path;
@@ -258,13 +257,14 @@ static JKRouter *defaultRouter =nil;
 
 + (void)httpOpen:(NSURL *)targetURL{
     NSString *parameterStr = [[targetURL query] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    
     if (JKSafeStr(parameterStr)) {
       NSMutableDictionary *dic = [self convertUrlStringToDictionary:parameterStr];
         NSDictionary *params = [dic copy];
-        if (JKSafeDic(params) && [[params objectForKey:JKRouterHttpOpenStyleKey] isEqualToString:@"1"]) {//判断是否是在app内部打开网页
+        if (JKSafeDic(params) && [[params objectForKey:[JKRouterExtension JKRouterHttpOpenStyleKey]] isEqualToString:@"1"]) {//判断是否是在app内部打开网页
             RouterOptions *options = [RouterOptions options];
-            [self jumpToHttpWeb:targetURL.absoluteString options:options];
+            NSDictionary *params = @{[JKRouterExtension jkWebURLKey]:targetURL.absoluteString};
+            options.defaultParams =params;
+            [self open:[JKRouter router].webContainerName options:options];
             return;
         }
     }
@@ -277,6 +277,17 @@ static JKRouter *defaultRouter =nil;
  @param directory 指定的路径
  */
 + (void)jumpToHttpWeb:(NSString *)directory options:(RouterOptions *)options{
+    if (!JKSafeStr(directory)) {
+        JKRouterLog(@"路径不存在");
+        return;
+    }
+    NSString *path =[NSString stringWithFormat:@"%@/%@",[JKRouterExtension sandBoxBasePath],directory];
+    NSDictionary *params = @{[JKRouterExtension jkWebURLKey]:path};
+    options.defaultParams =params;
+    [self open:[JKRouter router].webContainerName options:options];
+}
+
++ (void)jumpToSandBoxWeb:(NSString *)directory options:(RouterOptions *)options{
     if (!JKSafeStr(directory)) {
         JKRouterLog(@"路径不存在");
         return;
@@ -365,7 +376,7 @@ static JKRouter *defaultRouter =nil;
 
     Class VCClass = NSClassFromString(vcClassName);
     UIViewController *vc = [VCClass jkRouterViewController];
-    [vc setValue:options.moduleID forKey:JKRouterModuleIDKey];
+    [vc setValue:options.moduleID forKey:[JKRouterExtension JKRouterModuleIDKey]];
     [JKRouter configTheVC:vc options:options];
     return vc;
 }

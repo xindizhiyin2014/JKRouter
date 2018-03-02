@@ -175,7 +175,8 @@
 
 - (void)userURLJump{
 
-    [JKRouter URLOpen:@"jkpp://jackApp:10001"];
+//    [JKRouter URLOpen:@"jkpp://jackApp:10001"];
+    [JKRouter URLOpen:@"http://www.baidu.com?jkRouterAppOpen=1"];
 }
 
 

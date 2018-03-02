@@ -7,9 +7,6 @@
 
 #import <Foundation/Foundation.h>
 
-static NSString * const JKRouterModuleIDKey = @"jkModuleID";  ///< 用来解析moduleID的key
-static NSString * const JKRouterHttpOpenStyleKey = @"jkRouterAppOpen"; ///< zaiurl参数后设置 jkRouterAppOpen=1 时通过appweb容器打开网页，其余情况通过safari打开网页
-
 @interface JKRouterExtension : NSObject
 
 /**
@@ -47,5 +44,21 @@ static NSString * const JKRouterHttpOpenStyleKey = @"jkRouterAppOpen"; ///< zaiu
  @return 基础路径
  */
 + (NSString *)sandBoxBasePath;
+
+
+/**
+ 用来解析moduleID的key
+
+ @return key default is @"jkModuleID"
+ */
++ (NSString *)JKRouterModuleIDKey;
+
+
+/**
+ 在url参数后设置 JKRouterHttpOpenStyleKey=1 时通过appweb容器打开网页，其余情况通过safari打开网页
+
+ @return key default is @"jkRouterAppOpen"
+ */
++ (NSString *)JKRouterHttpOpenStyleKey;
 
 @end

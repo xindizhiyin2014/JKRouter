@@ -25,11 +25,20 @@
 
 + (NSArray *)urlSchemes{
     return @[@"http",
-             @"https"];
+             @"https",
+             @"file"];
 }
 
 + (NSString *)sandBoxBasePath{
     return [[NSBundle mainBundle] pathForResource:nil ofType:nil];
+}
+
++ (NSString *)JKRouterModuleIDKey{
+    return @"jkModuleID";
+}
+
++ (NSString *)JKRouterHttpOpenStyleKey{
+    return @"jkRouterAppOpen";
 }
 
 @end
