@@ -207,6 +207,10 @@ static JKRouter *defaultRouter =nil;
         [self httpOpen:targetURL];
         return;
     }
+    if ([scheme isEqualToString:@"itms-apps"]) {
+        [self openExternal:targetURL];
+        return;
+    }
     //URL的端口号作为moduleID
     NSNumber *moduleID = targetURL.port;
     if (moduleID) {
@@ -299,10 +303,10 @@ static JKRouter *defaultRouter =nil;
 }
 
 + (void)openExternal:(NSURL *)targetURL {
-    if ([targetURL.scheme isEqualToString:@"http"] ||[targetURL.scheme isEqualToString:@"https"]) {
+    if ([targetURL.scheme isEqualToString:@"http"] ||[targetURL.scheme isEqualToString:@"https"] || [targetURL.scheme isEqualToString:@"itms-apps"]) {
         [[UIApplication sharedApplication] openURL:targetURL];
     }else{
-        NSAssert(NO, @"请打开http／https协议的url地址");
+        NSAssert(NO, @"请输入app支持的协议的url地址");
     }
 }
 

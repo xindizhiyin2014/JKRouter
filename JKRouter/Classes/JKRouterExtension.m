@@ -26,7 +26,9 @@
 + (NSArray *)urlSchemes{
     return @[@"http",
              @"https",
-             @"file"];
+             @"file",
+             @"itms-apps"];
+    
 }
 
 + (NSString *)sandBoxBasePath{
