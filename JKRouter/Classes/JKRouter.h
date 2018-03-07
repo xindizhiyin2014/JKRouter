@@ -149,7 +149,7 @@
  @param url 跳转的路由，不携带参数
  @param extra 额外传入的参数
  */
-+ (void)URLOpen:(NSString *)url params:(NSDictionary *)extra;
++ (void)URLOpen:(NSString *)url extra:(NSDictionary *)extra;
 
 /**
  适用于访问基于http协议／https协议的路由跳转
