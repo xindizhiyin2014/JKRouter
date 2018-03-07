@@ -10,7 +10,7 @@
 #import "JKEViewController.h"
 #import "JKGViewController.h"
 
-@interface JKViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface JKViewController ()<UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate>
 {
     UITableView *_contentTable;
     NSArray *_dataArr;
@@ -25,7 +25,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     self.view.backgroundColor = [UIColor whiteColor];
-    _dataArr = @[@"正常跳转",@"正常跳转＋参数",@"正常跳转，返回＋参数",@"路由跳转",@"路由跳转+参数",@"跳转＋权限校验",@"present跳转",@"自定义跳转",@"webVC跳转",@"使用storyBoard",@"通过json传输参数跳转",@"createStyleReplace"];
+    _dataArr = @[@"正常跳转",@"正常跳转＋参数",@"正常跳转，返回＋参数",@"路由跳转",@"路由跳转+参数",@"跳转＋权限校验",@"present跳转",@"自定义跳转",@"webVC跳转",@"使用storyBoard",@"通过json传输参数跳转",@"createStyleReplace",@" 弹框后跳转"];
     _contentTable = [[UITableView alloc] initWithFrame:self.view.frame];
     [_contentTable registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell1"];
     _contentTable.delegate =self;
@@ -143,6 +143,11 @@
             [self createStyleReplace];
         }
             break;
+        case 12:
+        {
+            [self afterAlertJump];
+        }
+            break;
 
 
 
@@ -221,8 +226,24 @@
 
 - (void)createStyleReplace{
     [JKRouter open:@"JKHViewController"];
+}
 
+- (void)afterAlertJump{
+//    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"提示" message:@"弹框后跳转" preferredStyle:UIAlertControllerStyleAlert];
+//    UIAlertAction *action  = [UIAlertAction actionWithTitle:@"跳转" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//        [JKRouter open:@"JKCViewController"];
+//    }];
+//    [alertVC addAction:action];
+//    [self presentViewController:alertVC animated:YES completion:nil];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"弹框后跳转" delegate:self cancelButtonTitle:@"跳转" otherButtonTitles:nil, nil];
+    [alert show];
+    
 
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+  [JKRouter open:@"JKCViewController"];
 }
 
 

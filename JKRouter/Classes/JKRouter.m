@@ -97,14 +97,14 @@ static JKRouter *defaultRouter =nil;
 }
 
 - (UINavigationController *)navigationController{
-    UIViewController *rootVC = [UIApplication sharedApplication].keyWindow.rootViewController;
+    UIViewController *rootVC = [UIApplication sharedApplication].delegate.window.rootViewController;
     if (self.windowRootVCStyle ==RouterWindowRootVCStyleCustom) {
         UITabBarController *tabBarVC = (UITabBarController *)rootVC;
-        UINavigationController *vc = tabBarVC.selectedViewController;
+        UIViewController *vc = tabBarVC.selectedViewController;
         if (![vc isKindOfClass:[UINavigationController class]]) {
             NSAssert(NO, @"tabBarViewController's selectedViewController is not a UINavigationController instance");
         }
-        return vc;
+        return (UINavigationController *)vc;
     }
     
     if (![rootVC isKindOfClass:[UINavigationController class]]) {
