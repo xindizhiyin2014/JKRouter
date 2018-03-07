@@ -187,12 +187,12 @@
 
 - (void)userURLJumpWithParams{
     
-    [JKRouter URLOpen:@"jkpp://jackApp:10002?testContent=Hi, I'm Jack"];
+    [JKRouter URLOpen:@"jkpp://www.jack.com/user_profile?testContent=Hi, I'm Jack"];
 }
 
 - (void)userURLJumpWithValidateRight{
     
-    [JKRouter URLOpen:@"jkpp://jackApp:10003"];
+    [JKRouter URLOpen:@"jkpp://www.jack.com/apply_invite_code"];
 }
 
 - (void)userPresentJump{
@@ -208,7 +208,7 @@
 
 - (void)openWebVC{
 
-[JKRouter URLOpen:@"jkpp://jackApp:10004/abc/mn/qq"];
+    //file 协议打开沙河web页面
     
 }
 

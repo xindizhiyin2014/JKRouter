@@ -18,6 +18,14 @@
  @param moduleID 对应的module的主页路径
  @return 对应模块的home页面路径
  */
-+ (NSString *)getHomePathWithModuleID:(NSNumber *)moduleID;
++ (NSString *)getHomePathWithModuleID:(NSString *)moduleID;
 
+
+/**
+ 根据moduleID获取url要跳转的type
+
+ @param moduleID 模块的id
+ @return type
+ */
++ (NSString *)getTypeWithModuleID:(NSString *)moduleID;
 @end

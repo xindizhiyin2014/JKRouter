@@ -1,15 +1,22 @@
  [
-  {"moduleID":10001,
-  "targetVC":"JKAViewController"
+  {
+  "moduleID":"user_profile",
+  "type":"ViewController",
+  "targetVC":"JKBViewController",
+  "desc":"用户主页"
   },
-  {"moduleID":10002,
-  "targetVC":"JKBViewController"
+  {
+  "moduleID":"apply_invite_code",
+  "type":"ViewController",
+  "targetVC":"JKDViewController",
+  "desc":"邀请码"
   },
-  {"moduleID":10003,
-  "targetVC":"JKDViewController"
-  },
-  {"moduleID":10004,
-  "targetVC":"JKWebViewController"
-  
+  {
+  "moduleID":"wallet",
+  "type":"ViewController",
+  "targetVC":"JKWebViewController",
+  "desc":"钱包流水 无参数"
   }
   ]
+
+

@@ -61,4 +61,12 @@
  */
 + (NSString *)JKRouterHttpOpenStyleKey;
 
+/**
+ 除了路由跳转以外的操作
+ @param actionType 操作的类型
+ @param url url
+ @param extra 额外传入的参数
+ */
++ (void)otherActionsWithActionType:(NSString *)actionType URL:(NSURL *)url extra:(NSDictionary *)extra;
+
 @end

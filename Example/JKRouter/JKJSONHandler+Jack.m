@@ -24,17 +24,29 @@
     return [mutableArray copy];
 }
 
-+ (NSString *)getHomePathWithModuleID:(NSNumber *)moduleID{
++ (NSString *)getHomePathWithModuleID:(NSString *)moduleID{
     
     NSString *vcClassName = nil;
     for (NSDictionary *module in [JKRouter router].modules) {
-        NSNumber *tempModuleID =module[@"moduleID"];
-        if ([tempModuleID integerValue] ==[moduleID integerValue]) {
+        NSString *tempModuleID =[NSString stringWithFormat:@"%@",module[@"moduleID"]];
+        if ([tempModuleID isEqualToString:moduleID]) {
             vcClassName = module[@"targetVC"];
             break;
         }
     }
     return vcClassName;
+}
+
++ (NSString *)getTypeWithModuleID:(NSString *)moduleID{
+    NSString *type = nil;
+    for (NSDictionary *module in [JKRouter router].modules) {
+        NSString *tempModuleID =[NSString stringWithFormat:@"%@",module[@"moduleID"]];
+        if ([tempModuleID isEqualToString:moduleID]) {
+            type = module[@"type"];
+            break;
+        }
+    }
+    return type;
 }
 
 

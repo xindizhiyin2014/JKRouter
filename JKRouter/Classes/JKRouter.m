@@ -189,20 +189,22 @@ static JKRouter *defaultRouter =nil;
 }
 
 + (void)URLOpen:(NSString *)url{
-    [self URLOpen:url params:nil];
+    [self URLOpen:url extra:nil];
 }
 
-+ (void)URLOpen:(NSString *)url params:(NSDictionary *)extra{
++ (void)URLOpen:(NSString *)url extra:(NSDictionary *)extra{
     url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSURL *targetURL = [NSURL URLWithString:url];
     NSString *scheme =targetURL.scheme;
     if (![[JKRouter router].urlSchemes containsObject:scheme]) {
+        JKRouterLog(@"app不支持该协议的跳转");
         return;
     }
     if (![JKRouterExtension safeValidateURL:url]) {
+        JKRouterLog(@"url无法通过安全校验");
         return;
     }
-    if ([scheme isEqualToString:@"http"] || [scheme isEqualToString:@"https"]) {
+    if ([scheme isEqualToString:@"http"] || [scheme isEqualToString:@"https"] ||[scheme isEqualToString:@"file"]) {
         
         [self httpOpen:targetURL];
         return;
@@ -211,11 +213,12 @@ static JKRouter *defaultRouter =nil;
         [self openExternal:targetURL];
         return;
     }
-    //URL的端口号作为moduleID
-    NSNumber *moduleID = targetURL.port;
-    if (moduleID) {
-        NSString *homePath = [JKJSONHandler getHomePathWithModuleID:moduleID];
-        if ([NSClassFromString(homePath) isSubclassOfClass:[UIViewController class]]) {
+    
+    NSString *moduleID = [targetURL.path substringFromIndex:1];
+    NSString *type = [JKJSONHandler getTypeWithModuleID:moduleID];
+    if ([type isEqualToString:@"ViewController"]) {
+        NSString *vcClassName = [JKJSONHandler getHomePathWithModuleID:moduleID];
+        if ([NSClassFromString(vcClassName) isSubclassOfClass:[UIViewController class]]) {
             NSString *parameterStr = [[targetURL query] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
             NSMutableDictionary *dic = nil;
             if (JKSafeStr(parameterStr)) {
@@ -224,39 +227,18 @@ static JKRouter *defaultRouter =nil;
             }else{
                 dic = [NSMutableDictionary dictionaryWithDictionary:extra];
             }
-            NSString *vcClassName = homePath;
-            RouterOptions *options = [RouterOptions optionsWithModuleID:[NSString stringWithFormat:@"%@",moduleID]];
+            RouterOptions *options = [RouterOptions options];
             options.defaultParams = [dic copy];
             //执行页面的跳转
-            [self open:(NSString *)vcClassName options:options];
-            
-        }else{
-          NSString *subPath = targetURL.resourceSpecifier;
-          NSString *path = [NSString stringWithFormat:@"%@/%@",homePath,subPath];
-          RouterOptions *options = [RouterOptions optionsWithModuleID:[NSString stringWithFormat:@"%@",moduleID]];
-          [self jumpToHttpWeb:path options:options];
+            [self open:vcClassName optionsWithJSON:options];
+        }else{//进行特殊路由跳转的操作
+            [JKRouterExtension otherActionsWithActionType:type URL:targetURL extra:extra];
         }
     }else{
-        NSString *path = targetURL.path;
-        if ([NSClassFromString(path) isKindOfClass:[UIViewController class]]) {
-            NSString *parameterStr = [[targetURL query] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-            NSMutableDictionary *dic = nil;
-            if (JKSafeStr(parameterStr)) {
-                dic = [self convertUrlStringToDictionary:parameterStr];
-                [dic addEntriesFromDictionary:extra];
-            }else{
-                dic = [NSMutableDictionary dictionaryWithDictionary:extra];
-            }
-            NSString *vcClassName = path;
-            RouterOptions *options = [RouterOptions optionsWithModuleID:[NSString stringWithFormat:@"%@",moduleID]];
-            options.defaultParams = [dic copy];
-            //执行页面的跳转
-            [self open:(NSString *)vcClassName options:options];
-        }else{
-            RouterOptions *options = [RouterOptions optionsWithModuleID:[NSString stringWithFormat:@"%@",moduleID]];
-            [self jumpToHttpWeb:path options:options];
-        }
+        //进行非路由跳转的操作
+        [JKRouterExtension otherActionsWithActionType:type URL:targetURL extra:extra];
     }
+    
 }
 
 + (void)httpOpen:(NSURL *)targetURL{

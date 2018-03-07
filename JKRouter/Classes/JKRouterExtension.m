@@ -43,4 +43,7 @@
     return @"jkRouterAppOpen";
 }
 
++ (void)otherActionsWithActionType:(NSString *)actionType URL:(NSURL *)url extra:(NSDictionary *)extra{
+}
+
 @end

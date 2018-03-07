@@ -1,11 +1,8 @@
- [
-  {"moduleID":20001,
-  "targetVC":"JKAViewController"
-  },
-  {"moduleID":20002,
-  "targetVC":"JKBViewController"
-  },
-  {"moduleID":20003,
-  "targetVC":"JKDViewController"
-  }
+[
+ {
+ "moduleID":"user_task",
+ "type":"ViewController",
+ "targetVC":"JKBViewController",
+ "desc":"用户任务页面"
+ }
 ]

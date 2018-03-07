@@ -21,7 +21,11 @@
     return [mutableArray copy];
 }
 
-+ (NSString *)getHomePathWithModuleID:(NSNumber *)moduleID{
++ (NSString *)getHomePathWithModuleID:(NSString *)moduleID{
+    return @"";
+}
+
++ (NSString *)getTypeWithModuleID:(NSString *)moduleID{
     return @"";
 }
 

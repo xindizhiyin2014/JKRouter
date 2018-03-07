@@ -14,6 +14,11 @@
 
 @implementation JKDViewController
 
++ (instancetype)jkRouterViewControllerWithJSON:(NSDictionary *)dic{
+    JKDViewController *vc = [self yy_modelWithJSON:dic];
+    return vc;
+}
+
 + (BOOL)validateTheAccessToOpen{
     return NO;
 }

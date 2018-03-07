@@ -15,6 +15,10 @@
 
 @implementation JKBViewController
 
++ (instancetype)jkRouterViewControllerWithJSON:(NSDictionary *)dic{
+    JKBViewController *vc = [self yy_modelWithJSON:dic];
+    return vc;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
