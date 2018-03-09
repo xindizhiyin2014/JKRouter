@@ -71,6 +71,9 @@
 
 @property (nonatomic,weak) UINavigationController *navigationController; ///< app的导航控制器
 
+
+@property (nonatomic,copy) NSString *remoteFilePath;///< 从网络上下载的路由配置信息的json文件保存在沙盒中的路径
+
 @end
 
 @implementation JKRouter
@@ -119,10 +122,21 @@ static JKRouter *defaultRouter =nil;
     [JKRouter router].webContainerName = [JKRouterExtension jkWebVCClassName];
 }
 
++ (void)updateRouterInfoWithFilePath:(NSString*)filePath{
+    [JKRouter router].remoteFilePath = filePath;
+    [JKRouter router].modules = nil;
+}
+
 - (NSSet *)modules{
     if (!_modules) {
-        NSArray *moudulesArr =[JKJSONHandler getModulesFromJsonFile:[JKRouter router].routerFileNames];
-        _modules = [NSSet setWithArray:moudulesArr];
+        if (!_remoteFilePath) {
+            NSArray *moudulesArr =[JKJSONHandler getModulesFromJsonFile:[JKRouter router].routerFileNames];
+            _modules = [NSSet setWithArray:moudulesArr];
+        }else{
+            NSData *data = [NSData dataWithContentsOfFile:_remoteFilePath];
+            NSArray *modules = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+            _modules = [NSSet setWithArray:modules];
+        }
     }
     return _modules;
 }

@@ -93,6 +93,14 @@
 
 
 /**
+ 更新路由信息
+
+ @param filePath 路由配置信息的文件在沙盒中的路径
+ */
++ (void)updateRouterInfoWithFilePath:(NSString*)filePath;
+
+
+/**
  默认打开方式
  一般由native调用
  @param vcClassName 跳转的控制器类名
