@@ -25,7 +25,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     self.view.backgroundColor = [UIColor whiteColor];
-    _dataArr = @[@"正常跳转",@"正常跳转＋参数",@"正常跳转，返回＋参数",@"路由跳转",@"路由跳转+参数",@"跳转＋权限校验",@"present跳转",@"自定义跳转",@"webVC跳转",@"使用storyBoard",@"通过json传输参数跳转",@"createStyleReplace",@" 弹框后跳转"];
+    _dataArr = @[@"正常跳转",@"正常跳转＋参数",@"正常跳转，返回＋参数",@"路由跳转",@"路由跳转+参数",@"跳转＋权限校验",@"present跳转",@"自定义跳转",@"webVC跳转",@"使用storyBoard",@"通过json传输参数跳转",@"createStyleReplace",@"弹框后跳转",@"popWithStep验证"];
     _contentTable = [[UITableView alloc] initWithFrame:self.view.frame];
     [_contentTable registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell1"];
     _contentTable.delegate =self;
@@ -148,10 +148,12 @@
             [self afterAlertJump];
         }
             break;
+        case 13:
+        {
+            [self verifyPopWithStep];
+        }
+            break;
 
-
-
-            
         default:
             break;
     }
@@ -239,7 +241,10 @@
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"弹框后跳转" delegate:self cancelButtonTitle:@"跳转" otherButtonTitles:nil, nil];
     [alert show];
     
+}
 
+- (void)verifyPopWithStep{
+    [JKRouter open:@"JKJViewController"];
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{

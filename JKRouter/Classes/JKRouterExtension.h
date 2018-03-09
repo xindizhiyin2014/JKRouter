@@ -39,6 +39,13 @@
 + (NSArray *)urlSchemes;
 
 /**
+ 模块的类型名字的可以，用来解析模块的类型
+
+ @return key
+ */
++ (NSString *)jkModuleTypeKey;
+
+/**
  沙盒基础路径，该目录下用于保存后台下发的路由配置信息，以及h5模块文件
 
  @return 基础路径
@@ -66,7 +73,16 @@
  @param actionType 操作的类型
  @param url url
  @param extra 额外传入的参数
+ @param completeBlock 操作成功后的回调
+ 
  */
-+ (void)otherActionsWithActionType:(NSString *)actionType URL:(NSURL *)url extra:(NSDictionary *)extra;
++ (void)otherActionsWithActionType:(NSString *)actionType URL:(NSURL *)url extra:(NSDictionary *)extra complete:(void(^)(id result,NSError *error))completeBlock;
+
+/**
+ 进行tab切换，如果用户使用了自定义的tabBar，可以考虑重写该方法
+ 
+ @param vcClassName VC的类名
+ */
++ (void)jkSwitchTabWithVC:(NSString *)vcClassName;
 
 @end

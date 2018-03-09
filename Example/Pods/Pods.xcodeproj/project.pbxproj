@@ -8,67 +8,75 @@
 
 /* Begin PBXBuildFile section */
 		017B86096E2EE0CDBBED45CB1B62AA37 /* JKRouter.h in Headers */ = {isa = PBXBuildFile; fileRef = 68785F9AB8028EB1B990EEFE6487EF02 /* JKRouter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		04A7D6AADAB213CE7D26F8EAD2F87536 /* MASUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 316EBCEEE1B4727595FDFBEEE7578B2A /* MASUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		068EF598E554EC57038ACFB89CC2C47A /* View+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 08D0918CE62C43C3EAB44EDAE0BF89AA /* View+MASAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		04A7D6AADAB213CE7D26F8EAD2F87536 /* MASUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 97CA87DEACEBED1CC353A5C8296DEE8C /* MASUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		068EF598E554EC57038ACFB89CC2C47A /* View+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = F12755DAFF246DA6CAF76B5289FDBBCA /* View+MASAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		077EE4E9B6CC587CAD4B60D8298CC5DD /* JKJSONHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = C6E502C35A56D0579155E554C011C2B2 /* JKJSONHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0871FE50BDFB009D07FA7BE3E08B3F1A /* YYClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA3BACE130BA3447042FB883639891F /* YYClassInfo.m */; };
-		091D17D5D8F832D28546A72B788CF0AE /* MASViewConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A8F52BB7F7C2ECCDE5AFD17E61A87D8 /* MASViewConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0F3DF5C3BEFCC9838B53C37735B414BE /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8CD3B47A545FCA476BB3F9B86C29B0 /* NSLayoutConstraint+MASDebugAdditions.m */; };
-		0FDB2B4F75591851F0F119EAE70B3F63 /* NSLayoutConstraint+MASDebugAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 071C3A02AD5D10B334E129676FEFE1A6 /* NSLayoutConstraint+MASDebugAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0871FE50BDFB009D07FA7BE3E08B3F1A /* YYClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 496E98C3ABC6059564989DF8CFE81F9C /* YYClassInfo.m */; };
+		091D17D5D8F832D28546A72B788CF0AE /* MASViewConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 9EA54FE54BC3ED2D80585A0CBCFC7EC7 /* MASViewConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0E68329D755D5F24E3B0E10D049B421F /* NSArray+JKDataHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = C396C9FE4F36BF1E65D6FEE9285B0A28 /* NSArray+JKDataHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0F3DF5C3BEFCC9838B53C37735B414BE /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = AFEC7BF1C11969182B6158A023A3C415 /* NSLayoutConstraint+MASDebugAdditions.m */; };
+		0FDB2B4F75591851F0F119EAE70B3F63 /* NSLayoutConstraint+MASDebugAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 89D8DFC7E207DE3CB870D43B614F54B1 /* NSLayoutConstraint+MASDebugAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1AAEB92BA429E520EB8949304F47A098 /* JKRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = CF960707FD61EFC36CE5FD32F6FFB489 /* JKRouter.m */; };
-		1D00324C7F4839078BC10E3E65D05A22 /* YYModel-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B8EA296FA95C8AD27B5D6B9F38FE236A /* YYModel-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2854C9B1086758BD2B6681206B6759B4 /* ViewController+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = CF22347A9314A3376EE6DC73B934B798 /* ViewController+MASAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1D00324C7F4839078BC10E3E65D05A22 /* YYModel-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 12E8CDAB97FABFF8FFE240EF0700A635 /* YYModel-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		225F6E2FDAA9651B56BAEF2689FA75C1 /* JKDataHelper-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 14FA33AC623C662401202802B5340C0F /* JKDataHelper-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2854C9B1086758BD2B6681206B6759B4 /* ViewController+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = AF7883426D456A765EDCCA92C70B6B50 /* ViewController+MASAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		35B808E9E874C3E1F28127318EBC0ADD /* JKRouter-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 09AF673968CE486A69BB1E0CB008F27A /* JKRouter-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		36FB520A50A08C0358AB77C4C1802407 /* NSObject+YYModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D3ABAFEE3599716DDE62CC981769C0 /* NSObject+YYModel.m */; };
+		36FB520A50A08C0358AB77C4C1802407 /* NSObject+YYModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 13E9EC61197C8EBA51417712B0BDCB9D /* NSObject+YYModel.m */; };
 		38E0CD63021889EE46E1A6B9FA0415F5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7327BA68CA443E7CC536C15EA060610C /* UIKit.framework */; };
 		425FBEF6FC47739E6B6BBDEFCBD4DFBA /* Pods-JKRouter_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC149CA94DFC158E177F5B01330E4AB /* Pods-JKRouter_Tests-dummy.m */; };
 		432FA22864D148EBD4CB22F55AB68004 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBA1ADAFE6F67BD76693B61DCC05D3E4 /* Foundation.framework */; };
-		457ACF9150DCF9AF445B129CC9678FB6 /* Masonry-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FF67F72419EA223AC18A879586A66797 /* Masonry-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4D4F2050654580FE1F1D5F4F82CEDDB8 /* MASConstraint+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = B8277D3490CAB6BEB41E720ADD3C4224 /* MASConstraint+Private.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		457ACF9150DCF9AF445B129CC9678FB6 /* Masonry-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C3D316540FDA5ABCFF97E1D9DC7E7048 /* Masonry-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4D4F2050654580FE1F1D5F4F82CEDDB8 /* MASConstraint+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 0F1CFFB72C1AD24BA9871526B5A78FA3 /* MASConstraint+Private.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4FEC1EF70415F1EEFC3FE16AE570E233 /* NSArray+JKDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FD64ECEB7130F55B1965FF7496A12418 /* NSArray+JKDataHelper.m */; };
 		515E725FDFEE6AD41683BE94E11F169D /* JKRouter-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 200AFD66890A1BC6F4E39516DFF3B4D2 /* JKRouter-dummy.m */; };
-		53BDF81D0A52EA526D597A5C5B139D7F /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = AA8F274774F843C08D0B49591AC2B03D /* MASCompositeConstraint.m */; };
-		59F81DE0305CC2AC448D2A3C6B3280A2 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF023B039A2DA01650568AFFDADF109 /* MASConstraint.m */; };
+		53215E54B3086100C9BA2AEFF2644598 /* NSMutableArray+JKDataHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 77E38B4DE5FA0286B878FA76A6D2F6B5 /* NSMutableArray+JKDataHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		53BDF81D0A52EA526D597A5C5B139D7F /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 283B23860BEF1E7260DFF2D89124F187 /* MASCompositeConstraint.m */; };
+		59F81DE0305CC2AC448D2A3C6B3280A2 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDB811DEB0427D5373321A10E211527 /* MASConstraint.m */; };
 		5C221B36ADB46F373EED33DDA886CA92 /* Pods-JKRouter_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 57B68ADFE2C59DD2BE59F735D7846BD4 /* Pods-JKRouter_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5CCD579040D052F433B4785CD0C547F1 /* JKDataHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 80452FD1758BAAEFEC513ED2DB208492 /* JKDataHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		636BBA734C1A17A734761D674FAE8800 /* MASViewAttribute.h in Headers */ = {isa = PBXBuildFile; fileRef = AAAC2DCEF50634E51E151FF3D0F10C3A /* MASViewAttribute.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		636BBA734C1A17A734761D674FAE8800 /* MASViewAttribute.h in Headers */ = {isa = PBXBuildFile; fileRef = F0F1FB84DD50A4BA3429A1E9C91366B8 /* MASViewAttribute.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6AF8FB5F030D0F857C4EC84EA7DBB192 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16AEB0A1BC00F99D255678B66391A63D /* CoreFoundation.framework */; };
-		6C23BBF56ED4DCC10CA1765A6736D1F8 /* MASLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 81E8E62EEC1A4347F3492ED7503B1C10 /* MASLayoutConstraint.m */; };
-		6C261C5B4D90E7E76051A9C82840FA5E /* YYModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 385B01FA06CC4B5ACF60283B3A24759A /* YYModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		73BBDACC22CCA36A6DAAA167AD780BAF /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = C0FB6448926916AC90C8B62FF23559F8 /* MASConstraintMaker.m */; };
-		756DF24546C7D91459DCADC8F1C98660 /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 880DFE347AAE46C5472220C5547521DF /* MASViewConstraint.m */; };
+		6C23BBF56ED4DCC10CA1765A6736D1F8 /* MASLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 69BEE586667AD1A950381AB394C35B12 /* MASLayoutConstraint.m */; };
+		6C261C5B4D90E7E76051A9C82840FA5E /* YYModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 08069CEEB613953229828BB67576FC50 /* YYModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		73BBDACC22CCA36A6DAAA167AD780BAF /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E44B9F575B23278AFC77EA481BE38F /* MASConstraintMaker.m */; };
+		756DF24546C7D91459DCADC8F1C98660 /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DFC60B71C8CE00C2208FBF8AE908C18 /* MASViewConstraint.m */; };
 		7A5551810C8FC00CE4B7E6975C4E9726 /* Pods-JKRouter_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 852316638068B9DB2D5C9E833570BC2B /* Pods-JKRouter_Example-dummy.m */; };
-		7C17BEA6034027310D1D205DB2008CA5 /* MASLayoutConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = C890DA6538D814D4F2ED7C8D9F57536B /* MASLayoutConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		88DE7BAB1F4999A5F4B617F44E5FD1D3 /* MASConstraintMaker.h in Headers */ = {isa = PBXBuildFile; fileRef = 4FF68AD43DC4C911BFA55FAFC67A4E05 /* MASConstraintMaker.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8A6EEF68E7625AB66A3A8DED1594F88F /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEAC7A95172D197F68FC575668E0907 /* ViewController+MASAdditions.m */; };
-		8CD45B754192DE834B642975E85257AB /* MASCompositeConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F24DA0BAFD5C480A950191187209187 /* MASCompositeConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7C17BEA6034027310D1D205DB2008CA5 /* MASLayoutConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 49441BA0393F6ED3AE0B99B34F07A7E6 /* MASLayoutConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		88DE7BAB1F4999A5F4B617F44E5FD1D3 /* MASConstraintMaker.h in Headers */ = {isa = PBXBuildFile; fileRef = 0BBB6E82EC847C9665212420A57406A1 /* MASConstraintMaker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8A6EEF68E7625AB66A3A8DED1594F88F /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA123B190531DDE6A6D329AAC9F7E76 /* ViewController+MASAdditions.m */; };
+		8CD45B754192DE834B642975E85257AB /* MASCompositeConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = C9F93BBF176A0E2F819FFD2A81650B47 /* MASCompositeConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		932D7ADB0E606D9DB95AC1D51345E247 /* JKDataHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EB1AFC15CA4ADEA3D3BA7E4513920D /* JKDataHelper.framework */; };
-		A08A8AB356264E248D01F1BC0EF08166 /* Masonry-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D5A8E412FC939A8E992FC52D36E4FC11 /* Masonry-dummy.m */; };
-		A2B7C63781EF819F69FD7F0B6D5DD56A /* JKDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C9C12A2A9A05BC2EFA9C0744A9A10E /* JKDataHelper.m */; };
-		A7370CE9231F9A4927142D79021879EC /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E684C96E9732FA0945AC1533643B113 /* MASViewAttribute.m */; };
+		9C5D134F18210F85E326D636D35A12F0 /* NSObject+JK.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC9A7B826D73AEDF05EB52B531B894C /* NSObject+JK.m */; };
+		A08A8AB356264E248D01F1BC0EF08166 /* Masonry-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B887D5810DAB50EBB67CCF7B7D54911 /* Masonry-dummy.m */; };
+		A7370CE9231F9A4927142D79021879EC /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 2195C63CA4766AFC7188178641D41E7A /* MASViewAttribute.m */; };
 		A80086D72955A5773EC78757E452F33C /* JKRouterHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 46FAFD1CF374FD28C4C9662703D04B76 /* JKRouterHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A8FA667A41EFF622BFF54CF11CA56275 /* JKDataHelper-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 54E981F789BE047618E28A35560FD697 /* JKDataHelper-dummy.m */; };
-		AD55996AC82779CE5D7A8B42A615E03E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBA1ADAFE6F67BD76693B61DCC05D3E4 /* Foundation.framework */; };
-		B44383A3FA435C1E986942C817339302 /* View+MASShorthandAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = F9D37B0C665EBFE92DD64E3285280A78 /* View+MASShorthandAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A9D5C510A3C1CF4CB59535DA065DD251 /* NSObject+JK.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C4F0FA3D7FEA7B5088C38CBACD1358F /* NSObject+JK.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B44383A3FA435C1E986942C817339302 /* View+MASShorthandAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = ACA6300A0A1208769D746F4BCB20B40B /* View+MASShorthandAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BC17C64AE68E917D9E272450861A857F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBA1ADAFE6F67BD76693B61DCC05D3E4 /* Foundation.framework */; };
 		BE6EF29F9B05E19CDB52AAD7B86132CE /* JKJSONHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E57690D5F2DFC2E528B6133307CC73E4 /* JKJSONHandler.m */; };
-		C0A16E00B4BC2D88A7833D5DAED62942 /* NSArray+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 38283BC951CC108B86B13D6D5357512F /* NSArray+MASAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C0A16E00B4BC2D88A7833D5DAED62942 /* NSArray+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DE8DEE6A946CA16331366F0AF52CDD4 /* NSArray+MASAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C463F0C97A09588304EAD3F05D4D2351 /* JKDataHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = BDF051CC6EDDD0BAF35454D905CF2EEB /* JKDataHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C73C94CD897412B6320C407C3FE9ACA8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBA1ADAFE6F67BD76693B61DCC05D3E4 /* Foundation.framework */; };
-		C8DF22EAFFC2F81B0426E2165AC93E44 /* MASConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = F8BF02E16A3C2069568EE0AD0DD7D0B9 /* MASConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CC8F9B4A1AC4E276EA8AA4C6F2BF3CD4 /* Masonry.h in Headers */ = {isa = PBXBuildFile; fileRef = 69CCF09AF1A47D5D20BAD890ECC057E7 /* Masonry.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C8DF22EAFFC2F81B0426E2165AC93E44 /* MASConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D64C5B2A79116B0B8EECC11EF91E615 /* MASConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CC8F9B4A1AC4E276EA8AA4C6F2BF3CD4 /* Masonry.h in Headers */ = {isa = PBXBuildFile; fileRef = 821A585365E2F4B98A6936AE7974720D /* Masonry.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CD2FA86A349D50AB892251A61BE2F4DA /* NSDictionary+JKDataHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C88C8D8C8D86B4ADC791DA1CEFED2CA /* NSDictionary+JKDataHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D08156FD087753227EDF91A1B01888B6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBA1ADAFE6F67BD76693B61DCC05D3E4 /* Foundation.framework */; };
-		D670D44FEFEFA99913CE8BDB9DD9507A /* YYModel-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 77376B6FFCC951FF12683D5D1ADEC892 /* YYModel-dummy.m */; };
+		D670D44FEFEFA99913CE8BDB9DD9507A /* YYModel-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F25B01B49698177502DC268FDD5D28 /* YYModel-dummy.m */; };
 		D6A3E9F31782F031007B896926FB64A8 /* UIViewController+JKRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = CFA6DF7F8C5E3BF84183B77F4419179F /* UIViewController+JKRouter.m */; };
-		D8B1525CB3DFCBD8E5032680530413D9 /* NSArray+MASShorthandAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EC67A0EDB1BF071EC056FFC06CCCA0E /* NSArray+MASShorthandAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E1839B7B5556510EB579B48877258F96 /* YYClassInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A3584833A14D2223AA1E58048F5934C /* YYClassInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E72EDE323AC9F92EC8A00A93AC186093 /* NSArray+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = EFC2F7B0839BD7454D8022AF1923655E /* NSArray+MASAdditions.m */; };
+		D8B1525CB3DFCBD8E5032680530413D9 /* NSArray+MASShorthandAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AA4310B6D5C278C6E436B8E3C90BBF1 /* NSArray+MASShorthandAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E1839B7B5556510EB579B48877258F96 /* YYClassInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E7BA56592414E6D1B9F6F15E606BA5C /* YYClassInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E72EDE323AC9F92EC8A00A93AC186093 /* NSArray+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD7F2790F5190654F1BE84EDED80A7F /* NSArray+MASAdditions.m */; };
 		EA2B26FB592ED14717882238559953FD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBA1ADAFE6F67BD76693B61DCC05D3E4 /* Foundation.framework */; };
 		EB9EEB56D1487760B0DC98C02ABE5C75 /* JKRouterExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2323217014CDD1ECF79E99BC8A0D729E /* JKRouterExtension.m */; };
-		F4B3E44D5D2F6508BC1BB35A9FBDEC70 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A5EF100F7AFABEF572A1732433AF31F /* View+MASAdditions.m */; };
+		F4B3E44D5D2F6508BC1BB35A9FBDEC70 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D3E2133EE85263DEE87787E2EE12D3 /* View+MASAdditions.m */; };
+		F553CAE690172B1E065A34BB23C9064F /* NSMutableArray+JKDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 54D257C98A5915B487EF2F78389FBA99 /* NSMutableArray+JKDataHelper.m */; };
 		F62F795460DFC2252D2C614B2A0029E6 /* Pods-JKRouter_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B9E3900531B2D082824FFE8BD81B00A2 /* Pods-JKRouter_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F6A60C9C84DB16443FF7FF728579EDDA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBA1ADAFE6F67BD76693B61DCC05D3E4 /* Foundation.framework */; };
 		F74E888B9402C56027B858A43316612A /* UIViewController+JKRouter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3AE2E15AFA37ECB3937D1332F3118C04 /* UIViewController+JKRouter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F923333F1534C095BED08E857B390A7D /* JKDataHelper-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 87E117A4E2BFA363B79499626D719E49 /* JKDataHelper-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FA13A832B29C0BAF4C3D26D136082B50 /* NSDictionary+JKDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A010BA9B009407AE4B16C0E1B7D4F74 /* NSDictionary+JKDataHelper.m */; };
 		FA3E139B1F0D03824158CA70EE78DCB7 /* JKRouterExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = CE8705141174F8818F8958CA84786BBB /* JKRouterExtension.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FAB6B2FF284CA91C66860FC6E910E5ED /* NSObject+YYModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 7FF2F453031315098F71B7859B444ED6 /* NSObject+YYModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FAB6B2FF284CA91C66860FC6E910E5ED /* NSObject+YYModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F10588D546334AA215BD060DF6223CA /* NSObject+YYModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FD734EFB772C03D6A2476A56DD5ADB5C /* JKDataHelper-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D7C760991D632DCBF464862216858D /* JKDataHelper-dummy.m */; };
+		FED0FEC80973FB873416A9639B918CE1 /* JKDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3842F37A9F0A1962DA1F65F7DFD3F9C5 /* JKDataHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,7 +91,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = FBC3F1C8D5EBC96B698B718FC48C27A4;
+			remoteGlobalIDString = 8C4E52A602B2F1EA7FC9C7F62AC5535C;
 			remoteInfo = JKDataHelper;
 		};
 		4EBDDB3854694CE56C02DC8E455C2112 /* PBXContainerItemProxy */ = {
@@ -104,119 +112,127 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = FBC3F1C8D5EBC96B698B718FC48C27A4;
+			remoteGlobalIDString = 8C4E52A602B2F1EA7FC9C7F62AC5535C;
 			remoteInfo = JKDataHelper;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		071C3A02AD5D10B334E129676FEFE1A6 /* NSLayoutConstraint+MASDebugAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSLayoutConstraint+MASDebugAdditions.h"; path = "Masonry/NSLayoutConstraint+MASDebugAdditions.h"; sourceTree = "<group>"; };
-		08D0918CE62C43C3EAB44EDAE0BF89AA /* View+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "View+MASAdditions.h"; path = "Masonry/View+MASAdditions.h"; sourceTree = "<group>"; };
+		08069CEEB613953229828BB67576FC50 /* YYModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYModel.h; path = YYModel/YYModel.h; sourceTree = "<group>"; };
 		09AF673968CE486A69BB1E0CB008F27A /* JKRouter-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JKRouter-umbrella.h"; sourceTree = "<group>"; };
-		0A55A25CD093D5AF27E8CCE18AFC1A2C /* JKDataHelper.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JKDataHelper.xcconfig; sourceTree = "<group>"; };
+		0B887D5810DAB50EBB67CCF7B7D54911 /* Masonry-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Masonry-dummy.m"; sourceTree = "<group>"; };
+		0BBB6E82EC847C9665212420A57406A1 /* MASConstraintMaker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASConstraintMaker.h; path = Masonry/MASConstraintMaker.h; sourceTree = "<group>"; };
+		0F1CFFB72C1AD24BA9871526B5A78FA3 /* MASConstraint+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MASConstraint+Private.h"; path = "Masonry/MASConstraint+Private.h"; sourceTree = "<group>"; };
+		12E8CDAB97FABFF8FFE240EF0700A635 /* YYModel-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YYModel-umbrella.h"; sourceTree = "<group>"; };
 		13A67C40C30E9B7807A4EE8E5C102FA9 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		13E9EC61197C8EBA51417712B0BDCB9D /* NSObject+YYModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+YYModel.m"; path = "YYModel/NSObject+YYModel.m"; sourceTree = "<group>"; };
+		14FA33AC623C662401202802B5340C0F /* JKDataHelper-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JKDataHelper-umbrella.h"; sourceTree = "<group>"; };
 		15173BFF6659C02EA42DE0211BA55143 /* Pods-JKRouter_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JKRouter_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		15719F34261B1ADBBC5EF1CCB6106639 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		15D1BEAD4168C88343E47CEA2AE8C19F /* JKRouter.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = JKRouter.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		16AEB0A1BC00F99D255678B66391A63D /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CoreFoundation.framework; sourceTree = DEVELOPER_DIR; };
-		1795B8B4E7BCDBFD2879724E60053254 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1A8F52BB7F7C2ECCDE5AFD17E61A87D8 /* MASViewConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASViewConstraint.h; path = Masonry/MASViewConstraint.h; sourceTree = "<group>"; };
 		1D3EF3A5EE9361C09C2BB95C803F8A20 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1D8CD3B47A545FCA476BB3F9B86C29B0 /* NSLayoutConstraint+MASDebugAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSLayoutConstraint+MASDebugAdditions.m"; path = "Masonry/NSLayoutConstraint+MASDebugAdditions.m"; sourceTree = "<group>"; };
-		1EC67A0EDB1BF071EC056FFC06CCCA0E /* NSArray+MASShorthandAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+MASShorthandAdditions.h"; path = "Masonry/NSArray+MASShorthandAdditions.h"; sourceTree = "<group>"; };
+		1DFC60B71C8CE00C2208FBF8AE908C18 /* MASViewConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewConstraint.m; path = Masonry/MASViewConstraint.m; sourceTree = "<group>"; };
 		200AFD66890A1BC6F4E39516DFF3B4D2 /* JKRouter-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JKRouter-dummy.m"; sourceTree = "<group>"; };
+		20E3708B233356508D4C0A2A23B93E57 /* YYModel-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YYModel-prefix.pch"; sourceTree = "<group>"; };
 		213489D77A7EB313769121B6ACBB3295 /* Pods-JKRouter_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-JKRouter_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		2195C63CA4766AFC7188178641D41E7A /* MASViewAttribute.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewAttribute.m; path = Masonry/MASViewAttribute.m; sourceTree = "<group>"; };
 		2323217014CDD1ECF79E99BC8A0D729E /* JKRouterExtension.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JKRouterExtension.m; path = JKRouter/Classes/JKRouterExtension.m; sourceTree = "<group>"; };
+		283B23860BEF1E7260DFF2D89124F187 /* MASCompositeConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASCompositeConstraint.m; path = Masonry/MASCompositeConstraint.m; sourceTree = "<group>"; };
 		2B2182A649BBD6DFF6FEB22BDDF97F34 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2D43379D79C9B1BDB4FEFAF6F827C5C7 /* Masonry.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Masonry.modulemap; sourceTree = "<group>"; };
-		2E684C96E9732FA0945AC1533643B113 /* MASViewAttribute.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewAttribute.m; path = Masonry/MASViewAttribute.m; sourceTree = "<group>"; };
-		316EBCEEE1B4727595FDFBEEE7578B2A /* MASUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASUtilities.h; path = Masonry/MASUtilities.h; sourceTree = "<group>"; };
-		38283BC951CC108B86B13D6D5357512F /* NSArray+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+MASAdditions.h"; path = "Masonry/NSArray+MASAdditions.h"; sourceTree = "<group>"; };
-		385B01FA06CC4B5ACF60283B3A24759A /* YYModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYModel.h; path = YYModel/YYModel.h; sourceTree = "<group>"; };
+		2C88C8D8C8D86B4ADC791DA1CEFED2CA /* NSDictionary+JKDataHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+JKDataHelper.h"; path = "JKDataHelper/Classes/NSDictionary+JKDataHelper.h"; sourceTree = "<group>"; };
+		2D64C5B2A79116B0B8EECC11EF91E615 /* MASConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASConstraint.h; path = Masonry/MASConstraint.h; sourceTree = "<group>"; };
+		3842F37A9F0A1962DA1F65F7DFD3F9C5 /* JKDataHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JKDataHelper.m; path = JKDataHelper/Classes/JKDataHelper.m; sourceTree = "<group>"; };
 		3AE2E15AFA37ECB3937D1332F3118C04 /* UIViewController+JKRouter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+JKRouter.h"; path = "JKRouter/Classes/UIViewController+JKRouter.h"; sourceTree = "<group>"; };
-		3BC321C2DE3FF82A38831DF4F9527CB8 /* JKDataHelper-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JKDataHelper-prefix.pch"; sourceTree = "<group>"; };
-		3F24DA0BAFD5C480A950191187209187 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASCompositeConstraint.h; path = Masonry/MASCompositeConstraint.h; sourceTree = "<group>"; };
+		3BE5C5A8A0032557DCEEC08D9696F8A8 /* Masonry.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Masonry.modulemap; sourceTree = "<group>"; };
+		3C4F0FA3D7FEA7B5088C38CBACD1358F /* NSObject+JK.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+JK.h"; path = "JKDataHelper/Classes/NSObject+JK.h"; sourceTree = "<group>"; };
+		3FD7F2790F5190654F1BE84EDED80A7F /* NSArray+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+MASAdditions.m"; path = "Masonry/NSArray+MASAdditions.m"; sourceTree = "<group>"; };
 		439FA78C0308F9658A0649032834394F /* Masonry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Masonry.framework; path = Masonry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		453673A5DEA3CFA350BBFDE12C8E066A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		46FAFD1CF374FD28C4C9662703D04B76 /* JKRouterHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JKRouterHeader.h; path = JKRouter/Classes/JKRouterHeader.h; sourceTree = "<group>"; };
-		4FF68AD43DC4C911BFA55FAFC67A4E05 /* MASConstraintMaker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASConstraintMaker.h; path = Masonry/MASConstraintMaker.h; sourceTree = "<group>"; };
-		54E981F789BE047618E28A35560FD697 /* JKDataHelper-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JKDataHelper-dummy.m"; sourceTree = "<group>"; };
+		49441BA0393F6ED3AE0B99B34F07A7E6 /* MASLayoutConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASLayoutConstraint.h; path = Masonry/MASLayoutConstraint.h; sourceTree = "<group>"; };
+		496E98C3ABC6059564989DF8CFE81F9C /* YYClassInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYClassInfo.m; path = YYModel/YYClassInfo.m; sourceTree = "<group>"; };
+		4AA4310B6D5C278C6E436B8E3C90BBF1 /* NSArray+MASShorthandAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+MASShorthandAdditions.h"; path = "Masonry/NSArray+MASShorthandAdditions.h"; sourceTree = "<group>"; };
+		54D257C98A5915B487EF2F78389FBA99 /* NSMutableArray+JKDataHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSMutableArray+JKDataHelper.m"; path = "JKDataHelper/Classes/NSMutableArray+JKDataHelper.m"; sourceTree = "<group>"; };
 		57B68ADFE2C59DD2BE59F735D7846BD4 /* Pods-JKRouter_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-JKRouter_Tests-umbrella.h"; sourceTree = "<group>"; };
-		5A4B6F851B0D3470F0FF9612C132EAF9 /* Masonry-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Masonry-prefix.pch"; sourceTree = "<group>"; };
+		59642DF5B400D18BA7E22BB367CAD20A /* JKDataHelper.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JKDataHelper.xcconfig; sourceTree = "<group>"; };
 		5B7386FC33ACE1BA1A163336DBF9479C /* JKRouter.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JKRouter.xcconfig; sourceTree = "<group>"; };
+		5F10588D546334AA215BD060DF6223CA /* NSObject+YYModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+YYModel.h"; path = "YYModel/NSObject+YYModel.h"; sourceTree = "<group>"; };
+		6149445DA10F8B56027A9802F311B0A2 /* JKDataHelper.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = JKDataHelper.modulemap; sourceTree = "<group>"; };
+		63F25B01B49698177502DC268FDD5D28 /* YYModel-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "YYModel-dummy.m"; sourceTree = "<group>"; };
 		64952C8BDAEA91B7F5BAA624C24BCADC /* JKRouter.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = JKRouter.modulemap; sourceTree = "<group>"; };
-		66FDBFC3A979C4E3D09CF249CA352EA4 /* Masonry.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Masonry.xcconfig; sourceTree = "<group>"; };
+		650BE384120E84024B80FFF6B3765822 /* YYModel.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = YYModel.modulemap; sourceTree = "<group>"; };
 		682CFFA38B3C740B6E9923CA797710AC /* Pods-JKRouter_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JKRouter_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		68785F9AB8028EB1B990EEFE6487EF02 /* JKRouter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JKRouter.h; path = JKRouter/Classes/JKRouter.h; sourceTree = "<group>"; };
 		69769608B242E6E6FE4C7137EC3CABDF /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
-		69CCF09AF1A47D5D20BAD890ECC057E7 /* Masonry.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Masonry.h; path = Masonry/Masonry.h; sourceTree = "<group>"; };
+		69BEE586667AD1A950381AB394C35B12 /* MASLayoutConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASLayoutConstraint.m; path = Masonry/MASLayoutConstraint.m; sourceTree = "<group>"; };
 		69F5F941E9905ACB45934687B6669F00 /* Pods-JKRouter_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JKRouter_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		6B6DF2DE6D084D53BB71EB81909D469D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6A010BA9B009407AE4B16C0E1B7D4F74 /* NSDictionary+JKDataHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+JKDataHelper.m"; path = "JKDataHelper/Classes/NSDictionary+JKDataHelper.m"; sourceTree = "<group>"; };
+		6E7BA56592414E6D1B9F6F15E606BA5C /* YYClassInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYClassInfo.h; path = YYModel/YYClassInfo.h; sourceTree = "<group>"; };
 		7327BA68CA443E7CC536C15EA060610C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		7438F0D457501B21605B276BA6058612 /* Masonry-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Masonry-prefix.pch"; sourceTree = "<group>"; };
 		7601842763076BFEE35E90D8BD1D25AC /* JKRouter-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JKRouter-prefix.pch"; sourceTree = "<group>"; };
-		77376B6FFCC951FF12683D5D1ADEC892 /* YYModel-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "YYModel-dummy.m"; sourceTree = "<group>"; };
-		7A5EF100F7AFABEF572A1732433AF31F /* View+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "View+MASAdditions.m"; path = "Masonry/View+MASAdditions.m"; sourceTree = "<group>"; };
-		7FF2F453031315098F71B7859B444ED6 /* NSObject+YYModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+YYModel.h"; path = "YYModel/NSObject+YYModel.h"; sourceTree = "<group>"; };
-		80452FD1758BAAEFEC513ED2DB208492 /* JKDataHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JKDataHelper.h; path = JKDataHelper/Classes/JKDataHelper.h; sourceTree = "<group>"; };
-		81E8E62EEC1A4347F3492ED7503B1C10 /* MASLayoutConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASLayoutConstraint.m; path = Masonry/MASLayoutConstraint.m; sourceTree = "<group>"; };
+		77E38B4DE5FA0286B878FA76A6D2F6B5 /* NSMutableArray+JKDataHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSMutableArray+JKDataHelper.h"; path = "JKDataHelper/Classes/NSMutableArray+JKDataHelper.h"; sourceTree = "<group>"; };
+		7DA123B190531DDE6A6D329AAC9F7E76 /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "ViewController+MASAdditions.m"; path = "Masonry/ViewController+MASAdditions.m"; sourceTree = "<group>"; };
+		821A585365E2F4B98A6936AE7974720D /* Masonry.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Masonry.h; path = Masonry/Masonry.h; sourceTree = "<group>"; };
 		852316638068B9DB2D5C9E833570BC2B /* Pods-JKRouter_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-JKRouter_Example-dummy.m"; sourceTree = "<group>"; };
-		87E117A4E2BFA363B79499626D719E49 /* JKDataHelper-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JKDataHelper-umbrella.h"; sourceTree = "<group>"; };
-		880DFE347AAE46C5472220C5547521DF /* MASViewConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewConstraint.m; path = Masonry/MASViewConstraint.m; sourceTree = "<group>"; };
 		891FC7D43BD8BEF47025747CFF44E3D4 /* JKDataHelper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = JKDataHelper.framework; path = JKDataHelper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8BF023B039A2DA01650568AFFDADF109 /* MASConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASConstraint.m; path = Masonry/MASConstraint.m; sourceTree = "<group>"; };
+		89D8DFC7E207DE3CB870D43B614F54B1 /* NSLayoutConstraint+MASDebugAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSLayoutConstraint+MASDebugAdditions.h"; path = "Masonry/NSLayoutConstraint+MASDebugAdditions.h"; sourceTree = "<group>"; };
 		8CB8FB5BE5FEF431CA8D3355C7CD3380 /* YYModel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = YYModel.framework; path = YYModel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CC9A7B826D73AEDF05EB52B531B894C /* NSObject+JK.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+JK.m"; path = "JKDataHelper/Classes/NSObject+JK.m"; sourceTree = "<group>"; };
+		8DE8DEE6A946CA16331366F0AF52CDD4 /* NSArray+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+MASAdditions.h"; path = "Masonry/NSArray+MASAdditions.h"; sourceTree = "<group>"; };
+		8F8F53687A7386E6FFC647150F404C69 /* YYModel.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = YYModel.xcconfig; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		941722D21BB52D00ECD18C8F50227E0F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		967BF3F67AAB9FC76666F9EB24AC881C /* Pods-JKRouter_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JKRouter_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		9A3584833A14D2223AA1E58048F5934C /* YYClassInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYClassInfo.h; path = YYModel/YYClassInfo.h; sourceTree = "<group>"; };
+		97CA87DEACEBED1CC353A5C8296DEE8C /* MASUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASUtilities.h; path = Masonry/MASUtilities.h; sourceTree = "<group>"; };
 		9AC149CA94DFC158E177F5B01330E4AB /* Pods-JKRouter_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-JKRouter_Tests-dummy.m"; sourceTree = "<group>"; };
-		9BEAC7A95172D197F68FC575668E0907 /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "ViewController+MASAdditions.m"; path = "Masonry/ViewController+MASAdditions.m"; sourceTree = "<group>"; };
-		9E4DCED4EC4272CF42181EEF874C169B /* YYModel.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = YYModel.xcconfig; sourceTree = "<group>"; };
+		9EA54FE54BC3ED2D80585A0CBCFC7EC7 /* MASViewConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASViewConstraint.h; path = Masonry/MASViewConstraint.h; sourceTree = "<group>"; };
 		A0EB1AFC15CA4ADEA3D3BA7E4513920D /* JKDataHelper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JKDataHelper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4E44B9F575B23278AFC77EA481BE38F /* MASConstraintMaker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASConstraintMaker.m; path = Masonry/MASConstraintMaker.m; sourceTree = "<group>"; };
 		A5932D17E714E599F2B1F3C2FC1CB032 /* Pods-JKRouter_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-JKRouter_Tests-resources.sh"; sourceTree = "<group>"; };
-		AA8F274774F843C08D0B49591AC2B03D /* MASCompositeConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASCompositeConstraint.m; path = Masonry/MASCompositeConstraint.m; sourceTree = "<group>"; };
-		AAAC2DCEF50634E51E151FF3D0F10C3A /* MASViewAttribute.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASViewAttribute.h; path = Masonry/MASViewAttribute.h; sourceTree = "<group>"; };
-		ACA3BACE130BA3447042FB883639891F /* YYClassInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YYClassInfo.m; path = YYModel/YYClassInfo.m; sourceTree = "<group>"; };
+		ACA6300A0A1208769D746F4BCB20B40B /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "View+MASShorthandAdditions.h"; path = "Masonry/View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
+		AF7883426D456A765EDCCA92C70B6B50 /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "ViewController+MASAdditions.h"; path = "Masonry/ViewController+MASAdditions.h"; sourceTree = "<group>"; };
+		AFEC7BF1C11969182B6158A023A3C415 /* NSLayoutConstraint+MASDebugAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSLayoutConstraint+MASDebugAdditions.m"; path = "Masonry/NSLayoutConstraint+MASDebugAdditions.m"; sourceTree = "<group>"; };
 		B535B52553A11EF1A61B33FE23A8F2A4 /* Pods-JKRouter_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JKRouter_Example.release.xcconfig"; sourceTree = "<group>"; };
-		B8277D3490CAB6BEB41E720ADD3C4224 /* MASConstraint+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MASConstraint+Private.h"; path = "Masonry/MASConstraint+Private.h"; sourceTree = "<group>"; };
-		B8EA296FA95C8AD27B5D6B9F38FE236A /* YYModel-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YYModel-umbrella.h"; sourceTree = "<group>"; };
+		B94983D9CB65F8604110B7C297C79BE6 /* Masonry.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Masonry.xcconfig; sourceTree = "<group>"; };
 		B9E3900531B2D082824FFE8BD81B00A2 /* Pods-JKRouter_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-JKRouter_Example-umbrella.h"; sourceTree = "<group>"; };
-		C0FB6448926916AC90C8B62FF23559F8 /* MASConstraintMaker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASConstraintMaker.m; path = Masonry/MASConstraintMaker.m; sourceTree = "<group>"; };
+		BDF051CC6EDDD0BAF35454D905CF2EEB /* JKDataHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JKDataHelper.h; path = JKDataHelper/Classes/JKDataHelper.h; sourceTree = "<group>"; };
 		C38240869BCF9C3B845DFC2C9A25240B /* Pods-JKRouter_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-JKRouter_Tests-frameworks.sh"; sourceTree = "<group>"; };
+		C396C9FE4F36BF1E65D6FEE9285B0A28 /* NSArray+JKDataHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+JKDataHelper.h"; path = "JKDataHelper/Classes/NSArray+JKDataHelper.h"; sourceTree = "<group>"; };
+		C3D316540FDA5ABCFF97E1D9DC7E7048 /* Masonry-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Masonry-umbrella.h"; sourceTree = "<group>"; };
+		C3D3E2133EE85263DEE87787E2EE12D3 /* View+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "View+MASAdditions.m"; path = "Masonry/View+MASAdditions.m"; sourceTree = "<group>"; };
 		C6E502C35A56D0579155E554C011C2B2 /* JKJSONHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JKJSONHandler.h; path = JKRouter/Classes/JKJSONHandler.h; sourceTree = "<group>"; };
-		C890DA6538D814D4F2ED7C8D9F57536B /* MASLayoutConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASLayoutConstraint.h; path = Masonry/MASLayoutConstraint.h; sourceTree = "<group>"; };
+		C7443C6F943986475A008A273E9B6AE7 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C9F93BBF176A0E2F819FFD2A81650B47 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASCompositeConstraint.h; path = Masonry/MASCompositeConstraint.h; sourceTree = "<group>"; };
+		CD522602C23774552A74EBE125CFDDBA /* JKDataHelper-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JKDataHelper-prefix.pch"; sourceTree = "<group>"; };
 		CE8705141174F8818F8958CA84786BBB /* JKRouterExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JKRouterExtension.h; path = JKRouter/Classes/JKRouterExtension.h; sourceTree = "<group>"; };
-		CF22347A9314A3376EE6DC73B934B798 /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "ViewController+MASAdditions.h"; path = "Masonry/ViewController+MASAdditions.h"; sourceTree = "<group>"; };
 		CF960707FD61EFC36CE5FD32F6FFB489 /* JKRouter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JKRouter.m; path = JKRouter/Classes/JKRouter.m; sourceTree = "<group>"; };
 		CFA6DF7F8C5E3BF84183B77F4419179F /* UIViewController+JKRouter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+JKRouter.m"; path = "JKRouter/Classes/UIViewController+JKRouter.m"; sourceTree = "<group>"; };
 		D08E322520498D80E4CE8C9FBAB3865C /* Pods-JKRouter_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-JKRouter_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		D246A97AC4100D1E9B50854BD27E2641 /* YYModel-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YYModel-prefix.pch"; sourceTree = "<group>"; };
 		D3A3310DE5D8654807C37E5F44A5ACEE /* Pods_JKRouter_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_JKRouter_Example.framework; path = "Pods-JKRouter_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D480C39F2A2CCE75EFB31B39F4E6F54A /* JKRouter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = JKRouter.framework; path = JKRouter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D4C9C12A2A9A05BC2EFA9C0744A9A10E /* JKDataHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JKDataHelper.m; path = JKDataHelper/Classes/JKDataHelper.m; sourceTree = "<group>"; };
-		D5A8E412FC939A8E992FC52D36E4FC11 /* Masonry-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Masonry-dummy.m"; sourceTree = "<group>"; };
-		DE30CF74287AF587746F471C799D7622 /* JKDataHelper.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = JKDataHelper.modulemap; sourceTree = "<group>"; };
+		DC098ACF66FDD95BF74F0CBBF991ECB4 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DE8B52D77E2E8027C6F2F68FB8C40813 /* Pods-JKRouter_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-JKRouter_Example-frameworks.sh"; sourceTree = "<group>"; };
 		E41CEF9BAA6E9A6D63EE2562022D6BFF /* Pods-JKRouter_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-JKRouter_Example.modulemap"; sourceTree = "<group>"; };
+		E4D7C760991D632DCBF464862216858D /* JKDataHelper-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JKDataHelper-dummy.m"; sourceTree = "<group>"; };
 		E57690D5F2DFC2E528B6133307CC73E4 /* JKJSONHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JKJSONHandler.m; path = JKRouter/Classes/JKJSONHandler.m; sourceTree = "<group>"; };
-		E5A959C7D188D9E5D10FA6D519924CCF /* YYModel.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = YYModel.modulemap; sourceTree = "<group>"; };
 		E612BCBAA7B042E27BEE0EAE9E70783C /* Pods-JKRouter_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-JKRouter_Example-resources.sh"; sourceTree = "<group>"; };
 		EBA1ADAFE6F67BD76693B61DCC05D3E4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		EBA88491F42A9AEA47B9422C305BB02D /* Pods-JKRouter_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JKRouter_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		EEF11D2BE1024BC593BDEFFA82AFD52B /* Pods-JKRouter_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-JKRouter_Tests.modulemap"; sourceTree = "<group>"; };
 		EFA20B28DC47944D4A98CA37FB2EE106 /* Pods_JKRouter_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_JKRouter_Tests.framework; path = "Pods-JKRouter_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EFC2F7B0839BD7454D8022AF1923655E /* NSArray+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+MASAdditions.m"; path = "Masonry/NSArray+MASAdditions.m"; sourceTree = "<group>"; };
-		F4D3ABAFEE3599716DDE62CC981769C0 /* NSObject+YYModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+YYModel.m"; path = "YYModel/NSObject+YYModel.m"; sourceTree = "<group>"; };
-		F8BF02E16A3C2069568EE0AD0DD7D0B9 /* MASConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASConstraint.h; path = Masonry/MASConstraint.h; sourceTree = "<group>"; };
-		F9D37B0C665EBFE92DD64E3285280A78 /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "View+MASShorthandAdditions.h"; path = "Masonry/View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
-		FF67F72419EA223AC18A879586A66797 /* Masonry-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Masonry-umbrella.h"; sourceTree = "<group>"; };
+		EFDB811DEB0427D5373321A10E211527 /* MASConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASConstraint.m; path = Masonry/MASConstraint.m; sourceTree = "<group>"; };
+		F0F1FB84DD50A4BA3429A1E9C91366B8 /* MASViewAttribute.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASViewAttribute.h; path = Masonry/MASViewAttribute.h; sourceTree = "<group>"; };
+		F12755DAFF246DA6CAF76B5289FDBBCA /* View+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "View+MASAdditions.h"; path = "Masonry/View+MASAdditions.h"; sourceTree = "<group>"; };
+		FD64ECEB7130F55B1965FF7496A12418 /* NSArray+JKDataHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+JKDataHelper.m"; path = "JKDataHelper/Classes/NSArray+JKDataHelper.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		56239F5DDBA1D0443E00AB40A41FE236 /* Frameworks */ = {
+		3533D2C8D54B36EBC2D9944CAD7124A7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD55996AC82779CE5D7A8B42A615E03E /* Foundation.framework in Frameworks */,
+				BC17C64AE68E917D9E272450861A857F /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,6 +295,34 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		0BD0F0E69C53AE1162F93D1EDA9E0FF5 /* YYModel */ = {
+			isa = PBXGroup;
+			children = (
+				5F10588D546334AA215BD060DF6223CA /* NSObject+YYModel.h */,
+				13E9EC61197C8EBA51417712B0BDCB9D /* NSObject+YYModel.m */,
+				6E7BA56592414E6D1B9F6F15E606BA5C /* YYClassInfo.h */,
+				496E98C3ABC6059564989DF8CFE81F9C /* YYClassInfo.m */,
+				08069CEEB613953229828BB67576FC50 /* YYModel.h */,
+				30CA9B890E3ACCB067466DC8578FEDC6 /* Support Files */,
+			);
+			name = YYModel;
+			path = YYModel;
+			sourceTree = "<group>";
+		};
+		30CA9B890E3ACCB067466DC8578FEDC6 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				DC098ACF66FDD95BF74F0CBBF991ECB4 /* Info.plist */,
+				650BE384120E84024B80FFF6B3765822 /* YYModel.modulemap */,
+				8F8F53687A7386E6FFC647150F404C69 /* YYModel.xcconfig */,
+				63F25B01B49698177502DC268FDD5D28 /* YYModel-dummy.m */,
+				20E3708B233356508D4C0A2A23B93E57 /* YYModel-prefix.pch */,
+				12E8CDAB97FABFF8FFE240EF0700A635 /* YYModel-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/YYModel";
+			sourceTree = "<group>";
+		};
 		382D851823B330738DCB107E050CFC2A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -325,6 +369,25 @@
 			path = "Target Support Files/Pods-JKRouter_Tests";
 			sourceTree = "<group>";
 		};
+		481940FE1A507A63177C88E29A86CF9B /* JKDataHelper */ = {
+			isa = PBXGroup;
+			children = (
+				BDF051CC6EDDD0BAF35454D905CF2EEB /* JKDataHelper.h */,
+				3842F37A9F0A1962DA1F65F7DFD3F9C5 /* JKDataHelper.m */,
+				C396C9FE4F36BF1E65D6FEE9285B0A28 /* NSArray+JKDataHelper.h */,
+				FD64ECEB7130F55B1965FF7496A12418 /* NSArray+JKDataHelper.m */,
+				2C88C8D8C8D86B4ADC791DA1CEFED2CA /* NSDictionary+JKDataHelper.h */,
+				6A010BA9B009407AE4B16C0E1B7D4F74 /* NSDictionary+JKDataHelper.m */,
+				77E38B4DE5FA0286B878FA76A6D2F6B5 /* NSMutableArray+JKDataHelper.h */,
+				54D257C98A5915B487EF2F78389FBA99 /* NSMutableArray+JKDataHelper.m */,
+				3C4F0FA3D7FEA7B5088C38CBACD1358F /* NSObject+JK.h */,
+				8CC9A7B826D73AEDF05EB52B531B894C /* NSObject+JK.m */,
+				7EE5F0C0B1871EDBF756CA8E7A7213BE /* Support Files */,
+			);
+			name = JKDataHelper;
+			path = JKDataHelper;
+			sourceTree = "<group>";
+		};
 		50A9445422EA8C23EA2574AEBD5398B1 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -332,27 +395,6 @@
 				3AE05A5F1C65C8E232A3ABBE2EFB99CB /* Pods-JKRouter_Tests */,
 			);
 			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		5F941513D5CD382019CA3129A63DCB05 /* JKDataHelper */ = {
-			isa = PBXGroup;
-			children = (
-				80452FD1758BAAEFEC513ED2DB208492 /* JKDataHelper.h */,
-				D4C9C12A2A9A05BC2EFA9C0744A9A10E /* JKDataHelper.m */,
-				D5DC6F1FB00933B259C5A041C8ADFD83 /* Support Files */,
-			);
-			name = JKDataHelper;
-			path = JKDataHelper;
-			sourceTree = "<group>";
-		};
-		6F281A5E735014991FF68F4ACBB4A006 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				5F941513D5CD382019CA3129A63DCB05 /* JKDataHelper */,
-				BC5BEC0BEA222EDD0391E7BC1C24EC4A /* Masonry */,
-				90E25AB07D57A05995E7BAF272A5FA92 /* YYModel */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		70D3BE52D505C43A753EDEF6D47EBB94 /* Development Pods */ = {
@@ -373,44 +415,78 @@
 			name = Pod;
 			sourceTree = "<group>";
 		};
+		76CB453928EB2E9793823E908B6E372A /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				941722D21BB52D00ECD18C8F50227E0F /* Info.plist */,
+				3BE5C5A8A0032557DCEEC08D9696F8A8 /* Masonry.modulemap */,
+				B94983D9CB65F8604110B7C297C79BE6 /* Masonry.xcconfig */,
+				0B887D5810DAB50EBB67CCF7B7D54911 /* Masonry-dummy.m */,
+				7438F0D457501B21605B276BA6058612 /* Masonry-prefix.pch */,
+				C3D316540FDA5ABCFF97E1D9DC7E7048 /* Masonry-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Masonry";
+			sourceTree = "<group>";
+		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				70D3BE52D505C43A753EDEF6D47EBB94 /* Development Pods */,
 				382D851823B330738DCB107E050CFC2A /* Frameworks */,
-				6F281A5E735014991FF68F4ACBB4A006 /* Pods */,
+				EC8867C791D727BAE776F16BBDD8D58F /* Pods */,
 				014308C9D2B7640E4CC2F37DF4CF84A1 /* Products */,
 				50A9445422EA8C23EA2574AEBD5398B1 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		90E25AB07D57A05995E7BAF272A5FA92 /* YYModel */ = {
+		7EE5F0C0B1871EDBF756CA8E7A7213BE /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				7FF2F453031315098F71B7859B444ED6 /* NSObject+YYModel.h */,
-				F4D3ABAFEE3599716DDE62CC981769C0 /* NSObject+YYModel.m */,
-				9A3584833A14D2223AA1E58048F5934C /* YYClassInfo.h */,
-				ACA3BACE130BA3447042FB883639891F /* YYClassInfo.m */,
-				385B01FA06CC4B5ACF60283B3A24759A /* YYModel.h */,
-				D69AD9E8F8B691B933EEE97E8EC4476B /* Support Files */,
-			);
-			name = YYModel;
-			path = YYModel;
-			sourceTree = "<group>";
-		};
-		976BBBAF227FA621E5B8D3ECEFB11646 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				453673A5DEA3CFA350BBFDE12C8E066A /* Info.plist */,
-				2D43379D79C9B1BDB4FEFAF6F827C5C7 /* Masonry.modulemap */,
-				66FDBFC3A979C4E3D09CF249CA352EA4 /* Masonry.xcconfig */,
-				D5A8E412FC939A8E992FC52D36E4FC11 /* Masonry-dummy.m */,
-				5A4B6F851B0D3470F0FF9612C132EAF9 /* Masonry-prefix.pch */,
-				FF67F72419EA223AC18A879586A66797 /* Masonry-umbrella.h */,
+				C7443C6F943986475A008A273E9B6AE7 /* Info.plist */,
+				6149445DA10F8B56027A9802F311B0A2 /* JKDataHelper.modulemap */,
+				59642DF5B400D18BA7E22BB367CAD20A /* JKDataHelper.xcconfig */,
+				E4D7C760991D632DCBF464862216858D /* JKDataHelper-dummy.m */,
+				CD522602C23774552A74EBE125CFDDBA /* JKDataHelper-prefix.pch */,
+				14FA33AC623C662401202802B5340C0F /* JKDataHelper-umbrella.h */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/Masonry";
+			path = "../Target Support Files/JKDataHelper";
+			sourceTree = "<group>";
+		};
+		B48D6F8CA44055E2A166E3420EBF50E1 /* Masonry */ = {
+			isa = PBXGroup;
+			children = (
+				C9F93BBF176A0E2F819FFD2A81650B47 /* MASCompositeConstraint.h */,
+				283B23860BEF1E7260DFF2D89124F187 /* MASCompositeConstraint.m */,
+				2D64C5B2A79116B0B8EECC11EF91E615 /* MASConstraint.h */,
+				EFDB811DEB0427D5373321A10E211527 /* MASConstraint.m */,
+				0F1CFFB72C1AD24BA9871526B5A78FA3 /* MASConstraint+Private.h */,
+				0BBB6E82EC847C9665212420A57406A1 /* MASConstraintMaker.h */,
+				A4E44B9F575B23278AFC77EA481BE38F /* MASConstraintMaker.m */,
+				49441BA0393F6ED3AE0B99B34F07A7E6 /* MASLayoutConstraint.h */,
+				69BEE586667AD1A950381AB394C35B12 /* MASLayoutConstraint.m */,
+				821A585365E2F4B98A6936AE7974720D /* Masonry.h */,
+				97CA87DEACEBED1CC353A5C8296DEE8C /* MASUtilities.h */,
+				F0F1FB84DD50A4BA3429A1E9C91366B8 /* MASViewAttribute.h */,
+				2195C63CA4766AFC7188178641D41E7A /* MASViewAttribute.m */,
+				9EA54FE54BC3ED2D80585A0CBCFC7EC7 /* MASViewConstraint.h */,
+				1DFC60B71C8CE00C2208FBF8AE908C18 /* MASViewConstraint.m */,
+				8DE8DEE6A946CA16331366F0AF52CDD4 /* NSArray+MASAdditions.h */,
+				3FD7F2790F5190654F1BE84EDED80A7F /* NSArray+MASAdditions.m */,
+				4AA4310B6D5C278C6E436B8E3C90BBF1 /* NSArray+MASShorthandAdditions.h */,
+				89D8DFC7E207DE3CB870D43B614F54B1 /* NSLayoutConstraint+MASDebugAdditions.h */,
+				AFEC7BF1C11969182B6158A023A3C415 /* NSLayoutConstraint+MASDebugAdditions.m */,
+				F12755DAFF246DA6CAF76B5289FDBBCA /* View+MASAdditions.h */,
+				C3D3E2133EE85263DEE87787E2EE12D3 /* View+MASAdditions.m */,
+				ACA6300A0A1208769D746F4BCB20B40B /* View+MASShorthandAdditions.h */,
+				AF7883426D456A765EDCCA92C70B6B50 /* ViewController+MASAdditions.h */,
+				7DA123B190531DDE6A6D329AAC9F7E76 /* ViewController+MASAdditions.m */,
+				76CB453928EB2E9793823E908B6E372A /* Support Files */,
+			);
+			name = Masonry;
+			path = Masonry;
 			sourceTree = "<group>";
 		};
 		B523EAD749666EC16A72F9B25A007431 /* Pods-JKRouter_Example */ = {
@@ -431,68 +507,6 @@
 			path = "Target Support Files/Pods-JKRouter_Example";
 			sourceTree = "<group>";
 		};
-		BC5BEC0BEA222EDD0391E7BC1C24EC4A /* Masonry */ = {
-			isa = PBXGroup;
-			children = (
-				3F24DA0BAFD5C480A950191187209187 /* MASCompositeConstraint.h */,
-				AA8F274774F843C08D0B49591AC2B03D /* MASCompositeConstraint.m */,
-				F8BF02E16A3C2069568EE0AD0DD7D0B9 /* MASConstraint.h */,
-				8BF023B039A2DA01650568AFFDADF109 /* MASConstraint.m */,
-				B8277D3490CAB6BEB41E720ADD3C4224 /* MASConstraint+Private.h */,
-				4FF68AD43DC4C911BFA55FAFC67A4E05 /* MASConstraintMaker.h */,
-				C0FB6448926916AC90C8B62FF23559F8 /* MASConstraintMaker.m */,
-				C890DA6538D814D4F2ED7C8D9F57536B /* MASLayoutConstraint.h */,
-				81E8E62EEC1A4347F3492ED7503B1C10 /* MASLayoutConstraint.m */,
-				69CCF09AF1A47D5D20BAD890ECC057E7 /* Masonry.h */,
-				316EBCEEE1B4727595FDFBEEE7578B2A /* MASUtilities.h */,
-				AAAC2DCEF50634E51E151FF3D0F10C3A /* MASViewAttribute.h */,
-				2E684C96E9732FA0945AC1533643B113 /* MASViewAttribute.m */,
-				1A8F52BB7F7C2ECCDE5AFD17E61A87D8 /* MASViewConstraint.h */,
-				880DFE347AAE46C5472220C5547521DF /* MASViewConstraint.m */,
-				38283BC951CC108B86B13D6D5357512F /* NSArray+MASAdditions.h */,
-				EFC2F7B0839BD7454D8022AF1923655E /* NSArray+MASAdditions.m */,
-				1EC67A0EDB1BF071EC056FFC06CCCA0E /* NSArray+MASShorthandAdditions.h */,
-				071C3A02AD5D10B334E129676FEFE1A6 /* NSLayoutConstraint+MASDebugAdditions.h */,
-				1D8CD3B47A545FCA476BB3F9B86C29B0 /* NSLayoutConstraint+MASDebugAdditions.m */,
-				08D0918CE62C43C3EAB44EDAE0BF89AA /* View+MASAdditions.h */,
-				7A5EF100F7AFABEF572A1732433AF31F /* View+MASAdditions.m */,
-				F9D37B0C665EBFE92DD64E3285280A78 /* View+MASShorthandAdditions.h */,
-				CF22347A9314A3376EE6DC73B934B798 /* ViewController+MASAdditions.h */,
-				9BEAC7A95172D197F68FC575668E0907 /* ViewController+MASAdditions.m */,
-				976BBBAF227FA621E5B8D3ECEFB11646 /* Support Files */,
-			);
-			name = Masonry;
-			path = Masonry;
-			sourceTree = "<group>";
-		};
-		D5DC6F1FB00933B259C5A041C8ADFD83 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				1795B8B4E7BCDBFD2879724E60053254 /* Info.plist */,
-				DE30CF74287AF587746F471C799D7622 /* JKDataHelper.modulemap */,
-				0A55A25CD093D5AF27E8CCE18AFC1A2C /* JKDataHelper.xcconfig */,
-				54E981F789BE047618E28A35560FD697 /* JKDataHelper-dummy.m */,
-				3BC321C2DE3FF82A38831DF4F9527CB8 /* JKDataHelper-prefix.pch */,
-				87E117A4E2BFA363B79499626D719E49 /* JKDataHelper-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/JKDataHelper";
-			sourceTree = "<group>";
-		};
-		D69AD9E8F8B691B933EEE97E8EC4476B /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				6B6DF2DE6D084D53BB71EB81909D469D /* Info.plist */,
-				E5A959C7D188D9E5D10FA6D519924CCF /* YYModel.modulemap */,
-				9E4DCED4EC4272CF42181EEF874C169B /* YYModel.xcconfig */,
-				77376B6FFCC951FF12683D5D1ADEC892 /* YYModel-dummy.m */,
-				D246A97AC4100D1E9B50854BD27E2641 /* YYModel-prefix.pch */,
-				B8EA296FA95C8AD27B5D6B9F38FE236A /* YYModel-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/YYModel";
-			sourceTree = "<group>";
-		};
 		E0600F3B12C510F44A35AE8C12D63402 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -501,6 +515,16 @@
 				7327BA68CA443E7CC536C15EA060610C /* UIKit.framework */,
 			);
 			name = iOS;
+			sourceTree = "<group>";
+		};
+		EC8867C791D727BAE776F16BBDD8D58F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				481940FE1A507A63177C88E29A86CF9B /* JKDataHelper */,
+				B48D6F8CA44055E2A166E3420EBF50E1 /* Masonry */,
+				0BD0F0E69C53AE1162F93D1EDA9E0FF5 /* YYModel */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		EE12F6FDE0CCE21ED5C3005C25A499F5 /* Support Files */ = {
@@ -539,15 +563,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2623ED179BAFBDFD378D6CE680DFA8DD /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F923333F1534C095BED08E857B390A7D /* JKDataHelper-umbrella.h in Headers */,
-				5CCD579040D052F433B4785CD0C547F1 /* JKDataHelper.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		2863264F46C639EB77B74CCD89FE1E0A /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -566,6 +581,19 @@
 				FA3E139B1F0D03824158CA70EE78DCB7 /* JKRouterExtension.h in Headers */,
 				A80086D72955A5773EC78757E452F33C /* JKRouterHeader.h in Headers */,
 				F74E888B9402C56027B858A43316612A /* UIViewController+JKRouter.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8E10700A8DDE28FBB8E0289B0AFAAFA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				225F6E2FDAA9651B56BAEF2689FA75C1 /* JKDataHelper-umbrella.h in Headers */,
+				C463F0C97A09588304EAD3F05D4D2351 /* JKDataHelper.h in Headers */,
+				0E68329D755D5F24E3B0E10D049B421F /* NSArray+JKDataHelper.h in Headers */,
+				CD2FA86A349D50AB892251A61BE2F4DA /* NSDictionary+JKDataHelper.h in Headers */,
+				53215E54B3086100C9BA2AEFF2644598 /* NSMutableArray+JKDataHelper.h in Headers */,
+				A9D5C510A3C1CF4CB59535DA065DD251 /* NSObject+JK.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -630,6 +658,23 @@
 			productReference = D480C39F2A2CCE75EFB31B39F4E6F54A /* JKRouter.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		8C4E52A602B2F1EA7FC9C7F62AC5535C /* JKDataHelper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 160A273E8DE557D50AA752FEE34C1DBB /* Build configuration list for PBXNativeTarget "JKDataHelper" */;
+			buildPhases = (
+				AEAC1DEBDABA6ADE9875D4387E2B9400 /* Sources */,
+				3533D2C8D54B36EBC2D9944CAD7124A7 /* Frameworks */,
+				C8E10700A8DDE28FBB8E0289B0AFAAFA /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JKDataHelper;
+			productName = JKDataHelper;
+			productReference = 891FC7D43BD8BEF47025747CFF44E3D4 /* JKDataHelper.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		8F205CBAA319632196162F8ADD30C17C /* YYModel */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 954344F8B1CC94709272CE9AAD976498 /* Build configuration list for PBXNativeTarget "YYModel" */;
@@ -685,23 +730,6 @@
 			productReference = D3A3310DE5D8654807C37E5F44A5ACEE /* Pods_JKRouter_Example.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		FBC3F1C8D5EBC96B698B718FC48C27A4 /* JKDataHelper */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8DBE8D15DEFEEE3FDC90D0985858CDFA /* Build configuration list for PBXNativeTarget "JKDataHelper" */;
-			buildPhases = (
-				F53E27EFC64AFABF6A4CE7DA897DCB0A /* Sources */,
-				56239F5DDBA1D0443E00AB40A41FE236 /* Frameworks */,
-				2623ED179BAFBDFD378D6CE680DFA8DD /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = JKDataHelper;
-			productName = JKDataHelper;
-			productReference = 891FC7D43BD8BEF47025747CFF44E3D4 /* JKDataHelper.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -723,7 +751,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FBC3F1C8D5EBC96B698B718FC48C27A4 /* JKDataHelper */,
+				8C4E52A602B2F1EA7FC9C7F62AC5535C /* JKDataHelper */,
 				601A660EDAA6F64FA4BFA8F9E153DE62 /* JKRouter */,
 				D52144DE9D7255DE912490FF5A806573 /* Masonry */,
 				F15B4CAAF251B99BED61A707E6CC58F6 /* Pods-JKRouter_Example */,
@@ -760,6 +788,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		AEAC1DEBDABA6ADE9875D4387E2B9400 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD734EFB772C03D6A2476A56DD5ADB5C /* JKDataHelper-dummy.m in Sources */,
+				FED0FEC80973FB873416A9639B918CE1 /* JKDataHelper.m in Sources */,
+				4FEC1EF70415F1EEFC3FE16AE570E233 /* NSArray+JKDataHelper.m in Sources */,
+				FA13A832B29C0BAF4C3D26D136082B50 /* NSDictionary+JKDataHelper.m in Sources */,
+				F553CAE690172B1E065A34BB23C9064F /* NSMutableArray+JKDataHelper.m in Sources */,
+				9C5D134F18210F85E326D636D35A12F0 /* NSObject+JK.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C99FAC883AF8D212C3DC2D352D79A814 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -790,22 +831,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F53E27EFC64AFABF6A4CE7DA897DCB0A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A8FA667A41EFF622BFF54CF11CA56275 /* JKDataHelper-dummy.m in Sources */,
-				A2B7C63781EF819F69FD7F0B6D5DD56A /* JKDataHelper.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
 		23AF4BEA9853C0BF55D828C4579AF684 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = JKDataHelper;
-			target = FBC3F1C8D5EBC96B698B718FC48C27A4 /* JKDataHelper */;
+			target = 8C4E52A602B2F1EA7FC9C7F62AC5535C /* JKDataHelper */;
 			targetProxy = 8EA33329CB33B11C24AB98070ED37BD8 /* PBXContainerItemProxy */;
 		};
 		484FD1A2A77887DDB72B0602E22C4978 /* PBXTargetDependency */ = {
@@ -817,7 +849,7 @@
 		69260C081F534C5EFD77F211D73A9043 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = JKDataHelper;
-			target = FBC3F1C8D5EBC96B698B718FC48C27A4 /* JKDataHelper */;
+			target = 8C4E52A602B2F1EA7FC9C7F62AC5535C /* JKDataHelper */;
 			targetProxy = 3C34178053347F8EF3674C96A019FED2 /* PBXContainerItemProxy */;
 		};
 		6E203CB5F7BC2281FCC8374AE62257DA /* PBXTargetDependency */ = {
@@ -837,7 +869,7 @@
 /* Begin XCBuildConfiguration section */
 		0E856C659AD8E4C09B9EC5557F7D727B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 66FDBFC3A979C4E3D09CF249CA352EA4 /* Masonry.xcconfig */;
+			baseConfigurationReference = B94983D9CB65F8604110B7C297C79BE6 /* Masonry.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -864,6 +896,35 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
+		};
+		141C602F095667A9F8EE13F3EA3DDA83 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 59642DF5B400D18BA7E22BB367CAD20A /* JKDataHelper.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/JKDataHelper/JKDataHelper-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/JKDataHelper/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/JKDataHelper/JKDataHelper.modulemap";
+				PRODUCT_NAME = JKDataHelper;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
 		};
 		1C3ED16E144B9A188CC88F2343EB3B4F /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -955,7 +1016,7 @@
 		};
 		1F2B05BDAA1F32F9845FBF35781F57DB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 66FDBFC3A979C4E3D09CF249CA352EA4 /* Masonry.xcconfig */;
+			baseConfigurationReference = B94983D9CB65F8604110B7C297C79BE6 /* Masonry.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1049,7 +1110,7 @@
 		};
 		49BA015501F4E53EDD0506CE4BBAA728 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9E4DCED4EC4272CF42181EEF874C169B /* YYModel.xcconfig */;
+			baseConfigurationReference = 8F8F53687A7386E6FFC647150F404C69 /* YYModel.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1139,65 +1200,6 @@
 			};
 			name = Debug;
 		};
-		744526E42A59B96CC3C7B07A7997A0CF /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0A55A25CD093D5AF27E8CCE18AFC1A2C /* JKDataHelper.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/JKDataHelper/JKDataHelper-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/JKDataHelper/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/JKDataHelper/JKDataHelper.modulemap";
-				PRODUCT_NAME = JKDataHelper;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		77FB9CCF71BEC4F7487141DEC003F54B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0A55A25CD093D5AF27E8CCE18AFC1A2C /* JKDataHelper.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/JKDataHelper/JKDataHelper-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/JKDataHelper/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/JKDataHelper/JKDataHelper.modulemap";
-				PRODUCT_NAME = JKDataHelper;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		9104F4F3E69BCA5539D2CC77CAAEF53A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 69F5F941E9905ACB45934687B6669F00 /* Pods-JKRouter_Tests.debug.xcconfig */;
@@ -1230,9 +1232,39 @@
 			};
 			name = Debug;
 		};
+		C128FDA126FBE94944326622BC44F9FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 59642DF5B400D18BA7E22BB367CAD20A /* JKDataHelper.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/JKDataHelper/JKDataHelper-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/JKDataHelper/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/JKDataHelper/JKDataHelper.modulemap";
+				PRODUCT_NAME = JKDataHelper;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		CB52FE0B4918F5C17D7EEF7AB83356C0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9E4DCED4EC4272CF42181EEF874C169B /* YYModel.xcconfig */;
+			baseConfigurationReference = 8F8F53687A7386E6FFC647150F404C69 /* YYModel.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1352,6 +1384,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		160A273E8DE557D50AA752FEE34C1DBB /* Build configuration list for PBXNativeTarget "JKDataHelper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				141C602F095667A9F8EE13F3EA3DDA83 /* Debug */,
+				C128FDA126FBE94944326622BC44F9FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1366,15 +1407,6 @@
 			buildConfigurations = (
 				32656AA67CF9E618650CC49727AE9E2C /* Debug */,
 				FA24540E2939B93D318070894BD180AC /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		8DBE8D15DEFEEE3FDC90D0985858CDFA /* Build configuration list for PBXNativeTarget "JKDataHelper" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				77FB9CCF71BEC4F7487141DEC003F54B /* Debug */,
-				744526E42A59B96CC3C7B07A7997A0CF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

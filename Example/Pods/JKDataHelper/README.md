@@ -14,7 +14,39 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Description
 
-this is a tool always to help developer to avoid bugs by the unstable APIs.
+this is a tool always to help  the developers to avoid bugs by the unstable APIs. it always help you to avoid bugs when you use the functions:
+```
+NSArray:
+
+NSArray *array = @[obect1,object2];
+
+id object = [array objectAtIndex:i];
+
+//****************************************
+NSMutableArray:
+[mutableArray addObject:object];
+
+[mutableArray insertObject:object atIndex:i];
+
+[mutableArray removeObjectAtIndex:i];
+
+[mutableArray replaceObjectAtIndex:i withObject:object];
+
+//*************************************************
+NSDictionary:
+
+NSDictionary *dic = @{object1:key1,object2:key2};
+
+NSDictionary *dic = [NSDictionary dictionaryWithObject:object forKey:key];
+
+NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:object1,key1,object2,key2,nil];
+
+NSDictionary *dic = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
+
+NSDictionary *dic = [NSDictionary initWithObjects:objects forKeys:keys count:count];
+
+
+```
 
 ## Installation
 

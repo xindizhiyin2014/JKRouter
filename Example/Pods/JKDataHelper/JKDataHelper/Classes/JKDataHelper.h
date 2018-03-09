@@ -6,6 +6,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NSArray+JKDataHelper.h"
+#import "NSMutableArray+JKDataHelper.h"
+#import "NSDictionary+JKDataHelper.h"
+
+
 
 
 #define JKSafeArray(array)   [JKDataHelper safeArray:array]

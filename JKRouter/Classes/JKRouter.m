@@ -147,7 +147,7 @@ static JKRouter *defaultRouter =nil;
         options = [RouterOptions options];
     }
     if ([NSClassFromString(vcClassName) jkIsTabBarItemVC]) {
-        [self _switchTabWithVC:vcClassName];//进行tab切换
+        [JKRouterExtension jkSwitchTabWithVC:vcClassName];//进行tab切换
     }else{
         Class VCClass = NSClassFromString(vcClassName);
         UIViewController *vc = [VCClass jkRouterViewControllerWithJSON:options.defaultParams];
@@ -175,7 +175,7 @@ static JKRouter *defaultRouter =nil;
         options = [RouterOptions options];
     }
     if ([NSClassFromString(vcClassName) jkIsTabBarItemVC]) {
-         [self _switchTabWithVC:vcClassName];//进行tab切换
+         [JKRouterExtension jkSwitchTabWithVC:vcClassName];//进行tab切换
     }else{
         UIViewController *vc = [self configVC:vcClassName options:options];
         //根据配置好的VC，options配置进行跳转
@@ -193,15 +193,35 @@ static JKRouter *defaultRouter =nil;
 }
 
 + (void)URLOpen:(NSString *)url extra:(NSDictionary *)extra{
+    [self URLOpen:url extra:extra complete:nil];
+}
+
++ (void)URLOpen:(NSString *)url extra:(NSDictionary *)extra complete:(void(^)(id result,NSError *error))completeBlock{
+    if(!url){
+        JKRouterLog(@"url 不存在");
+        if(completeBlock){
+            NSError * error = [NSError errorWithDomain:@"JKRouter" code:-100 userInfo:@{@"message":@"url不存在"}];
+            completeBlock(nil,error);
+        }
+        return;
+    }
     url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSURL *targetURL = [NSURL URLWithString:url];
     NSString *scheme =targetURL.scheme;
     if (![[JKRouter router].urlSchemes containsObject:scheme]) {
         JKRouterLog(@"app不支持该协议的跳转");
+        if(completeBlock){
+            NSError * error = [NSError errorWithDomain:@"JKRouter" code:-101 userInfo:@{@"message":@"app不支持该协议的跳转"}];
+            completeBlock(nil,error);
+        }
         return;
     }
     if (![JKRouterExtension safeValidateURL:url]) {
         JKRouterLog(@"url无法通过安全校验");
+        if(completeBlock){
+            NSError * error = [NSError errorWithDomain:@"JKRouter" code:-1-2 userInfo:@{@"message":@"url无法通过安全校验"}];
+            completeBlock(nil,error);
+        }
         return;
     }
     if ([scheme isEqualToString:@"http"] || [scheme isEqualToString:@"https"] ||[scheme isEqualToString:@"file"]) {
@@ -216,7 +236,7 @@ static JKRouter *defaultRouter =nil;
     
     NSString *moduleID = [targetURL.path substringFromIndex:1];
     NSString *type = [JKJSONHandler getTypeWithModuleID:moduleID];
-    if ([type isEqualToString:@"ViewController"]) {
+    if ([type isEqualToString:[JKRouterExtension jkModuleTypeKey]]) {
         NSString *vcClassName = [JKJSONHandler getHomePathWithModuleID:moduleID];
         if ([NSClassFromString(vcClassName) isSubclassOfClass:[UIViewController class]]) {
             NSString *parameterStr = [[targetURL query] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -232,11 +252,11 @@ static JKRouter *defaultRouter =nil;
             //执行页面的跳转
             [self open:vcClassName optionsWithJSON:options];
         }else{//进行特殊路由跳转的操作
-            [JKRouterExtension otherActionsWithActionType:type URL:targetURL extra:extra];
+            [JKRouterExtension otherActionsWithActionType:type URL:targetURL extra:extra complete:completeBlock];
         }
     }else{
         //进行非路由跳转的操作
-        [JKRouterExtension otherActionsWithActionType:type URL:targetURL extra:extra];
+        [JKRouterExtension otherActionsWithActionType:type URL:targetURL extra:extra complete:completeBlock];
     }
     
 }
@@ -328,7 +348,9 @@ static JKRouter *defaultRouter =nil;
         [[JKRouter router].navigationController dismissViewControllerAnimated:animated completion:nil];
     }
     else {
-        [[JKRouter router].navigationController popToViewController:vc animated:animated];
+        if (vc) {
+            [[JKRouter router].navigationController popToViewController:vc animated:animated];
+        }
     }
 }
 
@@ -346,6 +368,40 @@ static JKRouter *defaultRouter =nil;
                 [self popToSpecifiedVC:vc animated:animated];
             }
         }
+}
+
++ (void)popWithStep:(NSInteger)step{
+    [self popWithStep:step :YES];
+}
+
++ (void)popWithStep:(NSInteger)step :(BOOL)animated{
+    [self popWithStep:step params:nil animated:animated];
+}
+
++ (void)popWithStep:(NSInteger)step params:(NSDictionary *)params animated:(BOOL)animated{
+    NSArray *vcArray = [JKRouter router].navigationController.viewControllers;
+    UIViewController *vc= nil;
+    if (step>0) {
+        if([JKRouter router].navigationController.viewControllers.count>step){
+            NSUInteger count = vcArray.count;
+            vc = vcArray[(count-1) - step];
+            RouterOptions *options = [RouterOptions optionsWithDefaultParams:params];
+            [self configTheVC:vc options:options];
+            [self popToSpecifiedVC:vc animated:animated];
+        }else if([JKRouter router].navigationController.viewControllers.count == step){
+            UIViewController *vc= nil;
+            vc = vcArray[0];
+            RouterOptions *options = [RouterOptions optionsWithDefaultParams:params];
+            [self configTheVC:vc options:options];
+            [self popToSpecifiedVC:vc animated:animated];
+        }else{
+            JKRouterLog(@"step不在正常范围 执行popToRootViewController操作");
+            //已经是根视图，不再执行pop操作  可以执行dismiss操作
+            vc = vcArray[0];
+            [self popToSpecifiedVC:vc animated:animated];
+        }
+    }
+    
 }
 
 #pragma mark  - - - - the tool functions - - - -
@@ -466,33 +522,5 @@ static JKRouter *defaultRouter =nil;
     return YES;
 }
 
-//切换tab
-+ (void)_switchTabWithVC:(NSString *)vcClassName{
-    UIViewController *rootVC = [UIApplication sharedApplication].keyWindow.rootViewController;
-    if ([rootVC isKindOfClass:[UITabBarController class]]) {
-       UITabBarController *tabBarVC = (UITabBarController *)rootVC;
-        if ([tabBarVC.selectedViewController isKindOfClass:[UINavigationController class]]) {
-            NSArray *vcArray = tabBarVC.viewControllers;
-            for (NSInteger i = 0; i< vcArray.count; i++) {
-                UINavigationController *naVC = vcArray[i];
-                UIViewController *targetVC = naVC.viewControllers[0];
-                if ([targetVC  isKindOfClass:NSClassFromString(vcClassName)] ) {
-                    [naVC popToRootViewControllerAnimated:YES];
-                    tabBarVC.selectedIndex = i;
-                    return;
-                }
-            }
-        }else{
-          NSArray *vcArray = tabBarVC.viewControllers;
-            for (NSInteger i = 0; i< vcArray.count; i++) {
-                UIViewController *targetVC = vcArray[i];
-                if ([targetVC  isKindOfClass:NSClassFromString(vcClassName)] ) {
-                    tabBarVC.selectedIndex = i;
-                    return;
-                }
-            }
-        }
-    }
-}
 
 @end

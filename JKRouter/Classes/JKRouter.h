@@ -152,6 +152,16 @@
 + (void)URLOpen:(NSString *)url extra:(NSDictionary *)extra;
 
 /**
+ 遵守用户指定协议的跳转
+ 
+ 适用于携带大量参数的跳转,多用于H5页面跳转到native页面
+ @param url 跳转的路由，不携带参数
+ @param extra 额外传入的参数
+ @param completeBlock 跳转成功后的回调
+ */
++ (void)URLOpen:(NSString *)url extra:(NSDictionary *)extra complete:(void(^)(id result,NSError *error))completeBlock;
+
+/**
  适用于访问基于http协议／https协议的路由跳转
 
  @param url 跳转的路由，可以携带少量参数
@@ -210,6 +220,32 @@
  @param animated 是否有动画
  */
 + (void)popWithSpecifiedModuleID:(NSString *)moduleID :(NSDictionary *)params :(BOOL)animated;
+
+/**
+ 根据step的值pop向前回退几个VC
+ 如果step大于当前当前naVC.viewController.count,时返回pop to rootViewController
+ @param step 回退的vc的数量
+ */
++ (void)popWithStep:(NSInteger)step;
+
+/**
+ 根据step的值pop向前回退几个VC
+ 如果step大于当前当前naVC.viewController.count,时返回pop to rootViewController
+ 
+ @param step 回退的vc的数量
+ @param animated 是否有动画效果
+ */
++ (void)popWithStep:(NSInteger)step :(BOOL)animated;
+
+/**
+ 根据step的值pop向前回退几个VC
+ 如果step大于当前当前naVC.viewController.count,时返回pop to rootViewController
+ 
+ @param step 回退的vc的数量
+ @param params 返回时传递的参数
+ @param animated 是否有动画效果
+ */
++ (void)popWithStep:(NSInteger)step params:(NSDictionary *)params animated:(BOOL)animated;
 
 
 /**
