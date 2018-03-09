@@ -31,7 +31,6 @@
 //这个传入的参数默认传入的值dictionary对象，在+ (void)open:(NSString *)vcClassName optionsWithJSON:(RouterOptions *)options 这个方法使用时defaultParams 是json对象。这个地方要注意哦
 @property (nonatomic,copy,readwrite) NSDictionary *defaultParams;      ///< 跳转时传入的参数，默认为nil
 
-
 /**
  创建默认配置的options对象
 
@@ -47,7 +46,6 @@
  */
 + (instancetype)optionsWithModuleID:(NSString *)moduleID;
 
-
 /**
  创建单独配置的options对象,其余的是默认配置
  
@@ -55,7 +53,6 @@
  @return RouterOptions 实例对象
  */
 + (instancetype)optionsWithDefaultParams:(NSDictionary *)params;
-
 
 /**
  已经创建的option对象传入参数
@@ -91,6 +88,12 @@
 
 + (void)configWithRouterFiles:(NSArray<NSString *> *)routerFileNames;
 
+/**
+ 更新路由信息
+
+ @param filePath 路由配置信息的文件在沙盒中的路径
+ */
++ (void)updateRouterInfoWithFilePath:(NSString*)filePath;
 
 /**
  默认打开方式
