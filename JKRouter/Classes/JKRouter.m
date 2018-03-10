@@ -473,9 +473,9 @@ static JKRouter *defaultRouter =nil;
 
 //根据相关的options配置，进行跳转
 + (BOOL)routerViewController:(UIViewController *)vc options:(RouterOptions *)options{
-    if (![[vc class]  validateTheAccessToOpen]) {//权限不够进行别的操作处理
+    if (![[vc class]  validateTheAccessToOpenWithOptions:options]) {//权限不够进行别的操作处理
         //根据具体的权限设置决定是否进行跳转，如果没有权限，跳转中断，进行后续处理
-        [[vc class] handleNoAccessToOpen];
+        [[vc class] handleNoAccessToOpenWithOptions:options];
         return NO;
     }
     if ([JKRouter router].navigationController.presentationController) {

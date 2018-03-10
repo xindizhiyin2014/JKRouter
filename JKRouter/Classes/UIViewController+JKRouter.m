@@ -29,11 +29,11 @@ static char moduleID;
     return nil;
 }
 
-+ (BOOL)validateTheAccessToOpen{
++ (BOOL)validateTheAccessToOpenWithOptions:(RouterOptions *)options{
     return YES;
 }
 
-+ (void)handleNoAccessToOpen{
++ (void)handleNoAccessToOpenWithOptions:(RouterOptions *)options{
 }
 
 - (void)jkRouterSpecialTransformWithNaVC:(UINavigationController *)naVC{
