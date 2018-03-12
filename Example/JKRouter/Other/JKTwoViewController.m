@@ -39,6 +39,9 @@
 + (BOOL)jkIsTabBarItemVC{
     return YES;
 }
++ (NSInteger)jkTabIndex{
+    return 1;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

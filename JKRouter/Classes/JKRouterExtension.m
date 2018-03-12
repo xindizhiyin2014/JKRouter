@@ -50,30 +50,19 @@
 + (void)otherActionsWithActionType:(NSString *)actionType URL:(NSURL *)url extra:(NSDictionary *)extra complete:(void(^)(id result,NSError *error))completeBlock{
 }
 
-+ (void)jkSwitchTabWithVC:(NSString *)vcClassName{
++ (void)jkSwitchTabWithVC:(NSString *)vcClassName options:(RouterOptions *)options{
     UIViewController *rootVC = [UIApplication sharedApplication].delegate.window.rootViewController;
+    NSInteger index = [NSClassFromString(vcClassName) jkTabIndex];
     if ([rootVC isKindOfClass:[UITabBarController class]]) {
         UITabBarController *tabBarVC = (UITabBarController *)rootVC;
         if ([tabBarVC.selectedViewController isKindOfClass:[UINavigationController class]]) {
             NSArray *vcArray = tabBarVC.viewControllers;
-            for (NSInteger i = 0; i< vcArray.count; i++) {
-                UINavigationController *naVC = vcArray[i];
-                UIViewController *targetVC = naVC.viewControllers[0];
-                if ([targetVC  isKindOfClass:NSClassFromString(vcClassName)] ) {
-                    [naVC popToRootViewControllerAnimated:YES];
-                    tabBarVC.selectedIndex = i;
-                    return;
-                }
-            }
+            UINavigationController *naVC = vcArray[index];
+            [naVC popToRootViewControllerAnimated:YES];
+            tabBarVC.selectedIndex = index;
+
         }else{
-            NSArray *vcArray = tabBarVC.viewControllers;
-            for (NSInteger i = 0; i< vcArray.count; i++) {
-                UIViewController *targetVC = vcArray[i];
-                if ([targetVC  isKindOfClass:NSClassFromString(vcClassName)] ) {
-                    tabBarVC.selectedIndex = i;
-                    return;
-                }
-            }
+            tabBarVC.selectedIndex = index;
         }
     }
 }

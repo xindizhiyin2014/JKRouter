@@ -53,5 +53,9 @@ static char moduleID;
     return NO;
 }
 
++ (NSInteger)jkTabIndex{
+    return 0;
+}
+
 
 @end

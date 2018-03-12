@@ -67,5 +67,12 @@ defalut is NO
  */
 + (BOOL)jkIsTabBarItemVC;
 
+/**
+ tab的index值
+ 
+ @return index值 default is 0
+ */
++ (NSInteger)jkTabIndex;
+
 
 @end

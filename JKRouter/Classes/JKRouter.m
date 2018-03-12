@@ -163,7 +163,7 @@ static JKRouter *defaultRouter =nil;
         options = [RouterOptions options];
     }
     if ([NSClassFromString(vcClassName) jkIsTabBarItemVC]) {
-        [JKRouterExtension jkSwitchTabWithVC:vcClassName];//进行tab切换
+        [JKRouterExtension jkSwitchTabWithVC:vcClassName options:options];//进行tab切换
     }else{
         Class VCClass = NSClassFromString(vcClassName);
         UIViewController *vc = [VCClass jkRouterViewControllerWithJSON:options.defaultParams];
@@ -191,7 +191,7 @@ static JKRouter *defaultRouter =nil;
         options = [RouterOptions options];
     }
     if ([NSClassFromString(vcClassName) jkIsTabBarItemVC]) {
-         [JKRouterExtension jkSwitchTabWithVC:vcClassName];//进行tab切换
+         [JKRouterExtension jkSwitchTabWithVC:vcClassName options:options];//进行tab切换
     }else{
         UIViewController *vc = [self configVC:vcClassName options:options];
         //根据配置好的VC，options配置进行跳转
