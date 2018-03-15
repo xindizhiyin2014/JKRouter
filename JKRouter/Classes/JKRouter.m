@@ -240,9 +240,13 @@ static JKRouter *defaultRouter =nil;
         }
         return;
     }
-    if ([scheme isEqualToString:@"http"] || [scheme isEqualToString:@"https"] ||[scheme isEqualToString:@"file"]) {
+    if ([scheme isEqualToString:@"http"] || [scheme isEqualToString:@"https"]) {
         
-        [self httpOpen:targetURL];
+        [self httpOpen:targetURL extra:extra];
+        return;
+    }
+    if ([scheme isEqualToString:@"file"]) {
+        [self jumpToSandBoxWeb:url extra:extra];
         return;
     }
     if ([scheme isEqualToString:@"itms-apps"]) {
@@ -277,47 +281,35 @@ static JKRouter *defaultRouter =nil;
     
 }
 
-+ (void)httpOpen:(NSURL *)targetURL{
-    NSString *parameterStr = [[targetURL query] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
++ (void)httpOpen:(NSURL *)url extra:(NSDictionary *)extra{
+    NSString *parameterStr = [[url query] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     if (JKSafeStr(parameterStr)) {
-      NSMutableDictionary *dic = [self convertUrlStringToDictionary:parameterStr];
+        NSMutableDictionary *dic = [self convertUrlStringToDictionary:parameterStr];
         NSDictionary *params = [dic copy];
-        if (JKSafeDic(params) && [[params objectForKey:[JKRouterExtension JKRouterHttpOpenStyleKey]] isEqualToString:@"1"]) {//判断是否是在app内部打开网页
-            RouterOptions *options = [RouterOptions options];
-            NSDictionary *params = @{[JKRouterExtension jkWebURLKey]:targetURL.absoluteString};
-            options.defaultParams =params;
-            [self open:[JKRouter router].webContainerName options:options];
+        if (JKSafeDic(params) && [[params objectForKey:[JKRouterExtension JKRouterHttpOpenStyleKey]] isEqualToString:@"1"]) {//在app内部打开网页
+            NSDictionary *tempParams = @{[JKRouterExtension jkWebURLKey]:url.absoluteString};
+            NSMutableDictionary *dic = [[NSMutableDictionary alloc] initWithDictionary:tempParams];
+            [dic addEntriesFromDictionary:extra];
+            RouterOptions *options = [RouterOptions optionsWithDefaultParams:[dic copy]];
+            [self open:[JKRouter router].webContainerName optionsWithJSON:options];
             return;
         }
     }
-    [self openExternal:targetURL];
+    [self openExternal:url];
 }
 
-/**
- 根据路径跳转到指定的httpWeb页面
- 
- @param directory 指定的路径
- */
-+ (void)jumpToHttpWeb:(NSString *)directory options:(RouterOptions *)options{
-    if (!JKSafeStr(directory)) {
++ (void)jumpToSandBoxWeb:(NSString *)url extra:(NSDictionary *)extra{
+    if (!JKSafeStr(url)) {
         JKRouterLog(@"路径不存在");
         return;
     }
-    NSString *path =[NSString stringWithFormat:@"%@/%@",[JKRouterExtension sandBoxBasePath],directory];
-    NSDictionary *params = @{[JKRouterExtension jkWebURLKey]:path};
-    options.defaultParams =params;
-    [self open:[JKRouter router].webContainerName options:options];
-}
-
-+ (void)jumpToSandBoxWeb:(NSString *)directory options:(RouterOptions *)options{
-    if (!JKSafeStr(directory)) {
-        JKRouterLog(@"路径不存在");
-        return;
-    }
-    NSString *path =[NSString stringWithFormat:@"%@/%@",[JKRouterExtension sandBoxBasePath],directory];
-    NSDictionary *params = @{[JKRouterExtension jkWebURLKey]:path};
-    options.defaultParams =params;
-    [self open:[JKRouter router].webContainerName options:options];
+    NSString *basePath = [NSString stringWithFormat:@"://%@",[JKRouterExtension sandBoxBasePath]];
+    url = [url stringByReplacingOccurrencesOfString:@"://" withString:basePath];
+    NSDictionary *params = @{[JKRouterExtension jkWebURLKey]:url};
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc] initWithDictionary:params];
+    [dic addEntriesFromDictionary:extra];
+     RouterOptions *options = [RouterOptions optionsWithDefaultParams:[dic copy]];
+    [self open:[JKRouter router].webContainerName optionsWithJSON:options];
 }
 
 + (void)openExternal:(NSURL *)targetURL {

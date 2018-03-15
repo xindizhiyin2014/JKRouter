@@ -13,10 +13,16 @@
 
 @implementation JKWebViewController
 
++ (instancetype)jkRouterViewControllerWithJSON:(NSDictionary *)dic{
+    JKWebViewController *gVC = [JKWebViewController yy_modelWithJSON:dic];
+    
+    return gVC;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     NSLog(@"jkurl: %@",_jkurl);
+    NSLog(@"title : %@",self.title);
 
 }
 

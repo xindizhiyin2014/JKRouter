@@ -183,7 +183,9 @@
 - (void)userURLJump{
 
 //    [JKRouter URLOpen:@"jkpp://jackApp:10001"];
-    [JKRouter URLOpen:@"http://www.baidu.com?jkRouterAppOpen=1"];
+//    [JKRouter URLOpen:@"https://www.baidu.com?jkRouterAppOpen=1"];
+//    [JKRouter URLOpen:@"https://www.baidu.com?jkRouterAppOpen=1" extra:@{@"title":@"123"}];
+     [JKRouter URLOpen:@"file:///123.html"];
 }
 
 

@@ -36,7 +36,7 @@
 }
 
 + (NSString *)sandBoxBasePath{
-    return [[NSBundle mainBundle] pathForResource:nil ofType:nil];
+    return NSHomeDirectory();
 }
 
 + (NSString *)JKRouterModuleIDKey{

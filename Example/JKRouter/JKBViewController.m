@@ -40,7 +40,6 @@
 
 
 -(void)clickToBack{
-    
     [JKRouter pop];
 }
 

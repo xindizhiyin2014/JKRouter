@@ -150,7 +150,7 @@
 
  适用于携带大量参数的跳转,多用于H5页面跳转到native页面
  @param url 跳转的路由，不携带参数
- @param extra 额外传入的参数
+ @param extra 额外传入的参数,注：extra内的参数可以改变web容器的属性
  */
 + (void)URLOpen:(NSString *)url extra:(NSDictionary *)extra;
 
@@ -159,17 +159,10 @@
  
  适用于携带大量参数的跳转,多用于H5页面跳转到native页面
  @param url 跳转的路由，不携带参数
- @param extra 额外传入的参数
+ @param extra 额外传入的参数 注：extra内的参数可以改变web容器的属性
  @param completeBlock 跳转成功后的回调
  */
 + (void)URLOpen:(NSString *)url extra:(NSDictionary *)extra complete:(void(^)(id result,NSError *error))completeBlock;
-
-/**
- 适用于访问基于http协议／https协议的路由跳转
-
- @param url 跳转的路由，可以携带少量参数
- */
-+ (void)httpOpen:(NSURL *)url;
 
 /**
  默认情况下的pop，或者dismiss ,animated:YES
@@ -265,7 +258,5 @@
  @param targetVC 目标viewController
  */
 + (void)replaceCurrentViewControllerWithTargetVC:(UIViewController *)targetVC;
-
-
 
 @end
