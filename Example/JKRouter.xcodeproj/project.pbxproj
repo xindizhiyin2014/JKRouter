@@ -33,6 +33,7 @@
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		7533882F666CC3BB3873765E /* Pods_JKRouter_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94BEB986A24B05810936750D /* Pods_JKRouter_Example.framework */; };
 		A146CC721E35DEE3777774C0 /* Pods_JKRouter_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74C599AC3A6497544067198D /* Pods_JKRouter_Tests.framework */; };
+		BD060ADE207C5A080004A264 /* JKLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD060ADD207C5A080004A264 /* JKLViewController.m */; };
 		BD072E8C205298AB008E3174 /* JKJViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD072E8B205298AB008E3174 /* JKJViewController.m */; };
 		BD072E8F20529955008E3174 /* JKKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD072E8E20529955008E3174 /* JKKViewController.m */; };
 		BD6775F9205014E60014CB49 /* JKRouterExtension+Jack.m in Sources */ = {isa = PBXBuildFile; fileRef = BD6775F8205014E60014CB49 /* JKRouterExtension+Jack.m */; };
@@ -105,6 +106,8 @@
 		94BEB986A24B05810936750D /* Pods_JKRouter_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JKRouter_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E96A71B1761B1822BF4EFE3 /* Pods-JKRouter_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKRouter_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JKRouter_Example/Pods-JKRouter_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		B9B9C65EBBE9F191F8DBB935 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		BD060ADC207C5A080004A264 /* JKLViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKLViewController.h; sourceTree = "<group>"; };
+		BD060ADD207C5A080004A264 /* JKLViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKLViewController.m; sourceTree = "<group>"; };
 		BD072E8A205298AB008E3174 /* JKJViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKJViewController.h; sourceTree = "<group>"; };
 		BD072E8B205298AB008E3174 /* JKJViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKJViewController.m; sourceTree = "<group>"; };
 		BD072E8D20529955008E3174 /* JKKViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKKViewController.h; sourceTree = "<group>"; };
@@ -249,6 +252,8 @@
 				0452F2AA1E7E457A0069037C /* JKJSONHandler+Jack.m */,
 				BD6775F7205014E60014CB49 /* JKRouterExtension+Jack.h */,
 				BD6775F8205014E60014CB49 /* JKRouterExtension+Jack.m */,
+				BD060ADC207C5A080004A264 /* JKLViewController.h */,
+				BD060ADD207C5A080004A264 /* JKLViewController.m */,
 				BD740C0F2029F2F1006D9EA8 /* Other */,
 				BDFBBE891FE6494500F704D5 /* PageCoverController */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
@@ -563,6 +568,7 @@
 				046309201EC6126900048CBA /* JKWebViewController.m in Sources */,
 				BDFAE7F3201C50DD006BB722 /* JKIViewController.m in Sources */,
 				BD740C152029F331006D9EA8 /* JKTwoViewController.m in Sources */,
+				BD060ADE207C5A080004A264 /* JKLViewController.m in Sources */,
 				BDFBBE971FE6494500F704D5 /* UIView+anchorPoint.m in Sources */,
 				BDFBBE981FE6494500F704D5 /* XWInteractiveTransition.m in Sources */,
 				BD7C356820010BDC00DDDFB8 /* JKGViewController.m in Sources */,
