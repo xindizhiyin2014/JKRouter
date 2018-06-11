@@ -1,6 +1,6 @@
 PODS:
   - JKDataHelper (0.1.5)
-  - JKRouter (0.2.6.2):
+  - JKRouter (0.2.6.4):
     - JKDataHelper
   - Masonry (1.1.0)
   - YYModel (1.0.4)
@@ -11,16 +11,22 @@ DEPENDENCIES:
   - Masonry
   - YYModel
 
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - JKDataHelper
+    - Masonry
+    - YYModel
+
 EXTERNAL SOURCES:
   JKRouter:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
   JKDataHelper: 05496b2e23f45f6ab0f422a6f160b64221ed22f9
-  JKRouter: 598f04d1c47e6fabb1da27d3ff12c50bb09db9a5
+  JKRouter: 0458aa605f9b4f9b88d0b3929e385bc449f54738
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
 PODFILE CHECKSUM: b2fb74415550f4c5bd52e633efd77452c5401fd4
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.0

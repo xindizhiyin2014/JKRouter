@@ -23,7 +23,6 @@
 		35B808E9E874C3E1F28127318EBC0ADD /* JKRouter-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 09AF673968CE486A69BB1E0CB008F27A /* JKRouter-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		36FB520A50A08C0358AB77C4C1802407 /* NSObject+YYModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 13E9EC61197C8EBA51417712B0BDCB9D /* NSObject+YYModel.m */; };
 		38E0CD63021889EE46E1A6B9FA0415F5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7327BA68CA443E7CC536C15EA060610C /* UIKit.framework */; };
-		425FBEF6FC47739E6B6BBDEFCBD4DFBA /* Pods-JKRouter_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC149CA94DFC158E177F5B01330E4AB /* Pods-JKRouter_Tests-dummy.m */; };
 		432FA22864D148EBD4CB22F55AB68004 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBA1ADAFE6F67BD76693B61DCC05D3E4 /* Foundation.framework */; };
 		457ACF9150DCF9AF445B129CC9678FB6 /* Masonry-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C3D316540FDA5ABCFF97E1D9DC7E7048 /* Masonry-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D4F2050654580FE1F1D5F4F82CEDDB8 /* MASConstraint+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 0F1CFFB72C1AD24BA9871526B5A78FA3 /* MASConstraint+Private.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -32,7 +31,6 @@
 		53215E54B3086100C9BA2AEFF2644598 /* NSMutableArray+JKDataHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 77E38B4DE5FA0286B878FA76A6D2F6B5 /* NSMutableArray+JKDataHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		53BDF81D0A52EA526D597A5C5B139D7F /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 283B23860BEF1E7260DFF2D89124F187 /* MASCompositeConstraint.m */; };
 		59F81DE0305CC2AC448D2A3C6B3280A2 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDB811DEB0427D5373321A10E211527 /* MASConstraint.m */; };
-		5C221B36ADB46F373EED33DDA886CA92 /* Pods-JKRouter_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 57B68ADFE2C59DD2BE59F735D7846BD4 /* Pods-JKRouter_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		636BBA734C1A17A734761D674FAE8800 /* MASViewAttribute.h in Headers */ = {isa = PBXBuildFile; fileRef = F0F1FB84DD50A4BA3429A1E9C91366B8 /* MASViewAttribute.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6AF8FB5F030D0F857C4EC84EA7DBB192 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16AEB0A1BC00F99D255678B66391A63D /* CoreFoundation.framework */; };
 		6C23BBF56ED4DCC10CA1765A6736D1F8 /* MASLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 69BEE586667AD1A950381AB394C35B12 /* MASLayoutConstraint.m */; };
@@ -50,6 +48,7 @@
 		A7370CE9231F9A4927142D79021879EC /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 2195C63CA4766AFC7188178641D41E7A /* MASViewAttribute.m */; };
 		A80086D72955A5773EC78757E452F33C /* JKRouterHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 46FAFD1CF374FD28C4C9662703D04B76 /* JKRouterHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A9D5C510A3C1CF4CB59535DA065DD251 /* NSObject+JK.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C4F0FA3D7FEA7B5088C38CBACD1358F /* NSObject+JK.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B028972EE4E090E0C78B45776089B2F1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBA1ADAFE6F67BD76693B61DCC05D3E4 /* Foundation.framework */; };
 		B44383A3FA435C1E986942C817339302 /* View+MASShorthandAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = ACA6300A0A1208769D746F4BCB20B40B /* View+MASShorthandAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BC17C64AE68E917D9E272450861A857F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBA1ADAFE6F67BD76693B61DCC05D3E4 /* Foundation.framework */; };
 		BE6EF29F9B05E19CDB52AAD7B86132CE /* JKJSONHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E57690D5F2DFC2E528B6133307CC73E4 /* JKJSONHandler.m */; };
@@ -59,11 +58,11 @@
 		C8DF22EAFFC2F81B0426E2165AC93E44 /* MASConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D64C5B2A79116B0B8EECC11EF91E615 /* MASConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CC8F9B4A1AC4E276EA8AA4C6F2BF3CD4 /* Masonry.h in Headers */ = {isa = PBXBuildFile; fileRef = 821A585365E2F4B98A6936AE7974720D /* Masonry.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CD2FA86A349D50AB892251A61BE2F4DA /* NSDictionary+JKDataHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C88C8D8C8D86B4ADC791DA1CEFED2CA /* NSDictionary+JKDataHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D08156FD087753227EDF91A1B01888B6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBA1ADAFE6F67BD76693B61DCC05D3E4 /* Foundation.framework */; };
 		D670D44FEFEFA99913CE8BDB9DD9507A /* YYModel-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F25B01B49698177502DC268FDD5D28 /* YYModel-dummy.m */; };
 		D6A3E9F31782F031007B896926FB64A8 /* UIViewController+JKRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = CFA6DF7F8C5E3BF84183B77F4419179F /* UIViewController+JKRouter.m */; };
 		D8B1525CB3DFCBD8E5032680530413D9 /* NSArray+MASShorthandAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AA4310B6D5C278C6E436B8E3C90BBF1 /* NSArray+MASShorthandAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E1839B7B5556510EB579B48877258F96 /* YYClassInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E7BA56592414E6D1B9F6F15E606BA5C /* YYClassInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E67C1C6D5B7F1CFAB812AAC8B9E2725A /* Pods-JKRouter_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AC149CA94DFC158E177F5B01330E4AB /* Pods-JKRouter_Tests-dummy.m */; };
 		E72EDE323AC9F92EC8A00A93AC186093 /* NSArray+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD7F2790F5190654F1BE84EDED80A7F /* NSArray+MASAdditions.m */; };
 		EA2B26FB592ED14717882238559953FD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBA1ADAFE6F67BD76693B61DCC05D3E4 /* Foundation.framework */; };
 		EB9EEB56D1487760B0DC98C02ABE5C75 /* JKRouterExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2323217014CDD1ECF79E99BC8A0D729E /* JKRouterExtension.m */; };
@@ -77,9 +76,17 @@
 		FAB6B2FF284CA91C66860FC6E910E5ED /* NSObject+YYModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F10588D546334AA215BD060DF6223CA /* NSObject+YYModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FD734EFB772C03D6A2476A56DD5ADB5C /* JKDataHelper-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D7C760991D632DCBF464862216858D /* JKDataHelper-dummy.m */; };
 		FED0FEC80973FB873416A9639B918CE1 /* JKDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3842F37A9F0A1962DA1F65F7DFD3F9C5 /* JKDataHelper.m */; };
+		FEFB49F8FF48AB73B291EAB76A362886 /* Pods-JKRouter_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 57B68ADFE2C59DD2BE59F735D7846BD4 /* Pods-JKRouter_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		08D98B4C9BD8D37F4C05D01019B5848E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F15B4CAAF251B99BED61A707E6CC58F6;
+			remoteInfo = "Pods-JKRouter_Example";
+		};
 		2400FA712405BF7D5F5E8C9B51638E58 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
@@ -236,6 +243,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9CB2D27AFEAF11D5EC2B6A445621081F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B028972EE4E090E0C78B45776089B2F1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A39ECA17002697BB464A1254FD91576D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -250,14 +265,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C73C94CD897412B6320C407C3FE9ACA8 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BE419F4EAAF0F06A2D6DA292A1802BD8 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D08156FD087753227EDF91A1B01888B6 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -563,11 +570,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2863264F46C639EB77B74CCD89FE1E0A /* Headers */ = {
+		2BF6BA084605AD80048DB0E6A01BBD35 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C221B36ADB46F373EED33DDA886CA92 /* Pods-JKRouter_Tests-umbrella.h in Headers */,
+				FEFB49F8FF48AB73B291EAB76A362886 /* Pods-JKRouter_Tests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -623,23 +630,6 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		3AA5AB867BCA2FC2AF493238679A2D10 /* Pods-JKRouter_Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 04A304555EC5D9801908814F0B439611 /* Build configuration list for PBXNativeTarget "Pods-JKRouter_Tests" */;
-			buildPhases = (
-				D973CFBD7E19EBDA691FE6A547D38B0F /* Sources */,
-				BE419F4EAAF0F06A2D6DA292A1802BD8 /* Frameworks */,
-				2863264F46C639EB77B74CCD89FE1E0A /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Pods-JKRouter_Tests";
-			productName = "Pods-JKRouter_Tests";
-			productReference = EFA20B28DC47944D4A98CA37FB2EE106 /* Pods_JKRouter_Tests.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 		601A660EDAA6F64FA4BFA8F9E153DE62 /* JKRouter */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 06A90397F004199438A51F919AE14A8E /* Build configuration list for PBXNativeTarget "JKRouter" */;
@@ -690,6 +680,24 @@
 			name = YYModel;
 			productName = YYModel;
 			productReference = 8CB8FB5BE5FEF431CA8D3355C7CD3380 /* YYModel.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		95D1F8DB9F55892F1FE1145973A2C7C8 /* Pods-JKRouter_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6EAA1C86ADA5BA5717ECF26099DBBB5F /* Build configuration list for PBXNativeTarget "Pods-JKRouter_Tests" */;
+			buildPhases = (
+				13302C24086FD0FD19C04A3F78D6D373 /* Sources */,
+				9CB2D27AFEAF11D5EC2B6A445621081F /* Frameworks */,
+				2BF6BA084605AD80048DB0E6A01BBD35 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C08F4F4F7F9D473FCC872E85DDE18DCA /* PBXTargetDependency */,
+			);
+			name = "Pods-JKRouter_Tests";
+			productName = "Pods-JKRouter_Tests";
+			productReference = EFA20B28DC47944D4A98CA37FB2EE106 /* Pods_JKRouter_Tests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		D52144DE9D7255DE912490FF5A806573 /* Masonry */ = {
@@ -755,7 +763,7 @@
 				601A660EDAA6F64FA4BFA8F9E153DE62 /* JKRouter */,
 				D52144DE9D7255DE912490FF5A806573 /* Masonry */,
 				F15B4CAAF251B99BED61A707E6CC58F6 /* Pods-JKRouter_Example */,
-				3AA5AB867BCA2FC2AF493238679A2D10 /* Pods-JKRouter_Tests */,
+				95D1F8DB9F55892F1FE1145973A2C7C8 /* Pods-JKRouter_Tests */,
 				8F205CBAA319632196162F8ADD30C17C /* YYModel */,
 			);
 		};
@@ -777,6 +785,14 @@
 				0F3DF5C3BEFCC9838B53C37735B414BE /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				F4B3E44D5D2F6508BC1BB35A9FBDEC70 /* View+MASAdditions.m in Sources */,
 				8A6EEF68E7625AB66A3A8DED1594F88F /* ViewController+MASAdditions.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13302C24086FD0FD19C04A3F78D6D373 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E67C1C6D5B7F1CFAB812AAC8B9E2725A /* Pods-JKRouter_Tests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -808,14 +824,6 @@
 				36FB520A50A08C0358AB77C4C1802407 /* NSObject+YYModel.m in Sources */,
 				0871FE50BDFB009D07FA7BE3E08B3F1A /* YYClassInfo.m in Sources */,
 				D670D44FEFEFA99913CE8BDB9DD9507A /* YYModel-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D973CFBD7E19EBDA691FE6A547D38B0F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				425FBEF6FC47739E6B6BBDEFCBD4DFBA /* Pods-JKRouter_Tests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -864,10 +872,16 @@
 			target = D52144DE9D7255DE912490FF5A806573 /* Masonry */;
 			targetProxy = 8B76D04B72BA0CC6DF13C5C0BF9524C8 /* PBXContainerItemProxy */;
 		};
+		C08F4F4F7F9D473FCC872E85DDE18DCA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-JKRouter_Example";
+			target = F15B4CAAF251B99BED61A707E6CC58F6 /* Pods-JKRouter_Example */;
+			targetProxy = 08D98B4C9BD8D37F4C05D01019B5848E /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0E856C659AD8E4C09B9EC5557F7D727B /* Release */ = {
+		3845069A573E47CF21533487C497A730 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B94983D9CB65F8604110B7C297C79BE6 /* Masonry.xcconfig */;
 			buildSettings = {
@@ -886,153 +900,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Masonry/Masonry.modulemap";
-				PRODUCT_NAME = Masonry;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		141C602F095667A9F8EE13F3EA3DDA83 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 59642DF5B400D18BA7E22BB367CAD20A /* JKDataHelper.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/JKDataHelper/JKDataHelper-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/JKDataHelper/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/JKDataHelper/JKDataHelper.modulemap";
-				PRODUCT_NAME = JKDataHelper;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		1C3ED16E144B9A188CC88F2343EB3B4F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGNING_REQUIRED = NO;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"POD_CONFIGURATION_RELEASE=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
-			};
-			name = Release;
-		};
-		1EB9460C3EACDD5A435265346241D132 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B7386FC33ACE1BA1A163336DBF9479C /* JKRouter.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/JKRouter/JKRouter-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/JKRouter/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/JKRouter/JKRouter.modulemap";
-				PRODUCT_NAME = JKRouter;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		1F2B05BDAA1F32F9845FBF35781F57DB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B94983D9CB65F8604110B7C297C79BE6 /* Masonry.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Masonry/Masonry-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Masonry/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Masonry/Masonry.modulemap";
+				PRODUCT_MODULE_NAME = Masonry;
 				PRODUCT_NAME = Masonry;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1043,10 +911,11 @@
 			};
 			name = Debug;
 		};
-		27769EA35C64DF4686BC479C60FA5A3D /* Release */ = {
+		3BC0A08DDCC0EDEC1B0F6AC9C2BBEE2A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EBA88491F42A9AEA47B9422C305BB02D /* Pods-JKRouter_Tests.release.xcconfig */;
+			baseConfigurationReference = 69F5F941E9905ACB45934687B6669F00 /* Pods-JKRouter_Tests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1066,20 +935,20 @@
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_JKRouter_Tests;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
-		32656AA67CF9E618650CC49727AE9E2C /* Debug */ = {
+		3EC23B0A46A4FFE252208C83A8AC9916 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 15173BFF6659C02EA42DE0211BA55143 /* Pods-JKRouter_Example.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1099,7 +968,7 @@
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_JKRouter_Example;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1108,7 +977,7 @@
 			};
 			name = Debug;
 		};
-		49BA015501F4E53EDD0506CE4BBAA728 /* Debug */ = {
+		4046A435B00DFEA9983E12045CE636B1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8F8F53687A7386E6FFC647150F404C69 /* YYModel.xcconfig */;
 			buildSettings = {
@@ -1127,6 +996,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/YYModel/YYModel.modulemap";
+				PRODUCT_MODULE_NAME = YYModel;
 				PRODUCT_NAME = YYModel;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1137,7 +1007,132 @@
 			};
 			name = Debug;
 		};
-		51F393FE91B4B6C835FB4B238187AD09 /* Debug */ = {
+		56CFEC45A260DB686A0AC2506477F7AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5B7386FC33ACE1BA1A163336DBF9479C /* JKRouter.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/JKRouter/JKRouter-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/JKRouter/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/JKRouter/JKRouter.modulemap";
+				PRODUCT_MODULE_NAME = JKRouter;
+				PRODUCT_NAME = JKRouter;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		881EE992430DF137434251C68056B81B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B535B52553A11EF1A61B33FE23A8F2A4 /* Pods-JKRouter_Example.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-JKRouter_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-JKRouter_Example/Pods-JKRouter_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		93E6CF26AF9DEE67F6CA9FE28E9569ED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5B7386FC33ACE1BA1A163336DBF9479C /* JKRouter.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/JKRouter/JKRouter-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/JKRouter/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/JKRouter/JKRouter.modulemap";
+				PRODUCT_MODULE_NAME = JKRouter;
+				PRODUCT_NAME = JKRouter;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C0A9EEE228B395684F1109A94FC47F77 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 59642DF5B400D18BA7E22BB367CAD20A /* JKDataHelper.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/JKDataHelper/JKDataHelper-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/JKDataHelper/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/JKDataHelper/JKDataHelper.modulemap";
+				PRODUCT_MODULE_NAME = JKDataHelper;
+				PRODUCT_NAME = JKDataHelper;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C7BE62186E17127FF3B5B27A193214BD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1169,6 +1164,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -1193,17 +1189,137 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Debug;
 		};
-		9104F4F3E69BCA5539D2CC77CAAEF53A /* Debug */ = {
+		D077E5AF30E3A09910AC48CA760A1280 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 69F5F941E9905ACB45934687B6669F00 /* Pods-JKRouter_Tests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		DAEBFF71521E74A896CADE1E7A867D3F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 59642DF5B400D18BA7E22BB367CAD20A /* JKDataHelper.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/JKDataHelper/JKDataHelper-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/JKDataHelper/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/JKDataHelper/JKDataHelper.modulemap";
+				PRODUCT_MODULE_NAME = JKDataHelper;
+				PRODUCT_NAME = JKDataHelper;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		F1C80006DDCCA76AF45F14333E3B5B80 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F8F53687A7386E6FFC647150F404C69 /* YYModel.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/YYModel/YYModel-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/YYModel/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/YYModel/YYModel.modulemap";
+				PRODUCT_MODULE_NAME = YYModel;
+				PRODUCT_NAME = YYModel;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		F3E0486FCE10AD84596D2254A48CED3F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EBA88491F42A9AEA47B9422C305BB02D /* Pods-JKRouter_Tests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1223,38 +1339,9 @@
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_JKRouter_Tests;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		C128FDA126FBE94944326622BC44F9FF /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 59642DF5B400D18BA7E22BB367CAD20A /* JKDataHelper.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/JKDataHelper/JKDataHelper-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/JKDataHelper/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/JKDataHelper/JKDataHelper.modulemap";
-				PRODUCT_NAME = JKDataHelper;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1262,9 +1349,9 @@
 			};
 			name = Release;
 		};
-		CB52FE0B4918F5C17D7EEF7AB83356C0 /* Release */ = {
+		FE3EC76958EB417BB5A9577967FD1019 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8F8F53687A7386E6FFC647150F404C69 /* YYModel.xcconfig */;
+			baseConfigurationReference = B94983D9CB65F8604110B7C297C79BE6 /* Masonry.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1275,78 +1362,17 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/YYModel/YYModel-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/YYModel/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/Masonry/Masonry-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Masonry/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/YYModel/YYModel.modulemap";
-				PRODUCT_NAME = YYModel;
+				MODULEMAP_FILE = "Target Support Files/Masonry/Masonry.modulemap";
+				PRODUCT_MODULE_NAME = Masonry;
+				PRODUCT_NAME = Masonry;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		DFACFB0EB4B5F3A73D614F1F0FAE754A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B7386FC33ACE1BA1A163336DBF9479C /* JKRouter.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/JKRouter/JKRouter-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/JKRouter/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/JKRouter/JKRouter.modulemap";
-				PRODUCT_NAME = JKRouter;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		FA24540E2939B93D318070894BD180AC /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B535B52553A11EF1A61B33FE23A8F2A4 /* Pods-JKRouter_Example.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-JKRouter_Example/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-JKRouter_Example/Pods-JKRouter_Example.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_JKRouter_Example;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1360,17 +1386,8 @@
 		02D024184BD368B565F3B6257DF3C605 /* Build configuration list for PBXNativeTarget "Masonry" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1F2B05BDAA1F32F9845FBF35781F57DB /* Debug */,
-				0E856C659AD8E4C09B9EC5557F7D727B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		04A304555EC5D9801908814F0B439611 /* Build configuration list for PBXNativeTarget "Pods-JKRouter_Tests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				9104F4F3E69BCA5539D2CC77CAAEF53A /* Debug */,
-				27769EA35C64DF4686BC479C60FA5A3D /* Release */,
+				3845069A573E47CF21533487C497A730 /* Debug */,
+				FE3EC76958EB417BB5A9577967FD1019 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1378,8 +1395,8 @@
 		06A90397F004199438A51F919AE14A8E /* Build configuration list for PBXNativeTarget "JKRouter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DFACFB0EB4B5F3A73D614F1F0FAE754A /* Debug */,
-				1EB9460C3EACDD5A435265346241D132 /* Release */,
+				93E6CF26AF9DEE67F6CA9FE28E9569ED /* Debug */,
+				56CFEC45A260DB686A0AC2506477F7AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1387,8 +1404,8 @@
 		160A273E8DE557D50AA752FEE34C1DBB /* Build configuration list for PBXNativeTarget "JKDataHelper" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				141C602F095667A9F8EE13F3EA3DDA83 /* Debug */,
-				C128FDA126FBE94944326622BC44F9FF /* Release */,
+				C0A9EEE228B395684F1109A94FC47F77 /* Debug */,
+				DAEBFF71521E74A896CADE1E7A867D3F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1396,8 +1413,8 @@
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				51F393FE91B4B6C835FB4B238187AD09 /* Debug */,
-				1C3ED16E144B9A188CC88F2343EB3B4F /* Release */,
+				C7BE62186E17127FF3B5B27A193214BD /* Debug */,
+				D077E5AF30E3A09910AC48CA760A1280 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1405,8 +1422,17 @@
 		478D909E7B04F6C6643D2A0C6A56B0D2 /* Build configuration list for PBXNativeTarget "Pods-JKRouter_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				32656AA67CF9E618650CC49727AE9E2C /* Debug */,
-				FA24540E2939B93D318070894BD180AC /* Release */,
+				3EC23B0A46A4FFE252208C83A8AC9916 /* Debug */,
+				881EE992430DF137434251C68056B81B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6EAA1C86ADA5BA5717ECF26099DBBB5F /* Build configuration list for PBXNativeTarget "Pods-JKRouter_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BC0A08DDCC0EDEC1B0F6AC9C2BBEE2A /* Debug */,
+				F3E0486FCE10AD84596D2254A48CED3F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1414,8 +1440,8 @@
 		954344F8B1CC94709272CE9AAD976498 /* Build configuration list for PBXNativeTarget "YYModel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				49BA015501F4E53EDD0506CE4BBAA728 /* Debug */,
-				CB52FE0B4918F5C17D7EEF7AB83356C0 /* Release */,
+				4046A435B00DFEA9983E12045CE636B1 /* Debug */,
+				F1C80006DDCCA76AF45F14333E3B5B80 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

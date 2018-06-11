@@ -55,6 +55,22 @@
 + (instancetype)optionsWithDefaultParams:(NSDictionary *)params;
 
 /**
+ 创建options对象，并配置转场方式
+
+ @param tranformStyle 转场方式
+ @return RouterOptions 实例对象
+ */
++ (instancetype)optionsWithTransformStyle:(RouterTransformVCStyle)tranformStyle;
+
+/**
+ 创建options对象，并配置创建方式
+
+ @param createStyle 创建方式
+ @return RouterOptions 实例对象
+ */
++ (instancetype)optionsWithCreateStyle:(RouterCreateStyle)createStyle;
+
+/**
  已经创建的option对象传入参数
 
  @param params 跳转时传入的参数

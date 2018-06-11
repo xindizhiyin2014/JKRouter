@@ -47,6 +47,18 @@
     return options;
 }
 
++ (instancetype)optionsWithTransformStyle:(RouterTransformVCStyle)tranformStyle{
+    RouterOptions *options = [RouterOptions options];
+    options.transformStyle = tranformStyle;
+    return options;
+}
+
++ (instancetype)optionsWithCreateStyle:(RouterCreateStyle)createStyle{
+    RouterOptions *options = [RouterOptions options];
+    options.createStyle = createStyle;
+    return options;
+}
+
 - (instancetype)optionsWithDefaultParams:(NSDictionary *)params{
     self.defaultParams = params;
     return self;
