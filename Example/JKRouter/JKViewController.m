@@ -25,7 +25,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     self.view.backgroundColor = [UIColor whiteColor];
-    _dataArr = @[@"正常跳转",@"正常跳转＋参数",@"正常跳转，返回＋参数",@"路由跳转",@"路由跳转+参数",@"跳转＋权限校验",@"present跳转",@"自定义跳转",@"webVC跳转",@"使用storyBoard",@"通过json传输参数跳转",@"createStyleReplace",@"弹框后跳转",@"popWithStep验证",@"代理作为参数传递",@"block作为参数传递"];
+    _dataArr = @[@"正常跳转",@"正常跳转＋参数",@"正常跳转，返回＋参数",@"路由跳转",@"路由跳转+参数",@"跳转＋权限校验",@"present跳转",@"自定义跳转",@"webVC跳转",@"使用storyBoard",@"通过json传输参数跳转",@"createStyleReplace",@"弹框后跳转",@"popWithStep验证",@"代理作为参数传递",@"block作为参数传递",@"presnentNaVC"];
     _contentTable = [[UITableView alloc] initWithFrame:self.view.frame];
     [_contentTable registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell1"];
     _contentTable.delegate =self;
@@ -163,6 +163,12 @@
             [self blockInParam];
         }
             break;
+        case 16:
+        {
+            [self presentNaVC];
+        }
+            break;
+
 
         default:
             break;
@@ -282,6 +288,12 @@
     };
     RouterOptions *options = [RouterOptions optionsWithDefaultParams:@{@"title":@"delegate作为参数传递",@"testBlock":block}];
     [JKRouter open:@"JKLViewController" options:options];
+}
+
+- (void)presentNaVC{
+    RouterOptions *options = [RouterOptions optionsWithCreateStyle:RouterCreateStyleNewWithNaVC];
+    options.transformStyle = RouterTransformVCStylePresent;
+    [JKRouter open:@"JKMViewController" options:options];
 }
 
 

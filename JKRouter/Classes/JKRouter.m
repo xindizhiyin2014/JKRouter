@@ -85,6 +85,7 @@
 
 
 @property (nonatomic,copy) NSString *remoteFilePath;///< 从网络上下载的路由配置信息的json文件保存在沙盒中的路径
+@property (nonatomic,assign) BOOL hasPresentedNaVC; ///< 是否有presented的NaVC
 
 @end
 
@@ -112,6 +113,7 @@ static JKRouter *defaultRouter =nil;
 }
 
 - (UINavigationController *)navigationController{
+    
     UIViewController *rootVC = [UIApplication sharedApplication].delegate.window.rootViewController;
     if (self.windowRootVCStyle ==RouterWindowRootVCStyleCustom) {
         UITabBarController *tabBarVC = (UITabBarController *)rootVC;
@@ -119,12 +121,22 @@ static JKRouter *defaultRouter =nil;
         if (![vc isKindOfClass:[UINavigationController class]]) {
             NSAssert(NO, @"tabBarViewController's selectedViewController is not a UINavigationController instance");
         }
+        if (vc.presentedViewController && [vc.presentedViewController isKindOfClass:[UINavigationController class]]) {
+            self.hasPresentedNaVC = YES;
+            return (UINavigationController *)vc.presentedViewController;
+        }
+        self.hasPresentedNaVC = NO;
         return (UINavigationController *)vc;
     }
     
     if (![rootVC isKindOfClass:[UINavigationController class]]) {
         NSAssert(NO, @"rootVC is not a UINavigationController instance");
     }
+    if (rootVC.presentedViewController && [rootVC.presentedViewController isKindOfClass:[UINavigationController class]]) {
+        self.hasPresentedNaVC = YES;
+        return (UINavigationController *)rootVC.presentedViewController;
+    }
+    self.hasPresentedNaVC = NO;
     return (UINavigationController *)rootVC;
 }
 
@@ -364,9 +376,10 @@ static JKRouter *defaultRouter =nil;
 }
 
 + (void)popToSpecifiedVC:(UIViewController *)vc animated:(BOOL)animated{
-    if ([JKRouter router].navigationController.presentedViewController) {
+    if (!vc && [JKRouter router].hasPresentedNaVC) {
         [[JKRouter router].navigationController dismissViewControllerAnimated:animated completion:nil];
     }
+    
     else {
         if (vc) {
             [[JKRouter router].navigationController popToViewController:vc animated:animated];
@@ -482,8 +495,7 @@ static JKRouter *defaultRouter =nil;
         [[vc class] handleNoAccessToOpenWithOptions:options];
         return NO;
     }
-    if ([JKRouter router].navigationController.presentationController) {
-        
+    if ([JKRouter router].navigationController.presentationController &&[JKRouter router].navigationController.presentedViewController && ![[JKRouter router].navigationController.presentedViewController isKindOfClass:[UINavigationController class]]) {
         [[JKRouter router].navigationController dismissViewControllerAnimated:NO completion:nil]; 
     }
     if (options.transformStyle == RouterTransformVCStyleDefault) {
@@ -533,7 +545,13 @@ static JKRouter *defaultRouter =nil;
 }
 
 + (BOOL)_openWithPresentStyle:(UIViewController *)vc options:(RouterOptions *)options{
-    [[JKRouter router].navigationController presentViewController:vc animated:options.animated completion:nil];
+    if (options.createStyle == RouterCreateStyleNewWithNaVC) {
+        UINavigationController *naVC = [[UINavigationController alloc] initWithRootViewController:vc];
+        [[JKRouter router].navigationController presentViewController:naVC animated:options.animated completion:nil];
+    }else{
+      [[JKRouter router].navigationController presentViewController:vc animated:options.animated completion:nil];
+    }
+    
     return YES;
 }
 

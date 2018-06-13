@@ -18,7 +18,9 @@ typedef NS_ENUM(NSInteger,RouterTransformVCStyle){
 typedef NS_ENUM(NSInteger,RouterCreateStyle) {
     RouterCreateStyleNew,               ///< 默认创建方式，创建一个新的ViewController对象
     RouterCreateStyleReplace,           ///< 创建一个新的ViewController对象，然后替换navigationController当前的viewController
-    RouterCreateStyleRefresh           ///<  当前的viewController就是目标viewController就不创建，而是执行相关的刷新操作。如果当前的viewController不是目标viewController就执行创建操作
+    RouterCreateStyleRefresh,           ///<  当前的viewController就是目标viewController就不创建，而是执行相关的刷新操作。如果当前的viewController不是目标viewController就执行创建操作
+    RouterCreateStyleNewWithNaVC        ///< 用于present转场时目标present的目标是VC也有导航栏
+    
 };///< ViewController的创建方式
 
 typedef NS_ENUM(NSInteger, RouterWindowRootVCStyle) {

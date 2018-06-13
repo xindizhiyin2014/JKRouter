@@ -21,9 +21,12 @@ static char moduleID;
     objc_setAssociatedObject(self, &moduleID, moduleID, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
+
 + (instancetype)jkRouterViewController{
     return [[[self class] alloc] init];
 }
+
+
 
 + (instancetype)jkRouterViewControllerWithJSON:(NSDictionary *)dic{
     return nil;
