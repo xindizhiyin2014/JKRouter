@@ -5,24 +5,20 @@
 //
 
 #import "JKDataHelper.h"
-
+#import "JKDataHelperMacro.h"
 @implementation JKDataHelper
 
 + (NSArray *)safeArray:(id)array {
-    
     if ([array isKindOfClass:[NSArray class]]) {
         return array;
     }
-    
     return nil;
 }
 
 + (NSMutableArray *)safeMutableArray:(id)mutableArray {
-    
     if ([mutableArray isKindOfClass:[NSMutableArray class]]) {
         return mutableArray;
     }
-    
     return nil;
 }
 
@@ -31,7 +27,6 @@
     if ([dict isKindOfClass:[NSDictionary class]]) {
         return dict;
     }
-    
     return nil;
 }
 
@@ -39,7 +34,6 @@
     if ([dict isKindOfClass:[NSMutableDictionary class]]) {
         return dict;
     }
-    
     return nil;
 }
 
@@ -47,7 +41,6 @@
     if ([str isKindOfClass:[NSString class]]) {
         return str;
     }
-    
     return nil;
 }
 
@@ -60,7 +53,6 @@
     if ([obj isKindOfClass:[NSObject class]]) {
         return obj;
     }
-    
     return nil;
 }
 

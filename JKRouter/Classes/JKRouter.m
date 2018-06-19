@@ -7,7 +7,7 @@
 //
 
 #import "JKRouter.h"
-#import <JKDataHelper/JKDataHelper.h>
+
 #ifdef DEBUG
 #define JKRouterLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
 #else

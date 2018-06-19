@@ -11,6 +11,7 @@
 #endif
 
 #import "JKDataHelper.h"
+#import "JKDataHelperMacro.h"
 #import "NSArray+JKDataHelper.h"
 #import "NSDictionary+JKDataHelper.h"
 #import "NSMutableArray+JKDataHelper.h"

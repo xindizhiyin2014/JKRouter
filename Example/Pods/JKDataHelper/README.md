@@ -56,6 +56,8 @@ it, simply add the following line to your Podfile:
 ```ruby
 pod "JKDataHelper"
 ```
+## QQ contact group
+![](https://github.com/xindizhiyin2014/JKDataHelper/blob/master/zrCode.png?raw=true)
 
 ## Author
 

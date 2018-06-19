@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "UIViewController+JKRouter.h"
 #import "JKJSONHandler.h"
+#import <JKDataHelper/JKDataHelperMacro.h>
 
 
 //******************************************************************************

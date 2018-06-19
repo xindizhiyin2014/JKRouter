@@ -7,17 +7,13 @@
 //
 
 #import "NSObject+JK.h"
-
+#import "JKDataHelperMacro.h"
 @implementation NSObject (JK)
-
 
 + (void)JKswizzleMethod:(SEL)origSelector withMethod:(SEL)newSelector withClass:(Class)targetClass
 {
-    
-    
     Method originalMethod = class_getInstanceMethod(targetClass, origSelector);
     Method swizzledMethod = class_getInstanceMethod(targetClass, newSelector);
-    
     if (!originalMethod) { // exchange ClassMethod
         originalMethod = class_getClassMethod(targetClass, origSelector);
         swizzledMethod = class_getClassMethod(targetClass, newSelector);
@@ -38,21 +34,17 @@
     }
 }
 
-
 + (id)performSelector:(SEL)aSelector withObjects:(NSArray *)objects {
     NSMethodSignature *signature = [self methodSignatureForSelector:aSelector];
     NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
     [invocation setTarget:self];
     [invocation setSelector:aSelector];
-    
     NSUInteger i = 1;
-    
     for (id object in objects) {
         id tempObject = object;
         [invocation setArgument:&tempObject atIndex:++i];
     }
     [invocation invoke];
-    
     if ([signature methodReturnLength]) {
         id data;
         [invocation getReturnValue:&data];
@@ -61,14 +53,12 @@
     return nil;
 }
 
-
 + (id)performSelector:(SEL)aSelector withParameters:(void *)firstParameter, ... {
     NSMethodSignature *signature = [self methodSignatureForSelector:aSelector];
     NSUInteger length = [signature numberOfArguments];
     NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
     [invocation setTarget:self];
     [invocation setSelector:aSelector];
-    
     [invocation setArgument:&firstParameter atIndex:2];
     va_list arg_ptr;
     va_start(arg_ptr, firstParameter);
@@ -77,9 +67,7 @@
         [invocation setArgument:&parameter atIndex:i];
     }
     va_end(arg_ptr);
-    
     [invocation invoke];
-    
     if ([signature methodReturnLength]) {
         id data;
         [invocation getReturnValue:&data];
