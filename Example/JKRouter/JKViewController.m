@@ -16,6 +16,8 @@
     NSArray *_dataArr;
     NSString *_backStr;
 }
+@property (nonatomic,copy) NSString *testString;
+
 @end
 
 @implementation JKViewController
@@ -65,7 +67,7 @@
 
     }
     _backStr =nil;
-
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -294,6 +296,12 @@
     RouterOptions *options = [RouterOptions optionsWithCreateStyle:RouterCreateStyleNewWithNaVC];
     options.transformStyle = RouterTransformVCStylePresent;
     [JKRouter open:@"JKMViewController" options:options];
+}
+
+
+- (void)setTestString:(NSString *)testString{
+    _testString =testString;
+//    NSLog(@"testString :%@",self.testString);
 }
 
 

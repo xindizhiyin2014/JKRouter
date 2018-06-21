@@ -10,7 +10,7 @@
 #import "JKNViewController.h"
 
 @interface JKMViewController ()
-
+@property (nonatomic,copy) NSString *testString;
 @end
 
 @implementation JKMViewController
@@ -35,21 +35,32 @@
     
     [button1 addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button1];
+    self.testString = @"I'm ！！！!";
 
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    NSLog(@"testString :%@",self.testString);
+}
+
+- (void)setTestString:(NSString *)testString{
+    _testString =testString;
 }
 
 #pragma mark - - - - UIEvent - - - -
 - (void)buttonClicked:(UIButton *)button{
-//    RouterOptions *options = [RouterOptions optionsWithTransformStyle:RouterTransformVCStylePresent];
-//    options.createStyle = RouterCreateStyleNewWithNaVC;
-//    [JKRouter open:@"JKNViewController" options:options];
+    RouterOptions *options = [RouterOptions optionsWithTransformStyle:RouterTransformVCStylePresent];
+    options.createStyle = RouterCreateStyleNewWithNaVC;
+    [JKRouter open:@"JKNViewController" options:options];
     
-    [JKRouter open:@"JKNViewController"];
+//    [JKRouter open:@"JKNViewController"];
     
 }
 
 - (void)back{
-    [JKRouter pop];
+//    [JKRouter pop];
+    [JKRouter pop:@{@"testString":@"我是李四"} :YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

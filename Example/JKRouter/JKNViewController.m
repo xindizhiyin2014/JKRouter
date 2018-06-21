@@ -44,7 +44,7 @@
 }
 
 - (void)back{
-    [JKRouter pop];
+    [JKRouter pop:@{@"testString":@"我是张三"} :YES];
 }
 
 - (void)didReceiveMemoryWarning {

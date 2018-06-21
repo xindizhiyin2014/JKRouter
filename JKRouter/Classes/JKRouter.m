@@ -358,16 +358,19 @@ static JKRouter *defaultRouter =nil;
     NSArray *vcArray = [JKRouter router].navigationController.viewControllers;
     NSUInteger count = vcArray.count;
     UIViewController *vc= nil;
+    RouterOptions *options = nil;
+    if (params) {
+        options = [RouterOptions optionsWithDefaultParams:params];
+    }
     if (vcArray.count>1) {
         vc = vcArray[count-2];
     }else{
         //已经是根视图，不再执行pop操作  可以执行dismiss操作
-        [self popToSpecifiedVC:nil animated:animated];
+        [self popToSpecifiedVC:nil options:options animated:YES];
         return;
     }
-    RouterOptions *options = [RouterOptions optionsWithDefaultParams:params];
-    [self configTheVC:vc options:options];
-    [self popToSpecifiedVC:vc animated:animated];
+    
+    [self popToSpecifiedVC:vc options:options animated:YES];
 }
 
 
@@ -376,12 +379,21 @@ static JKRouter *defaultRouter =nil;
 }
 
 + (void)popToSpecifiedVC:(UIViewController *)vc animated:(BOOL)animated{
+    [self popToSpecifiedVC:vc options:nil animated:YES];
+}
+
++ (void)popToSpecifiedVC:(UIViewController *)vc options:(RouterOptions *)options animated:(BOOL)animated{
     if (!vc && [JKRouter router].hasPresentedNaVC) {
-        [[JKRouter router].navigationController dismissViewControllerAnimated:animated completion:nil];
+        [[JKRouter router].navigationController dismissViewControllerAnimated:animated completion:^{
+            UIViewController *newVC= [JKRouter router].navigationController.topViewController;
+            [self configTheVC:newVC options:options];
+            [newVC viewWillAppear:animated];
+        }];
+        return;
     }
-    
     else {
         if (vc) {
+            [self configTheVC:vc options:options];
             [[JKRouter router].navigationController popToViewController:vc animated:animated];
         }
     }
@@ -463,6 +475,9 @@ static JKRouter *defaultRouter =nil;
  @param options 跳转的各种设置
  */
 + (void)configTheVC:(UIViewController *)vc options:(RouterOptions *)options{
+    if (!options) {
+        return;
+    }
     if (JKSafeDic(options.defaultParams)) {
         NSArray *propertyNames = [options.defaultParams allKeys];
         for (NSString *key in propertyNames) {
