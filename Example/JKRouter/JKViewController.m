@@ -178,6 +178,10 @@
 
 }
 
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+}
+
 
 - (void)normalJumpWithNoParams{
 
@@ -204,6 +208,7 @@
 //    [JKRouter URLOpen:@"https://www.baidu.com?jkRouterAppOpen=1"];
 //    [JKRouter URLOpen:@"https://www.baidu.com?jkRouterAppOpen=1" extra:@{@"title":@"123"}];
      [JKRouter URLOpen:@"file:///123.html"];
+    //[JKRouter URLOpen:@"socket://123.html"];
 }
 
 

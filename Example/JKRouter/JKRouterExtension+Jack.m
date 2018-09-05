@@ -20,4 +20,8 @@
              @"itms-apps"];
 }
 
++ (NSArray *)specialSchemes{
+    return @[@"socket"];
+}
+
 @end

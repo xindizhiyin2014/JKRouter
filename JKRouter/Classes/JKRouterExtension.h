@@ -40,6 +40,14 @@
  */
 + (NSArray *)urlSchemes;
 
+
+/**
+ app支持的url的特殊的url协议组成的数组
+
+ @return 协议的数组
+ */
++ (NSArray *)specialSchemes;
+
 /**
  模块的类型名字的可以，用来解析模块的类型
 
@@ -70,6 +78,15 @@
  */
 + (NSString *)JKRouterHttpOpenStyleKey;
 
+
+/**
+ 打开特殊scheme的url，主要适用于scheme不变，url内容变化的一些操作。
+
+ @param url url
+ @param extra 额外的操作
+ @param completeBlock 操作成功后的回调
+ */
++ (void)openURLWithSpecialSchemes:(NSURL *)url extra:(NSDictionary *)extra complete:(void(^)(id result,NSError *error))completeBlock;
 /**
  除了路由跳转以外的操作
  @param actionType 操作的类型

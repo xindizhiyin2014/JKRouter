@@ -142,7 +142,9 @@ static JKRouter *defaultRouter =nil;
 
 + (void)configWithRouterFiles:(NSArray<NSString *> *)routerFileNames{
     [JKRouter router].routerFileNames = routerFileNames;
-    [JKRouter router].urlSchemes  =  [NSSet setWithArray:[JKRouterExtension urlSchemes]];
+   NSMutableSet *urlSchemesSet = [NSMutableSet setWithArray:[JKRouterExtension urlSchemes]];
+    [urlSchemesSet addObjectsFromArray:[JKRouterExtension specialSchemes]];
+    [JKRouter router].urlSchemes  = [urlSchemesSet copy];
     [JKRouter router].webContainerName = [JKRouterExtension jkWebVCClassName];
 }
 
@@ -275,6 +277,10 @@ static JKRouter *defaultRouter =nil;
     }
     if ([scheme isEqualToString:@"itms-apps"]) {
         [self openExternal:targetURL];
+        return;
+    }
+    if ([[JKRouterExtension specialSchemes] containsObject:scheme]) {
+        [JKRouterExtension openURLWithSpecialSchemes:targetURL extra:extra complete:completeBlock];
         return;
     }
     

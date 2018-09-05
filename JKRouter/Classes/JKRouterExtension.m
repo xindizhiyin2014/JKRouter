@@ -31,6 +31,10 @@
     
 }
 
++ (NSArray *)specialSchemes{
+    return @[];
+}
+
 + (NSString *)jkModuleTypeKey{
     return @"ViewController";
 }
@@ -45,6 +49,10 @@
 
 + (NSString *)JKRouterHttpOpenStyleKey{
     return @"jkRouterAppOpen";
+}
+
++ (void)openURLWithSpecialSchemes:(NSURL *)url extra:(NSDictionary *)extra complete:(void(^)(id result,NSError *error))completeBlock{
+    
 }
 
 + (void)otherActionsWithActionType:(NSString *)actionType URL:(NSURL *)url extra:(NSDictionary *)extra complete:(void(^)(id result,NSError *error))completeBlock{
