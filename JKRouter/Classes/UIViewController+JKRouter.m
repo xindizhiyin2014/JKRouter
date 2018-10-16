@@ -11,14 +11,14 @@
 
 @implementation UIViewController (JKRouter)
 
-static char moduleID;
+static char moduleIDKey;
 
 - (NSString *)moduleID{
-    return objc_getAssociatedObject(self, &moduleID);
+    return objc_getAssociatedObject(self, &moduleIDKey);
 }
 
 - (void)setModuleID:(NSString *)moduleID{
-    objc_setAssociatedObject(self, &moduleID, moduleID, OBJC_ASSOCIATION_COPY_NONATOMIC);
+    objc_setAssociatedObject(self, &moduleIDKey, moduleID, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
 

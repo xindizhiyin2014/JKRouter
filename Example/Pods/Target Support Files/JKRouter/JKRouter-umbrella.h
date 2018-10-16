@@ -14,6 +14,7 @@
 #import "JKRouter.h"
 #import "JKRouterExtension.h"
 #import "JKRouterHeader.h"
+#import "UINavigationController+JKRouter.h"
 #import "UIViewController+JKRouter.h"
 
 FOUNDATION_EXPORT double JKRouterVersionNumber;

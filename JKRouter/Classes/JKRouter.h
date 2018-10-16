@@ -91,6 +91,7 @@
 
 @property (nonatomic, copy, readonly) NSSet <NSDictionary *>* modules;     ///< 存储路由，moduleID信息，权限配置信息
 @property (nonatomic,assign) RouterWindowRootVCStyle windowRootVCStyle;    ///< keywindow的rootVC的初始化方式
+@property (nonatomic,weak) UINavigationController *topNaVC; ///< app的最顶部导航控制器
 /**
  初始化单例
  
