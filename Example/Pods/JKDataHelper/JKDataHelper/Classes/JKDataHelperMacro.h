@@ -14,6 +14,8 @@
 #import "NSMutableArray+JKDataHelper.h"
 #import "NSDictionary+JKDataHelper.h"
 #import "JKDataHelper.h"
+#import "NSString+JKDataHelper.h"
+
 
 
 #define JKSafeArray(array)   [JKDataHelper safeArray:array]

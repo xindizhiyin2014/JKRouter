@@ -26,12 +26,20 @@
  */
 + (NSString *)jkWebURLKey;
 
+
+/**
+ web容器类型的索引和jkWebVCClassNames结合起来使用
+
+ @return webTypeKey的字符串
+ */
++ (NSString *)jkWebTypeKey;
+
 /**
  配置webVC的className，使用的时候可以通过category重写方法配置
 
- @return webVC的className
+ @return webVC的jkWebVCClassNames
  */
-+ (NSString *)jkWebVCClassName;
++ (NSArray *)jkWebVCClassNames;
 
 /**
  app支持的url协议组成的数组

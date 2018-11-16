@@ -26,7 +26,11 @@
 #endif
 
 -(id)jk_objectWithIndex:(NSUInteger)index{
-   return self[index];
+    if (index <self.count) {
+        return self[index];
+    }else{
+        return nil;
+    }
 }
 
 - (NSString*)jk_stringWithIndex:(NSUInteger)index

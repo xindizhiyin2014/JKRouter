@@ -19,8 +19,12 @@
     return @"jkurl";
 }
 
-+ (NSString *)jkWebVCClassName{
-    return @"";
++ (NSString *)jkWebTypeKey{
+    return @"webType";
+}
+
++ (NSArray *)jkWebVCClassNames{
+    return nil;
 }
 
 + (NSArray *)urlSchemes{

@@ -16,6 +16,7 @@
 #import "NSDictionary+JKDataHelper.h"
 #import "NSMutableArray+JKDataHelper.h"
 #import "NSObject+JK.h"
+#import "NSString+JKDataHelper.h"
 
 FOUNDATION_EXPORT double JKDataHelperVersionNumber;
 FOUNDATION_EXPORT const unsigned char JKDataHelperVersionString[];

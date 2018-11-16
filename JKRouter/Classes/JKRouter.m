@@ -80,8 +80,6 @@
 
 @property (nonatomic,strong) NSSet *urlSchemes; ///< 支持的URL协议集合
 
-@property (nonatomic,strong) NSString *webContainerName; ///< 自定义的URL协议名字
-
 @property (nonatomic,copy) NSString *remoteFilePath;///< 从网络上下载的路由配置信息的json文件保存在沙盒中的路径
 @end
 
@@ -138,7 +136,7 @@ static JKRouter *defaultRouter =nil;
    NSMutableSet *urlSchemesSet = [NSMutableSet setWithArray:[JKRouterExtension urlSchemes]];
     [urlSchemesSet addObjectsFromArray:[JKRouterExtension specialSchemes]];
     [JKRouter router].urlSchemes  = [urlSchemesSet copy];
-    [JKRouter router].webContainerName = [JKRouterExtension jkWebVCClassName];
+    
 }
 
 + (void)updateRouterInfoWithFilePath:(NSString*)filePath{
@@ -308,13 +306,15 @@ static JKRouter *defaultRouter =nil;
     NSString *parameterStr = [[url query] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     if (JKSafeStr(parameterStr)) {
         NSMutableDictionary *dic = [self convertUrlStringToDictionary:parameterStr];
-        NSDictionary *params = [dic copy];
-        if (JKSafeDic(params) && [[params objectForKey:[JKRouterExtension JKRouterHttpOpenStyleKey]] isEqualToString:@"1"]) {//在app内部打开网页
+        if (JKSafeDic(dic) && [[dic objectForKey:[JKRouterExtension JKRouterHttpOpenStyleKey]] isEqualToString:@"1"]) {//在app内部打开网页
             NSDictionary *tempParams = @{[JKRouterExtension jkWebURLKey]:url.absoluteString};
-            NSMutableDictionary *dic = [[NSMutableDictionary alloc] initWithDictionary:tempParams];
-            [dic addEntriesFromDictionary:extra];
-            RouterOptions *options = [RouterOptions optionsWithDefaultParams:[dic copy]];
-            [self open:[JKRouter router].webContainerName optionsWithJSON:options];
+            NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:tempParams];
+            [params addEntriesFromDictionary:extra];
+            RouterOptions *options = [RouterOptions optionsWithDefaultParams:[params copy]];
+            
+            NSInteger webType = [dic jk_integerForKey:[JKRouterExtension jkWebTypeKey]];
+            NSString *webContainerName = [[JKRouterExtension jkWebVCClassNames] jk_stringWithIndex:webType];
+            [self open:webContainerName optionsWithJSON:options];
             return;
         }
     }
@@ -330,7 +330,10 @@ static JKRouter *defaultRouter =nil;
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] initWithDictionary:params];
     [dic addEntriesFromDictionary:extra];
      RouterOptions *options = [RouterOptions optionsWithDefaultParams:[dic copy]];
-    [self open:[JKRouter router].webContainerName optionsWithJSON:options];
+    NSDictionary *urlParams = [self convertUrlStringToDictionary:url];
+    NSInteger webType = [urlParams jk_integerForKey:[JKRouterExtension jkWebTypeKey]];
+    NSString *webContainerName = [[JKRouterExtension jkWebVCClassNames] jk_stringWithIndex:webType];
+    [self open:webContainerName optionsWithJSON:options];
 }
 
 + (void)openExternal:(NSURL *)targetURL {
