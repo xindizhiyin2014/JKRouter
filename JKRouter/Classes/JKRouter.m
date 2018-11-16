@@ -306,7 +306,9 @@ static JKRouter *defaultRouter =nil;
     NSString *parameterStr = [[url query] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     if (JKSafeStr(parameterStr)) {
         NSMutableDictionary *dic = [self convertUrlStringToDictionary:parameterStr];
-        if (JKSafeDic(dic) && [[dic objectForKey:[JKRouterExtension JKRouterHttpOpenStyleKey]] isEqualToString:@"1"]) {//在app内部打开网页
+        if (JKSafeDic(dic) &&[[dic objectForKey:[JKRouterExtension jkBrowserOpenKey]] isEqualToString:@"1"]) {//在safari打开网页
+            [self openExternal:url];
+        }else{
             NSDictionary *tempParams = @{[JKRouterExtension jkWebURLKey]:url.absoluteString};
             NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:tempParams];
             [params addEntriesFromDictionary:extra];
@@ -315,10 +317,11 @@ static JKRouter *defaultRouter =nil;
             NSInteger webType = [dic jk_integerForKey:[JKRouterExtension jkWebTypeKey]];
             NSString *webContainerName = [[JKRouterExtension jkWebVCClassNames] jk_stringWithIndex:webType];
             [self open:webContainerName optionsWithJSON:options];
-            return;
         }
+    }else{
+        [self openExternal:url];
     }
-    [self openExternal:url];
+    
 }
 
 + (void)jumpToSandBoxWeb:(NSString *)url extra:(NSDictionary *)extra{

@@ -51,8 +51,8 @@
     return @"jkModuleID";
 }
 
-+ (NSString *)JKRouterHttpOpenStyleKey{
-    return @"jkRouterAppOpen";
++ (NSString *)jkBrowserOpenKey{
+    return @"browserOpen";
 }
 
 + (void)openURLWithSpecialSchemes:(NSURL *)url extra:(NSDictionary *)extra complete:(void(^)(id result,NSError *error))completeBlock{

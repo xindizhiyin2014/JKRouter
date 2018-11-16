@@ -80,11 +80,11 @@
 
 
 /**
- 在url参数后设置 JKRouterHttpOpenStyleKey=1 时通过appweb容器打开网页，其余情况通过safari打开网页
+ 在url参数后设置 isBrowserOpenKey=1 时通过safari打开网页，其余情况通过appweb容器打开网页
 
- @return key default is @"jkRouterAppOpen"
+ @return key default is @"browserOpen"
  */
-+ (NSString *)JKRouterHttpOpenStyleKey;
++ (NSString *)jkBrowserOpenKey;
 
 
 /**
