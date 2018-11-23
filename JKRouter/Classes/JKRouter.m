@@ -319,8 +319,12 @@ static JKRouter *defaultRouter =nil;
             [self open:webContainerName optionsWithJSON:options];
         }
     }else{
+        NSDictionary *tempParams = @{[JKRouterExtension jkWebURLKey]:url.absoluteString};
+        NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:tempParams];
+        [params addEntriesFromDictionary:extra];
+        RouterOptions *options = [RouterOptions optionsWithDefaultParams:[params copy]];
         NSString *webContainerName = [[JKRouterExtension jkWebVCClassNames] jk_stringWithIndex:0];
-        [self open:webContainerName optionsWithJSON:nil];
+        [self open:webContainerName optionsWithJSON:options];
     }
     
 }
