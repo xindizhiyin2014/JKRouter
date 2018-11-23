@@ -52,6 +52,10 @@ static char moduleIDKey;
 - (void)jkRouterRefresh{
 }
 
+- (BOOL)jkNeedRefresh{
+    return NO;
+}
+
 + (BOOL)jkIsTabBarItemVC{
     return NO;
 }

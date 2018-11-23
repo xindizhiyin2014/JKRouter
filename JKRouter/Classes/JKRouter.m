@@ -319,7 +319,8 @@ static JKRouter *defaultRouter =nil;
             [self open:webContainerName optionsWithJSON:options];
         }
     }else{
-        [self openExternal:url];
+        NSString *webContainerName = [[JKRouterExtension jkWebVCClassNames] jk_stringWithIndex:0];
+        [self open:webContainerName optionsWithJSON:options];
     }
     
 }

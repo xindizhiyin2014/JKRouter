@@ -60,6 +60,8 @@
  */
 - (void)jkRouterRefresh;
 
+- (BOOL)jkNeedRefresh;
+
 /**
  是否是tabbarItem的对应的viewController
 defalut is NO
