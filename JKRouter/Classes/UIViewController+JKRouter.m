@@ -29,7 +29,7 @@ static char moduleIDKey;
 
 
 + (instancetype)jkRouterViewControllerWithJSON:(NSDictionary *)dic{
-    return nil;
+    return [[[self class] alloc] init];
 }
 
 + (BOOL)validateTheAccessToOpenWithOptions:(RouterOptions *)options{
