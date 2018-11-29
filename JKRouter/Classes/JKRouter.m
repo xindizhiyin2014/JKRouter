@@ -307,8 +307,11 @@ static JKRouter *defaultRouter =nil;
     if (JKSafeStr(parameterStr)) {
         NSMutableDictionary *dic = [self convertUrlStringToDictionary:parameterStr];
         if (JKSafeDic(dic) &&[[dic objectForKey:[JKRouterExtension jkBrowserOpenKey]] isEqualToString:@"1"]) {//在safari打开网页
-            [self openExternal:url];
+            [self openExternal:[self url:url removeQueryKeys:@[[JKRouterExtension jkBrowserOpenKey]]]];
         }else{
+            NSString *key1 = [JKRouterExtension jkWebTypeKey];
+            NSString *key2 = [JKRouterExtension jkBrowserOpenKey];
+            url = [self url:url removeQueryKeys:@[key1,key2]];
             NSDictionary *tempParams = @{[JKRouterExtension jkWebURLKey]:url.absoluteString};
             NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:tempParams];
             [params addEntriesFromDictionary:extra];
@@ -334,11 +337,12 @@ static JKRouter *defaultRouter =nil;
         JKRouterLog(@"路径不存在");
         return;
     }
+     NSDictionary *urlParams = [self convertUrlStringToDictionary:url];
+    url = [self urlStr:url removeQueryKeys:@[[JKRouterExtension jkWebTypeKey]]];
     NSDictionary *params = @{[JKRouterExtension jkWebURLKey]:url};
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] initWithDictionary:params];
     [dic addEntriesFromDictionary:extra];
      RouterOptions *options = [RouterOptions optionsWithDefaultParams:[dic copy]];
-    NSDictionary *urlParams = [self convertUrlStringToDictionary:url];
     NSInteger webType = [urlParams jk_integerForKey:[JKRouterExtension jkWebTypeKey]];
     NSString *webContainerName = [[JKRouterExtension jkWebVCClassNames] jk_stringWithIndex:webType];
     [self open:webContainerName optionsWithJSON:options];
@@ -516,6 +520,71 @@ static JKRouter *defaultRouter =nil;
         }
     }
     return dic;
+}
+
++ (NSString *)urlStr:(NSString *)urlStr appendParameter:(NSDictionary *)parameter{
+    
+    [urlStr hasSuffix:@"&"]?[urlStr stringByReplacingOccurrencesOfString:@"&" withString:@""]:urlStr;
+    if (!([parameter allKeys].count>0)) {
+        return urlStr;
+    }
+    NSString *firstSeperator = @"";
+    if (![urlStr containsString:@"?"]) {
+        urlStr = [NSString stringWithFormat:@"%@?",urlStr];
+    }else if ([urlStr containsString:@"?"] && ![urlStr hasSuffix:@"?"]){
+        firstSeperator = @"&";
+    }
+    NSString *query = firstSeperator;
+    for (NSString *key in parameter.allKeys) {
+        NSString *value = [parameter jk_stringForKey:key];
+        if ([query hasSuffix:@"&"]) {
+            query = [NSString stringWithFormat:@"%@%@=%@",query,key,value];
+        }else{
+            if (query.length>0) {
+                query = [NSString stringWithFormat:@"%@&%@=%@",query,key,value];
+            }else{
+             query = [NSString stringWithFormat:@"%@=%@",key,value];
+            }
+        }
+    }
+    
+    return [NSString stringWithFormat:@"%@%@",urlStr,query];
+}
+
++ (NSURL *)url:(NSURL*)url removeQueryKeys:(NSArray <NSString *>*)keys{
+    if (!(keys.count>0)) {
+        NSAssert(NO, @"url:removeQueryKeys: keys cannot be nil");
+    }
+    NSString *query = [url query];
+    NSDictionary *tempParameter = [self convertUrlStringToDictionary:query];
+    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] initWithDictionary:tempParameter];
+    for (NSString *key in keys) {
+        [parameter removeObjectForKey:key];
+    }
+    NSArray *tempArray = [url.absoluteString componentsSeparatedByString:@"?"];
+    NSString *baseUrl = tempArray.firstObject;
+    NSString *urlString= [self urlStr:baseUrl appendParameter:parameter];
+    return [NSURL URLWithString:urlString];
+}
+
++ (NSString *)urlStr:(NSString *)urlStr removeQueryKeys:(NSArray <NSString *>*)keys{
+    if (!(keys.count>0)) {
+        NSAssert(NO, @"urlStr:removeQueryKeys: keys cannot be nil");
+    }
+    NSArray *tempArray = [urlStr componentsSeparatedByString:@"?"];
+    NSString *query = nil;
+    if (tempArray.count==2) {
+        query = tempArray.lastObject;
+    }
+    NSDictionary *tempParameter = [self convertUrlStringToDictionary:query];
+    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] initWithDictionary:tempParameter];
+    for (NSString *key in keys) {
+        [parameter removeObjectForKey:key];
+    }
+    
+    NSString *baseUrl = tempArray.firstObject;
+    NSString *urlString= [self urlStr:baseUrl appendParameter:parameter];
+    return urlString;
 }
 
 //根据相关的options配置，进行跳转

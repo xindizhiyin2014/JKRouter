@@ -236,7 +236,7 @@
 - (void)openWebVC{
 
     //file 协议打开沙河web页面
-    [JKRouter URLOpen:@"https://www.baidu.com?browserOpen=0"];
+    [JKRouter URLOpen:@"https://www.baidu.com?name=jack"];
 }
 
 - (void)useStoryBoard{
