@@ -120,7 +120,13 @@
  */
 + (void)open:(NSString *)vcClassName;
 
+/**
+ 打开页面，一般由native开发者使用
 
+ @param vcClassName 跳转的控制器类名
+ @param params 参数
+ */
++ (void)open:(NSString *)vcClassName params:(NSDictionary *)params;
 /**
  根据options的设置进行跳转
  
@@ -276,5 +282,48 @@
  @param targetVC 目标viewController
  */
 + (void)replaceCurrentViewControllerWithTargetVC:(UIViewController *)targetVC;
+
+/**
+ 将url的query转换为字典参数
+
+ @param urlString url字符串
+ @return NSMutableDictionary 对象
+ */
++ (NSMutableDictionary *)convertUrlStringToDictionary:(NSString *)urlString;
+
+/**
+ url对象添加参数
+
+ @param url url对象
+ @param parameter 参数
+ @return 处理后的url对象
+ */
++ (NSURL *)url:(NSURL *)url appendParameter:(NSDictionary *)parameter;
+/**
+ 为url字符串添加参数
+
+ @param urlStr url字符串
+ @param parameter 参数
+ @return url字符串
+ */
++ (NSString *)urlStr:(NSString *)urlStr appendParameter:(NSDictionary *)parameter;
+
+/**
+ url对象删除参数
+
+ @param url url对象
+ @param keys 需要删除的参数的key的数组
+ @return 处理后的url对象
+ */
++ (NSURL *)url:(NSURL*)url removeQueryKeys:(NSArray <NSString *>*)keys;
+
+/**
+ url字符串删除参数
+
+ @param urlStr url字符串
+ @param keys 需要删除的key组成的数组
+ @return 处理后的url字符串
+ */
++ (NSString *)urlStr:(NSString *)urlStr removeQueryKeys:(NSArray <NSString *>*)keys;
 
 @end

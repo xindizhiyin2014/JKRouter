@@ -163,7 +163,11 @@ static JKRouter *defaultRouter =nil;
 #pragma mark  - - - - the open functions - - - -
 
 + (void)open:(NSString *)vcClassName{
-    RouterOptions *options = [RouterOptions options];
+    [self open:vcClassName params:nil];
+}
+
++ (void)open:(NSString *)vcClassName params:(NSDictionary *)params{
+    RouterOptions *options = [RouterOptions optionsWithDefaultParams:params];
     [self open:vcClassName options:options];
 }
 
@@ -507,9 +511,9 @@ static JKRouter *defaultRouter =nil;
 }
 
 //将url ？后的字符串转换为NSDictionary对象
-+ (NSMutableDictionary *)convertUrlStringToDictionary:(NSString *)string{
++ (NSMutableDictionary *)convertUrlStringToDictionary:(NSString *)urlString{
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-    NSArray *parameterArr = [string componentsSeparatedByString:@"&"];
+    NSArray *parameterArr = [urlString componentsSeparatedByString:@"&"];
     for (NSString *parameter in parameterArr) {
         NSArray *parameterBoby = [parameter componentsSeparatedByString:@"="];
         if (parameterBoby.count == 2) {
@@ -522,9 +526,17 @@ static JKRouter *defaultRouter =nil;
     return dic;
 }
 
++ (NSURL *)url:(NSURL *)url appendParameter:(NSDictionary *)parameter{
+   NSString *urlString = [self urlStr:url.absoluteString appendParameter:parameter];
+    return [NSURL URLWithString:urlString];
+}
+
 + (NSString *)urlStr:(NSString *)urlStr appendParameter:(NSDictionary *)parameter{
     
-    [urlStr hasSuffix:@"&"]?[urlStr stringByReplacingOccurrencesOfString:@"&" withString:@""]:urlStr;
+    //[urlStr hasSuffix:@"&"]?[urlStr stringByReplacingOccurrencesOfString:@"&" withString:@""]:urlStr;
+    if ([urlStr hasSuffix:@"&"]) {
+        urlStr = [urlStr substringToIndex:urlStr.length-1];
+    }
     if (!([parameter allKeys].count>0)) {
         return urlStr;
     }
@@ -552,18 +564,7 @@ static JKRouter *defaultRouter =nil;
 }
 
 + (NSURL *)url:(NSURL*)url removeQueryKeys:(NSArray <NSString *>*)keys{
-    if (!(keys.count>0)) {
-        NSAssert(NO, @"url:removeQueryKeys: keys cannot be nil");
-    }
-    NSString *query = [url query];
-    NSDictionary *tempParameter = [self convertUrlStringToDictionary:query];
-    NSMutableDictionary *parameter = [[NSMutableDictionary alloc] initWithDictionary:tempParameter];
-    for (NSString *key in keys) {
-        [parameter removeObjectForKey:key];
-    }
-    NSArray *tempArray = [url.absoluteString componentsSeparatedByString:@"?"];
-    NSString *baseUrl = tempArray.firstObject;
-    NSString *urlString= [self urlStr:baseUrl appendParameter:parameter];
+    NSString *urlString = [self urlStr:url.absoluteString removeQueryKeys:keys];
     return [NSURL URLWithString:urlString];
 }
 
@@ -583,6 +584,9 @@ static JKRouter *defaultRouter =nil;
     }
     
     NSString *baseUrl = tempArray.firstObject;
+    if (parameter.count ==0) {
+        return baseUrl;
+    }
     NSString *urlString= [self urlStr:baseUrl appendParameter:parameter];
     return urlString;
 }

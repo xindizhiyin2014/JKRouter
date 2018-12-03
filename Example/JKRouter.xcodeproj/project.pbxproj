@@ -44,6 +44,7 @@
 		BD7FA95820CFDBE500F4B18E /* JKMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7FA95720CFDBE500F4B18E /* JKMViewController.m */; };
 		BD7FA95B20CFDC7E00F4B18E /* JKNViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7FA95A20CFDC7E00F4B18E /* JKNViewController.m */; };
 		BD7FA95E20CFE91A00F4B18E /* JKOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7FA95D20CFE91A00F4B18E /* JKOViewController.m */; };
+		BD8500E521B53C58004BAE8D /* JKRouterSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = BD8500E421B53C58004BAE8D /* JKRouterSpec.m */; };
 		BDFAE7F0201C50BA006BB722 /* JKHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDFAE7EF201C50BA006BB722 /* JKHViewController.m */; };
 		BDFAE7F3201C50DD006BB722 /* JKIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDFAE7F2201C50DD006BB722 /* JKIViewController.m */; };
 		BDFBBE881FE6447E00F704D5 /* JKFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDFBBE871FE6447E00F704D5 /* JKFViewController.m */; };
@@ -131,6 +132,7 @@
 		BD7FA95A20CFDC7E00F4B18E /* JKNViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKNViewController.m; sourceTree = "<group>"; };
 		BD7FA95C20CFE91A00F4B18E /* JKOViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKOViewController.h; sourceTree = "<group>"; };
 		BD7FA95D20CFE91A00F4B18E /* JKOViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKOViewController.m; sourceTree = "<group>"; };
+		BD8500E421B53C58004BAE8D /* JKRouterSpec.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKRouterSpec.m; sourceTree = "<group>"; };
 		BDFAE7EE201C50BA006BB722 /* JKHViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKHViewController.h; sourceTree = "<group>"; };
 		BDFAE7EF201C50BA006BB722 /* JKHViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKHViewController.m; sourceTree = "<group>"; };
 		BDFAE7F1201C50DD006BB722 /* JKIViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKIViewController.h; sourceTree = "<group>"; };
@@ -296,6 +298,7 @@
 			isa = PBXGroup;
 			children = (
 				6003F5BB195388D20070C39A /* Tests.m */,
+				BD8500E421B53C58004BAE8D /* JKRouterSpec.m */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
 			);
 			path = Tests;
@@ -383,6 +386,7 @@
 				6003F5AA195388D20070C39A /* Sources */,
 				6003F5AB195388D20070C39A /* Frameworks */,
 				6003F5AC195388D20070C39A /* Resources */,
+				DF159B5512CDBD7151E98A3E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -516,6 +520,24 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JKRouter_Example/Pods-JKRouter_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		DF159B5512CDBD7151E98A3E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-JKRouter_Tests/Pods-JKRouter_Tests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Kiwi/Kiwi.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kiwi.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JKRouter_Tests/Pods-JKRouter_Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -560,6 +582,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD8500E521B53C58004BAE8D /* JKRouterSpec.m in Sources */,
 				6003F5BC195388D20070C39A /* Tests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
