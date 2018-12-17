@@ -410,7 +410,9 @@ static JKRouter *defaultRouter =nil;
 + (void)popToSpecifiedVC:(UIViewController *)vc options:(RouterOptions *)options animated:(BOOL)animated{
     if (!vc) {
         if ([JKRouter router].topNaVC.presentationController &&[JKRouter router].topNaVC.presentedViewController) {
-            [[JKRouter router].topNaVC dismissViewControllerAnimated:animated completion:nil];
+            [[JKRouter router].topNaVC dismissViewControllerAnimated:animated completion:^{
+                [self configTheVC:[JKRouter router].topNaVC.topViewController options:options];
+            }];
         }
         return;
     }
