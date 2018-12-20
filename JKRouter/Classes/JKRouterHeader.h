@@ -59,5 +59,6 @@ typedef NS_ENUM(NSInteger, RouterWindowRootVCStyle) {
 #import<JKRouter/JKRouter.h>
 #import<JKRouter/JKJSONHandler.h>
 #import<JKRouter/JKRouterExtension.h>
+#import<JKRouter/UINavigationController+JKRouter.h>
 
 #endif /* JKRouterHeader_h */
