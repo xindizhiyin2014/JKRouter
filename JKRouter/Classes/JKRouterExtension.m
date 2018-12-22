@@ -39,8 +39,12 @@
     return @[];
 }
 
-+ (NSString *)jkModuleTypeKey{
++ (NSString *)jkModuleTypeViewControllerKey{
     return @"ViewController";
+}
+
++ (NSString *)jkModuleTypeFactoryKey{
+    return @"Factory";
 }
 
 + (NSString *)sandBoxBasePath{

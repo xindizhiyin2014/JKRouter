@@ -61,4 +61,17 @@ typedef NS_ENUM(NSInteger, RouterWindowRootVCStyle) {
 #import<JKRouter/JKRouterExtension.h>
 #import<JKRouter/UINavigationController+JKRouter.h>
 
+@protocol JKRouterDelegate <NSObject>
+
+@optional
+/**
+ 通过工厂方法初始化viewController
+ 
+ @param dic 工厂方法需要的参数
+ @return 初始化的viewController
+ */
++ (UIViewController *)jkRouterFactoryViewControllerWithJSON:(NSDictionary *)dic;
+
+@end
+
 #endif /* JKRouterHeader_h */

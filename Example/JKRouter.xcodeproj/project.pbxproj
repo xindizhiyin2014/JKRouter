@@ -36,6 +36,10 @@
 		BD060ADE207C5A080004A264 /* JKLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD060ADD207C5A080004A264 /* JKLViewController.m */; };
 		BD072E8C205298AB008E3174 /* JKJViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD072E8B205298AB008E3174 /* JKJViewController.m */; };
 		BD072E8F20529955008E3174 /* JKKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD072E8E20529955008E3174 /* JKKViewController.m */; };
+		BD620F0421CDED4300D3C377 /* JKFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = BD620F0321CDED4300D3C377 /* JKFactory.m */; };
+		BD620F0721CDEF4600D3C377 /* FactoryAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD620F0621CDEF4600D3C377 /* FactoryAViewController.m */; };
+		BD620F0A21CDEF5600D3C377 /* FactoryBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD620F0921CDEF5600D3C377 /* FactoryBViewController.m */; };
+		BD620F0D21CDEF7C00D3C377 /* FactoryCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD620F0C21CDEF7C00D3C377 /* FactoryCViewController.m */; };
 		BD6775F9205014E60014CB49 /* JKRouterExtension+Jack.m in Sources */ = {isa = PBXBuildFile; fileRef = BD6775F8205014E60014CB49 /* JKRouterExtension+Jack.m */; };
 		BD740C122029F323006D9EA8 /* JKOneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD740C112029F323006D9EA8 /* JKOneViewController.m */; };
 		BD740C152029F331006D9EA8 /* JKTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD740C142029F331006D9EA8 /* JKTwoViewController.m */; };
@@ -116,6 +120,14 @@
 		BD072E8B205298AB008E3174 /* JKJViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKJViewController.m; sourceTree = "<group>"; };
 		BD072E8D20529955008E3174 /* JKKViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKKViewController.h; sourceTree = "<group>"; };
 		BD072E8E20529955008E3174 /* JKKViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKKViewController.m; sourceTree = "<group>"; };
+		BD620F0221CDED4300D3C377 /* JKFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKFactory.h; sourceTree = "<group>"; };
+		BD620F0321CDED4300D3C377 /* JKFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKFactory.m; sourceTree = "<group>"; };
+		BD620F0521CDEF4600D3C377 /* FactoryAViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FactoryAViewController.h; sourceTree = "<group>"; };
+		BD620F0621CDEF4600D3C377 /* FactoryAViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FactoryAViewController.m; sourceTree = "<group>"; };
+		BD620F0821CDEF5600D3C377 /* FactoryBViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FactoryBViewController.h; sourceTree = "<group>"; };
+		BD620F0921CDEF5600D3C377 /* FactoryBViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FactoryBViewController.m; sourceTree = "<group>"; };
+		BD620F0B21CDEF7C00D3C377 /* FactoryCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FactoryCViewController.h; sourceTree = "<group>"; };
+		BD620F0C21CDEF7C00D3C377 /* FactoryCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FactoryCViewController.m; sourceTree = "<group>"; };
 		BD6775F7205014E60014CB49 /* JKRouterExtension+Jack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JKRouterExtension+Jack.h"; sourceTree = "<group>"; };
 		BD6775F8205014E60014CB49 /* JKRouterExtension+Jack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "JKRouterExtension+Jack.m"; sourceTree = "<group>"; };
 		BD740C102029F323006D9EA8 /* JKOneViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKOneViewController.h; sourceTree = "<group>"; };
@@ -271,6 +283,7 @@
 				BD7FA95A20CFDC7E00F4B18E /* JKNViewController.m */,
 				BD7FA95C20CFE91A00F4B18E /* JKOViewController.h */,
 				BD7FA95D20CFE91A00F4B18E /* JKOViewController.m */,
+				BD620F0121CDED2500D3C377 /* Factory */,
 				BD740C0F2029F2F1006D9EA8 /* Other */,
 				BDFBBE891FE6494500F704D5 /* PageCoverController */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
@@ -322,6 +335,21 @@
 				B9B9C65EBBE9F191F8DBB935 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		BD620F0121CDED2500D3C377 /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				BD620F0221CDED4300D3C377 /* JKFactory.h */,
+				BD620F0321CDED4300D3C377 /* JKFactory.m */,
+				BD620F0521CDEF4600D3C377 /* FactoryAViewController.h */,
+				BD620F0621CDEF4600D3C377 /* FactoryAViewController.m */,
+				BD620F0821CDEF5600D3C377 /* FactoryBViewController.h */,
+				BD620F0921CDEF5600D3C377 /* FactoryBViewController.m */,
+				BD620F0B21CDEF7C00D3C377 /* FactoryCViewController.h */,
+				BD620F0C21CDEF7C00D3C377 /* FactoryCViewController.m */,
+			);
+			path = Factory;
 			sourceTree = "<group>";
 		};
 		BD740C0F2029F2F1006D9EA8 /* Other */ = {
@@ -554,8 +582,11 @@
 				BDFBBE9A1FE6494500F704D5 /* XWPageCoverPushController.m in Sources */,
 				6003F59E195388D20070C39A /* JKAppDelegate.m in Sources */,
 				04DFBB211E83835F00390A60 /* JKEViewController.m in Sources */,
+				BD620F0D21CDEF7C00D3C377 /* FactoryCViewController.m in Sources */,
 				BDFBBE9B1FE6494500F704D5 /* XWPageCoverTransition.m in Sources */,
 				6003F5A7195388D20070C39A /* JKViewController.m in Sources */,
+				BD620F0721CDEF4600D3C377 /* FactoryAViewController.m in Sources */,
+				BD620F0A21CDEF5600D3C377 /* FactoryBViewController.m in Sources */,
 				BD6775F9205014E60014CB49 /* JKRouterExtension+Jack.m in Sources */,
 				046309201EC6126900048CBA /* JKWebViewController.m in Sources */,
 				BDFAE7F3201C50DD006BB722 /* JKIViewController.m in Sources */,
@@ -563,6 +594,7 @@
 				BD060ADE207C5A080004A264 /* JKLViewController.m in Sources */,
 				BDFBBE971FE6494500F704D5 /* UIView+anchorPoint.m in Sources */,
 				BDFBBE981FE6494500F704D5 /* XWInteractiveTransition.m in Sources */,
+				BD620F0421CDED4300D3C377 /* JKFactory.m in Sources */,
 				BD7C356820010BDC00DDDFB8 /* JKGViewController.m in Sources */,
 				BD740C122029F323006D9EA8 /* JKOneViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,

@@ -2,7 +2,7 @@
  {
  "moduleID":"user_task",
  "type":"ViewController",
- "targetVC":"JKBViewController",
+ "target":"JKBViewController",
  "desc":"用户任务页面"
  }
 ]

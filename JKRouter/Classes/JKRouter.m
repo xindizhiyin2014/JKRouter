@@ -162,31 +162,34 @@ static JKRouter *defaultRouter =nil;
 
 #pragma mark  - - - - the open functions - - - -
 
-+ (void)open:(NSString *)vcClassName{
-    [self open:vcClassName params:nil];
++ (void)open:(NSString *)targetClassName{
+    [self open:targetClassName params:nil];
 }
 
-+ (void)open:(NSString *)vcClassName params:(NSDictionary *)params{
++ (void)open:(NSString *)targetClassName params:(NSDictionary *)params{
     RouterOptions *options = [RouterOptions optionsWithDefaultParams:params];
-    [self open:vcClassName options:options];
+    [self open:targetClassName options:options];
 }
 
-+ (void)open:(NSString *)vcClassName options:(RouterOptions *)options{
-    [self open:vcClassName options:options CallBack:nil];
++ (void)open:(NSString *)targetClassName options:(RouterOptions *)options{
+    [self open:targetClassName options:options CallBack:nil];
 }
 
-+ (void)open:(NSString *)vcClassName optionsWithJSON:(RouterOptions *)options{
-    if (!JKSafeStr(vcClassName)) {
-        NSAssert(NO, @"vcClassName is nil or vcClassName is not a string");
++ (void)open:(NSString *)targetClassName optionsWithJSON:(RouterOptions *)options{
+    if (!JKSafeStr(targetClassName)) {
+        NSAssert(NO, @"targetClassName is nil or targetClassName is not a string");
         return;
     }
     if (!options) {
         options = [RouterOptions options];
     }
-    if ([NSClassFromString(vcClassName) jkIsTabBarItemVC]) {
-        [JKRouterExtension jkSwitchTabWithVC:vcClassName options:options];//进行tab切换
+    if ([NSClassFromString(targetClassName) respondsToSelector:@selector(jkRouterFactoryViewControllerWithJSON:)]) {
+        UIViewController *vc = [NSClassFromString(targetClassName) jkRouterFactoryViewControllerWithJSON:options.defaultParams];
+        [JKRouter routerViewController:vc options:options];
+    }else if ([NSClassFromString(targetClassName) jkIsTabBarItemVC]) {
+        [JKRouterExtension jkSwitchTabWithVC:targetClassName options:options];//进行tab切换
     }else{
-        Class VCClass = NSClassFromString(vcClassName);
+        Class VCClass = NSClassFromString(targetClassName);
         UIViewController *vc = [VCClass jkRouterViewControllerWithJSON:options.defaultParams];
         //根据配置好的VC，options配置进行跳转
         if (![self routerViewController:vc options:options]) {//跳转失败
@@ -202,19 +205,22 @@ static JKRouter *defaultRouter =nil;
      [self routerViewController:vc options:options];
 }
 
-+ (void)open:(NSString *)vcClassName options:(RouterOptions *)options CallBack:(void(^)(void))callback{
++ (void)open:(NSString *)targetClassName options:(RouterOptions *)options CallBack:(void(^)(void))callback{
     
-    if (!JKSafeStr(vcClassName)) {
-        NSAssert(NO, @"vcClassName is nil or vcClassName is not a string");
+    if (!JKSafeStr(targetClassName)) {
+        NSAssert(NO, @"targetClassName is nil or targetClassName is not a string");
         return;
     }
     if (!options) {
         options = [RouterOptions options];
     }
-    if ([NSClassFromString(vcClassName) jkIsTabBarItemVC]) {
-         [JKRouterExtension jkSwitchTabWithVC:vcClassName options:options];//进行tab切换
+    if ([NSClassFromString(targetClassName) respondsToSelector:@selector(jkRouterFactoryViewControllerWithJSON:)]) {
+        UIViewController *vc = [NSClassFromString(targetClassName) jkRouterFactoryViewControllerWithJSON:options.defaultParams];
+        [JKRouter routerViewController:vc options:options];
+    }else if ([NSClassFromString(targetClassName) jkIsTabBarItemVC]) {
+         [JKRouterExtension jkSwitchTabWithVC:targetClassName options:options];//进行tab切换
     }else{
-        UIViewController *vc = [self configVC:vcClassName options:options];
+        UIViewController *vc = [self configVC:targetClassName options:options];
         //根据配置好的VC，options配置进行跳转
         if (![self routerViewController:vc options:options]) {//跳转失败
             return;
@@ -281,7 +287,7 @@ static JKRouter *defaultRouter =nil;
     
     NSString *moduleID = [targetURL.path substringFromIndex:1];
     NSString *type = [JKJSONHandler getTypeWithModuleID:moduleID];
-    if ([type isEqualToString:[JKRouterExtension jkModuleTypeKey]]) {
+    if ([type isEqualToString:[JKRouterExtension jkModuleTypeViewControllerKey]]) {
         NSString *vcClassName = [JKJSONHandler getHomePathWithModuleID:moduleID];
         if ([NSClassFromString(vcClassName) isSubclassOfClass:[UIViewController class]]) {
             NSString *parameterStr = [[targetURL query] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -299,7 +305,25 @@ static JKRouter *defaultRouter =nil;
         }else{//进行特殊路由跳转的操作
             [JKRouterExtension otherActionsWithActionType:type URL:targetURL extra:extra complete:completeBlock];
         }
-    }else{
+    }else if ([type isEqualToString:[JKRouterExtension  jkModuleTypeFactoryKey]]){
+       NSString *factoryClassName = [JKJSONHandler getHomePathWithModuleID:moduleID];
+        NSString *parameterStr = [[targetURL query] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSMutableDictionary *dic = nil;
+        if (JKSafeStr(parameterStr)) {
+            dic = [self convertUrlStringToDictionary:parameterStr];
+            [dic addEntriesFromDictionary:extra];
+        }else{
+            dic = [NSMutableDictionary dictionaryWithDictionary:extra];
+        }
+        RouterOptions *options = [RouterOptions options];
+        options.defaultParams = [dic copy];
+        if ([NSClassFromString(factoryClassName) respondsToSelector:@selector(jkRouterFactoryViewControllerWithJSON:)]) {
+            UIViewController *vc =   [NSClassFromString(factoryClassName) jkRouterFactoryViewControllerWithJSON:options.defaultParams];
+            [JKRouter routerViewController:vc options:options];
+        }
+        
+    }
+    else{
         //进行非路由跳转的操作
         [JKRouterExtension otherActionsWithActionType:type URL:targetURL extra:extra complete:completeBlock];
     }

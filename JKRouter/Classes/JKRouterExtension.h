@@ -57,11 +57,18 @@
 + (NSArray *)specialSchemes;
 
 /**
- 模块的类型名字的可以，用来解析模块的类型
+ 模块的类型名字key，用来解析模块的ViewController类型
 
  @return key
  */
-+ (NSString *)jkModuleTypeKey;
++ (NSString *)jkModuleTypeViewControllerKey;
+
+/**
+ 模块的类型名字key，用来解析模块的Factory类型
+
+ @return key
+ */
++ (NSString *)jkModuleTypeFactoryKey;
 
 /**
  沙盒基础路径，该目录下用于保存后台下发的路由配置信息，以及h5模块文件

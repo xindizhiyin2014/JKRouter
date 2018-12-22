@@ -116,32 +116,32 @@
 /**
  默认打开方式
  一般由native调用
- @param vcClassName 跳转的控制器类名
+ @param targetClassName 跳转的target类名
  */
-+ (void)open:(NSString *)vcClassName;
++ (void)open:(NSString *)targetClassName;
 
 /**
  打开页面，一般由native开发者使用
 
- @param vcClassName 跳转的控制器类名
+ @param targetClassName 跳转的target类名
  @param params 参数
  */
-+ (void)open:(NSString *)vcClassName params:(NSDictionary *)params;
++ (void)open:(NSString *)targetClassName params:(NSDictionary *)params;
 /**
  根据options的设置进行跳转
  
- @param vcClassName 跳转的控制器类名
+ @param targetClassName 跳转的target类名
  @param options 跳转的各种设置
  */
-+ (void)open:(NSString *)vcClassName options:(RouterOptions *)options;
++ (void)open:(NSString *)targetClassName options:(RouterOptions *)options;
 
 /**
  主要是通过后台，或者H5交互是携带json参数进行跳转，对应的ViewController内部需要实现
 + (instancetype)jkRouterViewControllerWithJSON:(NSDictionary *)dic 这个方法的重写。
- @param vcClassName 跳转的控制器类名
+ @param targetClassName 跳转的target类名
  @param options 跳转的各种设置 options 的defaultParams 是json对象。内部value不能是OC的对象
  */
-+ (void)open:(NSString *)vcClassName optionsWithJSON:(RouterOptions *)options;
++ (void)open:(NSString *)targetClassName optionsWithJSON:(RouterOptions *)options;
 /**
  根据options和已有的vc进行跳转
 
@@ -153,11 +153,11 @@
 /**
  根据options的设置进行跳转,并执行相关的回调操作
 
- @param vcClassName 跳转的控制器类名
+ @param targetClassName 跳转的target类名
  @param options 跳转的各种设置
  @param callback 回调
  */
-+ (void)open:(NSString *)vcClassName options:(RouterOptions *)options CallBack:(void(^)(void))callback;
++ (void)open:(NSString *)targetClassName options:(RouterOptions *)options CallBack:(void(^)(void))callback;
 
 
 /**

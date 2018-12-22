@@ -30,7 +30,7 @@
     for (NSDictionary *module in [JKRouter router].modules) {
         NSString *tempModuleID =[NSString stringWithFormat:@"%@",module[@"moduleID"]];
         if ([tempModuleID isEqualToString:moduleID]) {
-            vcClassName = module[@"targetVC"];
+            vcClassName = module[@"target"];
             break;
         }
     }

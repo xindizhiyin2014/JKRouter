@@ -2,20 +2,26 @@
   {
   "moduleID":"user_profile",
   "type":"ViewController",
-  "targetVC":"JKBViewController",
+  "target":"JKBViewController",
   "desc":"用户主页"
   },
   {
   "moduleID":"apply_invite_code",
   "type":"ViewController",
-  "targetVC":"JKDViewController",
+  "target":"JKDViewController",
   "desc":"邀请码"
   },
   {
   "moduleID":"wallet",
   "type":"ViewController",
-  "targetVC":"JKWebViewController",
+  "target":"JKWebViewController",
   "desc":"钱包流水 无参数"
+  },
+  {
+      "moduleID":"factory",
+      "type":"Factory",
+      "target":"JKFactory",
+      "desc":"钱包流水 无参数"
   }
   ]
 
