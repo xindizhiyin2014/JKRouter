@@ -526,8 +526,11 @@ static JKRouter *defaultRouter =nil;
 //为ViewController 的属性赋值
 + (UIViewController *)configVC:(NSString *)vcClassName options:(RouterOptions *)options {
 
-    Class VCClass = NSClassFromString(vcClassName);
-    UIViewController *vc = [VCClass jkRouterViewController];
+    Class targetClass = NSClassFromString(vcClassName);
+    if (!targetClass) {
+        targetClass = NSClassFromString([NSString stringWithFormat:@"%@.%@",[JKRouterExtension appTargetName],vcClassName]);
+    }
+    UIViewController *vc = [targetClass jkRouterViewController];
     [vc setValue:options.moduleID forKey:[JKRouterExtension JKRouterModuleIDKey]];
     [JKRouter configTheVC:vc options:options];
     return vc;
