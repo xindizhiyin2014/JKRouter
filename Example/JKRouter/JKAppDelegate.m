@@ -39,14 +39,14 @@
         UITabBarController *tabBarVC = [[UITabBarController alloc] init];
         tabBarVC.viewControllers = @[naVC1,naVC2,naVC3];
         [JKRouter configWithRouterFiles:@[@"modules.json",@"modules123.json"]];
-        [JKRouter router].windowRootVCStyle = RouterWindowRootVCStyleCustom;
+        [JKRouter sharedRouter].windowRootVCStyle = RouterWindowRootVCStyleCustom;
         self.window.rootViewController = tabBarVC;
     }else{
         JKViewController *jkVC = [JKViewController new];
         UINavigationController *naVC = [[UINavigationController alloc] initWithRootViewController:jkVC];
         self.window.rootViewController = naVC;
         [JKRouter configWithRouterFiles:@[@"modules.json",@"modules123.json"]];
-        [JKRouter router].windowRootVCStyle = RouterWindowRootVCStyleDefault;
+        [JKRouter sharedRouter].windowRootVCStyle = RouterWindowRootVCStyleDefault;
     }
     
     

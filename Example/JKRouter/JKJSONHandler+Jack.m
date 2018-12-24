@@ -27,7 +27,7 @@
 + (NSString *)getHomePathWithModuleID:(NSString *)moduleID{
     
     NSString *vcClassName = nil;
-    for (NSDictionary *module in [JKRouter router].modules) {
+    for (NSDictionary *module in [JKRouter sharedRouter].modules) {
         NSString *tempModuleID =[NSString stringWithFormat:@"%@",module[@"moduleID"]];
         if ([tempModuleID isEqualToString:moduleID]) {
             vcClassName = module[@"target"];
@@ -39,7 +39,7 @@
 
 + (NSString *)getTypeWithModuleID:(NSString *)moduleID{
     NSString *type = nil;
-    for (NSDictionary *module in [JKRouter router].modules) {
+    for (NSDictionary *module in [JKRouter sharedRouter].modules) {
         NSString *tempModuleID =[NSString stringWithFormat:@"%@",module[@"moduleID"]];
         if ([tempModuleID isEqualToString:moduleID]) {
             type = module[@"type"];

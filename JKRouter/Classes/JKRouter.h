@@ -94,10 +94,17 @@
 @property (nonatomic,weak) UINavigationController *topNaVC; ///< app的最顶部导航控制器
 /**
  初始化单例
+ to support swift，later please replace with function + (instancetype)sharedRouter
+ @return JKRouter 的单例对象
+ */
++ (instancetype)router DEPRECATED_ATTRIBUTE;
+
+/**
+ 初始化单例
  
  @return JKRouter 的单例对象
  */
-+ (instancetype)router;
++ (instancetype)sharedRouter;
 
 /**
  配置router信息

@@ -98,6 +98,11 @@ static JKRouter *defaultRouter =nil;
  @return JKRouter 的单例对象
  */
 + (instancetype)router{
+    
+    return [self sharedRouter];
+}
+
++ (instancetype)sharedRouter{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         defaultRouter = [JKRouter new];
@@ -132,22 +137,22 @@ static JKRouter *defaultRouter =nil;
 }
 
 + (void)configWithRouterFiles:(NSArray<NSString *> *)routerFileNames{
-    [JKRouter router].routerFileNames = routerFileNames;
+    [JKRouter sharedRouter].routerFileNames = routerFileNames;
    NSMutableSet *urlSchemesSet = [NSMutableSet setWithArray:[JKRouterExtension urlSchemes]];
     [urlSchemesSet addObjectsFromArray:[JKRouterExtension specialSchemes]];
-    [JKRouter router].urlSchemes  = [urlSchemesSet copy];
+    [JKRouter sharedRouter].urlSchemes  = [urlSchemesSet copy];
     
 }
 
 + (void)updateRouterInfoWithFilePath:(NSString*)filePath{
-    [JKRouter router].remoteFilePath = filePath;
-    [JKRouter router].modules = nil;
+    [JKRouter sharedRouter].remoteFilePath = filePath;
+    [JKRouter sharedRouter].modules = nil;
 }
 
 - (NSSet *)modules{
     if (!_modules) {
         if (!_remoteFilePath) {
-            NSArray *moudulesArr =[JKJSONHandler getModulesFromJsonFile:[JKRouter router].routerFileNames];
+            NSArray *moudulesArr =[JKJSONHandler getModulesFromJsonFile:[JKRouter sharedRouter].routerFileNames];
             _modules = [NSSet setWithArray:moudulesArr];
         }else{
             NSData *data = [NSData dataWithContentsOfFile:_remoteFilePath];
@@ -183,14 +188,17 @@ static JKRouter *defaultRouter =nil;
     if (!options) {
         options = [RouterOptions options];
     }
-    if ([NSClassFromString(targetClassName) respondsToSelector:@selector(jkRouterFactoryViewControllerWithJSON:)]) {
+    Class targetClass = NSClassFromString(targetClassName);
+    if (!targetClass) {
+        targetClass = NSClassFromString([NSString stringWithFormat:@"%@.%@",[JKRouterExtension appTargetName],targetClassName]);
+    }
+    if ([targetClass respondsToSelector:@selector(jkRouterFactoryViewControllerWithJSON:)]) {
         UIViewController *vc = [NSClassFromString(targetClassName) jkRouterFactoryViewControllerWithJSON:options.defaultParams];
         [JKRouter routerViewController:vc options:options];
-    }else if ([NSClassFromString(targetClassName) jkIsTabBarItemVC]) {
+    }else if ([targetClass jkIsTabBarItemVC]) {
         [JKRouterExtension jkSwitchTabWithVC:targetClassName options:options];//进行tab切换
     }else{
-        Class VCClass = NSClassFromString(targetClassName);
-        UIViewController *vc = [VCClass jkRouterViewControllerWithJSON:options.defaultParams];
+        UIViewController *vc = [targetClass jkRouterViewControllerWithJSON:options.defaultParams];
         //根据配置好的VC，options配置进行跳转
         if (![self routerViewController:vc options:options]) {//跳转失败
             return;
@@ -214,10 +222,14 @@ static JKRouter *defaultRouter =nil;
     if (!options) {
         options = [RouterOptions options];
     }
-    if ([NSClassFromString(targetClassName) respondsToSelector:@selector(jkRouterFactoryViewControllerWithJSON:)]) {
+    Class targetClass = NSClassFromString(targetClassName);
+    if (!targetClass) {
+        targetClass = NSClassFromString([NSString stringWithFormat:@"%@.%@",[JKRouterExtension appTargetName],targetClassName]);
+    }
+    if ([targetClass respondsToSelector:@selector(jkRouterFactoryViewControllerWithJSON:)]) {
         UIViewController *vc = [NSClassFromString(targetClassName) jkRouterFactoryViewControllerWithJSON:options.defaultParams];
         [JKRouter routerViewController:vc options:options];
-    }else if ([NSClassFromString(targetClassName) jkIsTabBarItemVC]) {
+    }else if ([targetClass jkIsTabBarItemVC]) {
          [JKRouterExtension jkSwitchTabWithVC:targetClassName options:options];//进行tab切换
     }else{
         UIViewController *vc = [self configVC:targetClassName options:options];
@@ -251,7 +263,7 @@ static JKRouter *defaultRouter =nil;
     url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSURL *targetURL = [NSURL URLWithString:url];
     NSString *scheme =targetURL.scheme;
-    if (![[JKRouter router].urlSchemes containsObject:scheme]) {
+    if (![[JKRouter sharedRouter].urlSchemes containsObject:scheme]) {
         JKRouterLog(@"app不支持该协议的跳转");
         if(completeBlock){
             NSError * error = [NSError errorWithDomain:@"JKRouter" code:-101 userInfo:@{@"message":@"app不支持该协议的跳转"}];
@@ -307,6 +319,10 @@ static JKRouter *defaultRouter =nil;
         }
     }else if ([type isEqualToString:[JKRouterExtension  jkModuleTypeFactoryKey]]){
        NSString *factoryClassName = [JKJSONHandler getHomePathWithModuleID:moduleID];
+        Class targetClass = NSClassFromString(factoryClassName);
+        if (!targetClass) {
+            targetClass = NSClassFromString([NSString stringWithFormat:@"%@.%@",[JKRouterExtension appTargetName],factoryClassName]);
+        }
         NSString *parameterStr = [[targetURL query] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         NSMutableDictionary *dic = nil;
         if (JKSafeStr(parameterStr)) {
@@ -317,8 +333,8 @@ static JKRouter *defaultRouter =nil;
         }
         RouterOptions *options = [RouterOptions options];
         options.defaultParams = [dic copy];
-        if ([NSClassFromString(factoryClassName) respondsToSelector:@selector(jkRouterFactoryViewControllerWithJSON:)]) {
-            UIViewController *vc =   [NSClassFromString(factoryClassName) jkRouterFactoryViewControllerWithJSON:options.defaultParams];
+        if ([targetClass respondsToSelector:@selector(jkRouterFactoryViewControllerWithJSON:)]) {
+            UIViewController *vc =   [targetClass jkRouterFactoryViewControllerWithJSON:options.defaultParams];
             [JKRouter routerViewController:vc options:options];
         }
         
@@ -395,7 +411,7 @@ static JKRouter *defaultRouter =nil;
 }
 
 + (void)pop:(NSDictionary *)params :(BOOL)animated{
-    NSArray *vcArray = [JKRouter router].topNaVC.viewControllers;
+    NSArray *vcArray = [JKRouter sharedRouter].topNaVC.viewControllers;
     NSUInteger count = vcArray.count;
     UIViewController *vc= nil;
     RouterOptions *options = nil;
@@ -406,9 +422,9 @@ static JKRouter *defaultRouter =nil;
         vc = vcArray[count-2];
     }else{
         //已经是根视图，不再执行pop操作  可以执行dismiss操作
-        if ([JKRouter router].topNaVC.isPresented) {
-            [[JKRouter router].topNaVC dismissViewControllerAnimated:animated completion:^{
-                UIViewController *newVC= [JKRouter router].topNaVC.topViewController;
+        if ([JKRouter sharedRouter].topNaVC.isPresented) {
+            [[JKRouter sharedRouter].topNaVC dismissViewControllerAnimated:animated completion:^{
+                UIViewController *newVC= [JKRouter sharedRouter].topNaVC.topViewController;
                 [self configTheVC:newVC options:options];
                 [newVC viewWillAppear:animated];
             }];
@@ -433,9 +449,9 @@ static JKRouter *defaultRouter =nil;
 
 + (void)popToSpecifiedVC:(UIViewController *)vc options:(RouterOptions *)options animated:(BOOL)animated{
     if (!vc) {
-        if ([JKRouter router].topNaVC.presentationController &&[JKRouter router].topNaVC.presentedViewController) {
-            [[JKRouter router].topNaVC dismissViewControllerAnimated:animated completion:^{
-                [self configTheVC:[JKRouter router].topNaVC.topViewController options:options];
+        if ([JKRouter sharedRouter].topNaVC.presentationController &&[JKRouter sharedRouter].topNaVC.presentedViewController) {
+            [[JKRouter sharedRouter].topNaVC dismissViewControllerAnimated:animated completion:^{
+                [self configTheVC:[JKRouter sharedRouter].topNaVC.topViewController options:options];
             }];
         }
         return;
@@ -443,7 +459,7 @@ static JKRouter *defaultRouter =nil;
     else {
         if (vc) {
             [self configTheVC:vc options:options];
-            [[JKRouter router].topNaVC popToViewController:vc animated:animated];
+            [[JKRouter sharedRouter].topNaVC popToViewController:vc animated:animated];
         }
     }
 }
@@ -453,7 +469,7 @@ static JKRouter *defaultRouter =nil;
 }
 
 + (void)popWithSpecifiedModuleID:(NSString *)moduleID :(NSDictionary *)params :(BOOL)animated{
-    NSArray *vcArray  = [JKRouter router].topNaVC.viewControllers;
+    NSArray *vcArray  = [JKRouter sharedRouter].topNaVC.viewControllers;
         for (NSInteger i = vcArray.count-1; i>0; i--) {
             UIViewController *vc = vcArray[i];
             if ([vc.moduleID isEqualToString:moduleID]) {
@@ -473,16 +489,16 @@ static JKRouter *defaultRouter =nil;
 }
 
 + (void)popWithStep:(NSInteger)step params:(NSDictionary *)params animated:(BOOL)animated{
-    NSArray *vcArray = [JKRouter router].topNaVC.viewControllers;
+    NSArray *vcArray = [JKRouter sharedRouter].topNaVC.viewControllers;
     UIViewController *vc= nil;
     if (step>0) {
-        if([JKRouter router].topNaVC.viewControllers.count>step){
+        if([JKRouter sharedRouter].topNaVC.viewControllers.count>step){
             NSUInteger count = vcArray.count;
             vc = vcArray[(count-1) - step];
             RouterOptions *options = [RouterOptions optionsWithDefaultParams:params];
             [self configTheVC:vc options:options];
             [self popToSpecifiedVC:vc animated:animated];
-        }else if([JKRouter router].topNaVC.viewControllers.count == step){
+        }else if([JKRouter sharedRouter].topNaVC.viewControllers.count == step){
             UIViewController *vc= nil;
             vc = vcArray[0];
             RouterOptions *options = [RouterOptions optionsWithDefaultParams:params];
@@ -501,10 +517,10 @@ static JKRouter *defaultRouter =nil;
 #pragma mark  - - - - the tool functions - - - -
 
 + (void)replaceCurrentViewControllerWithTargetVC:(UIViewController *)targetVC{
-    NSArray *viewControllers = [JKRouter router].topNaVC.viewControllers;
+    NSArray *viewControllers = [JKRouter sharedRouter].topNaVC.viewControllers;
     NSMutableArray *vcArray = [NSMutableArray arrayWithArray:viewControllers];
     [vcArray replaceObjectAtIndex:viewControllers.count-1 withObject:targetVC];
-    [[JKRouter router].topNaVC setViewControllers:[vcArray copy] animated:YES];
+    [[JKRouter sharedRouter].topNaVC setViewControllers:[vcArray copy] animated:YES];
 }
 
 //为ViewController 的属性赋值
@@ -624,8 +640,8 @@ static JKRouter *defaultRouter =nil;
         [[vc class] handleNoAccessToOpenWithOptions:options];
         return NO;
     }
-    if ([JKRouter router].topNaVC.presentationController &&[JKRouter router].topNaVC.presentedViewController && ![[JKRouter router].topNaVC.presentedViewController isKindOfClass:[UINavigationController class]]) {
-        [[JKRouter router].topNaVC dismissViewControllerAnimated:NO completion:nil];
+    if ([JKRouter sharedRouter].topNaVC.presentationController &&[JKRouter sharedRouter].topNaVC.presentedViewController && ![[JKRouter sharedRouter].topNaVC.presentedViewController isKindOfClass:[UINavigationController class]]) {
+        [[JKRouter sharedRouter].topNaVC dismissViewControllerAnimated:NO completion:nil];
     }
     if (options.transformStyle == RouterTransformVCStyleDefault) {
         options.transformStyle =  [vc jkRouterTransformStyle];
@@ -655,19 +671,19 @@ static JKRouter *defaultRouter =nil;
 
 + (BOOL)_openWithPushStyle:(UIViewController *)vc options:(RouterOptions *)options{
     if (options.createStyle==RouterCreateStyleNew) {
-        [[JKRouter router].topNaVC pushViewController:vc animated:options.animated];
+        [[JKRouter sharedRouter].topNaVC pushViewController:vc animated:options.animated];
     }else if (options.createStyle==RouterCreateStyleReplace) {
         
-        NSArray *viewControllers = [JKRouter router].topNaVC.viewControllers;
+        NSArray *viewControllers = [JKRouter sharedRouter].topNaVC.viewControllers;
         NSMutableArray *vcArray = [NSMutableArray arrayWithArray:viewControllers];
         [vcArray replaceObjectAtIndex:viewControllers.count-1 withObject:vc];
-        [[JKRouter router].topNaVC setViewControllers:[vcArray copy] animated:YES];
+        [[JKRouter sharedRouter].topNaVC setViewControllers:[vcArray copy] animated:YES];
     }else if (options.createStyle==RouterCreateStyleRefresh) {
-        UIViewController *currentVC = [JKRouter router].topNaVC.topViewController;
+        UIViewController *currentVC = [JKRouter sharedRouter].topNaVC.topViewController;
         if ([[currentVC class] isKindOfClass:[vc class]]) {
             [currentVC jkRouterRefresh];
         }else{
-             [[JKRouter router].topNaVC pushViewController:vc animated:options.animated];
+             [[JKRouter sharedRouter].topNaVC pushViewController:vc animated:options.animated];
         }
     }
     return YES;
@@ -677,16 +693,16 @@ static JKRouter *defaultRouter =nil;
     if (options.createStyle == RouterCreateStyleNewWithNaVC) {
         UINavigationController *naVC = [[UINavigationController alloc] initWithRootViewController:vc];
         naVC.isPresented = YES;
-        [[JKRouter router].topNaVC presentViewController:naVC animated:options.animated completion:nil];
+        [[JKRouter sharedRouter].topNaVC presentViewController:naVC animated:options.animated completion:nil];
     }else{
-      [[JKRouter router].topNaVC presentViewController:vc animated:options.animated completion:nil];
+      [[JKRouter sharedRouter].topNaVC presentViewController:vc animated:options.animated completion:nil];
     }
     
     return YES;
 }
 
 + (BOOL)_openWithOtherStyle:(UIViewController *)vc options:(RouterOptions *)options{
-    [vc jkRouterSpecialTransformWithNaVC:[JKRouter router].topNaVC];
+    [vc jkRouterSpecialTransformWithNaVC:[JKRouter sharedRouter].topNaVC];
     return YES;
 }
 

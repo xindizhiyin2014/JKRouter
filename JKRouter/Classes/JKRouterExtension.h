@@ -50,6 +50,14 @@
 
 
 /**
+ app 的target的n名字
+
+ @return AppTargetAName
+ */
++ (NSString *)appTargetName;
+
+
+/**
  app支持的url的特殊的url协议组成的数组
 
  @return 协议的数组

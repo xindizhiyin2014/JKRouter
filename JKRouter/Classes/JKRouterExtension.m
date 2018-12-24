@@ -35,6 +35,10 @@
     
 }
 
++ (NSString *)appTargetName{
+    return nil;
+}
+
 + (NSArray *)specialSchemes{
     return @[];
 }
@@ -68,7 +72,11 @@
 
 + (void)jkSwitchTabWithVC:(NSString *)vcClassName options:(RouterOptions *)options{
     UIViewController *rootVC = [UIApplication sharedApplication].delegate.window.rootViewController;
-    NSInteger index = [NSClassFromString(vcClassName) jkTabIndex];
+    Class targetClass = NSClassFromString(vcClassName);
+    if (!targetClass) {
+        targetClass = NSClassFromString([NSString stringWithFormat:@"%@.%@",[JKRouterExtension appTargetName],vcClassName]);
+    }
+    NSInteger index = [targetClass jkTabIndex];
     if ([rootVC isKindOfClass:[UITabBarController class]]) {
         UITabBarController *tabBarVC = (UITabBarController *)rootVC;
         if ([tabBarVC.selectedViewController isKindOfClass:[UINavigationController class]]) {

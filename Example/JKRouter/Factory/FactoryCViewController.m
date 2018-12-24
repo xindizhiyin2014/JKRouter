@@ -19,6 +19,7 @@
     // Do any additional setup after loading the view.
     self.title = @"FactoryCViewController";
     self.view.backgroundColor = [UIColor whiteColor];
+    
 }
 
 /*
