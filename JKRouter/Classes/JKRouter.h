@@ -124,47 +124,62 @@
  默认打开方式
  一般由native调用
  @param targetClassName 跳转的target类名
+ @return 跳转成功与否的状态
  */
-+ (void)open:(NSString *)targetClassName;
++ (BOOL)open:(NSString *)targetClassName;
 
 /**
  打开页面，一般由native开发者使用
 
  @param targetClassName 跳转的target类名
  @param params 参数
+ @return 跳转成功与否的状态
  */
-+ (void)open:(NSString *)targetClassName params:(NSDictionary *)params;
++ (BOOL)open:(NSString *)targetClassName params:(NSDictionary *)params;
 /**
  根据options的设置进行跳转
  
  @param targetClassName 跳转的target类名
  @param options 跳转的各种设置
+ @return 跳转成功与否的状态
  */
-+ (void)open:(NSString *)targetClassName options:(RouterOptions *)options;
++ (BOOL)open:(NSString *)targetClassName options:(RouterOptions *)options;
 
 /**
  主要是通过后台，或者H5交互是携带json参数进行跳转，对应的ViewController内部需要实现
 + (instancetype)jkRouterViewControllerWithJSON:(NSDictionary *)dic 这个方法的重写。
  @param targetClassName 跳转的target类名
  @param options 跳转的各种设置 options 的defaultParams 是json对象。内部value不能是OC的对象
+ @return 跳转成功与否的状态
  */
-+ (void)open:(NSString *)targetClassName optionsWithJSON:(RouterOptions *)options;
++ (BOOL)open:(NSString *)targetClassName optionsWithJSON:(RouterOptions *)options;
+/**
+ 主要是通过后台，或者H5交互是携带json参数进行跳转，对应的ViewController内部需要实现
+ + (instancetype)jkRouterViewControllerWithJSON:(NSDictionary *)dic 这个方法的重写。
+ @param targetClassName 跳转的target类名
+ @param options 跳转的各种设置 options 的defaultParams 是json对象。内部value不能是OC的对象
+ @param completeBlock 跳转成功后的回调,或者失败的原因
+ @return 跳转成功与否的状态
+ */
++ (BOOL)open:(NSString *)targetClassName optionsWithJSON:(RouterOptions *)options complete:(void(^)(id result,NSError *error))completeBlock;
 /**
  根据options和已有的vc进行跳转
 
  @param vc 已经创建的指定的vc
  @param options 跳转的各种设置
+ @return 跳转成功与否的状态
  */
-+ (void)openSpecifiedVC:(UIViewController *)vc options:(RouterOptions *)options;
++ (BOOL)openSpecifiedVC:(UIViewController *)vc options:(RouterOptions *)options;
 
 /**
  根据options的设置进行跳转,并执行相关的回调操作
 
  @param targetClassName 跳转的target类名
  @param options 跳转的各种设置
- @param callback 回调
+ @param completeBlock 跳转成功后的回调,或者失败的原因
+ @return 跳转成功与否的状态
  */
-+ (void)open:(NSString *)targetClassName options:(RouterOptions *)options CallBack:(void(^)(void))callback;
++ (BOOL)open:(NSString *)targetClassName options:(RouterOptions *)options  complete:(void(^)(id result,NSError *error))completeBlock;
 
 
 /**
@@ -172,8 +187,10 @@
  在外部浏览器唤醒app，H5调用相关模块时使用
  适用于携带少量参数，不带参数的跳转
  @param url 跳转的路由 携带参数
+ @return 跳转或者操作成功与否的状态
+
  */
-+ (void)URLOpen:(NSString *)url;
++ (BOOL)URLOpen:(NSString *)url;
 
 
 /**
@@ -182,8 +199,9 @@
  适用于携带大量参数的跳转,多用于H5页面跳转到native页面
  @param url 跳转的路由，不携带参数
  @param extra 额外传入的参数,注：extra内的参数可以改变web容器的属性
+ @return 跳转或者操作成功与否的状态
  */
-+ (void)URLOpen:(NSString *)url extra:(NSDictionary *)extra;
++ (BOOL)URLOpen:(NSString *)url extra:(NSDictionary *)extra;
 
 /**
  遵守用户指定协议的跳转
@@ -191,9 +209,10 @@
  适用于携带大量参数的跳转,多用于H5页面跳转到native页面
  @param url 跳转的路由，不携带参数
  @param extra 额外传入的参数 注：extra内的参数可以改变web容器的属性
- @param completeBlock 跳转成功后的回调
+ @param completeBlock 跳转成功后的回调,或者失败的原因
+ @return 跳转或者操作成功与否的状态
  */
-+ (void)URLOpen:(NSString *)url extra:(NSDictionary *)extra complete:(void(^)(id result,NSError *error))completeBlock;
++ (BOOL)URLOpen:(NSString *)url extra:(NSDictionary *)extra complete:(void(^)(id result,NSError *error))completeBlock;
 
 /**
  默认情况下的pop，或者dismiss ,animated:YES
@@ -279,8 +298,16 @@
  通过浏览器跳转到相关的url或者唤醒相关的app
 
  @param targetURL 路由信息
+ @return 跳转或者操作成功与否的状态
  */
-+ (void)openExternal:(NSURL *)targetURL;
++ (BOOL)openExternal:(NSURL *)targetURL;
+/**
+ 通过浏览器跳转到相关的url或者唤醒相关的app
+ @param completeBlock 跳转成功后的回调,或者失败的原因
+ @param targetURL 路由信息
+ @return 跳转或者操作成功与否的状态
+ */
++ (BOOL)openExternal:(NSURL *)targetURL complete:(void(^)(id result,NSError *error))completeBlock;
 
 
 /**

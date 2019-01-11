@@ -108,25 +108,27 @@
  @param url url
  @param extra 额外的操作
  @param completeBlock 操作成功后的回调
+ @return 跳转成功与否或者操作成功与否的状态
  */
-+ (void)openURLWithSpecialSchemes:(NSURL *)url extra:(NSDictionary *)extra complete:(void(^)(id result,NSError *error))completeBlock;
++ (BOOL)openURLWithSpecialSchemes:(NSURL *)url extra:(NSDictionary *)extra complete:(void(^)(id result,NSError *error))completeBlock;
 /**
  除了路由跳转以外的操作
  @param actionType 操作的类型
  @param url url
  @param extra 额外传入的参数
  @param completeBlock 操作成功后的回调
- 
+ @return 跳转成功与否或者操作成功与否的状态
  */
-+ (void)otherActionsWithActionType:(NSString *)actionType URL:(NSURL *)url extra:(NSDictionary *)extra complete:(void(^)(id result,NSError *error))completeBlock;
++ (BOOL)otherActionsWithActionType:(NSString *)actionType URL:(NSURL *)url extra:(NSDictionary *)extra complete:(void(^)(id result,NSError *error))completeBlock;
 
 /**
  进行tab切换，如果用户使用了自定义的tabBar，可以考虑重写该方法
  
  @param vcClassName VC的类名
  @param options 打开页面的各种配置
-
+ @param completeBlock 操作成功后的回调
+@return 跳转成功与否或者操作成功与否的状态
  */
-+ (void)jkSwitchTabWithVC:(NSString *)vcClassName options:(RouterOptions *)options;
++ (BOOL)jkSwitchTabWithVC:(NSString *)vcClassName options:(RouterOptions *)options  complete:(void(^)(id result,NSError *error))completeBlock;
 
 @end

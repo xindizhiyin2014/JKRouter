@@ -45,8 +45,10 @@
  用户自定义转场动画
  
  @param naVC 根部导航栏
+ @return 是否能够进行自定义的专场动画
+
  */
-- (void)jkRouterSpecialTransformWithNaVC:(UINavigationController *)naVC;
+- (BOOL)jkRouterSpecialTransformWithNaVC:(UINavigationController *)naVC;
 
 /**
  自定义的转场方式

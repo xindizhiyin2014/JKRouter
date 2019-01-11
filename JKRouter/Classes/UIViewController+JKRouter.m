@@ -39,7 +39,9 @@ static char moduleIDKey;
 + (void)handleNoAccessToOpenWithOptions:(RouterOptions *)options{
 }
 
-- (void)jkRouterSpecialTransformWithNaVC:(UINavigationController *)naVC{
+- (BOOL)jkRouterSpecialTransformWithNaVC:(UINavigationController *)naVC{
+
+    return NO;
 }
 
 - (RouterTransformVCStyle)jkRouterTransformStyle{

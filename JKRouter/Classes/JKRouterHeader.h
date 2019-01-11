@@ -55,6 +55,18 @@ typedef NS_ENUM(NSInteger, RouterWindowRootVCStyle) {
  
  */
 
+typedef NS_ENUM(NSInteger,JKRouterError) {
+  JKRouterErrorClassNameIsNil,
+  JKRouterErrorURLIsNil,
+  JKRouterErrorSandBoxPathIsNil,
+  JKRouterErrorSystemUnSupportURL,
+  JKRouterErrorSystemUnSupportURLScheme,
+  JKRouterErrorUnSupportAction,
+  JKRouterErrorNORightToAccess,
+  JKRouterErrorUnSupportTransform,
+  JKRouterErrorUnSupportSwitchTabBar,
+};
+
 #import<JKRouter/UIViewController+JKRouter.h>
 #import<JKRouter/JKRouter.h>
 #import<JKRouter/JKJSONHandler.h>

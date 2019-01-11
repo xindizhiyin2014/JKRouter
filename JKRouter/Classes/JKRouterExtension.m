@@ -63,14 +63,23 @@
     return @"browserOpen";
 }
 
-+ (void)openURLWithSpecialSchemes:(NSURL *)url extra:(NSDictionary *)extra complete:(void(^)(id result,NSError *error))completeBlock{
-    
++ (BOOL)openURLWithSpecialSchemes:(NSURL *)url extra:(NSDictionary *)extra complete:(void(^)(id result,NSError *error))completeBlock{
+    if (completeBlock) {
+        NSError *error = [[NSError alloc] initWithDomain:@"JKRouter" code:JKRouterErrorSystemUnSupportURLScheme userInfo:@{@"msg":@"不支持该协议的url"}];
+        completeBlock(nil,error);
+    }
+    return NO;
 }
 
-+ (void)otherActionsWithActionType:(NSString *)actionType URL:(NSURL *)url extra:(NSDictionary *)extra complete:(void(^)(id result,NSError *error))completeBlock{
++ (BOOL)otherActionsWithActionType:(NSString *)actionType URL:(NSURL *)url extra:(NSDictionary *)extra complete:(void(^)(id result,NSError *error))completeBlock{
+    if (completeBlock) {
+        NSError *error = [[NSError alloc] initWithDomain:@"JKRouter" code:JKRouterErrorUnSupportAction userInfo:@{@"msg":@"不支持该操作"}];
+        completeBlock(nil,error);
+    }
+    return NO;
 }
 
-+ (void)jkSwitchTabWithVC:(NSString *)vcClassName options:(RouterOptions *)options{
++ (BOOL)jkSwitchTabWithVC:(NSString *)vcClassName options:(RouterOptions *)options complete:(void(^)(id result,NSError *error))completeBlock{
     UIViewController *rootVC = [UIApplication sharedApplication].delegate.window.rootViewController;
     Class targetClass = NSClassFromString(vcClassName);
     if (!targetClass) {
@@ -88,7 +97,16 @@
         }else{
             tabBarVC.selectedIndex = index;
         }
+        if (completeBlock) {
+            completeBlock(nil,nil);
+        }
+        return YES;
     }
+    if (completeBlock) {
+        NSError *error = [[NSError alloc] initWithDomain:@"JKRouter" code:JKRouterErrorUnSupportSwitchTabBar userInfo:@{@"msg":@"不支持的切换tabBar操作"}];
+        completeBlock(nil,error);
+    }
+    return NO;
 }
 
 @end
