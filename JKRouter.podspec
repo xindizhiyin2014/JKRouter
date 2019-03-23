@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'JKRouter'
-  s.version          = '0.2.8.1'
+  s.version          = '0.2.8.2'
   s.summary          = 'this is a tool to help you to handle the push or pop between Viewcontrollers with your specified URL.'
 
 # This description is used to generate tags and improve search results.
@@ -28,7 +28,7 @@ TODO: this is a tool to help you to handle the push or pop between Viewcontrolle
   s.source           = { :git => 'https://github.com/xindizhiyin2014/JKRouter.git', :tag => s.version.to_s }
   s.social_media_url = 'http://blog.csdn.net/hanhailong18?viewmode=contents'
 
-  s.ios.deployment_target = '7.0'
+  s.ios.deployment_target = '8.0'
 
   s.source_files = 'JKRouter/Classes/**/*'
   
