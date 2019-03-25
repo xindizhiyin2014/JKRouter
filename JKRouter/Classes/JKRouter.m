@@ -719,7 +719,7 @@ static JKRouter *defaultRouter =nil;
             break;
             case RouterTransformVCStyleOther:
             {
-                [self _openWithOtherStyle:vc options:options complete:completeBlock];
+              return [self _openWithOtherStyle:vc options:options complete:completeBlock];
             }
             break;
             
