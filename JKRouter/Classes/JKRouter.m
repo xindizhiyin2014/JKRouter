@@ -221,7 +221,7 @@ static JKRouter *defaultRouter =nil;
     return [self routerViewController:vc options:options complete:nil];
 }
 
-+ (BOOL)open:(NSString *)targetClassName options:(RouterOptions *)options  complete:(void(^)(id result,NSError *error))completeBlock{
++ (BOOL)open:(NSString *)targetClassName options:(RouterOptions *)options complete:(void(^)(id result,NSError *error))completeBlock{
     
     if (!JKSafeStr(targetClassName)) {
         NSError *error = [[NSError alloc] initWithDomain:@"JKRouter" code:JKRouterErrorClassNameIsNil userInfo:@{@"msg":@"targetClassName is nil or targetClassName is not a string"}];
@@ -462,6 +462,10 @@ static JKRouter *defaultRouter =nil;
 }
 
 + (void)pop:(NSDictionary *)params :(BOOL)animated{
+    [self pop:params :animated complete:nil];
+}
+
++ (void)pop:(NSDictionary *)params :(BOOL)animated complete:(void(^)(id result,NSError *error))completeBlock{
     NSArray *vcArray = [JKRouter sharedRouter].topNaVC.viewControllers;
     NSUInteger count = vcArray.count;
     UIViewController *vc= nil;
@@ -478,15 +482,25 @@ static JKRouter *defaultRouter =nil;
                 UIViewController *newVC= [JKRouter sharedRouter].topNaVC.topViewController;
                 [self configTheVC:newVC options:options];
                 [newVC viewWillAppear:animated];
+                if (completeBlock) {
+                    completeBlock(nil,nil);
+                }
             }];
         }else{
-         [self popToSpecifiedVC:nil options:options animated:YES];
+            if (!options) {
+                options = [RouterOptions options];
+            }
+            options.animated = animated;
+            [self popToSpecifiedVC:nil options:options complete:completeBlock];
         }
         
         return;
     }
-    
-    [self popToSpecifiedVC:vc options:options animated:YES];
+    if (!options) {
+        options = [RouterOptions options];
+    }
+    options.animated = animated;
+    [self popToSpecifiedVC:vc options:options complete:completeBlock];
 }
 
 
@@ -499,10 +513,18 @@ static JKRouter *defaultRouter =nil;
 }
 
 + (void)popToSpecifiedVC:(UIViewController *)vc options:(RouterOptions *)options animated:(BOOL)animated{
+    options.animated = animated;
+    [self popToSpecifiedVC:vc options:options complete:nil];
+}
+
++ (void)popToSpecifiedVC:(UIViewController *)vc options:(RouterOptions *)options complete:(void(^)(id result,NSError *error))completeBlock{
     if (!vc) {
         if ([JKRouter sharedRouter].topNaVC.presentationController &&[JKRouter sharedRouter].topNaVC.presentedViewController) {
-            [[JKRouter sharedRouter].topNaVC dismissViewControllerAnimated:animated completion:^{
+            [[JKRouter sharedRouter].topNaVC dismissViewControllerAnimated:options.animated completion:^{
                 [self configTheVC:[JKRouter sharedRouter].topNaVC.topViewController options:options];
+                if (completeBlock) {
+                    completeBlock(nil,nil);
+                }
             }];
         }
         return;
@@ -510,7 +532,10 @@ static JKRouter *defaultRouter =nil;
     else {
         if (vc) {
             [self configTheVC:vc options:options];
-            [[JKRouter sharedRouter].topNaVC popToViewController:vc animated:animated];
+            [[JKRouter sharedRouter].topNaVC popToViewController:vc animated:options.animated];
+            if (completeBlock) {
+                completeBlock(nil,nil);
+            }
         }
     }
 }

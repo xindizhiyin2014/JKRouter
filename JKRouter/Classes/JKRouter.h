@@ -179,7 +179,7 @@
  @param completeBlock 跳转成功后的回调,或者失败的原因
  @return 跳转成功与否的状态
  */
-+ (BOOL)open:(NSString *)targetClassName options:(RouterOptions *)options  complete:(void(^)(id result,NSError *error))completeBlock;
++ (BOOL)open:(NSString *)targetClassName options:(RouterOptions *)options complete:(void(^)(id result,NSError *error))completeBlock;
 
 
 /**
@@ -234,10 +234,18 @@
  @param animated 是否有动画
  */
 + (void)pop:(NSDictionary *)params :(BOOL)animated;
+/**
+ 默认情况下的pop，或者dismiss animated
+ 
+ @param params 返回时携带的参数
+ @param animated 是否有动画
+ @param completeBlock 完成操作后的回调
 
+ */
++ (void)pop:(NSDictionary *)params :(BOOL)animated complete:(void(^)(id result,NSError *error))completeBlock;
 /**
  pop到指定的页面
-默认animated为YES，如果需要 dismiss，也会执行
+ 默认animated为YES，如果需要 dismiss，也会执行
  @param vc 指定的vc对象
  */
 + (void)popToSpecifiedVC:(UIViewController *)vc;
@@ -249,6 +257,15 @@
  @param animated 是否有动画
  */
 + (void)popToSpecifiedVC:(UIViewController *)vc animated:(BOOL)animated;
+/**
+ pop到指定的页面
+ 如果需要 dismiss，也会执行
+ @param vc 指定的vc对象
+ @param options 跳转的各种设置
+ @param completeBlock 完成操作后的回调
+
+ */
++ (void)popToSpecifiedVC:(UIViewController *)vc options:(RouterOptions *)options complete:(void(^)(id result,NSError *error))completeBlock;
 
 /**
  根据moduleID pop回指定的模块

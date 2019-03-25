@@ -61,6 +61,10 @@
 - (void)back{
 //    [JKRouter pop];
     [JKRouter pop:@{@"testString":@"我是李四"} :YES];
+//    [JKRouter pop:nil :NO complete:^(id result, NSError *error) {
+//
+//        [JKRouter open:@"JKNViewController"];
+//    }];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
