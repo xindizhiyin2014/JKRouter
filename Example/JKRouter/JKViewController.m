@@ -194,7 +194,7 @@
 
 - (void)normalJumpWithParams{
     NSDictionary *params = @{@"testContent":@"Hi, I'm Jack"};
-    RouterOptions *options = [RouterOptions optionsWithDefaultParams:params];
+    JKRouterOptions *options = [JKRouterOptions optionsWithDefaultParams:params];
     [JKRouter open:@"JKBViewController" options:options];
 
 }
@@ -228,7 +228,7 @@
 
 - (void)userPresentJump{
 
-    RouterOptions *options = [RouterOptions options];
+    JKRouterOptions *options = [JKRouterOptions options];
     [JKRouter open:@"JKEViewController" options:options];
 }
 
@@ -251,7 +251,7 @@
     NSDictionary *json = @{@"jack": @{@"name" : @"jack",@"sex":@"男"},
                        @"friends": @[@{@"name":@"lili",@"sex":@"女"},@{@"name":@"jack",@"sex":@"女"}]
                            };
-    RouterOptions * options = [RouterOptions optionsWithDefaultParams:json];
+    JKRouterOptions * options = [JKRouterOptions optionsWithDefaultParams:json];
     [JKRouter open:@"JKGViewController" optionsWithJSON:options];
 }
 
@@ -282,7 +282,7 @@
 
 - (void)delegateInParam{
 
-    RouterOptions *options = [RouterOptions optionsWithDefaultParams:@{@"title":@"delegate作为参数传递",@"delegate":self}];
+    JKRouterOptions *options = [JKRouterOptions optionsWithDefaultParams:@{@"title":@"delegate作为参数传递",@"delegate":self}];
     [JKRouter open:@"JKLViewController" options:options];
 }
 
@@ -297,13 +297,13 @@
     AABlock block = ^(NSString *testData){
         NSLog(@"testData %@",testData);
     };
-    RouterOptions *options = [RouterOptions optionsWithDefaultParams:@{@"title":@"delegate作为参数传递",@"testBlock":block}];
+    JKRouterOptions *options = [JKRouterOptions optionsWithDefaultParams:@{@"title":@"delegate作为参数传递",@"testBlock":block}];
     [JKRouter open:@"JKLViewController" options:options];
 }
 
 
 - (void)presentNaVC{
-    RouterOptions *options = [RouterOptions optionsWithCreateStyle:RouterCreateStyleNewWithNaVC];
+    JKRouterOptions *options = [JKRouterOptions optionsWithCreateStyle:RouterCreateStyleNewWithNaVC];
     options.transformStyle = RouterTransformVCStylePresent;
     [JKRouter open:@"JKMViewController" options:options];
 }

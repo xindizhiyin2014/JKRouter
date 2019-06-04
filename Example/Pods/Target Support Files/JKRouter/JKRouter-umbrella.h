@@ -14,6 +14,8 @@
 #import "JKRouter.h"
 #import "JKRouterExtension.h"
 #import "JKRouterHeader.h"
+#import "JKRouterOptions.h"
+#import "JKRouterTool.h"
 #import "UINavigationController+JKRouter.h"
 #import "UIViewController+JKRouter.h"
 

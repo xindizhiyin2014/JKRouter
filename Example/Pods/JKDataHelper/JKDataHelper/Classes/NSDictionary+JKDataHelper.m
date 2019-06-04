@@ -254,6 +254,11 @@
     }
     return 0;
 }
+
+- (CGFloat)jk_cgFloatForKey:(id)key{
+    CGFloat value = (CGFloat)[self jk_floatForKey:key];
+    return value;
+}
 - (double)jk_doubleForKey:(id)key
 {
     id value = [self objectForKey:key];
@@ -328,6 +333,11 @@
 {
     CGRect rect = CGRectFromString(self[key]);
     return rect;
+}
+
+- (BOOL)jk_containKey:(NSString *)key{
+    if (!key) return NO;
+    return self[key] != nil;
 }
 
 #ifdef JKDataHelperDebug

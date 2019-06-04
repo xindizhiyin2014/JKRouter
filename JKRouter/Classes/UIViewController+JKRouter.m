@@ -7,6 +7,7 @@
 //
 
 #import "UIViewController+JKRouter.h"
+#import "JKRouterTool.h"
 #import <objc/runtime.h>
 
 @implementation UIViewController (JKRouter)
@@ -29,14 +30,20 @@ static char moduleIDKey;
 
 
 + (instancetype)jkRouterViewControllerWithJSON:(NSDictionary *)dic{
-    return [[[self class] alloc] init];
+    JKRouterOptions *options = [JKRouterOptions optionsWithDefaultParams:dic];
+    return [JKRouterTool configVCWithClass:[self class] options:options];
 }
 
-+ (BOOL)validateTheAccessToOpenWithOptions:(RouterOptions *)options{
+- (void)jkRouterViewControllerWithJSON:(NSDictionary *)dic{
+    JKRouterOptions *options = [JKRouterOptions optionsWithDefaultParams:dic];
+    return [JKRouterTool configTheVC:self options:options];
+}
+
++ (BOOL)validateTheAccessToOpenWithOptions:(JKRouterOptions *)options{
     return YES;
 }
 
-+ (void)handleNoAccessToOpenWithOptions:(RouterOptions *)options{
++ (void)handleNoAccessToOpenWithOptions:(JKRouterOptions *)options{
 }
 
 - (BOOL)jkRouterSpecialTransformWithNaVC:(UINavigationController *)naVC{

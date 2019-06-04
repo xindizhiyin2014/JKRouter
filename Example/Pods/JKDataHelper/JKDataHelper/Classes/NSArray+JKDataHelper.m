@@ -246,6 +246,11 @@
     }
     return 0;
 }
+
+- (CGFloat)jk_cgFloatWithIndex:(NSUInteger)index{
+    CGFloat value = (CGFloat)[self jk_floatWithIndex:index];
+    return value;
+}
 - (double)jk_doubleWithIndex:(NSUInteger)index
 {
     id value = [self jk_objectWithIndex:index];
@@ -276,6 +281,45 @@
     }
     return nil;
 }
+
+- (NSMutableArray *)jk_valueArrayWithKey:(NSString *)key{
+    if (!key) {
+        NSAssert(NO, @"key can not be nil");
+    }
+    NSMutableArray *values = [NSMutableArray new];
+    for (NSDictionary *dic in self) {
+        if (![dic isKindOfClass:[NSDictionary class]]) {
+           NSAssert(NO, @"value must be an instance of NSDictionary");
+        }
+        id value =  [dic objectForKey:key];
+        [values addObject:value];
+    }
+    return values;
+}
+
+- (NSMutableArray *)jk_ascSort{
+    NSMutableArray *array = (NSMutableArray *)self;
+    if (![self isKindOfClass:[NSMutableArray class]]) {
+        array = [NSMutableArray arrayWithArray:self];
+    }
+    [array sortUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+        return [obj1 integerValue] > [obj2 integerValue];
+    }];
+    return array;
+}
+
+- (NSMutableArray *)jk_descSort{
+    NSMutableArray *array = (NSMutableArray *)self;
+    if (![self isKindOfClass:[NSMutableArray class]]) {
+        array = [NSMutableArray arrayWithArray:self];
+    }
+    [array sortUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+        return [obj1 integerValue] < [obj2 integerValue];
+    }];
+    return array;
+}
+
+
 
 //CG
 - (CGFloat)jk_CGFloatWithIndex:(NSUInteger)index

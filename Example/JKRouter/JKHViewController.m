@@ -29,7 +29,7 @@ button.center = self.view.center;
 }
 
 - (void)buttonClicked{
-    RouterOptions *options = [RouterOptions options];
+    JKRouterOptions *options = [JKRouterOptions options];
     options.createStyle = RouterCreateStyleReplace;
     [JKRouter open:@"JKIViewController" options:options];
 }

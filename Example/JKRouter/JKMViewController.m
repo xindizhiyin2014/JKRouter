@@ -50,7 +50,7 @@
 
 #pragma mark - - - - UIEvent - - - -
 - (void)buttonClicked:(UIButton *)button{
-    RouterOptions *options = [RouterOptions optionsWithTransformStyle:RouterTransformVCStylePresent];
+    JKRouterOptions *options = [JKRouterOptions optionsWithTransformStyle:RouterTransformVCStylePresent];
     options.createStyle = RouterCreateStyleNewWithNaVC;
     [JKRouter open:@"JKNViewController" options:options];
     

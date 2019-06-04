@@ -68,4 +68,8 @@
  */
 + (id)safeObj:(id)obj;
 
++ (BOOL)isEmptyStr:(NSString *)str;
+
+
+
 @end

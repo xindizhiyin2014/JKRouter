@@ -8,6 +8,12 @@
 #ifndef JKRouterHeader_h
 #define JKRouterHeader_h
 
+#ifdef DEBUG
+#define JKRouterLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#else
+#define JKRouterLog(...)
+#endif
+
 typedef NS_ENUM(NSInteger,RouterTransformVCStyle){
     RouterTransformVCStyleDefault =-1, ///< 不指定转场方式，使用自带的转场方式
     RouterTransformVCStylePush,        ///< push方式转场

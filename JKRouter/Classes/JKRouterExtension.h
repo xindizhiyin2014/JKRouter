@@ -8,7 +8,7 @@
 #import <Foundation/Foundation.h>
 #import "UIViewController+JKRouter.h"
 
-@class RouterOptions;
+@class JKRouterOptions;
 @interface JKRouterExtension : NSObject
 
 /**
@@ -124,11 +124,11 @@
 /**
  进行tab切换，如果用户使用了自定义的tabBar，可以考虑重写该方法
  
- @param vcClassName VC的类名
+ @param targetClass VC的类
  @param options 打开页面的各种配置
  @param completeBlock 操作成功后的回调
 @return 跳转成功与否或者操作成功与否的状态
  */
-+ (BOOL)jkSwitchTabWithVC:(NSString *)vcClassName options:(RouterOptions *)options  complete:(void(^)(id result,NSError *error))completeBlock;
++ (BOOL)jkSwitchTabClass:(Class)targetClass options:(JKRouterOptions *)options complete:(void(^)(id result,NSError *error))completeBlock;
 
 @end

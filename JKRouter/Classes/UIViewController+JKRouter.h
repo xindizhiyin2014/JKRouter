@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <JKRouter/JKRouterHeader.h>
-@class RouterOptions;
+@class JKRouterOptions;
 @interface UIViewController (JKRouter)
 
 //每个VC 所属的moduleID，默认为nil
@@ -29,17 +29,20 @@
  */
 + (instancetype)jkRouterViewControllerWithJSON:(NSDictionary *)dic;
 
+
+- (void)jkRouterViewControllerWithJSON:(NSDictionary *)dic;
+
 /**
  根据权限等级判断是否可以打开，具体通过category重载来实现
  
  @return 是否进行正常的跳转
  */
-+ (BOOL)validateTheAccessToOpenWithOptions:(RouterOptions *)options;
++ (BOOL)validateTheAccessToOpenWithOptions:(JKRouterOptions *)options;
 
 /**
  处理没有权限去打开的情况
  */
-+ (void)handleNoAccessToOpenWithOptions:(RouterOptions *)options;
++ (void)handleNoAccessToOpenWithOptions:(JKRouterOptions *)options;
 
 /**
  用户自定义转场动画

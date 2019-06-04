@@ -31,7 +31,8 @@
     return @[@"http",
              @"https",
              @"file",
-             @"itms-apps"];
+             @"itms-apps",
+             @"app-settings"];
     
 }
 
@@ -79,12 +80,9 @@
     return NO;
 }
 
-+ (BOOL)jkSwitchTabWithVC:(NSString *)vcClassName options:(RouterOptions *)options complete:(void(^)(id result,NSError *error))completeBlock{
++ (BOOL)jkSwitchTabClass:(Class)targetClass options:(JKRouterOptions *)options complete:(void(^)(id result,NSError *error))completeBlock{
     UIViewController *rootVC = [UIApplication sharedApplication].delegate.window.rootViewController;
-    Class targetClass = NSClassFromString(vcClassName);
-    if (!targetClass) {
-        targetClass = NSClassFromString([NSString stringWithFormat:@"%@.%@",[JKRouterExtension appTargetName],vcClassName]);
-    }
+    
     NSInteger index = [targetClass jkTabIndex];
     if ([rootVC isKindOfClass:[UITabBarController class]]) {
         UITabBarController *tabBarVC = (UITabBarController *)rootVC;

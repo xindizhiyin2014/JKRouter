@@ -28,4 +28,13 @@
  @return type
  */
 + (NSString *)getTypeWithModuleID:(NSString *)moduleID;
+
+
+/**
+ 获取swift下命名空间的名字，即swift下对应framework的的名字
+
+ @param moduleID 模块的id
+ @return 命名空间的名字
+ */
++ (NSString *)getSwiftModuleNameWithModuleID:(NSString *)moduleID;
 @end

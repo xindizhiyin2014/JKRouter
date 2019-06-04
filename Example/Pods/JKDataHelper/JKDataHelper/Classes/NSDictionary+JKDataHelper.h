@@ -40,6 +40,8 @@
 
 - (float)jk_floatForKey:(id)key;
 
+- (CGFloat)jk_cgFloatForKey:(id)key;
+
 - (double)jk_doubleForKey:(id)key;
 
 - (long long)jk_longLongForKey:(id)key;
@@ -56,4 +58,7 @@
 - (CGSize)jk_sizeForKey:(id)key;
 
 - (CGRect)jk_rectForKey:(id)key;
+
+- (BOOL)jk_containKey:(NSString *)key;
+
 @end

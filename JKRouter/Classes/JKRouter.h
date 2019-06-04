@@ -9,77 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "UIViewController+JKRouter.h"
 #import "JKJSONHandler.h"
+#import "JKRouterOptions.h"
 #import <JKDataHelper/JKDataHelperMacro.h>
 
-
-//******************************************************************************
-//*
-//*           RouterOptions类
-//*           配置跳转时的各种设置
-//******************************************************************************
-
-@interface RouterOptions : NSObject
-
-
-@property (nonatomic, readwrite) RouterTransformVCStyle transformStyle;  ///< 转场方式
-
-@property (nonatomic, assign) RouterCreateStyle  createStyle;           ///< vc 的创建方式
-
-@property (nonatomic, readwrite) BOOL animated;                         ///< 跳转时是否有动画
-
-@property (nonatomic, copy, readonly) NSString *moduleID;               ///< 每个页面所对应的moduleID
-
-//这个传入的参数默认传入的值dictionary对象，在+ (void)open:(NSString *)vcClassName optionsWithJSON:(RouterOptions *)options 这个方法使用时defaultParams 是json对象。这个地方要注意哦
-@property (nonatomic,copy,readwrite) NSDictionary *defaultParams;      ///< 跳转时传入的参数，默认为nil
-
-/**
- 创建默认配置的options对象
-
- @return RouterOptions 实例对象
- */
-+ (instancetype)options;
-
-/**
- 创建options对象，并配置moduleID
-
- @param moduleID 模块的ID
- @return RouterOptions 实例对象
- */
-+ (instancetype)optionsWithModuleID:(NSString *)moduleID;
-
-/**
- 创建单独配置的options对象,其余的是默认配置
- 
- @param params 跳转时传入的参数
- @return RouterOptions 实例对象
- */
-+ (instancetype)optionsWithDefaultParams:(NSDictionary *)params;
-
-/**
- 创建options对象，并配置转场方式
-
- @param tranformStyle 转场方式
- @return RouterOptions 实例对象
- */
-+ (instancetype)optionsWithTransformStyle:(RouterTransformVCStyle)tranformStyle;
-
-/**
- 创建options对象，并配置创建方式
-
- @param createStyle 创建方式
- @return RouterOptions 实例对象
- */
-+ (instancetype)optionsWithCreateStyle:(RouterCreateStyle)createStyle;
-
-/**
- 已经创建的option对象传入参数
-
- @param params 跳转时传入的参数
- @return RouterOptions 实例对象
- */
-- (instancetype)optionsWithDefaultParams:(NSDictionary *)params;
-
-@end
 
 //***********************************************************************************
 //*
@@ -92,12 +24,6 @@
 @property (nonatomic, copy, readonly) NSSet <NSDictionary *>* modules;     ///< 存储路由，moduleID信息，权限配置信息
 @property (nonatomic,assign) RouterWindowRootVCStyle windowRootVCStyle;    ///< keywindow的rootVC的初始化方式
 @property (nonatomic,weak) UINavigationController *topNaVC; ///< app的最顶部导航控制器
-/**
- 初始化单例
- to support swift，later please replace with function + (instancetype)sharedRouter
- @return JKRouter 的单例对象
- */
-+ (instancetype)router DEPRECATED_ATTRIBUTE;
 
 /**
  初始化单例
@@ -143,7 +69,35 @@
  @param options 跳转的各种设置
  @return 跳转成功与否的状态
  */
-+ (BOOL)open:(NSString *)targetClassName options:(RouterOptions *)options;
++ (BOOL)open:(NSString *)targetClassName options:(JKRouterOptions *)options;
+
+/**
+ 根据options的设置进行跳转,并执行相关的回调操作
+ 
+ @param targetClassName 跳转的target类名
+ @param options 跳转的各种设置
+ @param completeBlock 跳转成功后的回调,或者失败的原因
+ @return 跳转成功与否的状态
+ */
++ (BOOL)open:(NSString *)targetClassName options:(JKRouterOptions *)options complete:(void(^)(id result,NSError *error))completeBlock;
+
+/**
+ 根据options的设置进行跳转
+ 
+ @param targetClass 跳转的target类
+ @param options 跳转的各种设置
+ @return 跳转成功与否的状态
+ */
++ (BOOL)openWithClass:(Class)targetClass options:(JKRouterOptions *)options;
+/**
+ 根据options的设置进行跳转,并执行相关的回调操作
+ 
+ @param targetClass 跳转的target类
+ @param options 跳转的各种设置
+ @param completeBlock 跳转成功后的回调,或者失败的原因
+ @return 跳转成功与否的状态
+ */
++ (BOOL)openWithClass:(Class)targetClass options:(JKRouterOptions *)options complete:(void(^)(id result,NSError *error))completeBlock;
 
 /**
  主要是通过后台，或者H5交互是携带json参数进行跳转，对应的ViewController内部需要实现
@@ -152,7 +106,7 @@
  @param options 跳转的各种设置 options 的defaultParams 是json对象。内部value不能是OC的对象
  @return 跳转成功与否的状态
  */
-+ (BOOL)open:(NSString *)targetClassName optionsWithJSON:(RouterOptions *)options;
++ (BOOL)open:(NSString *)targetClassName optionsWithJSON:(JKRouterOptions *)options DEPRECATED_ATTRIBUTE;;
 /**
  主要是通过后台，或者H5交互是携带json参数进行跳转，对应的ViewController内部需要实现
  + (instancetype)jkRouterViewControllerWithJSON:(NSDictionary *)dic 这个方法的重写。
@@ -161,7 +115,7 @@
  @param completeBlock 跳转成功后的回调,或者失败的原因
  @return 跳转成功与否的状态
  */
-+ (BOOL)open:(NSString *)targetClassName optionsWithJSON:(RouterOptions *)options complete:(void(^)(id result,NSError *error))completeBlock;
++ (BOOL)open:(NSString *)targetClassName optionsWithJSON:(JKRouterOptions *)options complete:(void(^)(id result,NSError *error))completeBlock DEPRECATED_ATTRIBUTE;;
 /**
  根据options和已有的vc进行跳转
 
@@ -169,17 +123,7 @@
  @param options 跳转的各种设置
  @return 跳转成功与否的状态
  */
-+ (BOOL)openSpecifiedVC:(UIViewController *)vc options:(RouterOptions *)options;
-
-/**
- 根据options的设置进行跳转,并执行相关的回调操作
-
- @param targetClassName 跳转的target类名
- @param options 跳转的各种设置
- @param completeBlock 跳转成功后的回调,或者失败的原因
- @return 跳转成功与否的状态
- */
-+ (BOOL)open:(NSString *)targetClassName options:(RouterOptions *)options complete:(void(^)(id result,NSError *error))completeBlock;
++ (BOOL)openSpecifiedVC:(UIViewController *)vc options:(JKRouterOptions *)options;
 
 
 /**
@@ -265,7 +209,7 @@
  @param completeBlock 完成操作后的回调
 
  */
-+ (void)popToSpecifiedVC:(UIViewController *)vc options:(RouterOptions *)options complete:(void(^)(id result,NSError *error))completeBlock;
++ (void)popToSpecifiedVC:(UIViewController *)vc options:(JKRouterOptions *)options complete:(void(^)(id result,NSError *error))completeBlock;
 
 /**
  根据moduleID pop回指定的模块
@@ -310,7 +254,7 @@
  */
 + (void)popWithStep:(NSInteger)step params:(NSDictionary *)params animated:(BOOL)animated;
 
-
+//+ (void)sendLastVCParams:(NSDictionary *)params;
 /**
  通过浏览器跳转到相关的url或者唤醒相关的app
 
@@ -332,7 +276,7 @@
 
  @param targetVC 目标viewController
  */
-+ (void)replaceCurrentViewControllerWithTargetVC:(UIViewController *)targetVC;
++ (void)replaceCurrentViewControllerWithTargetVC:(UIViewController *)targetVC DEPRECATED_ATTRIBUTE;
 
 /**
  将url的query转换为字典参数
@@ -340,7 +284,7 @@
  @param urlString url字符串
  @return NSMutableDictionary 对象
  */
-+ (NSMutableDictionary *)convertUrlStringToDictionary:(NSString *)urlString;
++ (NSMutableDictionary *)convertUrlStringToDictionary:(NSString *)urlString DEPRECATED_ATTRIBUTE;
 
 /**
  url对象添加参数
@@ -349,7 +293,7 @@
  @param parameter 参数
  @return 处理后的url对象
  */
-+ (NSURL *)url:(NSURL *)url appendParameter:(NSDictionary *)parameter;
++ (NSURL *)url:(NSURL *)url appendParameter:(NSDictionary *)parameter DEPRECATED_ATTRIBUTE;
 /**
  为url字符串添加参数
 
@@ -357,7 +301,7 @@
  @param parameter 参数
  @return url字符串
  */
-+ (NSString *)urlStr:(NSString *)urlStr appendParameter:(NSDictionary *)parameter;
++ (NSString *)urlStr:(NSString *)urlStr appendParameter:(NSDictionary *)parameter DEPRECATED_ATTRIBUTE;
 
 /**
  url对象删除参数
@@ -366,7 +310,7 @@
  @param keys 需要删除的参数的key的数组
  @return 处理后的url对象
  */
-+ (NSURL *)url:(NSURL*)url removeQueryKeys:(NSArray <NSString *>*)keys;
++ (NSURL *)url:(NSURL*)url removeQueryKeys:(NSArray <NSString *>*)keys DEPRECATED_ATTRIBUTE;
 
 /**
  url字符串删除参数
@@ -375,6 +319,6 @@
  @param keys 需要删除的key组成的数组
  @return 处理后的url字符串
  */
-+ (NSString *)urlStr:(NSString *)urlStr removeQueryKeys:(NSArray <NSString *>*)keys;
++ (NSString *)urlStr:(NSString *)urlStr removeQueryKeys:(NSArray <NSString *>*)keys DEPRECATED_ATTRIBUTE;
 
 @end

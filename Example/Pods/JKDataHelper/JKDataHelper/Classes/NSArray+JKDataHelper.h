@@ -40,9 +40,33 @@
 
 - (float)jk_floatWithIndex:(NSUInteger)index;
 
+- (CGFloat)jk_cgFloatWithIndex:(NSUInteger)index;
+
 - (double)jk_doubleWithIndex:(NSUInteger)index;
 
 - (NSDate *)jk_dateWithIndex:(NSUInteger)index dateFormat:(NSString *)dateFormat;
+
+/**
+ 当前array的元素为NSDictionary类型
+
+ @param key key
+ @return key对应的value组成的数组
+ */
+- (NSMutableArray *)jk_valueArrayWithKey:(NSString *)key;
+
+/**
+ 升序
+
+ @return 排序后的数组
+ */
+- (NSMutableArray *)jk_ascSort;
+
+/**
+ 降序
+
+ @return 排序后的数组
+ */
+- (NSMutableArray *)jk_descSort;
 //CG
 - (CGFloat)jk_CGFloatWithIndex:(NSUInteger)index;
 

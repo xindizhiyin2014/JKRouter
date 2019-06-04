@@ -29,4 +29,8 @@
     return @"";
 }
 
++ (NSString *)getSwiftModuleNameWithModuleID:(NSString *)moduleID{
+    return @"";
+}
+
 @end
