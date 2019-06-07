@@ -24,7 +24,7 @@
 @property (nonatomic,strong) NSSet *urlSchemes; ///< 支持的URL协议集合
 
 @property (nonatomic,copy) NSString *remoteFilePath;///< 从网络上下载的路由配置信息的json文件保存在沙盒中的路径
-@property (nonatomic,weak) UIViewController *lastVC; ///< 上一个页面
+
 @end
 
 @implementation JKRouter
@@ -133,14 +133,15 @@ static JKRouter *defaultRouter =nil;
         options = [JKRouterOptions options];
     }
     
-    Class targetClass = NSClassFromString(targetClassName);
-    if (!targetClass) {
-        if (!JKIsEmptyStr(options.module)) {
-            targetClass = NSClassFromString([NSString stringWithFormat:@"%@.%@",options.module,targetClassName]);
-        }else{
-            targetClass = NSClassFromString([NSString stringWithFormat:@"%@.%@",[JKRouterExtension appTargetName],targetClassName]);
+    Class targetClass = nil;
+    
+    if (!JKIsEmptyStr(options.module)) {
+        targetClass = NSClassFromString([NSString stringWithFormat:@"%@.%@",options.module,targetClassName]);
+    }else{
+        targetClass = NSClassFromString(targetClassName);
+        if (!targetClass) {
+        targetClass = NSClassFromString([NSString stringWithFormat:@"%@.%@",[JKRouterExtension appTargetName],targetClassName]);
         }
-        
     }
     if (!targetClass) {
         return NO;
@@ -166,45 +167,6 @@ static JKRouter *defaultRouter =nil;
         //根据配置好的VC，options配置进行跳转
         return [self routerViewController:vc options:options complete:completeBlock];
     }
-}
-
-+ (BOOL)open:(NSString *)targetClassName optionsWithJSON:(JKRouterOptions *)options{
-    return [self open:targetClassName optionsWithJSON:options complete:nil];
-}
-
-+ (BOOL)open:(NSString *)targetClassName optionsWithJSON:(JKRouterOptions *)options complete:(void(^)(id result,NSError *error))completeBlock{
-    if (!JKSafeStr(targetClassName)) {
-        NSError *error = [[NSError alloc] initWithDomain:@"JKRouter" code:JKRouterErrorClassNameIsNil userInfo:@{@"msg":@"targetClassName is nil or targetClassName is not a string"}];
-        if (completeBlock) {
-            completeBlock(nil,error);
-        }
-        return NO;
-    }
-    if (!options) {
-        options = [JKRouterOptions options];
-    }
-    Class targetClass = NSClassFromString(targetClassName);
-    if (!targetClass) {
-        if (!JKIsEmptyStr(options.module)) {
-            targetClass = NSClassFromString([NSString stringWithFormat:@"%@.%@",options.module,targetClassName]);
-        }else{
-            targetClass = NSClassFromString([NSString stringWithFormat:@"%@.%@",[JKRouterExtension appTargetName],targetClassName]);
-        }
-
-    }
-    if ([targetClass respondsToSelector:@selector(jkRouterFactoryViewControllerWithJSON:)]) {
-        UIViewController *vc = [targetClass jkRouterFactoryViewControllerWithJSON:options.defaultParams];
-        return [JKRouter routerViewController:vc options:options complete:completeBlock];
-        
-    }else if ([targetClass jkIsTabBarItemVC]) {//进行tab切换
-        return [JKRouterExtension jkSwitchTabClass:targetClass options:options complete:completeBlock];
-        
-    }else{
-        UIViewController *vc = [targetClass jkRouterViewControllerWithJSON:options.defaultParams];
-        //根据配置好的VC，options配置进行跳转
-        return [self routerViewController:vc options:options complete:completeBlock];
-    }
-    return YES;
 }
 
 + (BOOL)openSpecifiedVC:(UIViewController *)vc options:(JKRouterOptions *)options{
@@ -273,21 +235,26 @@ static JKRouter *defaultRouter =nil;
     if ([type isEqualToString:[JKRouterExtension jkModuleTypeViewControllerKey]]) {
         NSString *swiftModuleName = [JKJSONHandler getSwiftModuleNameWithModuleID:moduleID];
         NSString *targetClassName = [JKJSONHandler getHomePathWithModuleID:moduleID];
-        Class targetClass = NSClassFromString(targetClassName);
         JKRouterOptions *options = [JKRouterOptions options];
         options.module = swiftModuleName;
+        
+        Class targetClass = nil;
+        if (!JKIsEmptyStr(options.module)) {
+            targetClass = NSClassFromString([NSString stringWithFormat:@"%@.%@",options.module,targetClassName]);
+        }else{
+            targetClass = NSClassFromString(targetClassName);
+            if (!targetClass) {
+            targetClass = NSClassFromString([NSString stringWithFormat:@"%@.%@",[JKRouterExtension appTargetName],targetClassName]);
+           }
+        }
         if (!targetClass) {
-            if (!JKIsEmptyStr(options.module)) {
-                targetClass = NSClassFromString([NSString stringWithFormat:@"%@.%@",options.module,targetClassName]);
-            }else{
-                targetClass = NSClassFromString([NSString stringWithFormat:@"%@.%@",[JKRouterExtension appTargetName],targetClassName]);
-            }
+            return NO;
         }
         if ([targetClass isSubclassOfClass:[UIViewController class]]) {
             NSString *parameterStr = [[targetURL query] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
             NSMutableDictionary *dic = nil;
             if (JKSafeStr(parameterStr)) {
-                dic = [self convertUrlStringToDictionary:parameterStr];
+                dic = [JKRouterTool convertUrlStringToDictionary:parameterStr];
                 [dic addEntriesFromDictionary:extra];
             }else{
                 dic = [NSMutableDictionary dictionaryWithDictionary:extra];
@@ -302,20 +269,25 @@ static JKRouter *defaultRouter =nil;
     }else if ([type isEqualToString:[JKRouterExtension  jkModuleTypeFactoryKey]]){
        NSString *factoryClassName = [JKJSONHandler getHomePathWithModuleID:moduleID];
         NSString *swiftModuleName = [JKJSONHandler getSwiftModuleNameWithModuleID:moduleID];
-        Class targetClass = NSClassFromString(factoryClassName);
         JKRouterOptions *options = [JKRouterOptions options];
         options.module = swiftModuleName;
-        if (!targetClass) {
-            if (!JKIsEmptyStr(options.module)) {
-                targetClass = NSClassFromString([NSString stringWithFormat:@"%@.%@",options.module,factoryClassName]);
-            }else{
+        Class targetClass = nil;
+        if (!JKIsEmptyStr(options.module)) {
+            targetClass = NSClassFromString([NSString stringWithFormat:@"%@.%@",options.module,factoryClassName]);
+        }else{
+            targetClass = NSClassFromString(factoryClassName);
+            if (!targetClass) {
                 targetClass = NSClassFromString([NSString stringWithFormat:@"%@.%@",[JKRouterExtension appTargetName],factoryClassName]);
             }
         }
+        if (!targetClass) {
+            return NO;
+        }
+        
         NSString *parameterStr = [[targetURL query] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         NSMutableDictionary *dic = nil;
         if (JKSafeStr(parameterStr)) {
-            dic = [self convertUrlStringToDictionary:parameterStr];
+            dic = [JKRouterTool convertUrlStringToDictionary:parameterStr];
             [dic addEntriesFromDictionary:extra];
         }else{
             dic = [NSMutableDictionary dictionaryWithDictionary:extra];
@@ -339,13 +311,13 @@ static JKRouter *defaultRouter =nil;
 + (BOOL)httpOpen:(NSURL *)url extra:(NSDictionary *)extra complete:(void(^)(id result,NSError *error))completeBlock{
     NSString *parameterStr = [[url query] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     if (JKSafeStr(parameterStr)) {
-        NSMutableDictionary *dic = [self convertUrlStringToDictionary:parameterStr];
+        NSMutableDictionary *dic = [JKRouterTool convertUrlStringToDictionary:parameterStr];
         if (JKSafeDic(dic) &&[[dic objectForKey:[JKRouterExtension jkBrowserOpenKey]] isEqualToString:@"1"]) {//在safari打开网页
-            [self openExternal:[self url:url removeQueryKeys:@[[JKRouterExtension jkBrowserOpenKey]]]];
+            [self openExternal:[JKRouterTool url:url removeQueryKeys:@[[JKRouterExtension jkBrowserOpenKey]]]];
         }else{
             NSString *key1 = [JKRouterExtension jkWebTypeKey];
             NSString *key2 = [JKRouterExtension jkBrowserOpenKey];
-            url = [self url:url removeQueryKeys:@[key1,key2]];
+            url = [JKRouterTool url:url removeQueryKeys:@[key1,key2]];
             NSDictionary *tempParams = @{[JKRouterExtension jkWebURLKey]:url.absoluteString};
             NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:tempParams];
             [params addEntriesFromDictionary:extra];
@@ -353,7 +325,8 @@ static JKRouter *defaultRouter =nil;
             
             NSInteger webType = [dic jk_integerForKey:[JKRouterExtension jkWebTypeKey]];
             NSString *webContainerName = [[JKRouterExtension jkWebVCClassNames] jk_stringWithIndex:webType];
-           return [self open:webContainerName optionsWithJSON:options complete:completeBlock];
+            return [self open:webContainerName options:options complete:completeBlock];
+           
         }
     }else{
         NSDictionary *tempParams = @{[JKRouterExtension jkWebURLKey]:url.absoluteString};
@@ -361,7 +334,7 @@ static JKRouter *defaultRouter =nil;
         [params addEntriesFromDictionary:extra];
         JKRouterOptions *options = [JKRouterOptions optionsWithDefaultParams:[params copy]];
         NSString *webContainerName = [[JKRouterExtension jkWebVCClassNames] jk_stringWithIndex:0];
-        return [self open:webContainerName optionsWithJSON:options complete:completeBlock];
+        return [self open:webContainerName options:options complete:completeBlock];
     }
     
     return NO;
@@ -376,15 +349,16 @@ static JKRouter *defaultRouter =nil;
         }
         return NO;
     }
-     NSDictionary *urlParams = [self convertUrlStringToDictionary:url];
-    url = [self urlStr:url removeQueryKeys:@[[JKRouterExtension jkWebTypeKey]]];
+     NSDictionary *urlParams = [JKRouterTool convertUrlStringToDictionary:url];
+    url = [JKRouterTool urlStr:url removeQueryKeys:@[[JKRouterExtension jkWebTypeKey]]];
     NSDictionary *params = @{[JKRouterExtension jkWebURLKey]:url};
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] initWithDictionary:params];
     [dic addEntriesFromDictionary:extra];
      JKRouterOptions *options = [JKRouterOptions optionsWithDefaultParams:[dic copy]];
     NSInteger webType = [urlParams jk_integerForKey:[JKRouterExtension jkWebTypeKey]];
     NSString *webContainerName = [[JKRouterExtension jkWebVCClassNames] jk_stringWithIndex:webType];
-   return [self open:webContainerName optionsWithJSON:options complete:completeBlock];
+    return [self open:webContainerName options:options complete:completeBlock];
+    
 }
 
 + (BOOL)openExternal:(NSURL *)targetURL{
@@ -571,9 +545,6 @@ static JKRouter *defaultRouter =nil;
     }
 }
 
-+ (void)sendLastVCParams:(NSDictionary *)params{
-    [[JKRouter sharedRouter].lastVC jkRouterViewControllerWithJSON:params];
-}
 
 #pragma mark  - - - - the tool functions - - - -
 
@@ -585,26 +556,6 @@ static JKRouter *defaultRouter =nil;
     [[JKRouter sharedRouter].topNaVC setViewControllers:[vcArray copy] animated:YES];
 }
 
-//将url ？后的字符串转换为NSDictionary对象
-+ (NSMutableDictionary *)convertUrlStringToDictionary:(NSString *)urlString{
-    return [JKRouterTool convertUrlStringToDictionary:urlString];
-}
-
-+ (NSURL *)url:(NSURL *)url appendParameter:(NSDictionary *)parameter{
-    return [JKRouterTool url:url appendParameter:parameter];
-}
-
-+ (NSString *)urlStr:(NSString *)urlStr appendParameter:(NSDictionary *)parameter{
-    return [JKRouterTool urlStr:urlStr removeQueryKeys:parameter];
-}
-
-+ (NSURL *)url:(NSURL*)url removeQueryKeys:(NSArray <NSString *>*)keys{
-    return [JKRouterTool url:url removeQueryKeys:keys];
-}
-
-+ (NSString *)urlStr:(NSString *)urlStr removeQueryKeys:(NSArray <NSString *>*)keys{
-    return [JKRouterTool urlStr:urlStr removeQueryKeys:keys];
-}
 
 //根据相关的options配置，进行跳转
 + (BOOL)routerViewController:(UIViewController *)vc options:(JKRouterOptions *)options complete:(void(^)(id result,NSError *error))completeBlock{

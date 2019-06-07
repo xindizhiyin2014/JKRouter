@@ -73,7 +73,8 @@
 
 /**
  根据options的设置进行跳转,并执行相关的回调操作
- 
+ 通过后台，或者H5交互是携带json参数进行跳转，对应的ViewController内部需要实现
+ + (instancetype)jkRouterViewControllerWithJSON:(NSDictionary *)dic 这个方法的重写。
  @param targetClassName 跳转的target类名
  @param options 跳转的各种设置
  @param completeBlock 跳转成功后的回调,或者失败的原因
@@ -99,23 +100,6 @@
  */
 + (BOOL)openWithClass:(Class)targetClass options:(JKRouterOptions *)options complete:(void(^)(id result,NSError *error))completeBlock;
 
-/**
- 主要是通过后台，或者H5交互是携带json参数进行跳转，对应的ViewController内部需要实现
-+ (instancetype)jkRouterViewControllerWithJSON:(NSDictionary *)dic 这个方法的重写。
- @param targetClassName 跳转的target类名
- @param options 跳转的各种设置 options 的defaultParams 是json对象。内部value不能是OC的对象
- @return 跳转成功与否的状态
- */
-+ (BOOL)open:(NSString *)targetClassName optionsWithJSON:(JKRouterOptions *)options DEPRECATED_ATTRIBUTE;;
-/**
- 主要是通过后台，或者H5交互是携带json参数进行跳转，对应的ViewController内部需要实现
- + (instancetype)jkRouterViewControllerWithJSON:(NSDictionary *)dic 这个方法的重写。
- @param targetClassName 跳转的target类名
- @param options 跳转的各种设置 options 的defaultParams 是json对象。内部value不能是OC的对象
- @param completeBlock 跳转成功后的回调,或者失败的原因
- @return 跳转成功与否的状态
- */
-+ (BOOL)open:(NSString *)targetClassName optionsWithJSON:(JKRouterOptions *)options complete:(void(^)(id result,NSError *error))completeBlock DEPRECATED_ATTRIBUTE;;
 /**
  根据options和已有的vc进行跳转
 
@@ -218,7 +202,6 @@
  */
 + (void)popWithSpecifiedModuleID:(NSString *)moduleID;
 
-
 /**
   根据moduleID pop回指定的模块
  并指定动画模式
@@ -254,7 +237,6 @@
  */
 + (void)popWithStep:(NSInteger)step params:(NSDictionary *)params animated:(BOOL)animated;
 
-//+ (void)sendLastVCParams:(NSDictionary *)params;
 /**
  通过浏览器跳转到相关的url或者唤醒相关的app
 
@@ -276,49 +258,6 @@
 
  @param targetVC 目标viewController
  */
-+ (void)replaceCurrentViewControllerWithTargetVC:(UIViewController *)targetVC DEPRECATED_ATTRIBUTE;
-
-/**
- 将url的query转换为字典参数
-
- @param urlString url字符串
- @return NSMutableDictionary 对象
- */
-+ (NSMutableDictionary *)convertUrlStringToDictionary:(NSString *)urlString DEPRECATED_ATTRIBUTE;
-
-/**
- url对象添加参数
-
- @param url url对象
- @param parameter 参数
- @return 处理后的url对象
- */
-+ (NSURL *)url:(NSURL *)url appendParameter:(NSDictionary *)parameter DEPRECATED_ATTRIBUTE;
-/**
- 为url字符串添加参数
-
- @param urlStr url字符串
- @param parameter 参数
- @return url字符串
- */
-+ (NSString *)urlStr:(NSString *)urlStr appendParameter:(NSDictionary *)parameter DEPRECATED_ATTRIBUTE;
-
-/**
- url对象删除参数
-
- @param url url对象
- @param keys 需要删除的参数的key的数组
- @return 处理后的url对象
- */
-+ (NSURL *)url:(NSURL*)url removeQueryKeys:(NSArray <NSString *>*)keys DEPRECATED_ATTRIBUTE;
-
-/**
- url字符串删除参数
-
- @param urlStr url字符串
- @param keys 需要删除的key组成的数组
- @return 处理后的url字符串
- */
-+ (NSString *)urlStr:(NSString *)urlStr removeQueryKeys:(NSArray <NSString *>*)keys DEPRECATED_ATTRIBUTE;
++ (void)replaceCurrentViewControllerWithTargetVC:(UIViewController *)targetVC;
 
 @end

@@ -252,7 +252,7 @@
                        @"friends": @[@{@"name":@"lili",@"sex":@"女"},@{@"name":@"jack",@"sex":@"女"}]
                            };
     JKRouterOptions * options = [JKRouterOptions optionsWithDefaultParams:json];
-    [JKRouter open:@"JKGViewController" optionsWithJSON:options];
+    [JKRouter open:@"JKGViewController" options:options];
 }
 
 - (void)createStyleReplace{
