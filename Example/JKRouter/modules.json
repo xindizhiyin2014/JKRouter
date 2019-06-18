@@ -21,6 +21,7 @@
       "moduleID":"factory",
       "type":"Factory",
       "target":"JKFactory",
+      "module":"AAA",
       "desc":"钱包流水 无参数"
   }
   ]

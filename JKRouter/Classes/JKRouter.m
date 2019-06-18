@@ -45,7 +45,7 @@ static JKRouter *defaultRouter =nil;
 + (instancetype)sharedRouter{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        defaultRouter = [JKRouter new];
+        defaultRouter = [[self alloc] init];
     });
     
     return defaultRouter;

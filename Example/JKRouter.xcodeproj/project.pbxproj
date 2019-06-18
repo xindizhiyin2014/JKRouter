@@ -13,7 +13,6 @@
 		0452F2A41E7E27580069037C /* JKCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0452F2A31E7E27580069037C /* JKCViewController.m */; };
 		0452F2A61E7E3C530069037C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0452F2A51E7E3C530069037C /* Main.storyboard */; };
 		0452F2A81E7E427B0069037C /* modules.json in Resources */ = {isa = PBXBuildFile; fileRef = 0452F2A71E7E427B0069037C /* modules.json */; };
-		0452F2AB1E7E457A0069037C /* JKJSONHandler+Jack.m in Sources */ = {isa = PBXBuildFile; fileRef = 0452F2AA1E7E457A0069037C /* JKJSONHandler+Jack.m */; };
 		0452F2AE1E7EC6340069037C /* JKDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0452F2AD1E7EC6340069037C /* JKDViewController.m */; };
 		046309201EC6126900048CBA /* JKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0463091F1EC6126900048CBA /* JKWebViewController.m */; };
 		04DFBB211E83835F00390A60 /* JKEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DFBB201E83835F00390A60 /* JKEViewController.m */; };
@@ -80,8 +79,6 @@
 		0452F2A31E7E27580069037C /* JKCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKCViewController.m; sourceTree = "<group>"; };
 		0452F2A51E7E3C530069037C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		0452F2A71E7E427B0069037C /* modules.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = modules.json; sourceTree = "<group>"; };
-		0452F2A91E7E457A0069037C /* JKJSONHandler+Jack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JKJSONHandler+Jack.h"; sourceTree = "<group>"; };
-		0452F2AA1E7E457A0069037C /* JKJSONHandler+Jack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JKJSONHandler+Jack.m"; sourceTree = "<group>"; };
 		0452F2AC1E7EC6340069037C /* JKDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKDViewController.h; sourceTree = "<group>"; };
 		0452F2AD1E7EC6340069037C /* JKDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKDViewController.m; sourceTree = "<group>"; };
 		0463091E1EC6126900048CBA /* JKWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKWebViewController.h; sourceTree = "<group>"; };
@@ -271,8 +268,6 @@
 				BD072E8B205298AB008E3174 /* JKJViewController.m */,
 				BD072E8D20529955008E3174 /* JKKViewController.h */,
 				BD072E8E20529955008E3174 /* JKKViewController.m */,
-				0452F2A91E7E457A0069037C /* JKJSONHandler+Jack.h */,
-				0452F2AA1E7E457A0069037C /* JKJSONHandler+Jack.m */,
 				BD6775F7205014E60014CB49 /* JKRouterExtension+Jack.h */,
 				BD6775F8205014E60014CB49 /* JKRouterExtension+Jack.m */,
 				BD060ADC207C5A080004A264 /* JKLViewController.h */,
@@ -573,7 +568,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0452F2AB1E7E457A0069037C /* JKJSONHandler+Jack.m in Sources */,
 				BD072E8F20529955008E3174 /* JKKViewController.m in Sources */,
 				BDFBBE991FE6494500F704D5 /* XWPageCoverController.m in Sources */,
 				BDFAE7F0201C50BA006BB722 /* JKHViewController.m in Sources */,

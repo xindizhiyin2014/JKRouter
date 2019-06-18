@@ -7,6 +7,7 @@
 //
 
 #import "JKJSONHandler.h"
+#import "JKRouter.h"
 
 @implementation JKJSONHandler
 // 解析JSON文件 获取到所有的Modules
@@ -22,15 +23,40 @@
 }
 
 + (NSString *)getHomePathWithModuleID:(NSString *)moduleID{
-    return @"";
+    NSString *vcClassName = nil;
+    for (NSDictionary *module in [JKRouter sharedRouter].modules) {
+        NSString *tempModuleID =[NSString stringWithFormat:@"%@",module[@"moduleID"]];
+        if ([tempModuleID isEqualToString:moduleID]) {
+            vcClassName = module[@"target"];
+            break;
+        }
+    }
+    return vcClassName;
 }
 
 + (NSString *)getTypeWithModuleID:(NSString *)moduleID{
-    return @"";
+    NSString *type = nil;
+    for (NSDictionary *module in [JKRouter sharedRouter].modules) {
+        NSString *tempModuleID =[NSString stringWithFormat:@"%@",module[@"moduleID"]];
+        if ([tempModuleID isEqualToString:moduleID]) {
+            type = module[@"type"];
+            break;
+        }
+    }
+    return type;
 }
 
 + (NSString *)getSwiftModuleNameWithModuleID:(NSString *)moduleID{
-    return @"";
+    NSString *moduleName = nil;
+    for (NSDictionary *module in [JKRouter sharedRouter].modules) {
+        NSString *tempModuleID =[NSString stringWithFormat:@"%@",module[@"moduleID"]];
+        if ([tempModuleID isEqualToString:moduleID]) {
+            moduleName = module[@"module"];
+            break;
+        }
+    }
+    return moduleName;
+
 }
 
 @end
