@@ -11,13 +11,22 @@
 @class JKRouterOptions;
 @interface JKRouterExtension : NSObject
 
+
 /**
- 对传入的URL进行安全性校验，防止恶意攻击
- 
- @param url 传入的url字符串
- @return 通过验证与否的状态
+ 验证是否是白名单的url notice:方法可以通过重写，内部实现正则或者其他的校验策略验证是否是白名单的链接
+
+ @param url 链接
+ @return 是否是白名单url
  */
-+ (BOOL)safeValidateURL:(NSString *)url;
++ (BOOL)isVerifiedOfWhiteName:(NSString *)url;
+
+/**
+ 验证是否是黑名单的url notice:方法可以通过重写，内部实现正则或者其他的校验策略验证是否是黑名单的链接
+
+ @param url 链接
+ @return 是否是黑名单url
+ */
++ (BOOL)isVerifiedOfBlackName:(NSString *)url;
 
 /**
  配置web容器从外部获取url的property的字段名
@@ -28,18 +37,18 @@
 
 
 /**
- web容器类型的索引和jkWebVCClassNames结合起来使用
+ 自己app使用的web容器
 
- @return webTypeKey的字符串
+ @return webVC的className
  */
-+ (NSString *)jkWebTypeKey;
++ (NSString *)privateWebVCClassName;
 
 /**
- 配置webVC的className，使用的时候可以通过category重写方法配置
+ 打开外部链接的web容器
 
- @return webVC的jkWebVCClassNames
+ @return webVC的className
  */
-+ (NSArray *)jkWebVCClassNames;
++ (NSString *)openWebVCClassName;
 
 /**
  app支持的url协议组成的数组

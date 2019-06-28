@@ -188,9 +188,8 @@ static JKRouter *defaultRouter =nil;
 
 + (BOOL)URLOpen:(NSString *)url extra:(NSDictionary *)extra complete:(void(^)(id result,NSError *error))completeBlock{
     if(!url){
-        JKRouterLog(@"url 不存在");
         if(completeBlock){
-            NSError * error = [NSError errorWithDomain:@"JKRouter" code:-100 userInfo:@{@"message":@"url不存在"}];
+            NSError * error = [NSError errorWithDomain:@"JKRouter" code:JKRouterErrorURLIsNil userInfo:@{@"message":@"url不存在"}];
             completeBlock(nil,error);
         }
         return NO;
@@ -199,21 +198,13 @@ static JKRouter *defaultRouter =nil;
     NSURL *targetURL = [NSURL URLWithString:url];
     NSString *scheme =targetURL.scheme;
     if (![[JKRouter sharedRouter].urlSchemes containsObject:scheme]) {
-        JKRouterLog(@"app不支持该协议的跳转");
         if(completeBlock){
-            NSError * error = [NSError errorWithDomain:@"JKRouter" code:-101 userInfo:@{@"message":@"app不支持该协议的跳转"}];
+            NSError * error = [NSError errorWithDomain:@"JKRouter" code:JKRouterErrorSystemUnSupportURLScheme userInfo:@{@"message":@"app不支持该协议的跳转"}];
             completeBlock(nil,error);
         }
         return NO;
     }
-    if (![JKRouterExtension safeValidateURL:url]) {
-        JKRouterLog(@"url无法通过安全校验");
-        if(completeBlock){
-            NSError * error = [NSError errorWithDomain:@"JKRouter" code:-102 userInfo:@{@"message":@"url无法通过安全校验"}];
-            completeBlock(nil,error);
-        }
-        return NO;
-    }
+   
     if ([scheme isEqualToString:@"http"] || [scheme isEqualToString:@"https"]) {
         return [self httpOpen:targetURL extra:extra complete:completeBlock];
         
@@ -309,22 +300,32 @@ static JKRouter *defaultRouter =nil;
 }
 
 + (BOOL)httpOpen:(NSURL *)url extra:(NSDictionary *)extra complete:(void(^)(id result,NSError *error))completeBlock{
+    if ([JKRouterExtension isVerifiedOfBlackName:url.absoluteString]) {
+        if (completeBlock) {
+            NSError * error = [NSError errorWithDomain:@"JKRouter" code:JKRouterErrorBlackNameURL userInfo:@{@"message":@"黑名单链接"}];
+            completeBlock(nil,error);
+        }
+        return NO;
+    }
+    NSString *webContainerName = nil;
+    if ([JKRouterExtension isVerifiedOfWhiteName:url.absoluteString]) {
+        webContainerName = [JKRouterExtension privateWebVCClassName];
+    }else{
+        webContainerName = [JKRouterExtension openWebVCClassName];
+    }
     NSString *parameterStr = [[url query] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     if (JKSafeStr(parameterStr)) {
         NSMutableDictionary *dic = [JKRouterTool convertUrlStringToDictionary:parameterStr];
         if (JKSafeDic(dic) &&[[dic objectForKey:[JKRouterExtension jkBrowserOpenKey]] isEqualToString:@"1"]) {//在safari打开网页
             [self openExternal:[JKRouterTool url:url removeQueryKeys:@[[JKRouterExtension jkBrowserOpenKey]]]];
         }else{
-            NSString *key1 = [JKRouterExtension jkWebTypeKey];
-            NSString *key2 = [JKRouterExtension jkBrowserOpenKey];
-            url = [JKRouterTool url:url removeQueryKeys:@[key1,key2]];
+            NSString *key1 = [JKRouterExtension jkBrowserOpenKey];
+            url = [JKRouterTool url:url removeQueryKeys:@[key1]];
             NSDictionary *tempParams = @{[JKRouterExtension jkWebURLKey]:url.absoluteString};
             NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:tempParams];
             [params addEntriesFromDictionary:extra];
             JKRouterOptions *options = [JKRouterOptions optionsWithDefaultParams:[params copy]];
             
-            NSInteger webType = [dic jk_integerForKey:[JKRouterExtension jkWebTypeKey]];
-            NSString *webContainerName = [[JKRouterExtension jkWebVCClassNames] jk_stringWithIndex:webType];
             return [self open:webContainerName options:options complete:completeBlock];
            
         }
@@ -333,7 +334,6 @@ static JKRouter *defaultRouter =nil;
         NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:tempParams];
         [params addEntriesFromDictionary:extra];
         JKRouterOptions *options = [JKRouterOptions optionsWithDefaultParams:[params copy]];
-        NSString *webContainerName = [[JKRouterExtension jkWebVCClassNames] jk_stringWithIndex:0];
         return [self open:webContainerName options:options complete:completeBlock];
     }
     
@@ -349,14 +349,12 @@ static JKRouter *defaultRouter =nil;
         }
         return NO;
     }
-     NSDictionary *urlParams = [JKRouterTool convertUrlStringToDictionary:url];
-    url = [JKRouterTool urlStr:url removeQueryKeys:@[[JKRouterExtension jkWebTypeKey]]];
+
     NSDictionary *params = @{[JKRouterExtension jkWebURLKey]:url};
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] initWithDictionary:params];
     [dic addEntriesFromDictionary:extra];
      JKRouterOptions *options = [JKRouterOptions optionsWithDefaultParams:[dic copy]];
-    NSInteger webType = [urlParams jk_integerForKey:[JKRouterExtension jkWebTypeKey]];
-    NSString *webContainerName = [[JKRouterExtension jkWebVCClassNames] jk_stringWithIndex:webType];
+    NSString *webContainerName = [JKRouterExtension privateWebVCClassName];
     return [self open:webContainerName options:options complete:completeBlock];
     
 }

@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface JKWebViewController : UIViewController
-@property (nonatomic,copy)NSString *jkurl;
+@property (nonatomic,copy)NSString *url;
 @end

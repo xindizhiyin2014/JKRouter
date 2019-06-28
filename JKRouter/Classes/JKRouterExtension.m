@@ -9,21 +9,23 @@
 
 @implementation JKRouterExtension
 
-+ (BOOL)safeValidateURL:(NSString *)url{
-    //默认都是通过安全性校验的
++ (BOOL)isVerifiedOfWhiteName:(NSString *)url{
     return YES;
 }
 
++ (BOOL)isVerifiedOfBlackName:(NSString *)url{
+    return NO;
+}
 + (NSString *)jkWebURLKey{
     
-    return @"jkurl";
+    return @"url";
 }
 
-+ (NSString *)jkWebTypeKey{
-    return @"webType";
++ (NSString *)privateWebVCClassName{
+    return nil;
 }
 
-+ (NSArray *)jkWebVCClassNames{
++ (NSString *)openWebVCClassName{
     return nil;
 }
 

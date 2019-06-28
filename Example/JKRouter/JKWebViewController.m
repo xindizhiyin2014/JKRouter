@@ -21,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    NSLog(@"jkurl: %@",_jkurl);
+    NSLog(@"jkurl: %@",_url);
     NSLog(@"title : %@",self.title);
 
 }
