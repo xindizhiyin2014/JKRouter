@@ -9,6 +9,7 @@
 #import "JKRouter.h"
 #import "UINavigationController+JKRouter.h"
 #import "JKRouterTool.h"
+#import "JKRouterExtension.h"
 
 //**********************************************************************************
 //*
@@ -225,7 +226,7 @@ static JKRouter *defaultRouter =nil;
     
     if ([type isEqualToString:[JKRouterExtension jkModuleTypeViewControllerKey]]) {
         NSString *swiftModuleName = [JKJSONHandler getSwiftModuleNameWithModuleID:moduleID];
-        NSString *targetClassName = [JKJSONHandler getHomePathWithModuleID:moduleID];
+        NSString *targetClassName = [JKJSONHandler getTargetWithModuleID:moduleID];
         JKRouterOptions *options = [JKRouterOptions options];
         options.module = swiftModuleName;
         
@@ -258,7 +259,7 @@ static JKRouter *defaultRouter =nil;
             [JKRouterExtension otherActionsWithActionType:type URL:targetURL extra:extra complete:completeBlock];
         }
     }else if ([type isEqualToString:[JKRouterExtension  jkModuleTypeFactoryKey]]){
-       NSString *factoryClassName = [JKJSONHandler getHomePathWithModuleID:moduleID];
+       NSString *factoryClassName = [JKJSONHandler getTargetWithModuleID:moduleID];
         NSString *swiftModuleName = [JKJSONHandler getSwiftModuleNameWithModuleID:moduleID];
         JKRouterOptions *options = [JKRouterOptions options];
         options.module = swiftModuleName;

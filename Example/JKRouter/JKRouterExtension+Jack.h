@@ -6,7 +6,7 @@
 //  Copyright © 2018年 HHL110120. All rights reserved.
 //
 
-#import <JKRouter/JKRouter.h>
+#import <JKRouter/JKRouterExtension.h>
 
 @interface JKRouterExtension (Jack)
 

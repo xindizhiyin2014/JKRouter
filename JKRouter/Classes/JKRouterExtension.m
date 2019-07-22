@@ -6,6 +6,11 @@
 //
 
 #import "JKRouterExtension.h"
+#import "JKRouterHeader.h"
+#import "JKRouterTool.h"
+#import "JKJSONHandler.h"
+#import <JKDataHelper/JKDataHelperMacro.h>
+#import "JKRouterEmptyObject.h"
 
 @implementation JKRouterExtension
 
@@ -75,11 +80,56 @@
 }
 
 + (BOOL)otherActionsWithActionType:(NSString *)actionType URL:(NSURL *)url extra:(NSDictionary *)extra complete:(void(^)(id result,NSError *error))completeBlock{
+    NSString *moduleID = [url.path substringFromIndex:1];
+    NSString *swiftModuleName = [JKJSONHandler getSwiftModuleNameWithModuleID:moduleID];
+    NSString *targetClassName = [JKJSONHandler getTargetWithModuleID:moduleID];
+    JKRouterOptions *options = [JKRouterOptions options];
+    options.module = swiftModuleName;
+    Class targetClass = nil;
+    if (!JKIsEmptyStr(options.module)) {
+        targetClass = NSClassFromString([NSString stringWithFormat:@"%@.%@",options.module,targetClassName]);
+    }else{
+        targetClass = NSClassFromString(targetClassName);
+        if (!targetClass) {
+            targetClass = NSClassFromString([NSString stringWithFormat:@"%@.%@",[JKRouterExtension appTargetName],targetClassName]);
+        }
+    }
+    if (!targetClass) {
+        return NO;
+    }
+    NSString *funcName = [JKJSONHandler getFuncNameWithModuleID:moduleID];
+    funcName = [NSString stringWithFormat:@"%@:::",funcName];
+    SEL selector = NSSelectorFromString(funcName);
+    
+    
+    if ([targetClass respondsToSelector:selector]) {
+        NSMutableArray *params = [NSMutableArray new];
+        if (url) {
+            [params addObject:url];
+        }else{
+            [params addObject:[JKRouterEmptyObject class]];
+        }
+        
+        if (extra) {
+            [params addObject:extra];
+        }else{
+            [params addObject:[JKRouterEmptyObject class]];
+        }
+        
+        if (completeBlock) {
+            [params addObject:completeBlock];
+        }else{
+            [params addObject:[JKRouterEmptyObject class]];
+        }
+        return [JKRouterTool jkPerformWithPlugin:targetClass selector:selector params:params];
+    }
     if (completeBlock) {
         NSError *error = [[NSError alloc] initWithDomain:@"JKRouter" code:JKRouterErrorUnSupportAction userInfo:@{@"msg":@"不支持该操作"}];
         completeBlock(nil,error);
     }
     return NO;
+    
+    
 }
 
 + (BOOL)jkSwitchTabClass:(Class)targetClass options:(JKRouterOptions *)options complete:(void(^)(id result,NSError *error))completeBlock{

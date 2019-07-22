@@ -22,7 +22,7 @@
     return [mutableArray copy];
 }
 
-+ (NSString *)getHomePathWithModuleID:(NSString *)moduleID{
++ (NSString *)getTargetWithModuleID:(NSString *)moduleID{
     NSString *vcClassName = nil;
     for (NSDictionary *module in [JKRouter sharedRouter].modules) {
         NSString *tempModuleID =[NSString stringWithFormat:@"%@",module[@"moduleID"]];
@@ -57,6 +57,18 @@
     }
     return moduleName;
 
+}
+
++ (NSString *)getFuncNameWithModuleID:(NSString *)moduleID{
+    NSString *func = nil;
+    for (NSDictionary *module in [JKRouter sharedRouter].modules) {
+        NSString *tempModuleID =[NSString stringWithFormat:@"%@",module[@"moduleID"]];
+        if ([tempModuleID isEqualToString:moduleID]) {
+            func = module[@"func"];
+            break;
+        }
+    }
+    return func;
 }
 
 @end

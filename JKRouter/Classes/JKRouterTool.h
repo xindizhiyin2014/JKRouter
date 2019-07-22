@@ -58,6 +58,16 @@ NS_ASSUME_NONNULL_BEGIN
  @return 处理后的url字符串
  */
 + (NSString *)urlStr:(NSString *)urlStr removeQueryKeys:(NSArray <NSString *>*)keys;
+
+/**
+ 类方法动态分发
+
+ @param targetClass 插件类
+ @param selector 方法
+ @param params 参数
+ @return 返回值
+ */
++ (BOOL)jkPerformWithPlugin:(Class)targetClass selector:(SEL)selector params:(NSArray *)params;
 @end
 
 NS_ASSUME_NONNULL_END

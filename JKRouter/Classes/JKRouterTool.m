@@ -7,6 +7,9 @@
 
 #import "JKRouterTool.h"
 #import "JKRouter.h"
+#import "JKRouterHeader.h"
+#import "JKRouterExtension.h"
+#import "JKRouterEmptyObject.h"
 
 @implementation JKRouterTool
 //为ViewController 的属性赋值
@@ -117,5 +120,34 @@
     }
     NSString *urlString= [self urlStr:baseUrl appendParameter:parameter];
     return urlString;
+}
+
++ (BOOL)jkPerformWithPlugin:(Class)targetClass selector:(SEL)selector params:(NSArray *)params{
+    
+    if (params.count != 3) {
+        return NO;
+    }
+    NSMethodSignature *signature = [NSMethodSignature signatureWithObjCTypes:"B@:@@@"];
+    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
+    [invocation setTarget:targetClass];
+    [invocation setSelector:selector];
+    
+    NSUInteger i = 1;
+    for (id object in params) {
+        id tempObject = object;
+        if (![tempObject isKindOfClass:[NSObject class]]) {
+            if ([tempObject isSubclassOfClass:[JKRouterEmptyObject class]]) {
+                tempObject = nil;
+            }
+        }
+        [invocation setArgument:&tempObject atIndex:++i];
+    }
+    BOOL result = NO;
+    [invocation invoke];
+    if ([signature methodReturnLength]) {
+        [invocation getReturnValue:&result];
+        return result;
+    }
+    return result;
 }
 @end

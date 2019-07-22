@@ -75,11 +75,7 @@ typedef NS_ENUM(NSInteger,JKRouterError) {
 
 };
 
-#import<JKRouter/UIViewController+JKRouter.h>
-#import<JKRouter/JKRouter.h>
-#import<JKRouter/JKJSONHandler.h>
-#import<JKRouter/JKRouterExtension.h>
-#import<JKRouter/UINavigationController+JKRouter.h>
+
 
 @protocol JKRouterDelegate <NSObject>
 

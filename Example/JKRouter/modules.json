@@ -23,6 +23,13 @@
       "target":"JKFactory",
       "module":"AAA",
       "desc":"钱包流水 无参数"
+  },
+  {
+      "moduleID":"testPlugin",
+      "type":"Alert",
+      "target":"JKPluginA",
+      "func":"alert",
+      "desc":"钱包流水 无参数"
   }
   ]
 

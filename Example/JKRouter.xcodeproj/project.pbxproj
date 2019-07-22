@@ -48,6 +48,7 @@
 		BD7FA95B20CFDC7E00F4B18E /* JKNViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7FA95A20CFDC7E00F4B18E /* JKNViewController.m */; };
 		BD7FA95E20CFE91A00F4B18E /* JKOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7FA95D20CFE91A00F4B18E /* JKOViewController.m */; };
 		BD8500E521B53C58004BAE8D /* JKRouterSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = BD8500E421B53C58004BAE8D /* JKRouterSpec.m */; };
+		BD9DF4C222E5CBF90041F315 /* JKPluginA.m in Sources */ = {isa = PBXBuildFile; fileRef = BD9DF4C122E5CBF90041F315 /* JKPluginA.m */; };
 		BDFAE7F0201C50BA006BB722 /* JKHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDFAE7EF201C50BA006BB722 /* JKHViewController.m */; };
 		BDFAE7F3201C50DD006BB722 /* JKIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDFAE7F2201C50DD006BB722 /* JKIViewController.m */; };
 		BDFBBE881FE6447E00F704D5 /* JKFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDFBBE871FE6447E00F704D5 /* JKFViewController.m */; };
@@ -142,6 +143,8 @@
 		BD7FA95C20CFE91A00F4B18E /* JKOViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKOViewController.h; sourceTree = "<group>"; };
 		BD7FA95D20CFE91A00F4B18E /* JKOViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKOViewController.m; sourceTree = "<group>"; };
 		BD8500E421B53C58004BAE8D /* JKRouterSpec.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKRouterSpec.m; sourceTree = "<group>"; };
+		BD9DF4C022E5CBF90041F315 /* JKPluginA.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKPluginA.h; sourceTree = "<group>"; };
+		BD9DF4C122E5CBF90041F315 /* JKPluginA.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKPluginA.m; sourceTree = "<group>"; };
 		BDFAE7EE201C50BA006BB722 /* JKHViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKHViewController.h; sourceTree = "<group>"; };
 		BDFAE7EF201C50BA006BB722 /* JKHViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JKHViewController.m; sourceTree = "<group>"; };
 		BDFAE7F1201C50DD006BB722 /* JKIViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JKIViewController.h; sourceTree = "<group>"; };
@@ -278,6 +281,8 @@
 				BD7FA95A20CFDC7E00F4B18E /* JKNViewController.m */,
 				BD7FA95C20CFE91A00F4B18E /* JKOViewController.h */,
 				BD7FA95D20CFE91A00F4B18E /* JKOViewController.m */,
+				BD9DF4C022E5CBF90041F315 /* JKPluginA.h */,
+				BD9DF4C122E5CBF90041F315 /* JKPluginA.m */,
 				BD620F0121CDED2500D3C377 /* Factory */,
 				BD740C0F2029F2F1006D9EA8 /* Other */,
 				BDFBBE891FE6494500F704D5 /* PageCoverController */,
@@ -599,6 +604,7 @@
 				BD7FA95E20CFE91A00F4B18E /* JKOViewController.m in Sources */,
 				0452F29A1E7D35CA0069037C /* JKAViewController.m in Sources */,
 				0452F2AE1E7EC6340069037C /* JKDViewController.m in Sources */,
+				BD9DF4C222E5CBF90041F315 /* JKPluginA.m in Sources */,
 				BD740C182029F33F006D9EA8 /* JKThreeViewController.m in Sources */,
 				0452F2A41E7E27580069037C /* JKCViewController.m in Sources */,
 			);

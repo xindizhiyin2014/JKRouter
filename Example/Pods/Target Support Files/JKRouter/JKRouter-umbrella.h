@@ -12,6 +12,7 @@
 
 #import "JKJSONHandler.h"
 #import "JKRouter.h"
+#import "JKRouterEmptyObject.h"
 #import "JKRouterExtension.h"
 #import "JKRouterHeader.h"
 #import "JKRouterOptions.h"
