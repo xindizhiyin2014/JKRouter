@@ -39,7 +39,8 @@
              @"https",
              @"file",
              @"itms-apps",
-             @"app-settings"];
+             @"app-settings",
+             @"tel"];
     
 }
 
