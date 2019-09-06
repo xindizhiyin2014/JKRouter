@@ -21,10 +21,12 @@
 
 @interface JKRouter : NSObject
 
-@property (nonatomic, copy, readonly) NSSet <NSDictionary *>* modules;     ///< 存储路由，moduleID信息，权限配置信息
+@property (nonatomic, strong, readonly) NSMutableSet <NSDictionary *>* modules;     ///< 存储路由，moduleID信息，权限配置信息
 @property (nonatomic,assign) RouterWindowRootVCStyle windowRootVCStyle;    ///< keywindow的rootVC的初始化方式
 @property (nonatomic,weak) UINavigationController *topNaVC; ///< app的最顶部导航控制器
+
 + (instancetype) new NS_UNAVAILABLE;
+
 - (instancetype) init NS_UNAVAILABLE;
 /**
  初始化单例
@@ -62,7 +64,8 @@
  @param params 参数
  @return 跳转成功与否的状态
  */
-+ (BOOL)open:(NSString *)targetClassName params:(NSDictionary *)params;
++ (BOOL)open:(NSString *)targetClassName
+      params:(NSDictionary *)params;
 /**
  根据options的设置进行跳转
  
@@ -70,7 +73,8 @@
  @param options 跳转的各种设置
  @return 跳转成功与否的状态
  */
-+ (BOOL)open:(NSString *)targetClassName options:(JKRouterOptions *)options;
++ (BOOL)open:(NSString *)targetClassName
+     options:(JKRouterOptions *)options;
 
 /**
  根据options的设置进行跳转,并执行相关的回调操作
@@ -81,7 +85,9 @@
  @param completeBlock 跳转成功后的回调,或者失败的原因
  @return 跳转成功与否的状态
  */
-+ (BOOL)open:(NSString *)targetClassName options:(JKRouterOptions *)options complete:(void(^)(id result,NSError *error))completeBlock;
++ (BOOL)open:(NSString *)targetClassName
+     options:(JKRouterOptions *)options
+    complete:(void(^)(id result,NSError *error))completeBlock;
 
 /**
  根据options的设置进行跳转
@@ -90,7 +96,8 @@
  @param options 跳转的各种设置
  @return 跳转成功与否的状态
  */
-+ (BOOL)openWithClass:(Class)targetClass options:(JKRouterOptions *)options;
++ (BOOL)openWithClass:(Class)targetClass
+              options:(JKRouterOptions *)options;
 /**
  根据options的设置进行跳转,并执行相关的回调操作
  
@@ -99,7 +106,9 @@
  @param completeBlock 跳转成功后的回调,或者失败的原因
  @return 跳转成功与否的状态
  */
-+ (BOOL)openWithClass:(Class)targetClass options:(JKRouterOptions *)options complete:(void(^)(id result,NSError *error))completeBlock;
++ (BOOL)openWithClass:(Class)targetClass
+              options:(JKRouterOptions *)options
+             complete:(void(^)(id result,NSError *error))completeBlock;
 
 /**
  根据options和已有的vc进行跳转
@@ -108,7 +117,8 @@
  @param options 跳转的各种设置
  @return 跳转成功与否的状态
  */
-+ (BOOL)openSpecifiedVC:(UIViewController *)vc options:(JKRouterOptions *)options;
++ (BOOL)openSpecifiedVC:(UIViewController *)vc
+                options:(JKRouterOptions *)options;
 
 
 /**
@@ -130,7 +140,8 @@
  @param extra 额外传入的参数,注：extra内的参数可以改变web容器的属性
  @return 跳转或者操作成功与否的状态
  */
-+ (BOOL)URLOpen:(NSString *)url extra:(NSDictionary *)extra;
++ (BOOL)URLOpen:(NSString *)url
+          extra:(NSDictionary *)extra;
 
 /**
  遵守用户指定协议的跳转
@@ -141,7 +152,9 @@
  @param completeBlock 跳转成功后的回调,或者失败的原因
  @return 跳转或者操作成功与否的状态
  */
-+ (BOOL)URLOpen:(NSString *)url extra:(NSDictionary *)extra complete:(void(^)(id result,NSError *error))completeBlock;
++ (BOOL)URLOpen:(NSString *)url
+          extra:(NSDictionary *)extra
+       complete:(void(^)(id result,NSError *error))completeBlock;
 
 /**
  默认情况下的pop，或者dismiss ,animated:YES
@@ -162,7 +175,8 @@
  @param params 返回时携带的参数
  @param animated 是否有动画
  */
-+ (void)pop:(NSDictionary *)params :(BOOL)animated;
++ (void)pop:(NSDictionary *)params
+           :(BOOL)animated;
 /**
  默认情况下的pop，或者dismiss animated
  
@@ -171,7 +185,9 @@
  @param completeBlock 完成操作后的回调
 
  */
-+ (void)pop:(NSDictionary *)params :(BOOL)animated complete:(void(^)(id result,NSError *error))completeBlock;
++ (void)pop:(NSDictionary *)params
+           :(BOOL)animated
+   complete:(void(^)(id result,NSError *error))completeBlock;
 /**
  pop到指定的页面
  默认animated为YES，如果需要 dismiss，也会执行
@@ -185,7 +201,8 @@
  @param vc 指定的vc对象
  @param animated 是否有动画
  */
-+ (void)popToSpecifiedVC:(UIViewController *)vc animated:(BOOL)animated;
++ (void)popToSpecifiedVC:(UIViewController *)vc
+                animated:(BOOL)animated;
 /**
  pop到指定的页面
  如果需要 dismiss，也会执行
@@ -194,7 +211,9 @@
  @param completeBlock 完成操作后的回调
 
  */
-+ (void)popToSpecifiedVC:(UIViewController *)vc options:(JKRouterOptions *)options complete:(void(^)(id result,NSError *error))completeBlock;
++ (void)popToSpecifiedVC:(UIViewController *)vc
+                 options:(JKRouterOptions *)options
+                complete:(void(^)(id result,NSError *error))completeBlock;
 
 /**
  根据moduleID pop回指定的模块
@@ -210,7 +229,9 @@
  @param params 返回时携带的参数
  @param animated 是否有动画
  */
-+ (void)popWithSpecifiedModuleID:(NSString *)moduleID :(NSDictionary *)params :(BOOL)animated;
++ (void)popWithSpecifiedModuleID:(NSString *)moduleID
+                                :(NSDictionary *)params
+                                :(BOOL)animated;
 
 /**
  根据step的值pop向前回退几个VC
@@ -226,7 +247,8 @@
  @param step 回退的vc的数量
  @param animated 是否有动画效果
  */
-+ (void)popWithStep:(NSInteger)step :(BOOL)animated;
++ (void)popWithStep:(NSInteger)step
+                   :(BOOL)animated;
 
 /**
  根据step的值pop向前回退几个VC
@@ -236,7 +258,9 @@
  @param params 返回时传递的参数
  @param animated 是否有动画效果
  */
-+ (void)popWithStep:(NSInteger)step params:(NSDictionary *)params animated:(BOOL)animated;
++ (void)popWithStep:(NSInteger)step
+             params:(NSDictionary *)params
+           animated:(BOOL)animated;
 
 /**
  通过浏览器跳转到相关的url或者唤醒相关的app
@@ -251,7 +275,8 @@
  @param targetURL 路由信息
  @return 跳转或者操作成功与否的状态
  */
-+ (BOOL)openExternal:(NSURL *)targetURL complete:(void(^)(id result,NSError *error))completeBlock;
++ (BOOL)openExternal:(NSURL *)targetURL
+            complete:(void(^)(id result,NSError *error))completeBlock;
 
 
 /**

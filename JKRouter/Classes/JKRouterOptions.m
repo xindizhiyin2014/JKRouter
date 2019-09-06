@@ -21,38 +21,44 @@
 
 @implementation JKRouterOptions
 
-+ (instancetype)options{
++ (instancetype)options
+{
     JKRouterOptions *options = [JKRouterOptions new];
     options.transformStyle = RouterTransformVCStyleDefault;
     options.animated = YES;
     return options;
 }
 
-+ (instancetype)optionsWithModuleID:(NSString *)moduleID{
++ (instancetype)optionsWithModuleID:(NSString *)moduleID
+{
     JKRouterOptions *options = [JKRouterOptions options];
     options.moduleID = moduleID;
     return options;
 }
 
-+ (instancetype)optionsWithDefaultParams:(NSDictionary *)params{
++ (instancetype)optionsWithDefaultParams:(NSDictionary *)params
+{
     JKRouterOptions *options = [JKRouterOptions options];
     options.defaultParams = params;
     return options;
 }
 
-+ (instancetype)optionsWithTransformStyle:(RouterTransformVCStyle)tranformStyle{
++ (instancetype)optionsWithTransformStyle:(RouterTransformVCStyle)tranformStyle
+{
     JKRouterOptions *options = [JKRouterOptions options];
     options.transformStyle = tranformStyle;
     return options;
 }
 
-+ (instancetype)optionsWithCreateStyle:(RouterCreateStyle)createStyle{
++ (instancetype)optionsWithCreateStyle:(RouterCreateStyle)createStyle
+{
     JKRouterOptions *options = [JKRouterOptions options];
     options.createStyle = createStyle;
     return options;
 }
 
-- (instancetype)optionsWithDefaultParams:(NSDictionary *)params{
+- (instancetype)optionsWithDefaultParams:(NSDictionary *)params
+{
     self.defaultParams = params;
     return self;
 }

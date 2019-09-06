@@ -13,7 +13,9 @@
 
 @implementation JKRouterTool
 //为ViewController 的属性赋值
-+ (UIViewController *)configVCWithClass:(Class)vcClass options:(JKRouterOptions *)options {
++ (UIViewController *)configVCWithClass:(Class)vcClass
+                                options:(JKRouterOptions *)options
+{
     
     Class targetClass = vcClass;
     UIViewController *vc = [targetClass jkRouterViewController];
@@ -28,7 +30,9 @@
  @param vc 对象
  @param options 跳转的各种设置
  */
-+ (void)configTheVC:(UIViewController *)vc options:(JKRouterOptions *)options{
++ (void)configTheVC:(UIViewController *)vc
+            options:(JKRouterOptions *)options
+{
     if (!options) {
         return;
     }
@@ -42,7 +46,8 @@
 }
 
 //将url ？后的字符串转换为NSDictionary对象
-+ (NSMutableDictionary *)convertUrlStringToDictionary:(NSString *)urlString{
++ (NSMutableDictionary *)convertUrlStringToDictionary:(NSString *)urlString
+{
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     NSArray *parameterArr = [urlString componentsSeparatedByString:@"&"];
     for (NSString *parameter in parameterArr) {
@@ -57,13 +62,16 @@
     return dic;
 }
 
-+ (NSURL *)url:(NSURL *)url appendParameter:(NSDictionary *)parameter{
++ (NSURL *)url:(NSURL *)url
+appendParameter:(NSDictionary *)parameter
+{
     NSString *urlString = [self urlStr:url.absoluteString appendParameter:parameter];
     return [NSURL URLWithString:urlString];
 }
 
-+ (NSString *)urlStr:(NSString *)urlStr appendParameter:(NSDictionary *)parameter{
-    
++ (NSString *)urlStr:(NSString *)urlStr
+     appendParameter:(NSDictionary *)parameter
+{
     //[urlStr hasSuffix:@"&"]?[urlStr stringByReplacingOccurrencesOfString:@"&" withString:@""]:urlStr;
     if ([urlStr hasSuffix:@"&"]) {
         urlStr = [urlStr substringToIndex:urlStr.length-1];
@@ -94,12 +102,16 @@
     return [NSString stringWithFormat:@"%@%@",urlStr,query];
 }
 
-+ (NSURL *)url:(NSURL*)url removeQueryKeys:(NSArray <NSString *>*)keys{
++ (NSURL *)url:(NSURL*)url
+removeQueryKeys:(NSArray <NSString *>*)keys
+{
     NSString *urlString = [self urlStr:url.absoluteString removeQueryKeys:keys];
     return [NSURL URLWithString:urlString];
 }
 
-+ (NSString *)urlStr:(NSString *)urlStr removeQueryKeys:(NSArray <NSString *>*)keys{
++ (NSString *)urlStr:(NSString *)urlStr
+     removeQueryKeys:(NSArray <NSString *>*)keys
+{
     if (!(keys.count>0)) {
         NSAssert(NO, @"urlStr:removeQueryKeys: keys cannot be nil");
     }
@@ -122,8 +134,10 @@
     return urlString;
 }
 
-+ (BOOL)jkPerformWithPlugin:(Class)targetClass selector:(SEL)selector params:(NSArray *)params{
-    
++ (BOOL)jkPerformWithPlugin:(Class)targetClass
+                   selector:(SEL)selector
+                     params:(NSArray *)params
+{
     if (params.count != 3) {
         return NO;
     }
@@ -150,4 +164,5 @@
     }
     return result;
 }
+
 @end

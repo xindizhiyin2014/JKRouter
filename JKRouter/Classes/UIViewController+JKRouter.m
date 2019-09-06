@@ -14,62 +14,78 @@
 
 static char moduleIDKey;
 
-- (NSString *)moduleID{
+- (NSString *)moduleID
+{
     return objc_getAssociatedObject(self, &moduleIDKey);
 }
 
-- (void)setModuleID:(NSString *)moduleID{
+- (void)setModuleID:(NSString *)moduleID
+{
     objc_setAssociatedObject(self, &moduleIDKey, moduleID, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
 
-+ (instancetype)jkRouterViewController{
++ (instancetype)jkRouterViewController
+{
     return [[[self class] alloc] init];
 }
 
 
 
-+ (instancetype)jkRouterViewControllerWithJSON:(NSDictionary *)dic{
++ (instancetype)jkRouterViewControllerWithJSON:(NSDictionary *)dic
+{
     JKRouterOptions *options = [JKRouterOptions optionsWithDefaultParams:dic];
     return [JKRouterTool configVCWithClass:[self class] options:options];
 }
 
-- (void)jkRouterViewControllerWithJSON:(NSDictionary *)dic{
+- (void)jkRouterViewControllerWithJSON:(NSDictionary *)dic
+{
     JKRouterOptions *options = [JKRouterOptions optionsWithDefaultParams:dic];
     return [JKRouterTool configTheVC:self options:options];
 }
 
-+ (BOOL)validateTheAccessToOpenWithOptions:(JKRouterOptions *)options{
++ (BOOL)validateTheAccessToOpenWithOptions:(JKRouterOptions *)options
+{
     return YES;
 }
 
-+ (void)handleNoAccessToOpenWithOptions:(JKRouterOptions *)options{
++ (void)handleNoAccessToOpenWithOptions:(JKRouterOptions *)options
+{
+    
 }
 
-- (BOOL)jkRouterSpecialTransformWithNaVC:(UINavigationController *)naVC{
-
+- (BOOL)jkRouterSpecialTransformWithNaVC:(UINavigationController *)naVC
+{
     return NO;
 }
 
-- (RouterTransformVCStyle)jkRouterTransformStyle{
+- (RouterTransformVCStyle)jkRouterTransformStyle
+{
     return RouterTransformVCStylePush;
 }
 
--(void)setValue:(id)value forUndefinedKey:(NSString *)key{
+-(void)setValue:(id)value forUndefinedKey:(NSString *)key
+{
+    
 }
 
-- (void)jkRouterRefresh{
+- (void)jkRouterRefresh
+{
+
 }
 
-- (BOOL)jkNeedRefresh{
+- (BOOL)jkNeedRefresh
+{
     return NO;
 }
 
-+ (BOOL)jkIsTabBarItemVC{
++ (BOOL)jkIsTabBarItemVC
+{
     return NO;
 }
 
-+ (NSInteger)jkTabIndex{
++ (NSInteger)jkTabIndex
+{
     return 0;
 }
 

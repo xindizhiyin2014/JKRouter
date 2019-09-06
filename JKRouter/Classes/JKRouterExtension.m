@@ -14,27 +14,33 @@
 
 @implementation JKRouterExtension
 
-+ (BOOL)isVerifiedOfWhiteName:(NSString *)url{
++ (BOOL)isVerifiedOfWhiteName:(NSString *)url
+{
     return YES;
 }
 
-+ (BOOL)isVerifiedOfBlackName:(NSString *)url{
++ (BOOL)isVerifiedOfBlackName:(NSString *)url
+{
     return NO;
 }
-+ (NSString *)jkWebURLKey{
++ (NSString *)jkWebURLKey
+{
     
     return @"url";
 }
 
-+ (NSString *)privateWebVCClassName{
++ (NSString *)privateWebVCClassName
+{
     return nil;
 }
 
-+ (NSString *)openWebVCClassName{
++ (NSString *)openWebVCClassName
+{
     return nil;
 }
 
-+ (NSArray *)urlSchemes{
++ (NSArray *)urlSchemes
+{
     return @[@"http",
              @"https",
              @"file",
@@ -44,35 +50,46 @@
     
 }
 
-+ (NSString *)appTargetName{
++ (NSString *)appTargetName
+{
     return nil;
 }
 
-+ (NSArray *)specialSchemes{
++ (NSArray *)specialSchemes
+{
     return @[];
 }
 
-+ (NSString *)jkModuleTypeViewControllerKey{
++ (NSString *)jkModuleTypeViewControllerKey
+{
     return @"ViewController";
 }
 
-+ (NSString *)jkModuleTypeFactoryKey{
++ (NSString *)jkModuleTypeFactoryKey
+{
     return @"Factory";
 }
 
-+ (NSString *)sandBoxBasePath{
-    return NSHomeDirectory();
-}
-
-+ (NSString *)JKRouterModuleIDKey{
++ (NSString *)jkRouterModuleIDKey
+{
     return @"jkModuleID";
 }
 
-+ (NSString *)jkBrowserOpenKey{
++ (NSString *)jkBrowserOpenKey
+{
     return @"browserOpen";
 }
 
-+ (BOOL)openURLWithSpecialSchemes:(NSURL *)url extra:(NSDictionary *)extra complete:(void(^)(id result,NSError *error))completeBlock{
++ (NSString *)getPodNameWithMouduleName:(NSString *)moduleName
+{
+    NSDictionary *dic = [self moduleNamesDictionary];
+    return [dic jk_stringForKey:moduleName];
+}
+
++ (BOOL)openURLWithSpecialSchemes:(NSURL *)url
+                            extra:(NSDictionary *)extra
+                         complete:(void(^)(id result,NSError *error))completeBlock
+{
     if (completeBlock) {
         NSError *error = [[NSError alloc] initWithDomain:@"JKRouter" code:JKRouterErrorSystemUnSupportURLScheme userInfo:@{@"msg":@"不支持该协议的url"}];
         completeBlock(nil,error);
@@ -80,7 +97,11 @@
     return NO;
 }
 
-+ (BOOL)otherActionsWithActionType:(NSString *)actionType URL:(NSURL *)url extra:(NSDictionary *)extra complete:(void(^)(id result,NSError *error))completeBlock{
++ (BOOL)otherActionsWithActionType:(NSString *)actionType
+                               URL:(NSURL *)url
+                             extra:(NSDictionary *)extra
+                          complete:(void(^)(id result,NSError *error))completeBlock
+{
     NSString *moduleID = [url.path substringFromIndex:1];
     NSString *swiftModuleName = [JKJSONHandler getSwiftModuleNameWithModuleID:moduleID];
     NSString *targetClassName = [JKJSONHandler getTargetWithModuleID:moduleID];
@@ -101,7 +122,6 @@
     NSString *funcName = [JKJSONHandler getFuncNameWithModuleID:moduleID];
     funcName = [NSString stringWithFormat:@"%@:::",funcName];
     SEL selector = NSSelectorFromString(funcName);
-    
     
     if ([targetClass respondsToSelector:selector]) {
         NSMutableArray *params = [NSMutableArray new];
@@ -130,12 +150,13 @@
     }
     return NO;
     
-    
 }
 
-+ (BOOL)jkSwitchTabClass:(Class)targetClass options:(JKRouterOptions *)options complete:(void(^)(id result,NSError *error))completeBlock{
++ (BOOL)jkSwitchTabClass:(Class)targetClass
+                 options:(JKRouterOptions *)options
+                complete:(void(^)(id result,NSError *error))completeBlock
+{
     UIViewController *rootVC = [UIApplication sharedApplication].delegate.window.rootViewController;
-    
     NSInteger index = [targetClass jkTabIndex];
     if ([rootVC isKindOfClass:[UITabBarController class]]) {
         UITabBarController *tabBarVC = (UITabBarController *)rootVC;

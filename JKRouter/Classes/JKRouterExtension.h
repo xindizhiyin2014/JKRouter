@@ -11,7 +11,6 @@
 @class JKRouterOptions;
 @interface JKRouterExtension : NSObject
 
-
 /**
  验证是否是白名单的url notice:方法可以通过重写，内部实现正则或者其他的校验策略验证是否是白名单的链接
 
@@ -35,7 +34,6 @@
  */
 + (NSString *)jkWebURLKey;
 
-
 /**
  自己app使用的web容器
 
@@ -57,14 +55,12 @@
  */
 + (NSArray *)urlSchemes;
 
-
 /**
  app 的target的n名字
 
  @return AppTargetAName
  */
 + (NSString *)appTargetName;
-
 
 /**
  app支持的url的特殊的url协议组成的数组
@@ -94,14 +90,14 @@
  */
 + (NSString *)sandBoxBasePath;
 
-
 /**
  用来解析moduleID的key
 
  @return key default is @"jkModuleID"
  */
-+ (NSString *)JKRouterModuleIDKey;
++ (NSString *)jkRouterModuleIDKey;
 
++ (NSString *)jkRouterModuleNameKey;
 
 /**
  在url参数后设置 isBrowserOpenKey=1 时通过safari打开网页，其余情况通过appweb容器打开网页
@@ -119,7 +115,10 @@
  @param completeBlock 操作成功后的回调
  @return 跳转成功与否或者操作成功与否的状态
  */
-+ (BOOL)openURLWithSpecialSchemes:(NSURL *)url extra:(NSDictionary *)extra complete:(void(^)(id result,NSError *error))completeBlock;
++ (BOOL)openURLWithSpecialSchemes:(NSURL *)url
+                            extra:(NSDictionary *)extra
+                         complete:(void(^)(id result,NSError *error))completeBlock;
+
 /**
  除了路由跳转以外的操作
  @param actionType 操作的类型
@@ -128,7 +127,10 @@
  @param completeBlock 操作成功后的回调
  @return 跳转成功与否或者操作成功与否的状态
  */
-+ (BOOL)otherActionsWithActionType:(NSString *)actionType URL:(NSURL *)url extra:(NSDictionary *)extra complete:(void(^)(id result,NSError *error))completeBlock;
++ (BOOL)otherActionsWithActionType:(NSString *)actionType
+                               URL:(NSURL *)url
+                             extra:(NSDictionary *)extra
+                          complete:(void(^)(id result,NSError *error))completeBlock;
 
 /**
  进行tab切换，如果用户使用了自定义的tabBar，可以考虑重写该方法
@@ -138,6 +140,8 @@
  @param completeBlock 操作成功后的回调
 @return 跳转成功与否或者操作成功与否的状态
  */
-+ (BOOL)jkSwitchTabClass:(Class)targetClass options:(JKRouterOptions *)options complete:(void(^)(id result,NSError *error))completeBlock;
++ (BOOL)jkSwitchTabClass:(Class)targetClass
+                 options:(JKRouterOptions *)options
+                complete:(void(^)(id result,NSError *error))completeBlock;
 
 @end

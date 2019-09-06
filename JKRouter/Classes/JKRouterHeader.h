@@ -62,16 +62,17 @@ typedef NS_ENUM(NSInteger, RouterWindowRootVCStyle) {
  */
 
 typedef NS_ENUM(NSInteger,JKRouterError) {
-  JKRouterErrorClassNameIsNil = 10000,
-  JKRouterErrorURLIsNil,
-  JKRouterErrorSandBoxPathIsNil,
-  JKRouterErrorSystemUnSupportURL,
-  JKRouterErrorSystemUnSupportURLScheme,
-  JKRouterErrorUnSupportAction,
-  JKRouterErrorNORightToAccess,
-  JKRouterErrorUnSupportTransform,
-  JKRouterErrorUnSupportSwitchTabBar,
-  JKRouterErrorBlackNameURL,
+  JKRouterErrorClassNameIsNil = 10000,          ///<
+  JKRouterErrorClassNil,                        ///<
+  JKRouterErrorURLIsNil,                        ///<
+  JKRouterErrorSandBoxPathIsNil,                ///<
+  JKRouterErrorSystemUnSupportURL,              ///<
+  JKRouterErrorSystemUnSupportURLScheme,        ///<
+  JKRouterErrorUnSupportAction,                 ///<
+  JKRouterErrorNORightToAccess,                 ///<
+  JKRouterErrorUnSupportTransform,              ///<
+  JKRouterErrorUnSupportSwitchTabBar,           ///<
+  JKRouterErrorBlackNameURL,                    ///<
 
 };
 
