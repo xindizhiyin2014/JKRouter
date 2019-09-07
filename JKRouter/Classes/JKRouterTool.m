@@ -19,7 +19,7 @@
     
     Class targetClass = vcClass;
     UIViewController *vc = [targetClass jkRouterViewController];
-    [vc setValue:options.moduleID forKey:[JKRouterExtension JKRouterModuleIDKey]];
+    [vc setValue:options.moduleID forKey:[JKRouterExtension jkRouterModuleIDKey]];
     [self configTheVC:vc options:options];
     return vc;
 }
@@ -36,7 +36,7 @@
     if (!options) {
         return;
     }
-    if (JKSafeDic(options.defaultParams)) {
+    if (options.defaultParams && [options.defaultParams isKindOfClass:[NSDictionary class]]) {
         NSArray *propertyNames = [options.defaultParams allKeys];
         for (NSString *key in propertyNames) {
             id value =options.defaultParams[key];
@@ -87,7 +87,13 @@ appendParameter:(NSDictionary *)parameter
     }
     NSString *query = firstSeperator;
     for (NSString *key in parameter.allKeys) {
-        NSString *value = [parameter jk_stringForKey:key];
+        id object = [parameter objectForKey:key];
+        NSString *value = nil;
+        if ([object isKindOfClass:[NSString class]]) {
+            value = (NSString *)object;
+        } else {
+            continue;
+        }
         if ([query hasSuffix:@"&"]) {
             query = [NSString stringWithFormat:@"%@%@=%@",query,key,value];
         }else{

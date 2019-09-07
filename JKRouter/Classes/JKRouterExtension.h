@@ -84,20 +84,11 @@
 + (NSString *)jkModuleTypeFactoryKey;
 
 /**
- 沙盒基础路径，该目录下用于保存后台下发的路由配置信息，以及h5模块文件
-
- @return 基础路径
- */
-+ (NSString *)sandBoxBasePath;
-
-/**
  用来解析moduleID的key
 
  @return key default is @"jkModuleID"
  */
 + (NSString *)jkRouterModuleIDKey;
-
-+ (NSString *)jkRouterModuleNameKey;
 
 /**
  在url参数后设置 isBrowserOpenKey=1 时通过safari打开网页，其余情况通过appweb容器打开网页
@@ -106,6 +97,7 @@
  */
 + (NSString *)jkBrowserOpenKey;
 
++ (UINavigationController *)jkNaVCInitWithRootVC:(UIViewController *)vc;
 
 /**
  打开特殊scheme的url，主要适用于scheme不变，url内容变化的一些操作。

@@ -11,7 +11,7 @@
 @class JKRouterOptions;
 @interface UIViewController (JKRouter)
 
-//每个VC 所属的moduleID，默认为nil
+//每个VC 所属的moduleID，默认为nil，作为唯一标识使用，存在同属于一个clas但是moduleID的情况
 @property (nonatomic,copy) NSString *moduleID;
 
 /**
@@ -47,11 +47,11 @@
 /**
  用户自定义转场动画
  
- @param naVC 根部导航栏
+ @param topVC 根部导航栏
  @return 是否能够进行自定义的专场动画
 
  */
-- (BOOL)jkRouterSpecialTransformWithNaVC:(UINavigationController *)naVC;
+- (BOOL)jkRouterSpecialTransformWithTopVC:(UIViewController *)topVC;
 
 /**
  自定义的转场方式

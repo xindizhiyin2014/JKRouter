@@ -12,16 +12,16 @@
 
 @implementation UIViewController (JKRouter)
 
-static char moduleIDKey;
+static const void *moduleIDKey = &moduleIDKey;
 
 - (NSString *)moduleID
 {
-    return objc_getAssociatedObject(self, &moduleIDKey);
+    return objc_getAssociatedObject(self, moduleIDKey);
 }
 
 - (void)setModuleID:(NSString *)moduleID
 {
-    objc_setAssociatedObject(self, &moduleIDKey, moduleID, OBJC_ASSOCIATION_COPY_NONATOMIC);
+    objc_setAssociatedObject(self, moduleIDKey, moduleID, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
 
@@ -29,8 +29,6 @@ static char moduleIDKey;
 {
     return [[[self class] alloc] init];
 }
-
-
 
 + (instancetype)jkRouterViewControllerWithJSON:(NSDictionary *)dic
 {
@@ -54,7 +52,7 @@ static char moduleIDKey;
     
 }
 
-- (BOOL)jkRouterSpecialTransformWithNaVC:(UINavigationController *)naVC
+- (BOOL)jkRouterSpecialTransformWithTopVC:(UIViewController *)topVC
 {
     return NO;
 }

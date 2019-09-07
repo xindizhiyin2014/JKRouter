@@ -10,8 +10,6 @@
 #import "UIViewController+JKRouter.h"
 #import "JKJSONHandler.h"
 #import "JKRouterOptions.h"
-#import <JKDataHelper/JKDataHelperMacro.h>
-
 
 //***********************************************************************************
 //*
@@ -22,8 +20,7 @@
 @interface JKRouter : NSObject
 
 @property (nonatomic, strong, readonly) NSMutableSet <NSDictionary *>* modules;     ///< 存储路由，moduleID信息，权限配置信息
-@property (nonatomic,assign) RouterWindowRootVCStyle windowRootVCStyle;    ///< keywindow的rootVC的初始化方式
-@property (nonatomic,weak) UINavigationController *topNaVC; ///< app的最顶部导航控制器
+@property (nonatomic, weak, readonly) UIViewController *topVC;                       ///< app的最顶部的控制器
 
 + (instancetype) new NS_UNAVAILABLE;
 
@@ -66,6 +63,7 @@
  */
 + (BOOL)open:(NSString *)targetClassName
       params:(NSDictionary *)params;
+
 /**
  根据options的设置进行跳转
  
@@ -98,6 +96,7 @@
  */
 + (BOOL)openWithClass:(Class)targetClass
               options:(JKRouterOptions *)options;
+
 /**
  根据options的设置进行跳转,并执行相关的回调操作
  
@@ -115,11 +114,12 @@
 
  @param vc 已经创建的指定的vc
  @param options 跳转的各种设置
+ @param completeBlock 跳转成功后的回调,或者失败的原因
  @return 跳转成功与否的状态
  */
 + (BOOL)openSpecifiedVC:(UIViewController *)vc
-                options:(JKRouterOptions *)options;
-
+                options:(JKRouterOptions *)options
+               complete:(void(^)(id result,NSError *error))completeBlock;
 
 /**
  遵守用户指定协议的跳转
@@ -130,7 +130,6 @@
 
  */
 + (BOOL)URLOpen:(NSString *)url;
-
 
 /**
  遵守用户指定协议的跳转
@@ -168,26 +167,21 @@
  */
 + (void)pop:(BOOL)animated;
 
-
 /**
- 默认情况下的pop，或者dismiss animated
+ 默认情况下的pop
 
- @param params 返回时携带的参数
- @param animated 是否有动画
+ @param options 跳转的各种设置
  */
-+ (void)pop:(NSDictionary *)params
-           :(BOOL)animated;
++ (void)popWithOptions:(JKRouterOptions *)options;
 /**
  默认情况下的pop，或者dismiss animated
  
- @param params 返回时携带的参数
- @param animated 是否有动画
+ @param options 跳转的各种设置
  @param completeBlock 完成操作后的回调
 
  */
-+ (void)pop:(NSDictionary *)params
-           :(BOOL)animated
-   complete:(void(^)(id result,NSError *error))completeBlock;
++ (void)popWithOptions:(JKRouterOptions *)options
+              complete:(void(^)(id result,NSError *error))completeBlock;
 /**
  pop到指定的页面
  默认animated为YES，如果需要 dismiss，也会执行
@@ -226,19 +220,27 @@
   根据moduleID pop回指定的模块
  并指定动画模式
  @param moduleID 指定要返回的moduleID
- @param params 返回时携带的参数
  @param animated 是否有动画
  */
 + (void)popWithSpecifiedModuleID:(NSString *)moduleID
-                                :(NSDictionary *)params
                                 :(BOOL)animated;
+/**
+ 根据moduleID pop回指定的模块
+
+ @param moduleID 指定要返回的moduleID
+ @param options 跳转的各种设置
+ @param completeBlock 完成操作后的回调
+ */
++ (void)popWithSpecifiedModuleID:(NSString *)moduleID
+                 options:(JKRouterOptions *)options
+                complete:(void(^)(id result,NSError *error))completeBlock;
 
 /**
  根据step的值pop向前回退几个VC
  如果step大于当前当前naVC.viewController.count,时返回pop to rootViewController
  @param step 回退的vc的数量
  */
-+ (void)popWithStep:(NSInteger)step;
++ (void)popWithStep:(NSUInteger)step;
 
 /**
  根据step的值pop向前回退几个VC
@@ -247,7 +249,7 @@
  @param step 回退的vc的数量
  @param animated 是否有动画效果
  */
-+ (void)popWithStep:(NSInteger)step
++ (void)popWithStep:(NSUInteger)step
                    :(BOOL)animated;
 
 /**
@@ -255,12 +257,12 @@
  如果step大于当前当前naVC.viewController.count,时返回pop to rootViewController
  
  @param step 回退的vc的数量
- @param params 返回时传递的参数
- @param animated 是否有动画效果
+ @param options 跳转的各种设置
+ @param completeBlock 完成操作后的回调
  */
-+ (void)popWithStep:(NSInteger)step
-             params:(NSDictionary *)params
-           animated:(BOOL)animated;
++ (void)popWithStep:(NSUInteger)step
+            options:(JKRouterOptions *)options
+           complete:(void(^)(id result,NSError *error))completeBlock;
 
 /**
  通过浏览器跳转到相关的url或者唤醒相关的app
@@ -278,12 +280,19 @@
 + (BOOL)openExternal:(NSURL *)targetURL
             complete:(void(^)(id result,NSError *error))completeBlock;
 
-
 /**
  使用targetVC替换navigattionController当前的viewController
 
  @param targetVC 目标viewController
  */
-+ (void)replaceCurrentViewControllerWithTargetVC:(UIViewController *)targetVC;
++ (BOOL)replaceCurrentViewControllerWithTargetVC:(UIViewController *)targetVC;
+
+/**
+ 更新次顶部视图
+
+ @param options 配置信息
+ @return 更新成功与否的状态
+ */
++ (BOOL)updateLastTopVC:(JKRouterOptions *)options;
 
 @end

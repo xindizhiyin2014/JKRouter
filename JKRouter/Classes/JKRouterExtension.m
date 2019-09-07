@@ -9,7 +9,6 @@
 #import "JKRouterHeader.h"
 #import "JKRouterTool.h"
 #import "JKJSONHandler.h"
-#import <JKDataHelper/JKDataHelperMacro.h>
 #import "JKRouterEmptyObject.h"
 
 @implementation JKRouterExtension
@@ -80,10 +79,10 @@
     return @"browserOpen";
 }
 
-+ (NSString *)getPodNameWithMouduleName:(NSString *)moduleName
++ (UINavigationController *)jkNaVCInitWithRootVC:(UIViewController *)vc
 {
-    NSDictionary *dic = [self moduleNamesDictionary];
-    return [dic jk_stringForKey:moduleName];
+    UINavigationController *naVC = [[UINavigationController alloc] initWithRootViewController:vc];
+    return naVC;
 }
 
 + (BOOL)openURLWithSpecialSchemes:(NSURL *)url
@@ -91,7 +90,7 @@
                          complete:(void(^)(id result,NSError *error))completeBlock
 {
     if (completeBlock) {
-        NSError *error = [[NSError alloc] initWithDomain:@"JKRouter" code:JKRouterErrorSystemUnSupportURLScheme userInfo:@{@"msg":@"不支持该协议的url"}];
+        NSError *error = [[NSError alloc] initWithDomain:JKRouterErrorDomain code:JKRouterErrorSystemUnSupportURLScheme userInfo:@{@"msg":@"do not support this scheme of the url"}];
         completeBlock(nil,error);
     }
     return NO;
@@ -108,7 +107,7 @@
     JKRouterOptions *options = [JKRouterOptions options];
     options.module = swiftModuleName;
     Class targetClass = nil;
-    if (!JKIsEmptyStr(options.module)) {
+    if (options.module && [options.module isKindOfClass:[NSString class]] && options.module.length > 0) {
         targetClass = NSClassFromString([NSString stringWithFormat:@"%@.%@",options.module,targetClassName]);
     }else{
         targetClass = NSClassFromString(targetClassName);
@@ -145,7 +144,7 @@
         return [JKRouterTool jkPerformWithPlugin:targetClass selector:selector params:params];
     }
     if (completeBlock) {
-        NSError *error = [[NSError alloc] initWithDomain:@"JKRouter" code:JKRouterErrorUnSupportAction userInfo:@{@"msg":@"不支持该操作"}];
+        NSError *error = [[NSError alloc] initWithDomain:JKRouterErrorDomain code:JKRouterErrorUnSupportAction userInfo:@{@"msg":@"do not support this action"}];
         completeBlock(nil,error);
     }
     return NO;
@@ -157,8 +156,8 @@
                 complete:(void(^)(id result,NSError *error))completeBlock
 {
     UIViewController *rootVC = [UIApplication sharedApplication].delegate.window.rootViewController;
-    NSInteger index = [targetClass jkTabIndex];
     if ([rootVC isKindOfClass:[UITabBarController class]]) {
+        NSInteger index = [targetClass jkTabIndex];
         UITabBarController *tabBarVC = (UITabBarController *)rootVC;
         if ([tabBarVC.selectedViewController isKindOfClass:[UINavigationController class]]) {
             NSArray *vcArray = tabBarVC.viewControllers;
@@ -175,7 +174,7 @@
         return YES;
     }
     if (completeBlock) {
-        NSError *error = [[NSError alloc] initWithDomain:@"JKRouter" code:JKRouterErrorUnSupportSwitchTabBar userInfo:@{@"msg":@"不支持的切换tabBar操作"}];
+        NSError *error = [[NSError alloc] initWithDomain:JKRouterErrorDomain code:JKRouterErrorUnSupportSwitchTabBar userInfo:@{@"msg":@"do not support switch tabbar"}];
         completeBlock(nil,error);
     }
     return NO;

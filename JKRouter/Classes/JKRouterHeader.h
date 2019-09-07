@@ -14,6 +14,8 @@
 #define JKRouterLog(...)
 #endif
 
+static NSString * const JKRouterErrorDomain = @"JKRouterError";
+
 typedef NS_ENUM(NSInteger,RouterTransformVCStyle){
     RouterTransformVCStyleDefault =-1, ///< 不指定转场方式，使用自带的转场方式
     RouterTransformVCStylePush,        ///< push方式转场
@@ -29,50 +31,23 @@ typedef NS_ENUM(NSInteger,RouterCreateStyle) {
     
 };///< ViewController的创建方式
 
-typedef NS_ENUM(NSInteger, RouterWindowRootVCStyle) {
- RouterWindowRootVCStyleDefault,         ///< 默认的window的rootVC的初始化方式具体如（1）
- RouterWindowRootVCStyleCustom           ///< 常见的window的rootVC的初始化方式具体方式如(2)
-};
-
-/*
- 
- (1):window的rootViewController的初始化方式：
- self.rootTabBarController = [[RootTabbarViewController alloc] init];
- 
- UINavigationController *naVC = [[UINavigationController alloc] initWithRootViewController: self.rootTabBarController];
- self.window.rootViewController = naVC;
- 
- 或者：
- UIViewController *vc = [UIViewController new];
- UINavigationController *naVC = [[UINavigationController alloc] initWithRootViewController:vc];
- self.window.rootViewController = naVC;
-
- ****************************************************
- (2):window的rootViewController的初始化方式：
- UIViewController *vc1 = [UIViewController new];
- UINavigationController *naVC = [[UINavigationController alloc] initWithRootViewController:vc1];
- UIViewController *vc2 = [UIViewController new];
- UINavigationController *naVC1 = [[UINavigationController alloc] initWithRootViewController:vc2];
- UIViewController *vc3 = [UIViewController new];
- UINavigationController *naVC2 = [[UINavigationController alloc] initWithRootViewController:vc3];
- UITabBarController *tabBarVC3 = [UITabBarController new];
- tabBarVC.viewControllers = @[naVC1,naVC2,naVC3];
- self.window.rootViewController = tabBarVC.viewControllers;
- 
- */
-
 typedef NS_ENUM(NSInteger,JKRouterError) {
-  JKRouterErrorClassNameIsNil = 10000,          ///<
-  JKRouterErrorClassNil,                        ///<
-  JKRouterErrorURLIsNil,                        ///<
-  JKRouterErrorSandBoxPathIsNil,                ///<
-  JKRouterErrorSystemUnSupportURL,              ///<
-  JKRouterErrorSystemUnSupportURLScheme,        ///<
-  JKRouterErrorUnSupportAction,                 ///<
-  JKRouterErrorNORightToAccess,                 ///<
-  JKRouterErrorUnSupportTransform,              ///<
-  JKRouterErrorUnSupportSwitchTabBar,           ///<
-  JKRouterErrorBlackNameURL,                    ///<
+  JKRouterErrorClassNameIsNil = 10000,          ///< className is nil
+  JKRouterErrorClassNil,                        ///< class is nil
+  JKRouterErrorURLIsNil,                        ///< url is nil
+  JKRouterErrorSandBoxPathIsNil,                ///< sandboxPath is nil
+  JKRouterErrorSystemUnSupportURL,              ///< system unsupport this url
+  JKRouterErrorSystemUnSupportURLScheme,        ///< JKRouter unsupport this scheme
+  JKRouterErrorUnSupportAction,                 ///< unsupport this action
+  JKRouterErrorNORightToAccess,                 ///< no right to access
+  JKRouterErrorUnSupportTransform,              ///< unsupport this transform
+  JKRouterErrorUnSupportSwitchTabBar,           ///< unsupport switch tabbar
+  JKRouterErrorBlackNameURL,                    ///< url is in blackName list
+  JKRouterErrorUnSupportPushTransform,          ///< unsupport push transform
+  JKRouterErrorUnSupportReplaceTransform,       ///< unsupport replace transform
+  JKRouterErrorUnSupportPopAtcion,              ///< unsupport pop action
+  JKRouterErrorUnSupportRouterClass,            ///< unsuport class in JKRouter
+  JKRouterErrorNoVCInRouter,                    ///< the vc is not contained in Router
 
 };
 
