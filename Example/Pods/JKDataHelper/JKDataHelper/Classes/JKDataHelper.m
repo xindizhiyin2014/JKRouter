@@ -60,17 +60,18 @@
     if (!str) {
         return YES;
     }
-    if (![str isKindOfClass:[NSString class]]) {
-        return YES;
-    }
-    
     if (str.length == 0) {
         return YES;
     }
-    if ([str isEqualToString:@"<null>"]) {
+    if ([[str description] isEqualToString:@"<null>"] || [[str description] isEqualToString:@"(null)"]) {
         return YES;
     }
-    
+    if (![str isKindOfClass:[NSString class]]) {
+        #if DEBUG
+        NSLog(@"%@ is not a string",str);
+        #endif
+        return NO;
+    }
     return NO;
 }
 

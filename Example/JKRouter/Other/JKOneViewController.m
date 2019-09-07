@@ -37,11 +37,11 @@
 }
 
 - (void)buttonClicked:(UIButton *)button{
-    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"RouterWindowRootVCStyle"] integerValue] !=RouterWindowRootVCStyleDefault) {
-        [[NSUserDefaults standardUserDefaults] setObject:@(RouterWindowRootVCStyleDefault) forKey:@"RouterWindowRootVCStyle"];
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"RouterWindowRootVCStyle"] integerValue] != 0) {
+        [[NSUserDefaults standardUserDefaults] setObject:@(0) forKey:@"RouterWindowRootVCStyle"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }else{
-        [[NSUserDefaults standardUserDefaults] setObject:@(RouterWindowRootVCStyleCustom) forKey:@"RouterWindowRootVCStyle"];
+        [[NSUserDefaults standardUserDefaults] setObject:@(1) forKey:@"RouterWindowRootVCStyle"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
     

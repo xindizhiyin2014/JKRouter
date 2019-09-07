@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'JKRouter'
-  s.version          = '0.3.1.1'
+  s.version          = '0.4'
   s.summary          = 'this is a tool to help you to handle the push or pop between Viewcontrollers with your specified URL.'
 
 # This description is used to generate tags and improve search results.
@@ -38,5 +38,5 @@ TODO: this is a tool to help you to handle the push or pop between Viewcontrolle
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-   s.dependency 'JKDataHelper'
+   
 end

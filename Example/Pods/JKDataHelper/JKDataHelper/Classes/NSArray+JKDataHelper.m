@@ -25,18 +25,21 @@
 
 #endif
 
--(id)jk_objectWithIndex:(NSUInteger)index{
-    if (index <self.count) {
-        return self[index];
-    }else{
+-(id)jk_objectWithIndex:(NSInteger)index{
+    
+    if (index < 0) {
         return nil;
     }
+    if (index < self.count) {
+        return self[index];
+    }
+    return nil;
 }
 
-- (NSString*)jk_stringWithIndex:(NSUInteger)index
-{
+- (NSString*)jk_stringWithIndex:(NSInteger)index{
+    
     id value = [self jk_objectWithIndex:index];
-    if (value == nil || value == [NSNull null] || [[value description] isEqualToString:@"<null>"])
+    if (value == nil || value == [NSNull null] || [[value description] isEqualToString:@"<null>"] || [[value description] isEqualToString:@"(null)"])
     {
         return nil;
     }
@@ -46,12 +49,11 @@
     if ([value isKindOfClass:[NSNumber class]]) {
         return [value stringValue];
     }
-    
     return nil;
 }
 
-- (NSNumber*)jk_numberWithIndex:(NSUInteger)index
-{
+- (NSNumber*)jk_numberWithIndex:(NSInteger)index{
+    
     id value = [self jk_objectWithIndex:index];
     if ([value isKindOfClass:[NSNumber class]]) {
         return (NSNumber*)value;
@@ -64,23 +66,25 @@
     return nil;
 }
 
-- (NSDecimalNumber *)jk_decimalNumberWithIndex:(NSUInteger)index{
-    id value = [self jk_objectWithIndex:index];
+- (NSDecimalNumber *)jk_decimalNumberWithIndex:(NSInteger)index{
     
+    id value = [self jk_objectWithIndex:index];
     if ([value isKindOfClass:[NSDecimalNumber class]]) {
         return value;
-    } else if ([value isKindOfClass:[NSNumber class]]) {
+    }
+    if ([value isKindOfClass:[NSNumber class]]) {
         NSNumber * number = (NSNumber*)value;
         return [NSDecimalNumber decimalNumberWithDecimal:[number decimalValue]];
-    } else if ([value isKindOfClass:[NSString class]]) {
+    }
+    if ([value isKindOfClass:[NSString class]]) {
         NSString * str = (NSString*)value;
         return [str isEqualToString:@""] ? nil : [NSDecimalNumber decimalNumberWithString:str];
     }
     return nil;
 }
 
-- (NSArray*)jk_arrayWithIndex:(NSUInteger)index
-{
+- (NSArray*)jk_arrayWithIndex:(NSInteger)index{
+    
     id value = [self jk_objectWithIndex:index];
     if (value == nil || value == [NSNull null])
     {
@@ -93,9 +97,8 @@
     return nil;
 }
 
-
-- (NSDictionary*)jk_dictionaryWithIndex:(NSUInteger)index
-{
+- (NSDictionary*)jk_dictionaryWithIndex:(NSInteger)index{
+    
     id value = [self jk_objectWithIndex:index];
     if (value == nil || value == [NSNull null])
     {
@@ -108,8 +111,8 @@
     return nil;
 }
 
-- (NSInteger)jk_integerWithIndex:(NSUInteger)index
-{
+- (NSInteger)jk_integerWithIndex:(NSInteger)index{
+    
     id value = [self jk_objectWithIndex:index];
     if (value == nil || value == [NSNull null])
     {
@@ -121,8 +124,9 @@
     }
     return 0;
 }
-- (NSUInteger)jk_unsignedIntegerWithIndex:(NSUInteger)index
-{
+
+- (NSUInteger)jk_unsignedIntegerWithIndex:(NSInteger)index{
+    
     id value = [self jk_objectWithIndex:index];
     if (value == nil || value == [NSNull null])
     {
@@ -134,10 +138,10 @@
     }
     return 0;
 }
-- (BOOL)jk_boolWithIndex:(NSUInteger)index
+
+- (BOOL)jk_boolWithIndex:(NSInteger)index
 {
     id value = [self jk_objectWithIndex:index];
-    
     if (value == nil || value == [NSNull null])
     {
         return NO;
@@ -152,10 +156,10 @@
     }
     return NO;
 }
-- (int16_t)jk_int16WithIndex:(NSUInteger)index
+
+- (int16_t)jk_int16WithIndex:(NSInteger)index
 {
     id value = [self jk_objectWithIndex:index];
-    
     if (value == nil || value == [NSNull null])
     {
         return 0;
@@ -170,10 +174,10 @@
     }
     return 0;
 }
-- (int32_t)jk_int32WithIndex:(NSUInteger)index
+
+- (int32_t)jk_int32WithIndex:(NSInteger)index
 {
     id value = [self jk_objectWithIndex:index];
-    
     if (value == nil || value == [NSNull null])
     {
         return 0;
@@ -184,10 +188,10 @@
     }
     return 0;
 }
-- (int64_t)jk_int64WithIndex:(NSUInteger)index
+
+- (int64_t)jk_int64WithIndex:(NSInteger)index
 {
     id value = [self jk_objectWithIndex:index];
-    
     if (value == nil || value == [NSNull null])
     {
         return 0;
@@ -199,10 +203,9 @@
     return 0;
 }
 
-- (char)jk_charWithIndex:(NSUInteger)index{
+- (char)jk_charWithIndex:(NSInteger)index{
     
     id value = [self jk_objectWithIndex:index];
-    
     if (value == nil || value == [NSNull null])
     {
         return 0;
@@ -214,10 +217,9 @@
     return 0;
 }
 
-- (short)jk_shortWithIndex:(NSUInteger)index
-{
-    id value = [self jk_objectWithIndex:index];
+- (short)jk_shortWithIndex:(NSInteger)index{
     
+    id value = [self jk_objectWithIndex:index];
     if (value == nil || value == [NSNull null])
     {
         return 0;
@@ -232,10 +234,9 @@
     }
     return 0;
 }
-- (float)jk_floatWithIndex:(NSUInteger)index
-{
-    id value = [self jk_objectWithIndex:index];
+- (float)jk_floatWithIndex:(NSInteger)index{
     
+    id value = [self jk_objectWithIndex:index];
     if (value == nil || value == [NSNull null])
     {
         return 0;
@@ -247,11 +248,12 @@
     return 0;
 }
 
-- (CGFloat)jk_cgFloatWithIndex:(NSUInteger)index{
+- (CGFloat)jk_cgFloatWithIndex:(NSInteger)index{
     CGFloat value = (CGFloat)[self jk_floatWithIndex:index];
     return value;
 }
-- (double)jk_doubleWithIndex:(NSUInteger)index
+
+- (double)jk_doubleWithIndex:(NSInteger)index
 {
     id value = [self jk_objectWithIndex:index];
     
@@ -266,17 +268,16 @@
     return 0;
 }
 
-- (NSDate *)jk_dateWithIndex:(NSUInteger)index dateFormat:(NSString *)dateFormat {
-    NSDateFormatter *formater = [[NSDateFormatter alloc]init];
-    formater.dateFormat = dateFormat;
-    id value = [self jk_objectWithIndex:index];
+- (NSDate *)jk_dateWithIndex:(NSInteger)index dateFormat:(NSString *)dateFormat {
     
+    id value = [self jk_objectWithIndex:index];
     if (value == nil || value == [NSNull null])
     {
         return nil;
     }
-    
     if ([value isKindOfClass:[NSString class]] && ![value isEqualToString:@""] && !dateFormat) {
+        NSDateFormatter *formater = [[NSDateFormatter alloc]init];
+        formater.dateFormat = dateFormat;
         return [formater dateFromString:value];
     }
     return nil;
@@ -319,40 +320,24 @@
     return array;
 }
 
-
-
-//CG
-- (CGFloat)jk_CGFloatWithIndex:(NSUInteger)index
-{
+- (CGPoint)jk_pointWithIndex:(NSInteger)index{
+    
     id value = [self jk_objectWithIndex:index];
-    
-    CGFloat f = [value doubleValue];
-    
-    return f;
-}
-
-- (CGPoint)jk_pointWithIndex:(NSUInteger)index
-{
-    id value = [self jk_objectWithIndex:index];
-    
     CGPoint point = CGPointFromString(value);
-    
     return point;
 }
-- (CGSize)jk_sizeWithIndex:(NSUInteger)index
-{
+
+- (CGSize)jk_sizeWithIndex:(NSInteger)index{
+    
     id value = [self jk_objectWithIndex:index];
-    
     CGSize size = CGSizeFromString(value);
-    
     return size;
 }
-- (CGRect)jk_rectWithIndex:(NSUInteger)index
-{
+
+- (CGRect)jk_rectWithIndex:(NSInteger)index{
+    
     id value = [self jk_objectWithIndex:index];
-    
     CGRect rect = CGRectFromString(value);
-    
     return rect;
 }
 

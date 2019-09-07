@@ -44,7 +44,10 @@
 }
 
 - (void)back{
-    [JKRouter pop:@{@"testString":@"我是张三"} :YES];
+
+    NSDictionary *params = @{@"testString":@"我是张三"};
+    JKRouterOptions *options = [JKRouterOptions optionsWithDefaultParams:params];
+    [JKRouter popWithOptions:options];
 }
 
 - (void)didReceiveMemoryWarning {

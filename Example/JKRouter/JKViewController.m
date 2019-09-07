@@ -44,11 +44,11 @@
 }
 
 - (void)buttonClicked:(UIButton *)button{
-    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"RouterWindowRootVCStyle"] integerValue] !=RouterWindowRootVCStyleDefault) {
-        [[NSUserDefaults standardUserDefaults] setObject:@(RouterWindowRootVCStyleDefault) forKey:@"RouterWindowRootVCStyle"];
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"RouterWindowRootVCStyle"] integerValue] != 0) {
+        [[NSUserDefaults standardUserDefaults] setObject:@(0) forKey:@"RouterWindowRootVCStyle"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }else{
-       [[NSUserDefaults standardUserDefaults] setObject:@(RouterWindowRootVCStyleCustom) forKey:@"RouterWindowRootVCStyle"];
+       [[NSUserDefaults standardUserDefaults] setObject:@(1) forKey:@"RouterWindowRootVCStyle"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
     
@@ -216,9 +216,9 @@
 - (void)userURLJump{
 
 //    [JKRouter URLOpen:@"jkpp://jackApp:10001"];
-//    [JKRouter URLOpen:@"https://www.baidu.com?jkRouterAppOpen=1"];
+    [JKRouter URLOpen:@"https://www.baidu.com?browserOpen=1"];
 //    [JKRouter URLOpen:@"https://www.baidu.com?jkRouterAppOpen=1" extra:@{@"title":@"123"}];
-     [JKRouter URLOpen:@"file:///123.html"];
+//     [JKRouter URLOpen:@"file:///123.html"];
     //[JKRouter URLOpen:@"socket://123.html"];
 }
 

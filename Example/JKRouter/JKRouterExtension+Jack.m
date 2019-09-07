@@ -9,9 +9,14 @@
 #import "JKRouterExtension+Jack.h"
 
 @implementation JKRouterExtension (Jack)
-+ (NSArray *)jkWebVCClassNames{
-    
-    return @[@"JKWebViewController"];
++ (NSString *)privateWebVCClassName
+{
+    return @"JKWebViewController";
+}
+
++ (NSString *)openWebVCClassName
+{
+    return @"JKWebViewController";
 }
 
 + (NSArray *)urlSchemes{

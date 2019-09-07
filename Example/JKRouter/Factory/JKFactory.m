@@ -10,6 +10,7 @@
 #import "FactoryAViewController.h"
 #import "FactoryBViewController.h"
 #import "FactoryCViewController.h"
+#import <JKDataHelper/NSDictionary+JKDataHelper.h>
 
 @implementation JKFactory
 + (UIViewController *)jkRouterFactoryViewControllerWithJSON:(NSDictionary *)dic{

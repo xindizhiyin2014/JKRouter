@@ -61,11 +61,13 @@
     return _interactiveTransitionPush;
 }
 
-- (void)jkRouterSpecialTransformWithNaVC:(UINavigationController *)naVC{
-    UIViewController *vc = naVC.topViewController;
-    vc.navigationController.delegate = self;
-    
-    [naVC pushViewController:self animated:YES];
+- (BOOL)jkRouterSpecialTransformWithTopVC:(UIViewController *)topVC{
+    if (topVC.navigationController) {
+        UIViewController *vc = topVC;
+        vc.navigationController.delegate = self;
+        [topVC.navigationController pushViewController:self animated:YES];
+    }
+    return NO;
 }
 
 - (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC{

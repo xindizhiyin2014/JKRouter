@@ -29,7 +29,7 @@
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
-    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"RouterWindowRootVCStyle"] integerValue] !=RouterWindowRootVCStyleDefault) {
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"RouterWindowRootVCStyle"] integerValue] != 0) {
         JKOneViewController *oneVC = [JKOneViewController new];
         UINavigationController *naVC1 = [[UINavigationController alloc] initWithRootViewController:oneVC];
         JKTwoViewController *twoVC = [JKTwoViewController new];
@@ -39,14 +39,13 @@
         UITabBarController *tabBarVC = [[UITabBarController alloc] init];
         tabBarVC.viewControllers = @[naVC1,naVC2,naVC3];
         [JKRouter configWithRouterFiles:@[@"modules.json",@"modules123.json"]];
-        [JKRouter sharedRouter].windowRootVCStyle = RouterWindowRootVCStyleCustom;
         self.window.rootViewController = tabBarVC;
     }else{
         JKViewController *jkVC = [JKViewController new];
         UINavigationController *naVC = [[UINavigationController alloc] initWithRootViewController:jkVC];
         self.window.rootViewController = naVC;
         [JKRouter configWithRouterFiles:@[@"modules.json",@"modules123.json"]];
-        [JKRouter sharedRouter].windowRootVCStyle = RouterWindowRootVCStyleDefault;
+        
     }
     
     

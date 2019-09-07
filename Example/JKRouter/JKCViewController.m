@@ -33,7 +33,9 @@
 -(void)clickToBack{
     
     NSDictionary *params = @{@"backStr":@"Hi,I'm Jack and I'm Back"};
-    [JKRouter pop:params :YES];
+    JKRouterOptions *options = [JKRouterOptions optionsWithDefaultParams:params];
+    [JKRouter popWithOptions:options];
+
 }
 
 - (void)didReceiveMemoryWarning {
