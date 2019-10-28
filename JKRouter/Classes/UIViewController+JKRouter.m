@@ -19,7 +19,7 @@ static const void *moduleIDKey = &moduleIDKey;
     return objc_getAssociatedObject(self, moduleIDKey);
 }
 
-- (void)setModuleID:(NSString *)moduleID
+- (void)setModuleID:(__kindof NSString *)moduleID
 {
     objc_setAssociatedObject(self, moduleIDKey, moduleID, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
@@ -30,13 +30,13 @@ static const void *moduleIDKey = &moduleIDKey;
     return [[[self class] alloc] init];
 }
 
-+ (instancetype)jkRouterViewControllerWithJSON:(NSDictionary *)dic
++ (instancetype)jkRouterViewControllerWithJSON:(__kindof NSDictionary *)dic
 {
     JKRouterOptions *options = [JKRouterOptions optionsWithDefaultParams:dic];
     return [JKRouterTool configVCWithClass:[self class] options:options];
 }
 
-- (void)jkRouterViewControllerWithJSON:(NSDictionary *)dic
+- (void)jkRouterViewControllerWithJSON:(__kindof NSDictionary *)dic
 {
     JKRouterOptions *options = [JKRouterOptions optionsWithDefaultParams:dic];
     return [JKRouterTool configTheVC:self options:options];
@@ -52,7 +52,7 @@ static const void *moduleIDKey = &moduleIDKey;
     
 }
 
-- (BOOL)jkRouterSpecialTransformWithTopVC:(UIViewController *)topVC
+- (BOOL)jkRouterSpecialTransformWithTopVC:(__kindof UIViewController *)topVC
 {
     return NO;
 }
@@ -62,7 +62,7 @@ static const void *moduleIDKey = &moduleIDKey;
     return RouterTransformVCStylePush;
 }
 
--(void)setValue:(id)value forUndefinedKey:(NSString *)key
+-(void)setValue:(id)value forUndefinedKey:(__kindof NSString *)key
 {
     
 }

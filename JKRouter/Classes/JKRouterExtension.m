@@ -13,12 +13,12 @@
 
 @implementation JKRouterExtension
 
-+ (BOOL)isVerifiedOfWhiteName:(NSString *)url
++ (BOOL)isVerifiedOfWhiteName:(__kindof NSString *)url
 {
     return YES;
 }
 
-+ (BOOL)isVerifiedOfBlackName:(NSString *)url
++ (BOOL)isVerifiedOfBlackName:(__kindof NSString *)url
 {
     return NO;
 }
@@ -79,7 +79,7 @@
     return @"browserOpen";
 }
 
-+ (UINavigationController *)jkNaVCInitWithRootVC:(UIViewController *)vc
++ (UINavigationController *)jkNaVCInitWithRootVC:(__kindof UIViewController *)vc
 {
     UINavigationController *naVC = [[UINavigationController alloc] initWithRootViewController:vc];
     return naVC;
@@ -96,9 +96,9 @@
     return NO;
 }
 
-+ (BOOL)otherActionsWithActionType:(NSString *)actionType
++ (BOOL)otherActionsWithActionType:(__kindof NSString *)actionType
                                URL:(NSURL *)url
-                             extra:(NSDictionary *)extra
+                             extra:(__kindof NSDictionary *)extra
                           complete:(void(^)(id result,NSError *error))completeBlock
 {
     NSString *moduleID = [url.path substringFromIndex:1];

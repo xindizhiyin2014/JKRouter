@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param urlString url字符串
  @return NSMutableDictionary 对象
  */
-+ (NSMutableDictionary *)convertUrlStringToDictionary:(NSString *)urlString;
++ (NSMutableDictionary *)convertUrlStringToDictionary:(__kindof NSString *)urlString;
 
 /**
  url对象添加参数
@@ -34,7 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
  @return 处理后的url对象
  */
 + (NSURL *)url:(NSURL *)url
-appendParameter:(NSDictionary *)parameter;
+appendParameter:(__kindof NSDictionary *)parameter;
 /**
  为url字符串添加参数
  
@@ -42,8 +42,8 @@ appendParameter:(NSDictionary *)parameter;
  @param parameter 参数
  @return url字符串
  */
-+ (NSString *)urlStr:(NSString *)urlStr
-     appendParameter:(NSDictionary *)parameter;
++ (NSString *)urlStr:(__kindof NSString *)urlStr
+     appendParameter:(__kindof NSDictionary *)parameter;
 
 /**
  url对象删除参数
@@ -53,7 +53,7 @@ appendParameter:(NSDictionary *)parameter;
  @return 处理后的url对象
  */
 + (NSURL *)url:(NSURL*)url
-removeQueryKeys:(NSArray <NSString *>*)keys;
+removeQueryKeys:(__kindof NSArray <NSString *>*)keys;
 
 /**
  url字符串删除参数
@@ -62,8 +62,8 @@ removeQueryKeys:(NSArray <NSString *>*)keys;
  @param keys 需要删除的key组成的数组
  @return 处理后的url字符串
  */
-+ (NSString *)urlStr:(NSString *)urlStr
-     removeQueryKeys:(NSArray <NSString *>*)keys;
++ (NSString *)urlStr:(__kindof NSString *)urlStr
+     removeQueryKeys:(__kindof NSArray <NSString *>*)keys;
 
 /**
  类方法动态分发
@@ -75,7 +75,7 @@ removeQueryKeys:(NSArray <NSString *>*)keys;
  */
 + (BOOL)jkPerformWithPlugin:(Class)targetClass
                    selector:(SEL)selector
-                     params:(NSArray *)params;
+                     params:(__kindof NSArray *)params;
 @end
 
 NS_ASSUME_NONNULL_END

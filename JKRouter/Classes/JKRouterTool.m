@@ -30,7 +30,7 @@
  @param vc 对象
  @param options 跳转的各种设置
  */
-+ (void)configTheVC:(UIViewController *)vc
++ (void)configTheVC:(__kindof UIViewController *)vc
             options:(JKRouterOptions *)options
 {
     if (!options) {
@@ -46,7 +46,7 @@
 }
 
 //将url ？后的字符串转换为NSDictionary对象
-+ (NSMutableDictionary *)convertUrlStringToDictionary:(NSString *)urlString
++ (NSMutableDictionary *)convertUrlStringToDictionary:(__kindof NSString *)urlString
 {
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     NSArray *parameterArr = [urlString componentsSeparatedByString:@"&"];
@@ -63,14 +63,14 @@
 }
 
 + (NSURL *)url:(NSURL *)url
-appendParameter:(NSDictionary *)parameter
+appendParameter:(__kindof NSDictionary *)parameter
 {
     NSString *urlString = [self urlStr:url.absoluteString appendParameter:parameter];
     return [NSURL URLWithString:urlString];
 }
 
-+ (NSString *)urlStr:(NSString *)urlStr
-     appendParameter:(NSDictionary *)parameter
++ (NSString *)urlStr:(__kindof NSString *)urlStr
+     appendParameter:(__kindof NSDictionary *)parameter
 {
     //[urlStr hasSuffix:@"&"]?[urlStr stringByReplacingOccurrencesOfString:@"&" withString:@""]:urlStr;
     if ([urlStr hasSuffix:@"&"]) {
@@ -109,14 +109,14 @@ appendParameter:(NSDictionary *)parameter
 }
 
 + (NSURL *)url:(NSURL*)url
-removeQueryKeys:(NSArray <NSString *>*)keys
+removeQueryKeys:(__kindof NSArray <NSString *>*)keys
 {
     NSString *urlString = [self urlStr:url.absoluteString removeQueryKeys:keys];
     return [NSURL URLWithString:urlString];
 }
 
-+ (NSString *)urlStr:(NSString *)urlStr
-     removeQueryKeys:(NSArray <NSString *>*)keys
++ (NSString *)urlStr:(__kindof NSString *)urlStr
+     removeQueryKeys:(__kindof NSArray <NSString *>*)keys
 {
     if (!(keys.count>0)) {
         NSAssert(NO, @"urlStr:removeQueryKeys: keys cannot be nil");
@@ -142,7 +142,7 @@ removeQueryKeys:(NSArray <NSString *>*)keys
 
 + (BOOL)jkPerformWithPlugin:(Class)targetClass
                    selector:(SEL)selector
-                     params:(NSArray *)params
+                     params:(__kindof NSArray *)params
 {
     if (params.count != 3) {
         return NO;

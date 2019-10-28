@@ -17,7 +17,7 @@
  @param url 链接
  @return 是否是白名单url
  */
-+ (BOOL)isVerifiedOfWhiteName:(NSString *)url;
++ (BOOL)isVerifiedOfWhiteName:(__kindof NSString *)url;
 
 /**
  验证是否是黑名单的url notice:方法可以通过重写，内部实现正则或者其他的校验策略验证是否是黑名单的链接
@@ -25,7 +25,7 @@
  @param url 链接
  @return 是否是黑名单url
  */
-+ (BOOL)isVerifiedOfBlackName:(NSString *)url;
++ (BOOL)isVerifiedOfBlackName:(__kindof NSString *)url;
 
 /**
  配置web容器从外部获取url的property的字段名
@@ -97,7 +97,7 @@
  */
 + (NSString *)jkBrowserOpenKey;
 
-+ (UINavigationController *)jkNaVCInitWithRootVC:(UIViewController *)vc;
++ (UINavigationController *)jkNaVCInitWithRootVC:(__kindof UIViewController *)vc;
 
 /**
  打开特殊scheme的url，主要适用于scheme不变，url内容变化的一些操作。
@@ -108,7 +108,7 @@
  @return 跳转成功与否或者操作成功与否的状态
  */
 + (BOOL)openURLWithSpecialSchemes:(NSURL *)url
-                            extra:(NSDictionary *)extra
+                            extra:(__kindof NSDictionary *)extra
                          complete:(void(^)(id result,NSError *error))completeBlock;
 
 /**
@@ -119,9 +119,9 @@
  @param completeBlock 操作成功后的回调
  @return 跳转成功与否或者操作成功与否的状态
  */
-+ (BOOL)otherActionsWithActionType:(NSString *)actionType
++ (BOOL)otherActionsWithActionType:(__kindof NSString *)actionType
                                URL:(NSURL *)url
-                             extra:(NSDictionary *)extra
+                             extra:(__kindof NSDictionary *)extra
                           complete:(void(^)(id result,NSError *error))completeBlock;
 
 /**

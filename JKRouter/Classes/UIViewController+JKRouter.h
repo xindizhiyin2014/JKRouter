@@ -27,10 +27,10 @@
  @param dic json对象。纯数据的，内部不含OC对象
  @return 初始化后，赋值完成的viewController对象
  */
-+ (instancetype)jkRouterViewControllerWithJSON:(NSDictionary *)dic;
++ (instancetype)jkRouterViewControllerWithJSON:(__kindof NSDictionary *)dic;
 
 
-- (void)jkRouterViewControllerWithJSON:(NSDictionary *)dic;
+- (void)jkRouterViewControllerWithJSON:(__kindof NSDictionary *)dic;
 
 /**
  根据权限等级判断是否可以打开，具体通过category重载来实现
@@ -51,7 +51,7 @@
  @return 是否能够进行自定义的专场动画
 
  */
-- (BOOL)jkRouterSpecialTransformWithTopVC:(UIViewController *)topVC;
+- (BOOL)jkRouterSpecialTransformWithTopVC:(__kindof UIViewController *)topVC;
 
 /**
  自定义的转场方式

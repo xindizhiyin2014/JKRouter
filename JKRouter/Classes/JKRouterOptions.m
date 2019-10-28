@@ -29,14 +29,14 @@
     return options;
 }
 
-+ (instancetype)optionsWithModuleID:(NSString *)moduleID
++ (instancetype)optionsWithModuleID:(__kindof NSString *)moduleID
 {
     JKRouterOptions *options = [JKRouterOptions options];
     options.moduleID = moduleID;
     return options;
 }
 
-+ (instancetype)optionsWithDefaultParams:(NSDictionary *)params
++ (instancetype)optionsWithDefaultParams:(__kindof NSDictionary *)params
 {
     JKRouterOptions *options = [JKRouterOptions options];
     options.defaultParams = params;
@@ -57,7 +57,7 @@
     return options;
 }
 
-- (instancetype)optionsWithDefaultParams:(NSDictionary *)params
+- (instancetype)optionsWithDefaultParams:(__kindof NSDictionary *)params
 {
     self.defaultParams = params;
     return self;

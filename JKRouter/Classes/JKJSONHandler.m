@@ -11,7 +11,7 @@
 
 @implementation JKJSONHandler
 // 解析JSON文件 获取到所有的Modules
-+ (NSArray *)getModulesFromJsonFile:(NSArray <NSString *>*)files
++ (NSArray *)getModulesFromJsonFile:(__kindof NSArray <NSString *>*)files
 {
     NSMutableArray *mutableArray = [NSMutableArray new];
     for (NSString *fileName in files) {
@@ -23,7 +23,7 @@
     return [mutableArray copy];
 }
 
-+ (NSString *)getTargetWithModuleID:(NSString *)moduleID
++ (NSString *)getTargetWithModuleID:(__kindof NSString *)moduleID
 {
     NSString *vcClassName = nil;
     for (NSDictionary *module in [JKRouter sharedRouter].modules) {
@@ -36,7 +36,7 @@
     return vcClassName;
 }
 
-+ (NSString *)getTypeWithModuleID:(NSString *)moduleID
++ (NSString *)getTypeWithModuleID:(__kindof NSString *)moduleID
 {
     NSString *type = nil;
     for (NSDictionary *module in [JKRouter sharedRouter].modules) {
@@ -49,7 +49,7 @@
     return type;
 }
 
-+ (NSString *)getSwiftModuleNameWithModuleID:(NSString *)moduleID
++ (NSString *)getSwiftModuleNameWithModuleID:(__kindof NSString *)moduleID
 {
     NSString *moduleName = nil;
     for (NSDictionary *module in [JKRouter sharedRouter].modules) {
@@ -63,7 +63,7 @@
 
 }
 
-+ (NSString *)getFuncNameWithModuleID:(NSString *)moduleID
++ (NSString *)getFuncNameWithModuleID:(__kindof NSString *)moduleID
 {
     NSString *func = nil;
     for (NSDictionary *module in [JKRouter sharedRouter].modules) {

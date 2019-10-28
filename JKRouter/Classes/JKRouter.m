@@ -81,7 +81,7 @@ static JKRouter *defaultRouter =nil;
     return totalSteps;
 }
 
-- (UIViewController *)lastTopVC
+- (__kindof UIViewController *)lastTopVC
 {
     UIViewController *rootVC = [UIApplication sharedApplication].delegate.window.rootViewController;
     UIViewController *lastTopVC = nil;
@@ -96,7 +96,7 @@ static JKRouter *defaultRouter =nil;
     return lastTopVC;
 }
 
-+ (void)configWithRouterFiles:(NSArray<NSString *> *)routerFileNames
++ (void)configWithRouterFiles:(__kindof NSArray<NSString *> *)routerFileNames
 {
     [JKRouter sharedRouter].routerFileNames = routerFileNames;
     NSMutableSet *urlSchemesSet = [NSMutableSet setWithArray:[JKRouterExtension urlSchemes]];
@@ -104,7 +104,7 @@ static JKRouter *defaultRouter =nil;
     [JKRouter sharedRouter].urlSchemes  = [urlSchemesSet copy];
 }
 
-+ (void)updateRouterInfoWithFilePath:(NSString*)filePath
++ (void)updateRouterInfoWithFilePath:(__kindof NSString*)filePath
 {
     [JKRouter sharedRouter].remoteFilePath = filePath;
     [JKRouter sharedRouter].modules = nil;
@@ -131,24 +131,24 @@ static JKRouter *defaultRouter =nil;
 }
 
 #pragma mark  - - - - the open functions - - - -
-+ (BOOL)open:(NSString *)targetClassName
++ (BOOL)open:(__kindof NSString *)targetClassName
 {
     return [self open:targetClassName params:nil];
 }
 
-+ (BOOL)open:(NSString *)targetClassName
-      params:(NSDictionary *)params
++ (BOOL)open:(__kindof NSString *)targetClassName
+      params:(__kindof NSDictionary *)params
 {
    JKRouterOptions *options = [JKRouterOptions optionsWithDefaultParams:params];
    return [self open:targetClassName options:options];
 }
 
-+ (BOOL)open:(NSString *)targetClassName options:(JKRouterOptions *)options
++ (BOOL)open:(__kindof NSString *)targetClassName options:(JKRouterOptions *)options
 {
     return [self open:targetClassName options:options complete:nil];
 }
 
-+ (BOOL)open:(NSString *)targetClassName
++ (BOOL)open:(__kindof NSString *)targetClassName
      options:(JKRouterOptions *)options
     complete:(void(^)(id result,NSError *error))completeBlock
 {
@@ -200,7 +200,7 @@ static JKRouter *defaultRouter =nil;
     }
 }
 
-+ (BOOL)openSpecifiedVC:(UIViewController *)vc
++ (BOOL)openSpecifiedVC:(__kindof UIViewController *)vc
                 options:(JKRouterOptions *)options
                complete:(void(^)(id result,NSError *error))completeBlock
 {
@@ -221,19 +221,19 @@ static JKRouter *defaultRouter =nil;
    return [self _transformVC:vc options:options complete:completeBlock];
 }
 
-+ (BOOL)URLOpen:(NSString *)url
++ (BOOL)URLOpen:(__kindof NSString *)url
 {
      return [self URLOpen:url extra:nil];
 }
 
-+ (BOOL)URLOpen:(NSString *)url
++ (BOOL)URLOpen:(__kindof NSString *)url
           extra:(NSDictionary *)extra
 {
     return [self URLOpen:url extra:extra complete:nil];
 }
 
-+ (BOOL)URLOpen:(NSString *)url
-          extra:(NSDictionary *)extra
++ (BOOL)URLOpen:(__kindof NSString *)url
+          extra:(__kindof NSDictionary *)extra
        complete:(void(^)(id result,NSError *error))completeBlock
 {
     if(!url){
@@ -351,7 +351,7 @@ static JKRouter *defaultRouter =nil;
 }
 
 + (BOOL)httpOpen:(NSURL *)url
-           extra:(NSDictionary *)extra
+           extra:(__kindof NSDictionary *)extra
         complete:(void(^)(id result,NSError *error))completeBlock
 {
     if ([JKRouterExtension isVerifiedOfBlackName:url.absoluteString]) {
@@ -391,8 +391,8 @@ static JKRouter *defaultRouter =nil;
     return NO;
 }
 
-+ (BOOL)jumpToSandBoxWeb:(NSString *)url
-                   extra:(NSDictionary *)extra
++ (BOOL)jumpToSandBoxWeb:(__kindof NSString *)url
+                   extra:(__kindof NSDictionary *)extra
                 complete:(void(^)(id result,NSError *error))completeBlock
 {
 
@@ -487,18 +487,18 @@ static JKRouter *defaultRouter =nil;
     [self popToSpecifiedVC:nil options:options complete:completeBlock];
 }
 
-+ (void)popToSpecifiedVC:(UIViewController *)vc
++ (void)popToSpecifiedVC:(__kindof UIViewController *)vc
 {
     [self popToSpecifiedVC:vc animated:YES];
 }
 
-+ (void)popToSpecifiedVC:(UIViewController *)vc
++ (void)popToSpecifiedVC:(__kindof UIViewController *)vc
                 animated:(BOOL)animated
 {
     [self popToSpecifiedVC:vc options:nil animated:YES];
 }
 
-+ (void)popToSpecifiedVC:(UIViewController *)vc
++ (void)popToSpecifiedVC:(__kindof UIViewController *)vc
                  options:(JKRouterOptions *)options
                 animated:(BOOL)animated
 {
@@ -509,7 +509,7 @@ static JKRouter *defaultRouter =nil;
     [self popToSpecifiedVC:vc options:options complete:nil];
 }
 
-+ (void)popToSpecifiedVC:(UIViewController *)vc
++ (void)popToSpecifiedVC:(__kindof UIViewController *)vc
                  options:(JKRouterOptions *)options
                 complete:(void(^)(id result,NSError *error))completeBlock
 {
@@ -560,12 +560,12 @@ static JKRouter *defaultRouter =nil;
     }
 }
 
-+ (void)popWithSpecifiedModuleID:(NSString *)moduleID
++ (void)popWithSpecifiedModuleID:(__kindof NSString *)moduleID
 {
     [self popWithSpecifiedModuleID:moduleID :YES];
 }
 
-+ (void)popWithSpecifiedModuleID:(NSString *)moduleID
++ (void)popWithSpecifiedModuleID:(__kindof NSString *)moduleID
                                 :(BOOL)animated
 {
     JKRouterOptions *options = [JKRouterOptions options];
@@ -573,7 +573,7 @@ static JKRouter *defaultRouter =nil;
     [self popWithSpecifiedModuleID:moduleID options:options complete:nil];
 }
 
-+ (void)popWithSpecifiedModuleID:(NSString *)moduleID
++ (void)popWithSpecifiedModuleID:(__kindof NSString *)moduleID
                          options:(JKRouterOptions *)options
                         complete:(void(^)(id result,NSError *error))completeBlock
 {
@@ -627,7 +627,7 @@ static JKRouter *defaultRouter =nil;
 
 #pragma mark  - - - - the tool functions - - - -
 
-+ (BOOL)replaceCurrentViewControllerWithTargetVC:(UIViewController *)targetVC
++ (BOOL)replaceCurrentViewControllerWithTargetVC:(__kindof UIViewController *)targetVC
 {
     UIViewController *currentVC = [JKRouter sharedRouter].topVC;
     if (!currentVC.navigationController) {
@@ -700,7 +700,7 @@ static JKRouter *defaultRouter =nil;
    return [self _transformVC:vc options:options complete:completeBlock];
 }
 
-+ (BOOL)_transformVC:(UIViewController *)vc
++ (BOOL)_transformVC:(__kindof UIViewController *)vc
              options:(JKRouterOptions *)options
             complete:(void(^)(id result,NSError *error))completeBlock
 {
@@ -734,7 +734,7 @@ static JKRouter *defaultRouter =nil;
     return NO;
 }
 
-+ (BOOL)_openWithPushStyle:(UIViewController *)vc
++ (BOOL)_openWithPushStyle:(__kindof UIViewController *)vc
                    options:(JKRouterOptions *)options
                   complete:(void(^)(id result,NSError *error))completeBlock
 {
@@ -792,12 +792,14 @@ static JKRouter *defaultRouter =nil;
     return NO;
 }
 
-+ (BOOL)_openWithPresentStyle:(UIViewController *)vc
++ (BOOL)_openWithPresentStyle:(__kindof UIViewController *)vc
                       options:(JKRouterOptions *)options
                      complete:(void(^)(id result,NSError *error))completeBlock
 {
     if (options.createStyle == RouterCreateStyleNewWithNaVC) {
+        
         UINavigationController *naVC = [JKRouterExtension jkNaVCInitWithRootVC:vc];
+        naVC.modalPresentationStyle = UIModalPresentationFullScreen;
         naVC.isPresented = YES;
         [[JKRouter sharedRouter].topVC presentViewController:naVC animated:options.animated completion:nil];
         if (completeBlock) {
@@ -805,6 +807,7 @@ static JKRouter *defaultRouter =nil;
         }
         return YES;
     }else{
+        vc.modalPresentationStyle = UIModalPresentationFullScreen;
       [[JKRouter sharedRouter].topVC presentViewController:vc animated:options.animated completion:nil];
         if (completeBlock) {
             completeBlock(nil,nil);
@@ -814,7 +817,7 @@ static JKRouter *defaultRouter =nil;
     return NO;
 }
 
-+ (BOOL)_openWithOtherStyle:(UIViewController *)vc
++ (BOOL)_openWithOtherStyle:(__kindof UIViewController *)vc
                     options:(JKRouterOptions *)options
                    complete:(void(^)(id result,NSError *error))completeBlock
 {
@@ -830,7 +833,7 @@ static JKRouter *defaultRouter =nil;
 }
 
 //找到topVC
-- (UIViewController *)_findTopVC:(UIViewController *)vc
+- (__kindof UIViewController *)_findTopVC:(__kindof UIViewController *)vc
 {
     UIViewController *tmpVC = vc;
     while ([tmpVC isKindOfClass:[UINavigationController class]]) {
@@ -845,7 +848,7 @@ static JKRouter *defaultRouter =nil;
 }
 
 //找到topVC前的一个vc
-- (UIViewController *)_findLastTopVC:(UIViewController *)vc lastTopVC:(UIViewController *)lastTopVC
+- (__kindof UIViewController *)_findLastTopVC:(__kindof UIViewController *)vc lastTopVC:(__kindof UIViewController *)lastTopVC
 {
     UIViewController *tmpVC = vc;
     while ([tmpVC isKindOfClass:[UINavigationController class]]) {
@@ -864,7 +867,7 @@ static JKRouter *defaultRouter =nil;
     return lastTopVC;
 }
 
-+ (BOOL)_isRouterContainVC:(UIViewController *)vc
++ (BOOL)_isRouterContainVC:(__kindof UIViewController *)vc
 {
     UIViewController *rootVC = [UIApplication sharedApplication].delegate.window.rootViewController;
     UIViewController *tmpVC = rootVC;
@@ -878,7 +881,7 @@ static JKRouter *defaultRouter =nil;
     return [self _isEqualFromVC:tmpVC targetVC:vc];
 }
 
-+ (UIViewController *)_findVCWithModuleID:(NSString *)moduleID
++ (__kindof UIViewController *)_findVCWithModuleID:(__kindof NSString *)moduleID
 {
     UIViewController *rootVC = [UIApplication sharedApplication].delegate.window.rootViewController;
     UIViewController *tmpVC = rootVC;
@@ -917,7 +920,7 @@ static JKRouter *defaultRouter =nil;
 }
 
 //通过递归比较router里面是否存在和targetVC相同的vc，从tmpVC开始递归
-+ (BOOL)_isEqualFromVC:(UIViewController *)tmpVC targetVC:(UIViewController *)targetVC
++ (BOOL)_isEqualFromVC:(__kindof UIViewController *)tmpVC targetVC:(__kindof UIViewController *)targetVC
 {
     if ([tmpVC isEqual:targetVC]) {
         return YES;
@@ -940,7 +943,7 @@ static JKRouter *defaultRouter =nil;
 }
 
 //通过递归从tmpVC开始根据moduleID找到对应的vc
-+ (UIViewController *)_getTargetVCFromVC:(UIViewController *)tmpVC moduleID:(NSString *)moduleID
++ (__kindof UIViewController *)_getTargetVCFromVC:(__kindof UIViewController *)tmpVC moduleID:(__kindof NSString *)moduleID
 {
     if (tmpVC.moduleID && [tmpVC.moduleID isKindOfClass:[NSString class]] && tmpVC.moduleID.length >0 && [tmpVC.moduleID isEqualToString:moduleID]) {
         return tmpVC;
@@ -962,7 +965,7 @@ static JKRouter *defaultRouter =nil;
     return nil;
 }
 
-+ (UIViewController *)_getTargetVCFromVC:(UIViewController *)tmpVC originStep:(NSUInteger)originStep step:(NSUInteger)step
++ (__kindof UIViewController *)_getTargetVCFromVC:(__kindof UIViewController *)tmpVC originStep:(NSUInteger)originStep step:(NSUInteger)step
 {
     while ([tmpVC isKindOfClass:[UINavigationController class]]) {
         UINavigationController *naVC = (UINavigationController *)tmpVC;
@@ -985,7 +988,7 @@ static JKRouter *defaultRouter =nil;
 }
 
 //获取从tmpVC到当前vc正常open操作需要的次数
-- (NSUInteger)_getTotalStepFromVC:(UIViewController *)tmpVC originSteps:(NSUInteger)originSteps
+- (NSUInteger)_getTotalStepFromVC:(__kindof UIViewController *)tmpVC originSteps:(NSUInteger)originSteps
 {
     NSUInteger totalSteps = originSteps;
     while ([tmpVC isKindOfClass:[UINavigationController class]]) {

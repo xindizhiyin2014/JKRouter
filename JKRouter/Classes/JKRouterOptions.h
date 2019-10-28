@@ -41,7 +41,7 @@
  @param moduleID 模块的ID
  @return RouterOptions 实例对象
  */
-+ (instancetype)optionsWithModuleID:(NSString *)moduleID;
++ (instancetype)optionsWithModuleID:(__kindof NSString *)moduleID;
 
 /**
  创建单独配置的options对象,其余的是默认配置
@@ -49,7 +49,7 @@
  @param params 跳转时传入的参数
  @return RouterOptions 实例对象
  */
-+ (instancetype)optionsWithDefaultParams:(NSDictionary *)params;
++ (instancetype)optionsWithDefaultParams:(__kindof NSDictionary *)params;
 
 /**
  创建options对象，并配置转场方式
@@ -73,6 +73,6 @@
  @param params 跳转时传入的参数
  @return RouterOptions 实例对象
  */
-- (instancetype)optionsWithDefaultParams:(NSDictionary *)params;
+- (instancetype)optionsWithDefaultParams:(__kindof NSDictionary *)params;
 
 @end

@@ -37,14 +37,14 @@
  @param routerFileNames  router的配置信息
  */
 
-+ (void)configWithRouterFiles:(NSArray<NSString *> *)routerFileNames;
++ (void)configWithRouterFiles:(__kindof NSArray<NSString *> *)routerFileNames;
 
 /**
  更新路由信息
 
  @param filePath 路由配置信息的文件在沙盒中的路径
  */
-+ (void)updateRouterInfoWithFilePath:(NSString*)filePath;
++ (void)updateRouterInfoWithFilePath:(__kindof NSString*)filePath;
 
 /**
  默认打开方式
@@ -52,7 +52,7 @@
  @param targetClassName 跳转的target类名
  @return 跳转成功与否的状态
  */
-+ (BOOL)open:(NSString *)targetClassName;
++ (BOOL)open:(__kindof NSString *)targetClassName;
 
 /**
  打开页面，一般由native开发者使用
@@ -61,8 +61,8 @@
  @param params 参数
  @return 跳转成功与否的状态
  */
-+ (BOOL)open:(NSString *)targetClassName
-      params:(NSDictionary *)params;
++ (BOOL)open:(__kindof NSString *)targetClassName
+      params:(__kindof NSDictionary *)params;
 
 /**
  根据options的设置进行跳转
@@ -71,7 +71,7 @@
  @param options 跳转的各种设置
  @return 跳转成功与否的状态
  */
-+ (BOOL)open:(NSString *)targetClassName
++ (BOOL)open:(__kindof NSString *)targetClassName
      options:(JKRouterOptions *)options;
 
 /**
@@ -83,7 +83,7 @@
  @param completeBlock 跳转成功后的回调,或者失败的原因
  @return 跳转成功与否的状态
  */
-+ (BOOL)open:(NSString *)targetClassName
++ (BOOL)open:(__kindof NSString *)targetClassName
      options:(JKRouterOptions *)options
     complete:(void(^)(id result,NSError *error))completeBlock;
 
@@ -117,7 +117,7 @@
  @param completeBlock 跳转成功后的回调,或者失败的原因
  @return 跳转成功与否的状态
  */
-+ (BOOL)openSpecifiedVC:(UIViewController *)vc
++ (BOOL)openSpecifiedVC:(__kindof UIViewController *)vc
                 options:(JKRouterOptions *)options
                complete:(void(^)(id result,NSError *error))completeBlock;
 
@@ -129,7 +129,7 @@
  @return 跳转或者操作成功与否的状态
 
  */
-+ (BOOL)URLOpen:(NSString *)url;
++ (BOOL)URLOpen:(__kindof NSString *)url;
 
 /**
  遵守用户指定协议的跳转
@@ -139,8 +139,8 @@
  @param extra 额外传入的参数,注：extra内的参数可以改变web容器的属性
  @return 跳转或者操作成功与否的状态
  */
-+ (BOOL)URLOpen:(NSString *)url
-          extra:(NSDictionary *)extra;
++ (BOOL)URLOpen:(__kindof NSString *)url
+          extra:(__kindof NSDictionary *)extra;
 
 /**
  遵守用户指定协议的跳转
@@ -151,8 +151,8 @@
  @param completeBlock 跳转成功后的回调,或者失败的原因
  @return 跳转或者操作成功与否的状态
  */
-+ (BOOL)URLOpen:(NSString *)url
-          extra:(NSDictionary *)extra
++ (BOOL)URLOpen:(__kindof NSString *)url
+          extra:(__kindof NSDictionary *)extra
        complete:(void(^)(id result,NSError *error))completeBlock;
 
 /**
@@ -187,7 +187,7 @@
  默认animated为YES，如果需要 dismiss，也会执行
  @param vc 指定的vc对象
  */
-+ (void)popToSpecifiedVC:(UIViewController *)vc;
++ (void)popToSpecifiedVC:(__kindof UIViewController *)vc;
 
 /**
  pop到指定的页面
@@ -195,7 +195,7 @@
  @param vc 指定的vc对象
  @param animated 是否有动画
  */
-+ (void)popToSpecifiedVC:(UIViewController *)vc
++ (void)popToSpecifiedVC:(__kindof UIViewController *)vc
                 animated:(BOOL)animated;
 /**
  pop到指定的页面
@@ -205,7 +205,7 @@
  @param completeBlock 完成操作后的回调
 
  */
-+ (void)popToSpecifiedVC:(UIViewController *)vc
++ (void)popToSpecifiedVC:(__kindof UIViewController *)vc
                  options:(JKRouterOptions *)options
                 complete:(void(^)(id result,NSError *error))completeBlock;
 
@@ -214,7 +214,7 @@
 
  @param moduleID 指定要返回的moduleID
  */
-+ (void)popWithSpecifiedModuleID:(NSString *)moduleID;
++ (void)popWithSpecifiedModuleID:(__kindof NSString *)moduleID;
 
 /**
   根据moduleID pop回指定的模块
@@ -222,7 +222,7 @@
  @param moduleID 指定要返回的moduleID
  @param animated 是否有动画
  */
-+ (void)popWithSpecifiedModuleID:(NSString *)moduleID
++ (void)popWithSpecifiedModuleID:(__kindof NSString *)moduleID
                                 :(BOOL)animated;
 /**
  根据moduleID pop回指定的模块
@@ -231,7 +231,7 @@
  @param options 跳转的各种设置
  @param completeBlock 完成操作后的回调
  */
-+ (void)popWithSpecifiedModuleID:(NSString *)moduleID
++ (void)popWithSpecifiedModuleID:(__kindof NSString *)moduleID
                  options:(JKRouterOptions *)options
                 complete:(void(^)(id result,NSError *error))completeBlock;
 
@@ -285,7 +285,7 @@
 
  @param targetVC 目标viewController
  */
-+ (BOOL)replaceCurrentViewControllerWithTargetVC:(UIViewController *)targetVC;
++ (BOOL)replaceCurrentViewControllerWithTargetVC:(__kindof UIViewController *)targetVC;
 
 /**
  更新次顶部视图
