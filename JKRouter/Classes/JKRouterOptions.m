@@ -25,6 +25,7 @@
 {
     JKRouterOptions *options = [JKRouterOptions new];
     options.transformStyle = RouterTransformVCStyleDefault;
+    options.presentStyle = UIModalPresentationFullScreen;
     options.animated = YES;
     return options;
 }

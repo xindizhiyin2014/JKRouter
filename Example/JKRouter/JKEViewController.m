@@ -31,6 +31,15 @@
     [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [button addTarget:self action:@selector(clickToBack) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
+    
+    UIButton *button1 =  [UIButton new];
+    button1.backgroundColor = [UIColor redColor];
+    button1.frame = CGRectMake(0, 0, 120, 30);
+    button1.center = CGPointMake(100, 150);
+    [button1 setTitle:@"sendLastTopVCMsg" forState:UIControlStateNormal];
+    [button1 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [button1 addTarget:self action:@selector(sendLastTopVCMsg) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button1];
 }
 
 
@@ -38,6 +47,11 @@
 -(void)clickToBack{
     
     [JKRouter pop];
+}
+
+- (void)sendLastTopVCMsg
+{
+    [JKRouter sendMsgToLastTopVC:@{@"mm":@"hello"} complete:nil];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

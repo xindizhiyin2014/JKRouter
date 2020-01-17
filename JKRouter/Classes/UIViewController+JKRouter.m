@@ -62,6 +62,13 @@ static const void *moduleIDKey = &moduleIDKey;
     return RouterTransformVCStylePush;
 }
 
+
+- (void)jkReceiveTopVCMsg:(nullable NSDictionary *)msg
+                 complete:(nullable void(^)(id _Nullable result))complete
+{
+    
+}
+
 -(void)setValue:(id)value forUndefinedKey:(__kindof NSString *)key
 {
     

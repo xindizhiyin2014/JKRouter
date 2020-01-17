@@ -7,25 +7,11 @@
 //
 
 #import "NSArray+JKDataHelper.h"
-#import "JKDataHelperMacro.h"
-#import "NSObject+JK.h"
 
 @implementation NSArray (JKDataHelper)
-#ifdef JKDataHelperDebug
 
-+ (void)load{
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        Class targetClass = NSClassFromString(@"__NSArrayI");
-        [self JKswizzleMethod:@selector(objectAtIndex:) withMethod:@selector(JKsafeObjectAtIndex:) withClass:targetClass];
-        [self JKswizzleMethod:@selector(objectAtIndexedSubscript:) withMethod:@selector(JKsafeObjectAtIndexedSubscript:) withClass:targetClass];
-         [self JKswizzleMethod:@selector(initWithObjects:count:) withMethod:@selector(JKsafeInitWithObjects:count:) withClass:NSClassFromString(@"__NSPlaceholderArray")];
-    });
-}
-
-#endif
-
--(id)jk_objectWithIndex:(NSInteger)index{
+- (nullable id)jk_objectWithIndex:(NSInteger)index
+{
     
     if (index < 0) {
         return nil;
@@ -36,7 +22,27 @@
     return nil;
 }
 
-- (NSString*)jk_stringWithIndex:(NSInteger)index{
+- (nullable id)jk_objectWithIndex:(NSInteger)index
+                      verifyClass:(nullable Class)theClass
+{
+    if (!theClass) {
+        return [self jk_objectWithIndex:index];
+    }
+ if (![theClass isSubclassOfClass:[NSObject class]]) {
+#if DEBUG
+        NSAssert(NO, @"theClass must be subClass of NSObject");
+#endif
+        return nil;
+    }
+    id object = [self jk_objectWithIndex:index];
+    if ([object isKindOfClass: theClass]) {
+        return object;
+    }
+    return nil;
+}
+
+- (nullable NSString*)jk_stringWithIndex:(NSInteger)index
+{
     
     id value = [self jk_objectWithIndex:index];
     if (value == nil || value == [NSNull null] || [[value description] isEqualToString:@"<null>"] || [[value description] isEqualToString:@"(null)"])
@@ -52,7 +58,7 @@
     return nil;
 }
 
-- (NSNumber*)jk_numberWithIndex:(NSInteger)index{
+- (nullable NSNumber*)jk_numberWithIndex:(NSInteger)index{
     
     id value = [self jk_objectWithIndex:index];
     if ([value isKindOfClass:[NSNumber class]]) {
@@ -66,7 +72,7 @@
     return nil;
 }
 
-- (NSDecimalNumber *)jk_decimalNumberWithIndex:(NSInteger)index{
+- (nullable NSDecimalNumber *)jk_decimalNumberWithIndex:(NSInteger)index{
     
     id value = [self jk_objectWithIndex:index];
     if ([value isKindOfClass:[NSDecimalNumber class]]) {
@@ -83,7 +89,7 @@
     return nil;
 }
 
-- (NSArray*)jk_arrayWithIndex:(NSInteger)index{
+- (nullable NSArray*)jk_arrayWithIndex:(NSInteger)index{
     
     id value = [self jk_objectWithIndex:index];
     if (value == nil || value == [NSNull null])
@@ -97,7 +103,7 @@
     return nil;
 }
 
-- (NSDictionary*)jk_dictionaryWithIndex:(NSInteger)index{
+- (nullable NSDictionary*)jk_dictionaryWithIndex:(NSInteger)index{
     
     id value = [self jk_objectWithIndex:index];
     if (value == nil || value == [NSNull null])
@@ -268,7 +274,8 @@
     return 0;
 }
 
-- (NSDate *)jk_dateWithIndex:(NSInteger)index dateFormat:(NSString *)dateFormat {
+- (nullable NSDate *)jk_dateWithIndex:(NSInteger)index
+                           dateFormat:(nonnull NSString *)dateFormat {
     
     id value = [self jk_objectWithIndex:index];
     if (value == nil || value == [NSNull null])
@@ -283,7 +290,7 @@
     return nil;
 }
 
-- (NSMutableArray *)jk_valueArrayWithKey:(NSString *)key{
+- (nonnull NSMutableArray *)jk_valueArrayWithKey:(NSString *)key{
     if (!key) {
         NSAssert(NO, @"key can not be nil");
     }
@@ -298,7 +305,7 @@
     return values;
 }
 
-- (NSMutableArray *)jk_ascSort{
+- (nonnull NSMutableArray *)jk_ascSort{
     NSMutableArray *array = (NSMutableArray *)self;
     if (![self isKindOfClass:[NSMutableArray class]]) {
         array = [NSMutableArray arrayWithArray:self];
@@ -309,7 +316,7 @@
     return array;
 }
 
-- (NSMutableArray *)jk_descSort{
+- (nonnull NSMutableArray *)jk_descSort{
     NSMutableArray *array = (NSMutableArray *)self;
     if (![self isKindOfClass:[NSMutableArray class]]) {
         array = [NSMutableArray arrayWithArray:self];
@@ -340,41 +347,6 @@
     CGRect rect = CGRectFromString(value);
     return rect;
 }
-
-#ifdef JKDataHelperDebug
-
-- (id)JKsafeObjectAtIndex:(NSInteger)index{
-    if (index >=0 && index < self.count) {
-        return [self JKsafeObjectAtIndex:index];
-    }else{
-        JKDataHelperLog(@"[__NSArrayI objectAtIndex:] index is greater than the array.count or the index is less than zero");
-        return nil;
-    }
-}
-
-- (id)JKsafeObjectAtIndexedSubscript:(NSInteger)index{
-    if (index >=0 && index < self.count) {
-        return [self JKsafeObjectAtIndex:index];
-    }else{
-        JKDataHelperLog(@"[__NSArrayI objectAtIndexedSubscript:] index is greater than the array.count or the index is less than zero");
-        return nil;
-    }
-}
-
-
-- (instancetype)JKsafeInitWithObjects:(int **)objects count:(NSInteger)count{
-    for (int i=0; i<count; i++) {
-        if (!objects[i]) {
-            JKDataHelperLog(@"%@", [NSString stringWithFormat:@"[__NSPlaceholderArray initWithObjects:count:]: attempt to insert nil to objects[%d]",i]);
-            return nil;
-        }
-    }
-    return [self JKsafeInitWithObjects:objects count:count];
-}
-
-#endif
-
-
 
 
 @end

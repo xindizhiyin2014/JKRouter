@@ -60,6 +60,12 @@
  */
 - (RouterTransformVCStyle)jkRouterTransformStyle;
 
+/// 接受JKRouter topVC发送的消息
+/// @param msg 消息
+/// @param complete 回调
+- (void)jkReceiveTopVCMsg:(nullable NSDictionary *)msg
+                     complete:(nullable void(^)(id _Nullable result))complete;
+
 /**
  刷新数据
  */

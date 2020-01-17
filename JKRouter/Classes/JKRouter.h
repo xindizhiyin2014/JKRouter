@@ -287,12 +287,11 @@
  */
 + (BOOL)replaceCurrentViewControllerWithTargetVC:(__kindof UIViewController *)targetVC;
 
-/**
- 更新次顶部视图
+/// 向前一个页面传递数据
+/// @param msg msg
+/// @param complete 回调
++ (void)sendMsgToLastTopVC:(nullable NSDictionary *)msg
+                  complete:(nullable void(^)(id _Nullable result))complete;
 
- @param options 配置信息
- @return 更新成功与否的状态
- */
-+ (BOOL)updateLastTopVC:(JKRouterOptions *)options;
 
 @end

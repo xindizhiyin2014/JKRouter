@@ -654,14 +654,11 @@ static JKRouter *defaultRouter =nil;
     
 }
 
-+ (BOOL)updateLastTopVC:(JKRouterOptions *)options
++ (void)sendMsgToLastTopVC:(nullable NSDictionary *)msg
+                  complete:(nullable void(^)(id _Nullable result))complete
 {
-    UIViewController *lastTopVC = [JKRouter sharedRouter].lastTopVC;
-    if (lastTopVC) {
-        [JKRouterTool configTheVC:lastTopVC options:options];
-        return YES;
-    }
-    return NO;
+ UIViewController *lastTopVC = [JKRouter sharedRouter].lastTopVC;
+    [lastTopVC jkReceiveTopVCMsg:msg complete:complete];
 }
 
 //根据相关的options配置，进行跳转
@@ -799,7 +796,7 @@ static JKRouter *defaultRouter =nil;
     if (options.createStyle == RouterCreateStyleNewWithNaVC) {
         
         UINavigationController *naVC = [JKRouterExtension jkNaVCInitWithRootVC:vc];
-        naVC.modalPresentationStyle = UIModalPresentationFullScreen;
+        naVC.modalPresentationStyle = options.presentStyle;
         naVC.isPresented = YES;
         [[JKRouter sharedRouter].topVC presentViewController:naVC animated:options.animated completion:nil];
         if (completeBlock) {
@@ -807,7 +804,7 @@ static JKRouter *defaultRouter =nil;
         }
         return YES;
     }else{
-        vc.modalPresentationStyle = UIModalPresentationFullScreen;
+        vc.modalPresentationStyle =  options.presentStyle;
       [[JKRouter sharedRouter].topVC presentViewController:vc animated:options.animated completion:nil];
         if (completeBlock) {
             completeBlock(nil,nil);
@@ -848,7 +845,8 @@ static JKRouter *defaultRouter =nil;
 }
 
 //找到topVC前的一个vc
-- (__kindof UIViewController *)_findLastTopVC:(__kindof UIViewController *)vc lastTopVC:(__kindof UIViewController *)lastTopVC
+- (__kindof UIViewController *)_findLastTopVC:(__kindof UIViewController *)vc
+                                    lastTopVC:(__kindof UIViewController *)lastTopVC
 {
     UIViewController *tmpVC = vc;
     while ([tmpVC isKindOfClass:[UINavigationController class]]) {

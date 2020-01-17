@@ -16,38 +16,64 @@
 
 static NSString * const JKRouterErrorDomain = @"JKRouterError";
 
+/// ViewController的转场方式
 typedef NS_ENUM(NSInteger,RouterTransformVCStyle){
-    RouterTransformVCStyleDefault =-1, ///< 不指定转场方式，使用自带的转场方式
-    RouterTransformVCStylePush,        ///< push方式转场
-    RouterTransformVCStylePresent,     ///< present方式转场
-    RouterTransformVCStyleOther        ///< 用户自定义方式转场
-};///< ViewController的转场方式
+    /// 不指定转场方式，使用自带的转场方式
+    RouterTransformVCStyleDefault = -1,
+    /// push方式转场
+    RouterTransformVCStylePush,
+    /// present方式转场
+    RouterTransformVCStylePresent,
+    /// 用户自定义方式转场
+    RouterTransformVCStyleOther
+};
 
+/// ViewController的创建方式
 typedef NS_ENUM(NSInteger,RouterCreateStyle) {
-    RouterCreateStyleNew,               ///< 默认创建方式，创建一个新的ViewController对象
-    RouterCreateStyleReplace,           ///< 创建一个新的ViewController对象，然后替换navigationController当前的viewController
-    RouterCreateStyleRefresh,           ///<  当前的viewController就是目标viewController就不创建，而是执行相关的刷新操作。如果当前的viewController不是目标viewController就执行创建操作
-    RouterCreateStyleNewWithNaVC        ///< 用于present转场时目标present的目标是VC也有导航栏
+    /// 默认创建方式，创建一个新的ViewController对象
+    RouterCreateStyleNew,
+    /// 创建一个新的ViewController对象，然后替换navigationController当前的viewController
+    RouterCreateStyleReplace,
+    /// 当前的viewController就是目标viewController就不创建，而是执行相关的刷新操作。如果当前的viewController不是目标viewController就执行创建操作
+    RouterCreateStyleRefresh,
+    /// 用于present转场时目标present的目标是VC也有导航栏
+    RouterCreateStyleNewWithNaVC
     
-};///< ViewController的创建方式
+};
 
 typedef NS_ENUM(NSInteger,JKRouterError) {
-  JKRouterErrorClassNameIsNil = 10000,          ///< className is nil
-  JKRouterErrorClassNil,                        ///< class is nil
-  JKRouterErrorURLIsNil,                        ///< url is nil
-  JKRouterErrorSandBoxPathIsNil,                ///< sandboxPath is nil
-  JKRouterErrorSystemUnSupportURL,              ///< system unsupport this url
-  JKRouterErrorSystemUnSupportURLScheme,        ///< JKRouter unsupport this scheme
-  JKRouterErrorUnSupportAction,                 ///< unsupport this action
-  JKRouterErrorNORightToAccess,                 ///< no right to access
-  JKRouterErrorUnSupportTransform,              ///< unsupport this transform
-  JKRouterErrorUnSupportSwitchTabBar,           ///< unsupport switch tabbar
-  JKRouterErrorBlackNameURL,                    ///< url is in blackName list
-  JKRouterErrorUnSupportPushTransform,          ///< unsupport push transform
-  JKRouterErrorUnSupportReplaceTransform,       ///< unsupport replace transform
-  JKRouterErrorUnSupportPopAtcion,              ///< unsupport pop action
-  JKRouterErrorUnSupportRouterClass,            ///< unsuport class in JKRouter
-  JKRouterErrorNoVCInRouter,                    ///< the vc is not contained in Router
+  /// className is nil
+  JKRouterErrorClassNameIsNil = 10000,
+  /// class is nil
+  JKRouterErrorClassNil,
+  /// url is nil
+  JKRouterErrorURLIsNil,
+  /// sandboxPath is nil
+  JKRouterErrorSandBoxPathIsNil,
+  /// system unsupport this url
+  JKRouterErrorSystemUnSupportURL,
+  /// JKRouter unsupport this scheme
+  JKRouterErrorSystemUnSupportURLScheme,
+  /// unsupport this action
+  JKRouterErrorUnSupportAction,
+  /// no right to access
+  JKRouterErrorNORightToAccess,
+  /// unsupport this transform
+  JKRouterErrorUnSupportTransform,
+  /// unsupport switch tabbar
+  JKRouterErrorUnSupportSwitchTabBar,
+  /// url is in blackName list
+  JKRouterErrorBlackNameURL,
+  /// unsupport push transform
+  JKRouterErrorUnSupportPushTransform,
+  /// unsupport replace transform
+  JKRouterErrorUnSupportReplaceTransform,
+  /// unsupport pop action
+  JKRouterErrorUnSupportPopAtcion,
+  /// unsuport class in JKRouter
+  JKRouterErrorUnSupportRouterClass,
+  /// the vc is not contained in Router
+  JKRouterErrorNoVCInRouter,
 
 };
 

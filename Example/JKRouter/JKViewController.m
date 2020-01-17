@@ -326,6 +326,11 @@
 //    NSLog(@"testString :%@",self.testString);
 }
 
+- (void)jkReceiveTopVCMsg:(NSDictionary *)msg complete:(void (^)(id _Nullable))complete
+{
+    NSLog(@"AAA %@",msg);
+}
+
 
 
 - (void)didReceiveMemoryWarning

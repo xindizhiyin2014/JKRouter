@@ -11,11 +11,8 @@
 #endif
 
 #import "JKDataHelper.h"
-#import "JKDataHelperMacro.h"
 #import "NSArray+JKDataHelper.h"
 #import "NSDictionary+JKDataHelper.h"
-#import "NSMutableArray+JKDataHelper.h"
-#import "NSObject+JK.h"
 #import "NSString+JKDataHelper.h"
 
 FOUNDATION_EXPORT double JKDataHelperVersionNumber;
