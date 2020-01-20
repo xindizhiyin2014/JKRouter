@@ -7,6 +7,7 @@
 //
 
 #import "JKEViewController.h"
+#import <JKRouter/JKRouter.h>
 
 @interface JKEViewController ()
 
@@ -51,7 +52,7 @@
 
 - (void)sendLastTopVCMsg
 {
-    [JKRouter sendMsgToLastTopVC:@{@"mm":@"hello"} complete:nil];
+    [self jkSendMsgToPreVC:@{@"mm":@"hello"}];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

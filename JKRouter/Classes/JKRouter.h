@@ -16,6 +16,7 @@
 //*           JKRouter类
 //*
 //***********************************************************************************
+NS_ASSUME_NONNULL_BEGIN
 
 @interface JKRouter : NSObject
 
@@ -287,11 +288,7 @@
  */
 + (BOOL)replaceCurrentViewControllerWithTargetVC:(__kindof UIViewController *)targetVC;
 
-/// 向前一个页面传递数据
-/// @param msg msg
-/// @param complete 回调
-+ (void)sendMsgToLastTopVC:(nullable NSDictionary *)msg
-                  complete:(nullable void(^)(id _Nullable result))complete;
-
-
 @end
+
+NS_ASSUME_NONNULL_END
+

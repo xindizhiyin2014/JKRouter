@@ -10,6 +10,7 @@
 #import "UINavigationController+JKRouter.h"
 #import "JKRouterTool.h"
 #import "JKRouterExtension.h"
+#import <objc/runtime.h>
 
 //**********************************************************************************
 //*
@@ -18,23 +19,25 @@
 //**********************************************************************************
 
 @interface JKRouter()
-
-@property (nonatomic, strong, readwrite) NSMutableSet * modules;               ///< 存储路由，moduleID信息，权限配置信息
-@property (nonatomic, copy) NSArray<NSString *> *routerFileNames;              ///< 路由配置信息的json文件名数组
-
-@property (nonatomic, strong) NSSet *urlSchemes;                               ///< 支持的URL协议集合
-
-@property (nonatomic, copy) NSString *remoteFilePath;                          ///< 从网络上下载的路由配置信息的json文件保存在沙盒中的路径
+/// 存储路由，moduleID信息，权限配置信息
+@property (nonatomic, strong, readwrite) NSMutableSet * modules;
+/// 路由配置信息的json文件名数组
+@property (nonatomic, copy) NSArray<NSString *> *routerFileNames;
+/// 支持的URL协议集合
+@property (nonatomic, strong) NSSet *urlSchemes;
+/// 从网络上下载的路由配置信息的json文件保存在沙盒中的路径
+@property (nonatomic, copy) NSString *remoteFilePath;
 @property (nonatomic, strong) NSLock *lock;
-@property (nonatomic, weak, readwrite) UIViewController *topVC;                ///< app的最顶部的控制器
-@property (nonatomic, weak) UIViewController *lastTopVC;                       ///< app次顶部的控制器
-@property (nonatomic, assign) NSUInteger totalSteps;                           ///< 从rootVC到topVC正常情况总共需要open几次
+/// app的最顶部的控制器
+@property (nonatomic, weak, readwrite) UIViewController *topVC;
+/// app次顶部的控制器
+@property (nonatomic, weak) UIViewController *lastTopVC;
+/// 从rootVC到topVC正常情况总共需要open几次
+@property (nonatomic, assign) NSUInteger totalSteps;
 
 @end
 
 @implementation JKRouter
-
-static JKRouter *defaultRouter =nil;
 
 /**
  初始化单例
@@ -43,6 +46,7 @@ static JKRouter *defaultRouter =nil;
  */
 + (instancetype)sharedRouter
 {
+    static JKRouter *defaultRouter =nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         defaultRouter = [[self alloc] init];
@@ -654,12 +658,6 @@ static JKRouter *defaultRouter =nil;
     
 }
 
-+ (void)sendMsgToLastTopVC:(nullable NSDictionary *)msg
-                  complete:(nullable void(^)(id _Nullable result))complete
-{
- UIViewController *lastTopVC = [JKRouter sharedRouter].lastTopVC;
-    [lastTopVC jkReceiveTopVCMsg:msg complete:complete];
-}
 
 //根据相关的options配置，进行跳转
 + (BOOL)routerViewControllerWithClass:(Class)vcClass
@@ -670,6 +668,7 @@ static JKRouter *defaultRouter =nil;
     if (![vcClass isSubclassOfClass:[UIViewController class]]) {
         if ([vcClass respondsToSelector:@selector(jkRouterFactoryViewControllerWithJSON:)]) {
             vc = [vcClass jkRouterFactoryViewControllerWithJSON:options.defaultParams];
+            [self bindVC:vc receiveMsgBlock:options.jk_receiveMsgBlock];
             vcClass = [vc class];
         }else{
             NSError *error = [[NSError alloc] initWithDomain:JKRouterErrorDomain code:JKRouterErrorUnSupportRouterClass userInfo:@{@"msg":@"do not support the class in JKRouter"}];
@@ -688,9 +687,11 @@ static JKRouter *defaultRouter =nil;
     }
     if (options.createStyle == RouterCreateStyleRefresh) {
         vc = [JKRouter sharedRouter].topVC;
+        [self bindVC:vc receiveMsgBlock:options.jk_receiveMsgBlock];
     } else {
         if (!vc) {
             vc = [vcClass jkRouterViewControllerWithJSON:options.defaultParams];
+            [self bindVC:vc receiveMsgBlock:options.jk_receiveMsgBlock];
         }
     }
     
@@ -1000,6 +1001,18 @@ static JKRouter *defaultRouter =nil;
         [self _getTotalStepFromVC:tmpVC originSteps:totalSteps];
     }
     return totalSteps;
+}
+
++ (void)bindVC:(__kindof UIViewController *)vc
+receiveMsgBlock:(void(^)(id data))receiveMsgBlock
+{
+    if (!receiveMsgBlock) {
+        return;
+    }
+    void(^block)(id data) = objc_getAssociatedObject(vc, JKRouterViewControllerReceiveMsgBlockKey);
+    if (!block) {
+        objc_setAssociatedObject(vc, JKRouterViewControllerReceiveMsgBlockKey, receiveMsgBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
+    }
 }
 
 @end

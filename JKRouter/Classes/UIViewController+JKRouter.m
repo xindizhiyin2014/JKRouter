@@ -94,5 +94,13 @@ static const void *moduleIDKey = &moduleIDKey;
     return 0;
 }
 
+- (void)jkSendMsgToPreVC:(nullable NSDictionary *)msg
+{
+    void(^receiveMsgBlock)(id data) = objc_getAssociatedObject(self, JKRouterViewControllerReceiveMsgBlockKey);
+      if (receiveMsgBlock) {
+          receiveMsgBlock(msg);
+      }
+}
+
 
 @end

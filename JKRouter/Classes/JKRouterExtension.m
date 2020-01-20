@@ -10,6 +10,8 @@
 #import "JKRouterTool.h"
 #import "JKJSONHandler.h"
 #import "JKRouterEmptyObject.h"
+#import <objc/runtime.h>
+
 
 @implementation JKRouterExtension
 

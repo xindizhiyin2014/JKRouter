@@ -7,12 +7,16 @@
 
 #import <Foundation/Foundation.h>
 #import "JKRouterHeader.h"
+
 //***************************************************************
 //*
 //*           RouterOptions类
 //*           配置跳转时的各种设置
 //***************************************************************
 
+NS_ASSUME_NONNULL_BEGIN
+
+static const void *JKRouterViewControllerReceiveMsgBlockKey = "JKRouterViewControllerReceiveMsgBlockKey"; /// viewController 绑定block的key
 @interface JKRouterOptions : NSObject
 
 /// 转场方式
@@ -33,8 +37,11 @@
 @property (nonatomic,copy) NSString *module;
 
 //这个传入的参数默认传入的值dictionary对象，在+ (void)open:(NSString *)vcClassName optionsWithJSON:(RouterOptions *)options 这个方法使用时defaultParams 是json对象。这个地方要注意哦
-@property (nonatomic,copy,readwrite) NSDictionary *defaultParams;      ///< 跳转时传入的参数，默认为nil
+/// 跳转时传入的参数，默认为nil
+@property (nonatomic,copy,readwrite) NSDictionary *defaultParams;
 
+/// 接收后一个viewController传递消息的block
+@property (nonatomic, copy, nullable) void(^jk_receiveMsgBlock)(id data);
 /**
  创建默认配置的options对象
  
@@ -83,3 +90,6 @@
 - (instancetype)optionsWithDefaultParams:(__kindof NSDictionary *)params;
 
 @end
+
+NS_ASSUME_NONNULL_END
+

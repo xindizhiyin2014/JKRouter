@@ -234,8 +234,12 @@
 }
 
 - (void)userPresentJump{
-
+    static JKRouterOptions *tempOptions = nil;
     JKRouterOptions *options = [JKRouterOptions options];
+    options.jk_receiveMsgBlock = ^(id  _Nonnull data) {
+        NSLog(@"JKJK %@",data);
+    };
+    tempOptions = options;
     [JKRouter open:@"JKEViewController" options:options];
 }
 
@@ -324,11 +328,6 @@
 - (void)setTestString:(NSString *)testString{
     _testString =testString;
 //    NSLog(@"testString :%@",self.testString);
-}
-
-- (void)jkReceiveTopVCMsg:(NSDictionary *)msg complete:(void (^)(id _Nullable))complete
-{
-    NSLog(@"AAA %@",msg);
 }
 
 

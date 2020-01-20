@@ -8,11 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import <JKRouter/JKRouterHeader.h>
+NS_ASSUME_NONNULL_BEGIN
+
 @class JKRouterOptions;
+
 @interface UIViewController (JKRouter)
 
 //每个VC 所属的moduleID，默认为nil，作为唯一标识使用，存在同属于一个clas但是moduleID的情况
-@property (nonatomic,copy) NSString *moduleID;
+@property (nonatomic, copy ,nullable) NSString *moduleID;
 
 /**
  初始化viewController对象，可以重写该方法的实现，进行viewController的初始化。默认返回不为空
@@ -87,5 +90,11 @@ defalut is NO
  */
 + (NSInteger)jkTabIndex;
 
+/// 向前一个页面传递数据
+/// @param msg msg
+- (void)jkSendMsgToPreVC:(nullable NSDictionary *)msg;
 
 @end
+
+NS_ASSUME_NONNULL_END
+
