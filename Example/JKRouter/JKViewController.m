@@ -234,12 +234,10 @@
 }
 
 - (void)userPresentJump{
-    static JKRouterOptions *tempOptions = nil;
     JKRouterOptions *options = [JKRouterOptions options];
     options.jk_receiveMsgBlock = ^(id  _Nonnull data) {
         NSLog(@"JKJK %@",data);
     };
-    tempOptions = options;
     [JKRouter open:@"JKEViewController" options:options];
 }
 
