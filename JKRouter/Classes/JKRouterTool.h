@@ -65,17 +65,6 @@ removeQueryKeys:(__kindof NSArray <NSString *>*)keys;
 + (NSString *)urlStr:(__kindof NSString *)urlStr
      removeQueryKeys:(__kindof NSArray <NSString *>*)keys;
 
-/**
- 类方法动态分发
-
- @param targetClass 插件类
- @param selector 方法
- @param params 参数
- @return 返回值
- */
-+ (BOOL)jkPerformWithPlugin:(Class)targetClass
-                   selector:(SEL)selector
-                     params:(__kindof NSArray *)params;
 @end
 
 NS_ASSUME_NONNULL_END

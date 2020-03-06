@@ -141,20 +141,21 @@
 }
 
 + (BOOL)open:(__kindof NSString *)targetClassName
-      params:(__kindof NSDictionary *)params
+      params:(nullable __kindof NSDictionary *)params
 {
    JKRouterOptions *options = [JKRouterOptions optionsWithDefaultParams:params];
    return [self open:targetClassName options:options];
 }
 
-+ (BOOL)open:(__kindof NSString *)targetClassName options:(JKRouterOptions *)options
++ (BOOL)open:(__kindof NSString *)targetClassName
+     options:(nullable JKRouterOptions *)options
 {
     return [self open:targetClassName options:options complete:nil];
 }
 
 + (BOOL)open:(__kindof NSString *)targetClassName
-     options:(JKRouterOptions *)options
-    complete:(void(^)(id result,NSError *error))completeBlock
+     options:(nullable JKRouterOptions *)options
+    complete:(nullable void(^)(id result,NSError *error))completeBlock
 {
     if (!targetClassName || ([targetClassName isKindOfClass:[NSString class]] && targetClassName.length == 0)) {
         NSError *error = [[NSError alloc] initWithDomain:JKRouterErrorDomain code:JKRouterErrorClassNameIsNil userInfo:@{@"msg":@"targetClassName is nil or targetClassName is not a string"}];
@@ -187,14 +188,14 @@
 }
 
 + (BOOL)openWithClass:(Class)targetClass
-              options:(JKRouterOptions *)options
+              options:(nullable JKRouterOptions *)options
 {
     return [self openWithClass:targetClass options:options complete:nil];
 }
 
 + (BOOL)openWithClass:(Class)targetClass
-              options:(JKRouterOptions *)options
-             complete:(void(^)(id result,NSError *error))completeBlock
+              options:(nullable JKRouterOptions *)options
+             complete:(nullable void(^)(id result,NSError *error))completeBlock
 {
     if ([targetClass respondsToSelector:@selector(jkIsTabBarItemVC)] && [targetClass jkIsTabBarItemVC]) {
         return [JKRouterExtension jkSwitchTabClass:targetClass options:options complete:completeBlock];
@@ -205,8 +206,8 @@
 }
 
 + (BOOL)openSpecifiedVC:(__kindof UIViewController *)vc
-                options:(JKRouterOptions *)options
-               complete:(void(^)(id result,NSError *error))completeBlock
+                options:(nullable JKRouterOptions *)options
+               complete:(nullable void(^)(id result,NSError *error))completeBlock
 {
     if (!options) {
         options = [JKRouterOptions options];
@@ -231,14 +232,14 @@
 }
 
 + (BOOL)URLOpen:(__kindof NSString *)url
-          extra:(NSDictionary *)extra
+          extra:(nullable NSDictionary *)extra
 {
     return [self URLOpen:url extra:extra complete:nil];
 }
 
 + (BOOL)URLOpen:(__kindof NSString *)url
-          extra:(__kindof NSDictionary *)extra
-       complete:(void(^)(id result,NSError *error))completeBlock
+          extra:(nullable __kindof NSDictionary *)extra
+       complete:(nullable void(^)(id result,NSError *error))completeBlock
 {
     if(!url){
         if(completeBlock){
@@ -355,8 +356,8 @@
 }
 
 + (BOOL)httpOpen:(NSURL *)url
-           extra:(__kindof NSDictionary *)extra
-        complete:(void(^)(id result,NSError *error))completeBlock
+           extra:(nullable __kindof NSDictionary *)extra
+        complete:(nullable void(^)(id result,NSError *error))completeBlock
 {
     if ([JKRouterExtension isVerifiedOfBlackName:url.absoluteString]) {
         if (completeBlock) {
@@ -396,8 +397,8 @@
 }
 
 + (BOOL)jumpToSandBoxWeb:(__kindof NSString *)url
-                   extra:(__kindof NSDictionary *)extra
-                complete:(void(^)(id result,NSError *error))completeBlock
+                   extra:(nullable __kindof NSDictionary *)extra
+                complete:(nullable void(^)(id result,NSError *error))completeBlock
 {
 
     if (!url || (url && ![url isKindOfClass:[NSString class]])) {
@@ -421,7 +422,7 @@
 }
 
 + (BOOL)openExternal:(NSURL *)targetURL
-            complete:(void(^)(id result,NSError *error))completeBlock
+            complete:(nullable void(^)(id result,NSError *error))completeBlock
 {
     if ([targetURL.scheme isEqualToString:@"http"] ||[targetURL.scheme isEqualToString:@"https"] || [targetURL.scheme isEqualToString:@"itms-apps"] || [targetURL.scheme isEqualToString:@"tel"]) {
         if (@available(iOS 10.0,*)) {
@@ -477,13 +478,13 @@
     [self popWithOptions:options];
 }
 
-+ (void)popWithOptions:(JKRouterOptions *)options
++ (void)popWithOptions:(nullable JKRouterOptions *)options
 {
     [self popWithOptions:options complete:nil];
 }
 
-+ (void)popWithOptions:(JKRouterOptions *)options
-              complete:(void(^)(id result,NSError *error))completeBlock
++ (void)popWithOptions:(nullable JKRouterOptions *)options
+              complete:(nullable void(^)(id result,NSError *error))completeBlock
 {
     if (!options) {
         options = [JKRouterOptions options];
@@ -491,18 +492,18 @@
     [self popToSpecifiedVC:nil options:options complete:completeBlock];
 }
 
-+ (void)popToSpecifiedVC:(__kindof UIViewController *)vc
++ (void)popToSpecifiedVC:(nullable __kindof UIViewController *)vc
 {
     [self popToSpecifiedVC:vc animated:YES];
 }
 
-+ (void)popToSpecifiedVC:(__kindof UIViewController *)vc
++ (void)popToSpecifiedVC:(nullable __kindof UIViewController *)vc
                 animated:(BOOL)animated
 {
     [self popToSpecifiedVC:vc options:nil animated:YES];
 }
 
-+ (void)popToSpecifiedVC:(__kindof UIViewController *)vc
++ (void)popToSpecifiedVC:(nullable __kindof UIViewController *)vc
                  options:(JKRouterOptions *)options
                 animated:(BOOL)animated
 {
@@ -513,7 +514,7 @@
     [self popToSpecifiedVC:vc options:options complete:nil];
 }
 
-+ (void)popToSpecifiedVC:(__kindof UIViewController *)vc
++ (void)popToSpecifiedVC:(nullable __kindof UIViewController *)vc
                  options:(JKRouterOptions *)options
                 complete:(void(^)(id result,NSError *error))completeBlock
 {

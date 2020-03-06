@@ -63,7 +63,7 @@ NS_ASSUME_NONNULL_BEGIN
  @return 跳转成功与否的状态
  */
 + (BOOL)open:(__kindof NSString *)targetClassName
-      params:(__kindof NSDictionary *)params;
+      params:(nullable __kindof NSDictionary *)params;
 
 /**
  根据options的设置进行跳转
@@ -73,7 +73,7 @@ NS_ASSUME_NONNULL_BEGIN
  @return 跳转成功与否的状态
  */
 + (BOOL)open:(__kindof NSString *)targetClassName
-     options:(JKRouterOptions *)options;
+     options:(nullable JKRouterOptions *)options;
 
 /**
  根据options的设置进行跳转,并执行相关的回调操作
@@ -85,8 +85,8 @@ NS_ASSUME_NONNULL_BEGIN
  @return 跳转成功与否的状态
  */
 + (BOOL)open:(__kindof NSString *)targetClassName
-     options:(JKRouterOptions *)options
-    complete:(void(^)(id result,NSError *error))completeBlock;
+     options:(nullable JKRouterOptions *)options
+    complete:(nullable void(^)(id result,NSError *error))completeBlock;
 
 /**
  根据options的设置进行跳转
@@ -96,7 +96,7 @@ NS_ASSUME_NONNULL_BEGIN
  @return 跳转成功与否的状态
  */
 + (BOOL)openWithClass:(Class)targetClass
-              options:(JKRouterOptions *)options;
+              options:(nullable JKRouterOptions *)options;
 
 /**
  根据options的设置进行跳转,并执行相关的回调操作
@@ -107,8 +107,8 @@ NS_ASSUME_NONNULL_BEGIN
  @return 跳转成功与否的状态
  */
 + (BOOL)openWithClass:(Class)targetClass
-              options:(JKRouterOptions *)options
-             complete:(void(^)(id result,NSError *error))completeBlock;
+              options:(nullable JKRouterOptions *)options
+             complete:(nullable void(^)(id result,NSError *error))completeBlock;
 
 /**
  根据options和已有的vc进行跳转
@@ -119,8 +119,8 @@ NS_ASSUME_NONNULL_BEGIN
  @return 跳转成功与否的状态
  */
 + (BOOL)openSpecifiedVC:(__kindof UIViewController *)vc
-                options:(JKRouterOptions *)options
-               complete:(void(^)(id result,NSError *error))completeBlock;
+                options:(nullable JKRouterOptions *)options
+               complete:(nullable void(^)(id result,NSError *error))completeBlock;
 
 /**
  遵守用户指定协议的跳转
@@ -141,7 +141,7 @@ NS_ASSUME_NONNULL_BEGIN
  @return 跳转或者操作成功与否的状态
  */
 + (BOOL)URLOpen:(__kindof NSString *)url
-          extra:(__kindof NSDictionary *)extra;
+          extra:(nullable __kindof NSDictionary *)extra;
 
 /**
  遵守用户指定协议的跳转
@@ -153,8 +153,8 @@ NS_ASSUME_NONNULL_BEGIN
  @return 跳转或者操作成功与否的状态
  */
 + (BOOL)URLOpen:(__kindof NSString *)url
-          extra:(__kindof NSDictionary *)extra
-       complete:(void(^)(id result,NSError *error))completeBlock;
+          extra:(nullable __kindof NSDictionary *)extra
+       complete:(nullable void(^)(id result,NSError *error))completeBlock;
 
 /**
  默认情况下的pop，或者dismiss ,animated:YES
@@ -173,7 +173,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @param options 跳转的各种设置
  */
-+ (void)popWithOptions:(JKRouterOptions *)options;
++ (void)popWithOptions:(nullable JKRouterOptions *)options;
 /**
  默认情况下的pop，或者dismiss animated
  
@@ -181,14 +181,14 @@ NS_ASSUME_NONNULL_BEGIN
  @param completeBlock 完成操作后的回调
 
  */
-+ (void)popWithOptions:(JKRouterOptions *)options
-              complete:(void(^)(id result,NSError *error))completeBlock;
++ (void)popWithOptions:(nullable JKRouterOptions *)options
+              complete:(nullable void(^)(id result,NSError *error))completeBlock;
 /**
  pop到指定的页面
  默认animated为YES，如果需要 dismiss，也会执行
  @param vc 指定的vc对象
  */
-+ (void)popToSpecifiedVC:(__kindof UIViewController *)vc;
++ (void)popToSpecifiedVC:(nullable __kindof UIViewController *)vc;
 
 /**
  pop到指定的页面
@@ -196,7 +196,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param vc 指定的vc对象
  @param animated 是否有动画
  */
-+ (void)popToSpecifiedVC:(__kindof UIViewController *)vc
++ (void)popToSpecifiedVC:(nullable __kindof UIViewController *)vc
                 animated:(BOOL)animated;
 /**
  pop到指定的页面
@@ -206,9 +206,9 @@ NS_ASSUME_NONNULL_BEGIN
  @param completeBlock 完成操作后的回调
 
  */
-+ (void)popToSpecifiedVC:(__kindof UIViewController *)vc
-                 options:(JKRouterOptions *)options
-                complete:(void(^)(id result,NSError *error))completeBlock;
++ (void)popToSpecifiedVC:(nullable __kindof UIViewController *)vc
+                 options:(nullable JKRouterOptions *)options
+                complete:(nullable void(^)(id result,NSError *error))completeBlock;
 
 /**
  根据moduleID pop回指定的模块
@@ -233,8 +233,8 @@ NS_ASSUME_NONNULL_BEGIN
  @param completeBlock 完成操作后的回调
  */
 + (void)popWithSpecifiedModuleID:(__kindof NSString *)moduleID
-                 options:(JKRouterOptions *)options
-                complete:(void(^)(id result,NSError *error))completeBlock;
+                 options:(nullable JKRouterOptions *)options
+                complete:(nullable void(^)(id result,NSError *error))completeBlock;
 
 /**
  根据step的值pop向前回退几个VC
@@ -262,8 +262,8 @@ NS_ASSUME_NONNULL_BEGIN
  @param completeBlock 完成操作后的回调
  */
 + (void)popWithStep:(NSUInteger)step
-            options:(JKRouterOptions *)options
-           complete:(void(^)(id result,NSError *error))completeBlock;
+            options:(nullable JKRouterOptions *)options
+           complete:(nullable void(^)(id result,NSError *error))completeBlock;
 
 /**
  通过浏览器跳转到相关的url或者唤醒相关的app
@@ -279,7 +279,7 @@ NS_ASSUME_NONNULL_BEGIN
  @return 跳转或者操作成功与否的状态
  */
 + (BOOL)openExternal:(NSURL *)targetURL
-            complete:(void(^)(id result,NSError *error))completeBlock;
+            complete:(nullable void(^)(id result,NSError *error))completeBlock;
 
 /**
  使用targetVC替换navigattionController当前的viewController
