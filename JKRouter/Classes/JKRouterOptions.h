@@ -42,6 +42,10 @@ static const void *JKRouterViewControllerReceiveMsgBlockKey = "JKRouterViewContr
 
 /// 接收后一个viewController传递消息的block
 @property (nonatomic, copy, nullable) void(^jk_receiveMsgBlock)(id data);
+
++ (instancetype)new NS_UNAVAILABLE;
+
+- (instancetype)init NS_UNAVAILABLE;
 /**
  创建默认配置的options对象
  

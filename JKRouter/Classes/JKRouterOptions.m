@@ -23,10 +23,11 @@
 
 + (instancetype)options
 {
-    JKRouterOptions *options = [JKRouterOptions new];
+    JKRouterOptions *options = [[self alloc] init];
     options.transformStyle = RouterTransformVCStyleDefault;
     options.presentStyle = UIModalPresentationFullScreen;
     options.animated = YES;
+    options.defaultParams = @{};
     return options;
 }
 

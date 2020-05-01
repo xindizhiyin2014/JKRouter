@@ -603,7 +603,7 @@
 
 + (void)popWithStep:(NSUInteger)step :(BOOL)animated
 {
-    JKRouterOptions *options = [JKRouterOptions new];
+    JKRouterOptions *options = [JKRouterOptions options];
     options.animated = animated;
     [self popWithStep:step options:options complete:nil];
 }
