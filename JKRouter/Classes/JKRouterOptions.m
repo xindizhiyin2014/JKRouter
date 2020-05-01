@@ -65,4 +65,13 @@
     return self;
 }
 
+#pragma mark - - setter - -
+- (void)setDefaultParams:(NSDictionary *)defaultParams
+{
+    if (defaultParams) {
+        _defaultParams = defaultParams;
+    }
+}
+
+
 @end

@@ -38,7 +38,7 @@ static const void *JKRouterViewControllerReceiveMsgBlockKey = "JKRouterViewContr
 
 //这个传入的参数默认传入的值dictionary对象，在+ (void)open:(NSString *)vcClassName optionsWithJSON:(RouterOptions *)options 这个方法使用时defaultParams 是json对象。这个地方要注意哦
 /// 跳转时传入的参数，默认为nil
-@property (nonatomic,copy,readwrite) NSDictionary *defaultParams;
+@property (nonatomic,copy,readwrite,nonnull) NSDictionary *defaultParams;
 
 /// 接收后一个viewController传递消息的block
 @property (nonatomic, copy, nullable) void(^jk_receiveMsgBlock)(id data);
