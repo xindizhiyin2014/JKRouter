@@ -739,7 +739,7 @@
 {
     if (options.createStyle==RouterCreateStyleNew) {
         UIViewController *currentVC = [JKRouter sharedRouter].topVC;
-        if ([currentVC isKindOfClass:[UINavigationController class]]) {
+        if ([[currentVC class] isKindOfClass:[UINavigationController class]]) {
             UINavigationController *naVC = (UINavigationController *)currentVC;
             [naVC pushViewController:vc animated:options.animated];
             if (completeBlock) {
@@ -747,12 +747,17 @@
             }
             return YES;
         } else if (currentVC.navigationController) {
-          UINavigationController *naVC = (UINavigationController *)currentVC.navigationController;
+            UINavigationController *naVC = (UINavigationController *)currentVC.navigationController;
             [naVC pushViewController:vc animated:options.animated];
             if (completeBlock) {
                 completeBlock(nil,nil);
             }
             return YES;
+        } else {
+            if (currentVC.presentingViewController) {
+                [self dismissViewController:currentVC animated:NO];
+                [self _openWithPushStyle:vc options:options complete:completeBlock];
+            }
         }
         if (completeBlock) {
             NSError *error = [[NSError alloc] initWithDomain:JKRouterErrorDomain code:JKRouterErrorUnSupportPushTransform userInfo:@{@"msg":@"do not support push tranform"}];
@@ -1013,6 +1018,18 @@ receiveMsgBlock:(void(^)(id data))receiveMsgBlock
     void(^block)(id data) = objc_getAssociatedObject(vc, JKRouterViewControllerReceiveMsgBlockKey);
     if (!block) {
         objc_setAssociatedObject(vc, JKRouterViewControllerReceiveMsgBlockKey, receiveMsgBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
+    }
+}
+
+/// 异步转成同步执行
++ (void)dismissViewController:(UIViewController *)vc animated:(BOOL)animated
+{
+    __block success = NO;
+    [vc dismissViewControllerAnimated:animated completion:^{
+        success = YES;
+    }];
+    while (!success) {
+        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
     }
 }
 
