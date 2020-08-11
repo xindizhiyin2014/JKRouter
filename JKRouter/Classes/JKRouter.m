@@ -755,8 +755,9 @@
             return YES;
         } else {
             if (currentVC.presentingViewController) {
-                [self dismissViewController:currentVC animated:NO];
-                [self _openWithPushStyle:vc options:options complete:completeBlock];
+                [currentVC.presentingViewController dismissViewControllerAnimated:NO completion:^{
+                   [self _openWithPushStyle:vc options:options complete:completeBlock];
+                }];
             }
         }
         if (completeBlock) {
@@ -1021,16 +1022,5 @@ receiveMsgBlock:(void(^)(id data))receiveMsgBlock
     }
 }
 
-/// 异步转成同步执行
-+ (void)dismissViewController:(UIViewController *)vc animated:(BOOL)animated
-{
-    __block success = NO;
-    [vc dismissViewControllerAnimated:animated completion:^{
-        success = YES;
-    }];
-    while (!success) {
-        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
-    }
-}
 
 @end
