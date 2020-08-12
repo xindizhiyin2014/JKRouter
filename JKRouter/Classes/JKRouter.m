@@ -521,7 +521,12 @@
     if (!vc) {
         UIViewController *currentVC = [JKRouter sharedRouter].topVC;
         UIViewController *lastTopVC = [JKRouter sharedRouter].lastTopVC;
-        [JKRouterTool configTheVC:lastTopVC options:options];
+        if ([lastTopVC isKindOfClass:[UINavigationController class]]) {
+            UINavigationController *naVC = (UINavigationController *)lastTopVC;
+            [JKRouterTool configTheVC:naVC.topViewController options:options];
+        } else {
+            [JKRouterTool configTheVC:lastTopVC options:options];
+        }
         if (currentVC.navigationController && currentVC.navigationController.viewControllers.count > 1) {
             [currentVC.navigationController popViewControllerAnimated:options.animated];
             if (completeBlock) {
