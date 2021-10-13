@@ -116,4 +116,35 @@ return YES;
 }
 ```
 
+## 实现历程博客
+[《iOS路由跳转（一）之初识URL》](https://blog.csdn.net/hanhailong18/article/details/60570071?spm=1001.2014.3001.5501)
+
+[《iOS路由跳转（二）之需求分析》](https://blog.csdn.net/hanhailong18/article/details/61925286?spm=1001.2014.3001.5501)
+
+[《iOS路由跳转（三）之JKRouter基础教程1》](https://blog.csdn.net/hanhailong18/article/details/64124008?spm=1001.2014.3001.5501)
+
+[《iOS路由跳转（三）之JKRouter基础教程2》](https://blog.csdn.net/hanhailong18/article/details/64440324?spm=1001.2014.3001.5501)
+
+[《iOS路由跳转（四）之JKRouter持续更新1》](https://blog.csdn.net/hanhailong18/article/details/71756758?spm=1001.2014.3001.5501)
+
+[《iOS路由跳转（五）之JKRouter 2.0 脱胎换骨》](https://blog.csdn.net/hanhailong18/article/details/78828457?spm=1001.2014.3001.5501)
+
+[《JKRouter路由跳转解决了哪些问题》](https://blog.csdn.net/hanhailong18/article/details/79511261?spm=1001.2014.3001.5501)
+
+[《JKRouter路由跳转中文使用手册》](https://blog.csdn.net/hanhailong18/article/details/79513720?spm=1001.2014.3001.5501)
+
+[《JKRouter更新之present带导航栏的控制器》](https://blog.csdn.net/hanhailong18/article/details/80680800?spm=1001.2014.3001.5501)
+
+[《JKRouter完美实现微信小程序的跳转》](https://blog.csdn.net/hanhailong18/article/details/83543123?spm=1001.2014.3001.5501)
+
+[《JKRouter实现通过url切换web容器》](https://blog.csdn.net/hanhailong18/article/details/84141939?spm=1001.2014.3001.5501)
+
+[《JKRouter路由跳转 实现对工厂方法的支持》](https://blog.csdn.net/hanhailong18/article/details/85231553?spm=1001.2014.3001.5501)
+
+[《JKRouter路由跳转 实现对工厂方法的支持》](https://blog.csdn.net/hanhailong18/article/details/85231553?spm=1001.2014.3001.5501)
+
+[《JKRouter路由跳转实现对swift的支持》](https://blog.csdn.net/hanhailong18/article/details/85242221?spm=1001.2014.3001.5501)
+
+[《JKRouter增加黑白名单制度啦》](https://blog.csdn.net/hanhailong18/article/details/94376170?spm=1001.2014.3001.5501)
+
 
